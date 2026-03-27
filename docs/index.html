@@ -101,7 +101,18 @@
     .pred-card .prob-bar{height:8px;border-radius:4px;background:var(--border);overflow:hidden;margin:6px 0;}
     .pred-card .prob-fill{height:100%;border-radius:4px;transition:width .4s;}
     .pred-card .cand-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;padding:3px 0;}
-    @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;}}
+    /* 상단 네비게이션 */
+    .top-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .top-nav::-webkit-scrollbar{height:0;}
+    .nav-btn{padding:10px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:.85rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+    .nav-btn:hover{color:var(--text);background:rgba(88,166,255,.05);}
+    .nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+    .page{display:none;} .page.active{display:block;}
+    .data-quality{display:inline-block;padding:1px 6px;border-radius:8px;font-size:.65rem;font-weight:600;vertical-align:middle;margin-left:4px;}
+    .dq-high{background:rgba(63,185,80,.15);color:var(--up);}
+    .dq-medium{background:rgba(210,153,34,.15);color:var(--warn);}
+    .dq-low{background:rgba(139,148,158,.15);color:var(--muted);}
+    @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;} .top-nav{gap:0;} .nav-btn{padding:8px 12px;font-size:.78rem;}}
   </style>
 </head>
 <body>
@@ -117,6 +128,16 @@
       </p>
     </header>
 
+    <nav class="top-nav" id="top-nav">
+      <button class="nav-btn active" data-page="page-dashboard">대시보드</button>
+      <button class="nav-btn" data-page="page-candidates">후보 분석</button>
+      <button class="nav-btn" data-page="page-polls">여론·예측</button>
+      <button class="nav-btn" data-page="page-ai">AI 분석</button>
+      <button class="nav-btn" data-page="page-reference">참고 데이터</button>
+    </nav>
+
+    <!-- ==================== 페이지 1: 대시보드 ==================== -->
+    <div class="page active" id="page-dashboard">
     <div class="metrics">
       <div class="metric-card"><div class="value" id="m-dday">-</div><div class="label">선거까지</div></div>
       <div class="metric-card"><div class="value" id="m-phase" style="font-size:.85rem">-</div><div class="label">현재 단계</div></div>
@@ -153,6 +174,11 @@
       <div class="chart-container"><canvas id="chart-bar" height="500"></canvas></div>
     </section>
 
+    </div><!-- /page-dashboard -->
+
+    <!-- ==================== 페이지 2: 후보 분석 ==================== -->
+    <div class="page" id="page-candidates">
+
     <!-- 정치 컨설턴트 분석 -->
     <section>
       <h2>🏛️ 정치 컨설턴트 분석 — 후보별 테마주 활성도</h2>
@@ -169,6 +195,39 @@
     <section>
       <h2>📊 후보별 평균 등락률 비교</h2>
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
+    </section>
+
+    <!-- 지역별 후보 & 테마주 -->
+    <section>
+      <h2>🗺️ 지역별 후보 & 테마주</h2>
+      <div class="tabs" id="region-tabs"></div>
+      <div id="region-contents"></div>
+    </section>
+
+    <!-- 후보별 재산 비교 차트 -->
+    <section>
+      <h2>💰 후보별 재산 비교</h2>
+      <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
+      <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
+    </section>
+
+    <!-- 후보별 상세 -->
+    <section>
+      <h2>👤 후보별 상세 (프로필 · 재산 · 관련주)</h2>
+      <div class="tabs" id="candidate-tabs"></div>
+      <div id="candidate-contents"></div>
+    </section>
+
+    </div><!-- /page-candidates -->
+
+    <!-- ==================== 페이지 3: 여론·예측 ==================== -->
+    <div class="page" id="page-polls">
+
+    <section id="polls-empty-msg">
+      <div style="text-align:center;padding:40px;color:var(--muted);">
+        <p style="font-size:1.1rem;">여론조사 데이터를 불러오는 중이거나, 아직 수집된 데이터가 없습니다.</p>
+        <p style="font-size:.85rem;margin-top:6px;">스크리닝이 실행되면 여론조사 시그널과 당선예측 결과가 표시됩니다.</p>
+      </div>
     </section>
 
     <!-- 여론조사 호재/악재 시그널 -->
@@ -222,26 +281,35 @@
       </div>
     </section>
 
-    <!-- 지역별 후보 & 테마주 -->
-    <section>
-      <h2>🗺️ 지역별 후보 & 테마주</h2>
-      <div class="tabs" id="region-tabs"></div>
-      <div id="region-contents"></div>
+    </div><!-- /page-polls -->
+
+    <!-- ==================== 페이지 4: AI 분석 ==================== -->
+    <div class="page" id="page-ai">
+
+    <!-- AI 일일 리포트 -->
+    <section id="ai-report-section" style="display:none">
+      <h2>🤖 AI 일일 분석 리포트</h2>
+      <div class="profile-card" id="ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
     </section>
 
-    <!-- 후보별 재산 비교 차트 -->
-    <section>
-      <h2>💰 후보별 재산 비교</h2>
-      <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
-      <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
+    <!-- AI 테마주 제안 -->
+    <section id="ai-suggest-section" style="display:none">
+      <h2>💡 AI 신규 테마주 제안 (본관·학연·지연·인맥 분석)</h2>
+      <p style="color:var(--muted);font-size:.78rem;margin-bottom:10px;">AI 자동 분석 기반. 투자 참고용이며 직접 검증 필요.</p>
+      <div id="ai-suggestions"></div>
     </section>
 
-    <!-- 후보별 상세 -->
-    <section>
-      <h2>👤 후보별 상세 (프로필 · 재산 · 관련주)</h2>
-      <div class="tabs" id="candidate-tabs"></div>
-      <div id="candidate-contents"></div>
+    <section id="ai-empty-msg">
+      <div style="text-align:center;padding:40px;color:var(--muted);">
+        <p style="font-size:1.1rem;">AI 분석 데이터가 아직 없습니다.</p>
+        <p style="font-size:.85rem;margin-top:6px;">스크리닝 실행 후 Gemini AI 리포트가 이곳에 표시됩니다.</p>
+      </div>
     </section>
+
+    </div><!-- /page-ai -->
+
+    <!-- ==================== 페이지 5: 참고 데이터 ==================== -->
+    <div class="page" id="page-reference">
 
     <!-- 22대 국회의원 현황 -->
     <section id="assembly-section" style="display:none">
@@ -275,31 +343,11 @@
       </div>
     </section>
 
-    <!-- AI 일일 리포트 -->
-    <section id="ai-report-section" style="display:none">
-      <h2>🤖 AI 일일 분석 리포트</h2>
-      <div class="profile-card" id="ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
-    </section>
-
-    <!-- AI 테마주 제안 -->
-    <section id="ai-suggest-section" style="display:none">
-      <h2>💡 AI 신규 테마주 제안 (본관·학연·지연·인맥 분석)</h2>
-      <p style="color:var(--muted);font-size:.78rem;margin-bottom:10px;">AI 자동 분석 기반. 투자 참고용이며 직접 검증 필요.</p>
-      <div id="ai-suggestions"></div>
-    </section>
-
     <!-- 타임라인 -->
     <section>
       <h2>📅 테마주 시즌 타임라인</h2>
       <div class="timeline" id="timeline"></div>
     </section>
-
-    <!-- 테마 이유 드롭다운 (동적 위치) -->
-    <div class="dropdown-reason" id="reason-dropdown">
-      <button class="close-dd" onclick="closeReasonDD()">&times;</button>
-      <h4 id="dd-title">-</h4>
-      <div id="dd-body"></div>
-    </div>
 
     <!-- 뉴스레터 구독 -->
     <section style="margin:32px 0;">
@@ -314,6 +362,15 @@
         <p style="color:var(--muted);font-size:.72rem;margin-top:4px;">구독은 무료이며, 언제든 해지할 수 있습니다.</p>
       </div>
     </section>
+
+    </div><!-- /page-reference -->
+
+    <!-- 테마 이유 드롭다운 (동적 위치, 페이지 밖) -->
+    <div class="dropdown-reason" id="reason-dropdown">
+      <button class="close-dd" onclick="closeReasonDD()">&times;</button>
+      <h4 id="dd-title">-</h4>
+      <div id="dd-body"></div>
+    </div>
 
     <footer>
       ⚠️ 교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
@@ -335,6 +392,21 @@ const TIMELINE = [
 ];
 
 let DATA = null;
+let chartsRendered = {};
+
+// 페이지 전환 네비게이션
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pageId = btn.dataset.page;
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(pageId).classList.add('active');
+    // 차트가 있는 페이지 전환 시 차트 리사이즈
+    window.dispatchEvent(new Event('resize'));
+    window.scrollTo(0, 0);
+  });
+});
 
 async function init() {
   try {
@@ -491,6 +563,11 @@ function render(data) {
   safe(()=>renderAIReport(data.ai_report), 'AIReport');
   safe(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
   safe(()=>renderTimeline(phase.phase), 'Timeline');
+  // AI 페이지 빈 메시지 숨김
+  if(data.ai_report || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
+    const emptyMsg=document.getElementById('ai-empty-msg');
+    if(emptyMsg) emptyMsg.style.display='none';
+  }
 
   // 필터 이벤트
   document.getElementById('filter-theme').onchange=()=>renderTable(results, candidate_stocks);
@@ -534,9 +611,11 @@ function renderTable(results, candidateStocks) {
     if(partyF!=='all' && !parties.includes(partyF)) continue;
     if(regionF!=='all' && !regions.includes(regionF)) continue;
     idx++;
-    const cls=r.change_pct>0?'up':r.change_pct<0?'down':'';
+    const chg = r.change_pct!=null ? r.change_pct : 0;
+    const cls=chg>0?'up':chg<0?'down':'';
     const surgeHTML=r.surge?'<span class="badge-surge">급등</span>':'-';
     const tagsHTML=makeTagHTML(r.tags, r.ticker) + parties.map(p=>makePartyTag(p)).join(' ');
+    const ratio = r.ratio!=null ? r.ratio.toFixed(2) : '-';
 
     // 이유 tooltip
     const reasonTexts=(r.reasons||[]).map(rs=>{
@@ -547,15 +626,15 @@ function renderTable(results, candidateStocks) {
 
     tbody.innerHTML+=`<tr title="${reasonTexts}">
       <td>${idx}</td><td><strong>${r.name}</strong></td><td style="color:var(--muted)">${r.ticker}</td>
-      <td>${tagsHTML}</td><td>${r.close.toLocaleString()}</td>
-      <td class="${cls}">${r.change_pct>0?'+':''}${r.change_pct.toFixed(2)}%</td>
-      <td>${r.ratio.toFixed(2)}x</td><td>${surgeHTML}</td>
+      <td>${tagsHTML}</td><td>${(r.close||0).toLocaleString()}</td>
+      <td class="${cls}">${chg>0?'+':''}${chg.toFixed(2)}%</td>
+      <td>${ratio}x</td><td>${surgeHTML}</td>
       <td>${tradeLinks(r.ticker)}</td></tr>`;
   }
 }
 
 function renderChart(results) {
-  const sorted=[...results].filter(r=>r.close>0).sort((a,b)=>a.change_pct-b.change_pct);
+  const sorted=[...results].filter(r=>r.close>0 && r.change_pct!=null).sort((a,b)=>a.change_pct-b.change_pct);
   new Chart(document.getElementById('chart-bar'),{
     type:'bar',
     data:{
@@ -667,6 +746,8 @@ function renderRegionView(candidateStocks, allResults) {
 
 function renderPollSignals(pollData, candidateStocks) {
   if(!pollData || !pollData.signals || !pollData.signals.length) return;
+  const emptyMsg=document.getElementById('polls-empty-msg');
+  if(emptyMsg) emptyMsg.style.display='none';
   document.getElementById('poll-signal-section').style.display='block';
 
   // 요약 메트릭
@@ -929,55 +1010,56 @@ function renderStockPredictions(spData) {
   const tbody=document.getElementById('tb-stock-pred');
   tbody.innerHTML='';
   const SIG_CLS={'strong_buy':'signal-strong_buy','buy':'signal-buy','hold':'signal-hold','sell':'signal-sell','strong_sell':'signal-strong_sell'};
+  const DQ_LABELS={'high':'신뢰','medium':'보통','low':'부족'};
+  const picks = spData.top_picks||[];
   spData.analyses.forEach((a,i)=>{
     const cs=a.composite_score||{};
     const comp=cs.components||{};
     const scoreColor=cs.total>=60?'var(--up)':cs.total>=40?'var(--warn)':'var(--down)';
     const barColor=cs.total>=60?'var(--up)':cs.total>=40?'var(--warn)':'var(--down)';
-    function miniBar(val){
+    const dq=cs.data_quality||'low';
+    const dqLabel=DQ_LABELS[dq]||'부족';
+    function miniBar(val, hasData){
+      if(val==null) val=50;
       const c=val>=60?'var(--up)':val>=40?'var(--warn)':'var(--down)';
-      return `<span style="font-size:.8rem">${val}</span><div class="score-bar"><div class="score-fill" style="width:${val}%;background:${c}"></div></div>`;
+      const opacity=hasData===false?'opacity:.4':'';
+      return `<span style="font-size:.8rem;${opacity}">${val}</span><div class="score-bar" style="${opacity}"><div class="score-fill" style="width:${val}%;background:${c}"></div></div>`;
     }
+    const pick=picks.find(p=>p.ticker===a.ticker);
+    const reason=pick?pick.reason||'':'';
     tbody.innerHTML+=`<tr>
       <td>${i+1}</td>
       <td><strong>${a.name||a.ticker}</strong></td>
       <td style="color:var(--muted)">${a.ticker}</td>
-      <td style="font-weight:700;color:${scoreColor}">${cs.total}<div class="score-bar"><div class="score-fill" style="width:${cs.total}%;background:${barColor}"></div></div></td>
+      <td style="font-weight:700;color:${scoreColor}">${cs.total||0}<span class="data-quality dq-${dq}">${dqLabel}</span><div class="score-bar"><div class="score-fill" style="width:${cs.total||0}%;background:${barColor}"></div></div></td>
       <td><span class="signal-badge ${SIG_CLS[cs.signal]||'signal-hold'}">${cs.signal_kr||''}</span></td>
-      <td>${miniBar(comp.price_momentum||50)}</td>
-      <td>${miniBar(comp.volume_signal||50)}</td>
-      <td>${miniBar(comp.poll_impact||50)}</td>
-      <td>${miniBar(comp.cycle_premium||50)}</td>
-      <td style="font-size:.78rem;color:var(--muted)">${a.composite_score?._generate_reason||''}</td>
+      <td>${miniBar(comp.price_momentum, true)}</td>
+      <td>${miniBar(comp.volume_signal, cs.has_volume_data)}</td>
+      <td>${miniBar(comp.poll_impact, cs.has_poll_data)}</td>
+      <td>${miniBar(comp.cycle_premium, true)}</td>
+      <td style="font-size:.78rem;color:var(--muted)">${reason}</td>
     </tr>`;
   });
-  // top picks 사유 렌더
-  if(spData.top_picks) {
-    const picks=spData.top_picks;
-    spData.analyses.forEach((a,i)=>{
-      const pick=picks.find(p=>p.ticker===a.ticker);
-      if(pick) {
-        const row=tbody.rows[i];
-        if(row && row.cells[9]) row.cells[9].textContent=pick.reason||'';
-      }
-    });
-  }
 }
 
 function renderPredictions(predictions, impacts) {
   if(!predictions || !predictions.regions || !Object.keys(predictions.regions).length) return;
+  const emptyMsg=document.getElementById('polls-empty-msg');
+  if(emptyMsg) emptyMsg.style.display='none';
   document.getElementById('prediction-section').style.display='block';
   const regions = predictions.regions;
   const regionKeys = Object.keys(regions).sort();
 
   // 요약 메트릭
   const metricsEl=document.getElementById('pred-metrics');
-  const dominant = regionKeys.filter(k=>regions[k].leader_prob>=60).length;
+  const dominant = regionKeys.filter(k=>regions[k].leader_prob>=60 && regions[k].competitiveness!=='단독 후보').length;
   const competitive = regionKeys.filter(k=>regions[k].competitiveness==='초접전'||regions[k].competitiveness==='경합').length;
+  const singleCand = regionKeys.filter(k=>regions[k].competitiveness==='단독 후보').length;
   metricsEl.innerHTML=`
     <div class="metric-card"><div class="value">${regionKeys.length}</div><div class="label">분석 지역</div></div>
     <div class="metric-card"><div class="value" style="color:var(--up)">${dominant}</div><div class="label">유력 지역</div></div>
     <div class="metric-card"><div class="value" style="color:var(--warn)">${competitive}</div><div class="label">경합 지역</div></div>
+    ${singleCand?`<div class="metric-card"><div class="value" style="color:var(--muted)">${singleCand}</div><div class="label">단독 후보</div></div>`:''}
     <div class="metric-card"><div class="value">${Math.round(predictions.model_confidence||0)}%</div><div class="label">모델 신뢰도</div></div>`;
 
   // 지역별 카드
@@ -987,7 +1069,7 @@ function renderPredictions(predictions, impacts) {
     const r=regions[region];
     const preds=r.predictions||[];
     if(!preds.length) continue;
-    const compColors={'초접전':'var(--down)','경합':'var(--warn)','우세':'var(--up)','압도적':'var(--accent)','기본 성향 기반':'var(--muted)'};
+    const compColors={'초접전':'var(--down)','경합':'var(--warn)','우세':'var(--up)','압도적':'var(--accent)','기본 성향 기반':'var(--muted)','단독 후보':'var(--warn)'};
     const compColor=compColors[r.competitiveness]||'var(--muted)';
     const leaderPartyColor=preds[0].party==='더불어민주당'?'var(--dem)':preds[0].party==='국민의힘'?'var(--ppp)':'var(--reform)';
     let candHtml='';
@@ -1008,6 +1090,7 @@ function renderPredictions(predictions, impacts) {
         <span style="font-size:.78rem;color:var(--muted)">격차 ${r.gap}%p</span>
       </div>
       ${candHtml}
+      ${r.note?`<div style="font-size:.72rem;color:var(--warn);margin-top:4px;">${r.note}</div>`:''}
       <div style="font-size:.72rem;color:var(--muted);margin-top:6px;border-top:1px solid var(--border);padding-top:4px;">
         ${r.poll_date?'여론조사: '+r.poll_date:'지역 성향 기반'} | 신뢰도 ${r.confidence}%
       </div>

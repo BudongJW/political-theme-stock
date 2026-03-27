@@ -264,6 +264,12 @@ class StockPredictor:
         premium = cycle.get("avg_premium", 0)
         cycle_score = 50 + premium * 2  # 프리미엄 반영
 
+        # 데이터 가용성 체크
+        has_volume = bool(volume) and volume.get("avg_20d", 0) > 0
+        has_poll = bool(poll_impacts) and any(
+            (p.get("poll_change") or 0) != 0 for p in poll_impacts
+        )
+
         # 가중 합산
         total = (
             price_score * 0.30 +
@@ -290,10 +296,16 @@ class StockPredictor:
             signal = "strong_sell"
             signal_kr = "적극 매도"
 
+        # 데이터 부족 시 신뢰도 하향 표시
+        data_quality = "high" if has_volume and has_poll else "medium" if has_volume or has_poll else "low"
+
         return {
             "total": round(total, 1),
             "signal": signal,
             "signal_kr": signal_kr,
+            "data_quality": data_quality,
+            "has_volume_data": has_volume,
+            "has_poll_data": has_poll,
             "components": {
                 "price_momentum": round(price_score, 1),
                 "volume_signal": round(volume_score, 1),
@@ -311,6 +323,11 @@ class StockPredictor:
             try:
                 result = self.analyze_ticker(ticker)
                 if "error" not in result:
+                    # close=0 (상장폐지·데이터없음) 필터링
+                    current_price = result.get("price", {}).get("current", 0)
+                    if current_price <= 0:
+                        logger.info(f"종목 제외 (close=0): {ticker}")
+                        continue
                     analyses.append(result)
             except Exception as e:
                 logger.warning(f"종목 분석 실패 ({ticker}): {e}")

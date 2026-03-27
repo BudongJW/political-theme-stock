@@ -117,14 +117,22 @@ def main():
     # 종목별 테마 맥락 (왜 테마주인지)
     stock_contexts = tm.get_all_stock_contexts()
 
-    # screening_results에 테마 태그 병합
+    # screening_results에 테마 태그 병합 (close=0 필터링)
     enriched = []
-    for r in sorted(results, key=lambda x: x.get("change_pct", 0), reverse=True):
+    skipped = 0
+    for r in sorted(results, key=lambda x: x.get("change_pct") or 0, reverse=True):
+        # close=0 또는 change_pct=None인 종목 필터
+        if not r.get("close") or r["close"] <= 0:
+            skipped += 1
+            continue
+        if r.get("change_pct") is None:
+            r["change_pct"] = 0.0
         ctx = stock_contexts.get(r["ticker"], {})
         r["tags"] = ctx.get("tags", [])
         r["reasons"] = ctx.get("reasons", [])
-        # 시가총액 계산 (종가 × 상장주식수는 pykrx에서 못 가져오므로 close만)
         enriched.append(r)
+    if skipped:
+        print(f"스크리닝 필터: {skipped}개 종목 제외 (종가=0 또는 데이터 없음)")
 
     # 후보별 시가총액 합산 (컨설턴트용)
     candidate_market_summary = {}

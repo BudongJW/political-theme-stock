@@ -98,6 +98,10 @@ class ElectionPredictor:
         if not sorted_cands:
             return self._predict_from_base(region)
 
+        # 단독 후보 처리 (후보 1명만 등록된 경우)
+        if len(sorted_cands) == 1:
+            return self._predict_single_candidate(region, sorted_cands[0], latest)
+
         dday_weight = self._get_dday_weight()
         regional_base = REGIONAL_BASE.get(region, {})
 
@@ -168,32 +172,113 @@ class ElectionPredictor:
             "source": latest.get("source_title", ""),
         }
 
+    def _predict_single_candidate(self, region: str, cand_tuple: tuple, latest: dict) -> dict:
+        """단독 후보 처리 — 상대 후보 없으므로 확률 상한 제한"""
+        name, rate = cand_tuple
+        party = self._get_party(name)
+        regional_base = REGIONAL_BASE.get(region, {})
+        base_rate = regional_base.get(party, 40) / 100
+
+        # 단독 후보: 지역 기본 성향 기반 최대 75%로 제한
+        # (상대 후보가 아직 미정이므로 경합 가능성 존재)
+        max_prob = 75.0
+        prob = min(max_prob, 50 + base_rate * 25)
+
+        momentum = self.pc.calculate_momentum(name, region)
+
+        predictions = [{
+            "name": name,
+            "party": party,
+            "poll_rate": rate,
+            "win_probability": round(prob, 1),
+            "momentum": momentum.get("trend", ""),
+            "momentum_change": momentum.get("change") or 0,
+        }, {
+            "name": "미정 (상대 후보 미등록)",
+            "party": "",
+            "poll_rate": None,
+            "win_probability": round(100 - prob, 1),
+            "momentum": "",
+            "momentum_change": 0,
+        }]
+
+        return {
+            "region": region,
+            "predictions": predictions,
+            "leader": name,
+            "leader_prob": round(prob, 1),
+            "competitiveness": "단독 후보",
+            "gap": 0,
+            "confidence": 20,  # 단독 후보는 신뢰도 낮음
+            "poll_date": latest.get("date", ""),
+            "source": latest.get("source_title", ""),
+            "note": "상대 후보 미등록 — 경선 결과에 따라 변동 가능",
+        }
+
     def _predict_from_base(self, region: str) -> dict:
         """여론조사 없을 때 지역 성향 기반 예측"""
         base = REGIONAL_BASE.get(region, {"더불어민주당": 50, "국민의힘": 50})
+
+        # 후보 등록 확인 — YAML에 등록된 후보가 있으면 이름 사용
+        registered = []
+        for cand in self.tm.data.get("local_candidates_2026", []):
+            if cand.get("region") == region:
+                registered.append({
+                    "name": cand["name"],
+                    "party": cand.get("party", ""),
+                })
+
         predictions = []
-        for party, rate in sorted(base.items(), key=lambda x: x[1], reverse=True):
-            predictions.append({
-                "name": f"{party} 후보",
-                "party": party,
-                "poll_rate": None,
-                "win_probability": round(rate, 1),
-                "momentum": "",
-                "momentum_change": 0,
-            })
+        if registered:
+            # 등록된 후보 기반
+            for cand in registered:
+                rate = base.get(cand["party"], 40)
+                predictions.append({
+                    "name": cand["name"],
+                    "party": cand["party"],
+                    "poll_rate": None,
+                    "win_probability": round(rate, 1),
+                    "momentum": "",
+                    "momentum_change": 0,
+                })
+        else:
+            # 후보 미등록 — 정당 기반 추정
+            for party, rate in sorted(base.items(), key=lambda x: x[1], reverse=True):
+                predictions.append({
+                    "name": f"{party} 후보",
+                    "party": party,
+                    "poll_rate": None,
+                    "win_probability": round(rate, 1),
+                    "momentum": "",
+                    "momentum_change": 0,
+                })
+
+        # 정규화 (합계 100%)
         total = sum(p["win_probability"] for p in predictions)
         if total > 0:
             for p in predictions:
                 p["win_probability"] = round(p["win_probability"] / total * 100, 1)
+
+        # 단독 등록 후보는 상한 제한
+        if len(predictions) == 1:
+            predictions[0]["win_probability"] = min(75.0, predictions[0]["win_probability"])
+            predictions.append({
+                "name": "미정 (상대 후보 미등록)",
+                "party": "",
+                "poll_rate": None,
+                "win_probability": round(100 - predictions[0]["win_probability"], 1),
+                "momentum": "",
+                "momentum_change": 0,
+            })
 
         return {
             "region": region,
             "predictions": predictions,
             "leader": predictions[0]["name"] if predictions else "-",
             "leader_prob": predictions[0]["win_probability"] if predictions else 50,
-            "competitiveness": "기본 성향 기반",
+            "competitiveness": "단독 후보" if len(registered) == 1 else "기본 성향 기반",
             "gap": 0,
-            "confidence": 30,
+            "confidence": 20 if len(registered) == 1 else 30,
             "poll_date": "",
             "source": "지역 기본 성향 (여론조사 데이터 없음)",
         }
