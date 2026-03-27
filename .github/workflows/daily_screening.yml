@@ -1,9 +1,11 @@
-name: 정치 테마주 일일 스크리닝
+name: PollStock 테마주 스크리닝
 
 on:
   schedule:
-    # 평일 장 마감 후 (KST 15:40 = UTC 06:40)
-    - cron: '40 6 * * 1-5'
+    # 장중 3회 스크리닝 (KST → UTC)
+    - cron: '0 1 * * 1-5'   # KST 10:00 - 장 시작 후
+    - cron: '0 4 * * 1-5'   # KST 13:00 - 점심 후
+    - cron: '40 6 * * 1-5'  # KST 15:40 - 장 마감 후 (메인)
   workflow_dispatch:  # 수동 실행 가능
 
 jobs:
@@ -23,15 +25,17 @@ jobs:
           cache: 'pip'
 
       - name: 패키지 설치
-        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools
+        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools google-generativeai
 
       - name: 스크리닝 실행
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/run_screening.py
 
       - name: 결과 커밋 (GitHub Pages 갱신)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data/ data/processed/
-          git diff --staged --quiet || git commit -m "chore: 일일 스크리닝 $(date -u +'%Y-%m-%d')"
+          git add docs/data/ data/processed/ data/gemini_cache/ data/suggestions/ data/assets/
+          git diff --staged --quiet || git commit -m "chore: PollStock 스크리닝 $(date -u +'%Y-%m-%d %H:%M')"
           git push
