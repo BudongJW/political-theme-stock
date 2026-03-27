@@ -25,7 +25,7 @@ jobs:
           cache: 'pip'
 
       - name: 패키지 설치
-        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools google-generativeai feedparser python-dotenv
+        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools google-genai feedparser python-dotenv
 
       - name: 스크리닝 실행
         env:

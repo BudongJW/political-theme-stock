@@ -183,43 +183,10 @@ class AssetCollector:
             self._save_cache()
             return result
 
-        # 2. opengirok 검색 (구조화 데이터, 국회의원 한정 — 시트 접근 가능 시)
-        girok_data = self.search_opengirok(name)
-        if girok_data:
-            total = 0
-            items = []
-            for row in girok_data:
-                amount_str = (
-                    row.get("현재가액", "0") or row.get("신고가액", "0") or "0"
-                ).replace(",", "").strip()
-                try:
-                    amount = int(amount_str)
-                except ValueError:
-                    amount = 0
-                items.append({
-                    "category": row.get("재산의 종류", ""),
-                    "detail": row.get("권리의 명세", "") or row.get("소재지", ""),
-                    "amount_천원": amount,
-                    "relation": row.get("본인과의 관계", "본인"),
-                })
-                total += amount
+        # 2. opengirok 비활성화 (Google Sheets CSV export 차단됨 — link-shared이지만 published-to-web 아님)
+        # 향후 opengirok가 published-to-web으로 전환되면 search_opengirok() 호출 복원 가능
 
-            result = {
-                "name": name,
-                "source": "opengirok",
-                "total_천원": total,
-                "total_억원": round(total / 100000, 1),
-                "total_display": f"약 {round(total / 100000, 1)}억원",
-                "item_count": len(items),
-                "items": items[:30],
-                "year": "2025",
-                "fetched_at": datetime.now().isoformat(),
-            }
-            self._cache[name] = result
-            self._save_cache()
-            return result
-
-        # 3. 없으면 빈 결과
+        # 없으면 빈 결과
         return {
             "name": name,
             "source": "none",
