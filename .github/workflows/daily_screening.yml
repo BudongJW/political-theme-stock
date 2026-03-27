@@ -37,6 +37,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data/ data/processed/ data/gemini_cache/ data/suggestions/ data/assets/ data/raw/
+          git add docs/data/ data/processed/ data/gemini_cache/ data/suggestions/ data/assets/ data/raw/ data/polls/
           git diff --staged --quiet || git commit -m "chore: PollStock 스크리닝 $(date -u +'%Y-%m-%d %H:%M')"
           git push

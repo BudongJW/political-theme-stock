@@ -19,9 +19,11 @@ except ImportError:
 from collectors.stock_collector import StockCollector
 from analyzers.theme_mapper import ThemeMapper
 from collectors.poll_collector import PollCollector
+from collectors.poll_data_collector import PollDataCollector
 from collectors.asset_collector import AssetCollector
 from analyzers.gemini_analyzer import GeminiAnalyzer
 from analyzers.auto_mapper import AutoMapper
+from analyzers.poll_signal import PollSignalEngine
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -199,6 +201,29 @@ def main():
         })
     print(f"지방선거 후보: {len(all_local_candidates)}명")
 
+    # 여론조사 수집 + 호재/악재 시그널 분석
+    pdc = PollDataCollector(data_dir=str(ROOT / "data" / "polls"))
+    poll_signal_summary = {}
+    try:
+        new_polls = pdc.collect_and_parse()
+        print(f"여론조사 수집: {len(new_polls)}건 신규 (총 {len(pdc.get_all_polls())}건)")
+        pse = PollSignalEngine(pdc, tm)
+        poll_signal_summary = pse.generate_signal_summary()
+        bull_cnt = poll_signal_summary.get("bull_count", 0)
+        bear_cnt = poll_signal_summary.get("bear_count", 0)
+        print(f"여론조사 시그널: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
+        # Gemini 여론조사 복합 분석
+        if poll_signal_summary.get("signals"):
+            try:
+                poll_ai = ga.analyze_poll_impact(poll_signal_summary["signals"])
+                if poll_ai:
+                    poll_signal_summary["ai_analysis"] = poll_ai
+                    print("여론조사 AI 분석 완료")
+            except Exception as e2:
+                print(f"여론조사 AI 분석 실패 (무시): {e2}")
+    except Exception as e:
+        print(f"여론조사 분석 실패 (무시): {e}")
+
     output = {
         "date": today,
         "election_phase": phase,
@@ -216,6 +241,7 @@ def main():
             "members": assembly_members,
         },
         "local_candidates": all_local_candidates,
+        "poll_signals": poll_signal_summary,
         "ai_report": daily_report,
         "ai_suggestions": suggestions,
         "summary": {
