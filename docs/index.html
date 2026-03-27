@@ -7,310 +7,402 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #0d1117; --card: #161b22; --border: #30363d;
-      --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff;
-      --up: #3fb950; --down: #f85149; --warn: #d29922;
+      --bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
+      --accent:#58a6ff;--up:#3fb950;--down:#f85149;--warn:#d29922;
+      --dem:#1c6dd0;--ppp:#e6394a;--reform:#f39c12;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, 'Pretendard', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-
-    /* Header */
-    header { text-align: center; padding: 30px 0 20px; }
-    header h1 { font-size: 1.8rem; margin-bottom: 4px; }
-    header p { color: var(--muted); font-size: 0.9rem; }
-
-    /* Metric Cards */
-    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
-    .metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
-    .metric-card .value { font-size: 1.8rem; font-weight: 700; }
-    .metric-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
-    /* Phase Banner */
-    .phase-banner { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin: 16px 0; display: flex; align-items: center; gap: 12px; }
-    .phase-banner .icon { font-size: 2rem; }
-    .phase-banner .info h3 { font-size: 1rem; }
-    .phase-banner .info p { color: var(--muted); font-size: 0.85rem; }
-
-    /* Sections */
-    section { margin: 28px 0; }
-    section h2 { font-size: 1.2rem; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-
-    /* Table */
-    .table-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-    th { background: var(--card); color: var(--muted); text-align: left; padding: 10px 12px; font-weight: 600; position: sticky; top: 0; }
-    td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-    tr:hover { background: rgba(88,166,255,0.05); }
-    .up { color: var(--up); } .down { color: var(--down); }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-    .badge-surge { background: rgba(248,81,73,0.2); color: var(--down); }
-    .badge-safe { background: rgba(63,185,80,0.1); color: var(--muted); }
-
-    /* Chart */
-    .chart-container { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-
-    /* Candidate Tabs */
-    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-    .tab-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
-    .tab-btn:hover { border-color: var(--accent); }
-    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 30px; }
-    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--border); }
-    .timeline-item { position: relative; margin-bottom: 20px; }
-    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--border); }
-    .timeline-item.current::before { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
-    .timeline-item h4 { font-size: 0.95rem; }
-    .timeline-item p { color: var(--muted); font-size: 0.85rem; }
-
-    /* Footer */
-    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 0.8rem; }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    /* Loading */
-    #loading { text-align: center; padding: 60px; color: var(--muted); }
-    #app { display: none; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,'Pretendard',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    .container{max-width:1280px;margin:0 auto;padding:20px;}
+    header{text-align:center;padding:30px 0 10px;}
+    header h1{font-size:1.8rem;}
+    header p{color:var(--muted);font-size:.9rem;}
+    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0;}
+    .metric-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+    .metric-card .value{font-size:1.6rem;font-weight:700;}
+    .metric-card .label{font-size:.78rem;color:var(--muted);margin-top:2px;}
+    .phase-banner{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:12px 0;display:flex;align-items:center;gap:12px;}
+    .phase-banner .icon{font-size:2rem;}
+    .phase-banner .info h3{font-size:1rem;} .phase-banner .info p{color:var(--muted);font-size:.85rem;}
+    section{margin:24px 0;} section h2{font-size:1.15rem;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .table-wrap{overflow-x:auto;}
+    table{width:100%;border-collapse:collapse;font-size:.83rem;}
+    th{background:var(--card);color:var(--muted);text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0;}
+    td{padding:8px 10px;border-bottom:1px solid var(--border);}
+    tr:hover{background:rgba(88,166,255,.05);}
+    .up{color:var(--up);} .down{color:var(--down);}
+    .tag{display:inline-block;padding:1px 7px;border-radius:12px;font-size:.7rem;font-weight:600;margin:1px 2px;white-space:nowrap;}
+    .tag-pol{background:rgba(88,166,255,.15);color:var(--accent);}
+    .tag-theme{background:rgba(210,153,34,.15);color:var(--warn);}
+    .tag-dem{background:rgba(28,109,208,.2);color:#5b9ee8;}
+    .tag-ppp{background:rgba(230,57,74,.2);color:#f08090;}
+    .tag-reform{background:rgba(243,156,18,.2);color:#f0c040;}
+    .badge-surge{display:inline-block;padding:2px 7px;border-radius:16px;font-size:.72rem;font-weight:600;background:rgba(248,81,73,.2);color:var(--down);}
+    .btn-trade{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.72rem;text-decoration:none;border:1px solid var(--border);color:var(--accent);transition:all .15s;}
+    .btn-trade:hover{background:var(--accent);color:#fff;}
+    .chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;}
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center;}
+    .filter-bar label{color:var(--muted);font-size:.82rem;}
+    .filter-bar select{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:.82rem;}
+    .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+    .tab-btn{padding:5px 14px;border-radius:18px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:.82rem;transition:all .2s;}
+    .tab-btn:hover{border-color:var(--accent);} .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .tab-content{display:none;} .tab-content.active{display:block;}
+    .profile-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
+    .profile-card h4{margin-bottom:4px;} .profile-card .meta{color:var(--muted);font-size:.82rem;margin-bottom:6px;}
+    .profile-card .profile-text{font-size:.85rem;margin-bottom:4px;}
+    .profile-card .assets{font-size:.85rem;color:var(--warn);}
+    .consultant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+    .cons-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;}
+    .cons-card .name{font-weight:700;font-size:1rem;margin-bottom:4px;}
+    .cons-card .stat{font-size:.82rem;color:var(--muted);}
+    .cons-card .change{font-size:1.3rem;font-weight:700;}
+    .timeline{position:relative;padding-left:28px;}
+    .timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:var(--border);}
+    .timeline-item{position:relative;margin-bottom:18px;}
+    .timeline-item::before{content:'';position:absolute;left:-22px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--border);}
+    .timeline-item.current::before{background:var(--warn);box-shadow:0 0 8px var(--warn);}
+    .timeline-item h4{font-size:.9rem;} .timeline-item p{color:var(--muted);font-size:.82rem;}
+    footer{text-align:center;padding:28px 0;color:var(--muted);font-size:.78rem;}
+    footer a{color:var(--accent);text-decoration:none;}
+    #loading{text-align:center;padding:60px;color:var(--muted);}
+    #app{display:none;}
+    @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;}}
   </style>
 </head>
 <body>
-  <div class="container">
-    <div id="loading">데이터를 불러오는 중...</div>
-    <div id="app">
+<div class="container">
+  <div id="loading">데이터를 불러오는 중...</div>
+  <div id="app">
+    <header>
+      <h1>🗳️ 정치 테마주 분석 대시보드</h1>
+      <p>제9회 전국동시지방선거 (2026.06.03) 기반 테마주 모니터링</p>
+    </header>
 
-      <header>
-        <h1>🗳️ 정치 테마주 분석 대시보드</h1>
-        <p>제9회 전국동시지방선거 (2026.06.03) 기반 테마주 실시간 모니터링</p>
-      </header>
-
-      <!-- Metrics -->
-      <div class="metrics">
-        <div class="metric-card">
-          <div class="value" id="m-dday">-</div>
-          <div class="label">선거까지</div>
-        </div>
-        <div class="metric-card">
-          <div class="value" id="m-phase">-</div>
-          <div class="label">현재 단계</div>
-        </div>
-        <div class="metric-card">
-          <div class="value" style="color:var(--up)" id="m-up">-</div>
-          <div class="label">상승 종목</div>
-        </div>
-        <div class="metric-card">
-          <div class="value" style="color:var(--down)" id="m-down">-</div>
-          <div class="label">하락 종목</div>
-        </div>
-        <div class="metric-card">
-          <div class="value" style="color:var(--warn)" id="m-surge">-</div>
-          <div class="label">거래량 급등</div>
-        </div>
-      </div>
-
-      <!-- Phase Banner -->
-      <div class="phase-banner" id="phase-banner">
-        <div class="icon" id="phase-icon">🟡</div>
-        <div class="info">
-          <h3 id="phase-title">-</h3>
-          <p id="phase-desc">-</p>
-        </div>
-      </div>
-
-      <!-- Screening Table -->
-      <section>
-        <h2>📊 오늘의 정치 테마주 스크리닝 (<span id="data-date">-</span>)</h2>
-        <div class="table-wrap">
-          <table id="screening-table">
-            <thead>
-              <tr><th>#</th><th>종목명</th><th>코드</th><th>종가</th><th>등락률</th><th>거래량 배수</th><th>상태</th></tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Chart -->
-      <section>
-        <h2>📈 등락률 차트</h2>
-        <div class="chart-container">
-          <canvas id="chart-bar" height="400"></canvas>
-        </div>
-      </section>
-
-      <!-- Candidate Tabs -->
-      <section>
-        <h2>🏛️ 후보별 관련주</h2>
-        <div class="tabs" id="candidate-tabs"></div>
-        <div id="candidate-contents"></div>
-      </section>
-
-      <!-- Timeline -->
-      <section>
-        <h2>📅 테마주 시즌 타임라인</h2>
-        <div class="timeline" id="timeline"></div>
-      </section>
-
-      <footer>
-        ⚠️ 본 대시보드는 교육/연구 목적으로 제작되었으며, 투자 권유가 아닙니다.<br>
-        <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> |
-        데이터 출처: KRX (pykrx), 중앙선거관리위원회
-      </footer>
+    <div class="metrics">
+      <div class="metric-card"><div class="value" id="m-dday">-</div><div class="label">선거까지</div></div>
+      <div class="metric-card"><div class="value" id="m-phase" style="font-size:.85rem">-</div><div class="label">현재 단계</div></div>
+      <div class="metric-card"><div class="value" style="color:var(--up)" id="m-up">-</div><div class="label">상승</div></div>
+      <div class="metric-card"><div class="value" style="color:var(--down)" id="m-down">-</div><div class="label">하락</div></div>
+      <div class="metric-card"><div class="value" style="color:var(--warn)" id="m-surge">-</div><div class="label">거래량급등</div></div>
+      <div class="metric-card"><div class="value" id="m-total">-</div><div class="label">추적종목</div></div>
     </div>
+
+    <div class="phase-banner" id="phase-banner">
+      <div class="icon" id="phase-icon">🟡</div>
+      <div class="info"><h3 id="phase-title">-</h3><p id="phase-desc">-</p></div>
+    </div>
+
+    <!-- 스크리닝 테이블 -->
+    <section>
+      <h2>📊 테마주 스크리닝 (<span id="data-date">-</span>)</h2>
+      <div class="filter-bar">
+        <label>테마:</label><select id="filter-theme"><option value="all">전체</option></select>
+        <label>정당:</label><select id="filter-party"><option value="all">전체</option></select>
+        <label>지역:</label><select id="filter-region"><option value="all">전체</option></select>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr>
+          <th>#</th><th>종목명</th><th>코드</th><th>테마 분류</th><th>종가</th><th>등락률</th><th>거래량</th><th>상태</th><th>매매</th>
+        </tr></thead><tbody id="tb-screening"></tbody></table>
+      </div>
+    </section>
+
+    <!-- 등락률 차트 -->
+    <section>
+      <h2>📈 등락률 차트</h2>
+      <div class="chart-container"><canvas id="chart-bar" height="500"></canvas></div>
+    </section>
+
+    <!-- 정치 컨설턴트 분석 -->
+    <section>
+      <h2>🏛️ 정치 컨설턴트 분석 — 후보별 테마주 활성도</h2>
+      <div class="filter-bar">
+        <label>정당 필터:</label>
+        <select id="cons-party-filter"><option value="all">전체</option><option value="더불어민주당">더불어민주당</option><option value="국민의힘">국민의힘</option></select>
+        <label>지역 필터:</label>
+        <select id="cons-region-filter"><option value="all">전체</option></select>
+      </div>
+      <div class="consultant-grid" id="consultant-grid"></div>
+    </section>
+
+    <!-- 컨설턴트 차트 -->
+    <section>
+      <h2>📊 후보별 평균 등락률 비교</h2>
+      <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
+    </section>
+
+    <!-- 후보별 상세 -->
+    <section>
+      <h2>👤 후보별 상세 (프로필 · 재산 · 관련주)</h2>
+      <div class="tabs" id="candidate-tabs"></div>
+      <div id="candidate-contents"></div>
+    </section>
+
+    <!-- 타임라인 -->
+    <section>
+      <h2>📅 테마주 시즌 타임라인</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <footer>
+      ⚠️ 교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
+      <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> | 데이터: KRX(pykrx), 중앙선거관리위원회
+    </footer>
   </div>
+</div>
 
 <script>
-const SIGNAL_ICONS = {
-  '매수 관심': '🟢', '강한 매수 시그널': '🟢',
-  '고점 주의, 분할 매도 고려': '🟡', '매도 시그널': '🔴', '관망': '⚪'
-};
-
-const TIMELINE_DATA = [
-  { phase: '선거 12~6개월 전', period: '2025-06 ~ 2025-12', pattern: '유력 후보 거론 → 관련주 1차 급등', signal: '매수 관심' },
-  { phase: '선거 6~3개월 전', period: '2025-12 ~ 2026-03', pattern: '경선/여론조사 결과 → 관련주 2차 급등', signal: '강한 매수 시그널' },
-  { phase: '선거 3~1개월 전', period: '2026-03 ~ 2026-05', pattern: '공천 확정 → 최고 과열 구간', signal: '고점 주의, 분할 매도 고려' },
-  { phase: '선거 당일 전후', period: '2026-06-03 전후', pattern: '최고점 도달 후 급락 시작', signal: '매도 시그널' },
-  { phase: '선거 이후', period: '2026-06 ~', pattern: '당락 무관 대부분 급락 마무리', signal: '관망' },
+const SIG_ICONS = {'매수 관심':'🟢','강한 매수 시그널':'🟢','고점 주의, 분할 매도 고려':'🟡','매도 시그널':'🔴','관망':'⚪'};
+const PARTY_COLORS = {'더불어민주당':'dem','국민의힘':'ppp','개혁신당':'reform'};
+const TIMELINE = [
+  {phase:'선거 12~6개월 전',period:'2025-06 ~ 2025-12',pattern:'유력 후보 거론 → 관련주 1차 급등',signal:'매수 관심'},
+  {phase:'선거 6~3개월 전',period:'2025-12 ~ 2026-03',pattern:'경선/여론조사 결과 → 관련주 2차 급등',signal:'강한 매수 시그널'},
+  {phase:'선거 3~1개월 전',period:'2026-03 ~ 2026-05',pattern:'공천 확정 → 최고 과열 구간',signal:'고점 주의, 분할 매도 고려'},
+  {phase:'선거 당일 전후',period:'2026-06-03 전후',pattern:'최고점 도달 후 급락 시작',signal:'매도 시그널'},
+  {phase:'선거 이후',period:'2026-06 ~',pattern:'당락 무관 대부분 급락 마무리',signal:'관망'},
 ];
+
+let DATA = null;
 
 async function init() {
   try {
-    const resp = await fetch('data/latest.json');
-    const data = await resp.json();
-    render(data);
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-  } catch (e) {
-    document.getElementById('loading').innerHTML =
-      '데이터 로드 실패. <a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>';
+    const r = await fetch('data/latest.json');
+    DATA = await r.json();
+    render(DATA);
+    document.getElementById('loading').style.display='none';
+    document.getElementById('app').style.display='block';
+  } catch(e) {
+    document.getElementById('loading').innerHTML='데이터 로드 실패. <a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>';
   }
 }
 
+function makeTagHTML(tags) {
+  return (tags||[]).map(t => {
+    if(t.includes('관련주')) return `<span class="tag tag-pol">${t}</span>`;
+    return `<span class="tag tag-theme">${t}</span>`;
+  }).join('');
+}
+
+function makePartyTag(party) {
+  const cls = PARTY_COLORS[party] || '';
+  return cls ? `<span class="tag tag-${cls}">${party}</span>` : (party||'');
+}
+
+function tradeLinks(ticker) {
+  const naver = `https://finance.naver.com/item/main.naver?code=${ticker}`;
+  const kis = `https://www.truefriend.com/main/Mall/Stock/a_stock_info.jsp?cmd=search_stock&stockcode=${ticker}`;
+  return `<a class="btn-trade" href="${naver}" target="_blank">네이버</a> <a class="btn-trade" href="${kis}" target="_blank">한투</a>`;
+}
+
 function render(data) {
-  const { election_phase: phase, screening_results: results, summary, date, candidate_stocks } = data;
+  const {election_phase:phase, screening_results:results, summary, date, candidate_stocks, candidate_market_summary, stock_contexts} = data;
 
-  // Metrics
-  document.getElementById('m-dday').textContent = `D-${phase.days_until_election || '?'}`;
-  document.getElementById('m-phase').textContent = phase.phase || '-';
-  document.getElementById('m-phase').style.fontSize = '0.9rem';
-  document.getElementById('m-up').textContent = summary.up;
-  document.getElementById('m-down').textContent = summary.down;
-  document.getElementById('m-surge').textContent = summary.surge_count;
-  document.getElementById('data-date').textContent = date;
+  document.getElementById('m-dday').textContent=`D-${phase.days_until_election||'?'}`;
+  document.getElementById('m-phase').textContent=phase.phase||'-';
+  document.getElementById('m-up').textContent=summary.up;
+  document.getElementById('m-down').textContent=summary.down;
+  document.getElementById('m-surge').textContent=summary.surge_count;
+  document.getElementById('m-total').textContent=data.total_tracked;
+  document.getElementById('data-date').textContent=date;
 
-  // Phase banner
-  const sig = phase.signal || '';
-  document.getElementById('phase-icon').textContent = SIGNAL_ICONS[sig] || '⚪';
-  document.getElementById('phase-title').textContent = `${phase.phase}: ${sig}`;
-  document.getElementById('phase-desc').textContent = phase.pattern || '';
+  const sig=phase.signal||'';
+  document.getElementById('phase-icon').textContent=SIG_ICONS[sig]||'⚪';
+  document.getElementById('phase-title').textContent=`${phase.phase}: ${sig}`;
+  document.getElementById('phase-desc').textContent=phase.pattern||'';
 
-  // Table
-  const tbody = document.querySelector('#screening-table tbody');
-  const valid = results.filter(r => r.close > 0);
-  valid.forEach((r, i) => {
-    const pctClass = r.change_pct > 0 ? 'up' : r.change_pct < 0 ? 'down' : '';
-    const badge = r.surge ? '<span class="badge badge-surge">급등</span>' : '<span class="badge badge-safe">-</span>';
-    tbody.innerHTML += `<tr>
-      <td>${i + 1}</td>
-      <td><strong>${r.name}</strong></td>
-      <td style="color:var(--muted)">${r.ticker}</td>
-      <td>${r.close.toLocaleString()}</td>
-      <td class="${pctClass}">${r.change_pct > 0 ? '+' : ''}${r.change_pct.toFixed(2)}%</td>
-      <td>${r.ratio.toFixed(2)}x</td>
-      <td>${badge}</td>
-    </tr>`;
-  });
+  // 필터 옵션 수집
+  const allThemes=new Set(), allParties=new Set(), allRegions=new Set();
+  for(const r of results) (r.tags||[]).forEach(t=>allThemes.add(t));
+  for(const [n,info] of Object.entries(candidate_stocks||{})) {
+    if(info.party) allParties.add(info.party);
+    if(info.region) allRegions.add(info.region);
+  }
+  fillSelect('filter-theme', allThemes);
+  fillSelect('filter-party', allParties);
+  fillSelect('filter-region', allRegions);
+  fillSelect('cons-region-filter', allRegions);
 
-  // Chart
-  renderChart(valid);
-
-  // Candidate tabs
-  renderCandidates(candidate_stocks || {}, results);
-
-  // Timeline
+  renderTable(results, candidate_stocks);
+  renderChart(results);
+  renderConsultant(candidate_stocks, candidate_market_summary);
+  renderConsultantChart(candidate_market_summary);
+  renderCandidates(candidate_stocks, results);
   renderTimeline(phase.phase);
+
+  // 필터 이벤트
+  document.getElementById('filter-theme').onchange=()=>renderTable(results, candidate_stocks);
+  document.getElementById('filter-party').onchange=()=>renderTable(results, candidate_stocks);
+  document.getElementById('filter-region').onchange=()=>renderTable(results, candidate_stocks);
+  document.getElementById('cons-party-filter').onchange=()=>renderConsultant(candidate_stocks, candidate_market_summary);
+  document.getElementById('cons-region-filter').onchange=()=>renderConsultant(candidate_stocks, candidate_market_summary);
+}
+
+function fillSelect(id, values) {
+  const sel=document.getElementById(id);
+  for(const v of [...values].sort()) {
+    const opt=document.createElement('option'); opt.value=v; opt.textContent=v; sel.appendChild(opt);
+  }
+}
+
+function getStockPartyRegion(ticker, candidateStocks) {
+  const parties=new Set(), regions=new Set();
+  for(const [name,info] of Object.entries(candidateStocks||{})) {
+    const tickers = (info.stocks||[]).map(s=>s.ticker);
+    if(tickers.includes(ticker)) {
+      if(info.party) parties.add(info.party);
+      if(info.region) regions.add(info.region);
+    }
+  }
+  return {parties:[...parties], regions:[...regions]};
+}
+
+function renderTable(results, candidateStocks) {
+  const themeF=document.getElementById('filter-theme').value;
+  const partyF=document.getElementById('filter-party').value;
+  const regionF=document.getElementById('filter-region').value;
+
+  const tbody=document.getElementById('tb-screening');
+  tbody.innerHTML='';
+  const valid=results.filter(r=>r.close>0);
+  let idx=0;
+  for(const r of valid) {
+    const {parties, regions}=getStockPartyRegion(r.ticker, candidateStocks);
+    if(themeF!=='all' && !(r.tags||[]).includes(themeF)) continue;
+    if(partyF!=='all' && !parties.includes(partyF)) continue;
+    if(regionF!=='all' && !regions.includes(regionF)) continue;
+    idx++;
+    const cls=r.change_pct>0?'up':r.change_pct<0?'down':'';
+    const surgeHTML=r.surge?'<span class="badge-surge">급등</span>':'-';
+    const tagsHTML=makeTagHTML(r.tags) + parties.map(p=>makePartyTag(p)).join(' ');
+
+    // 이유 tooltip
+    const reasonTexts=(r.reasons||[]).map(rs=>{
+      if(rs.type==='politician'||rs.type==='local_candidate') return `${rs.name}(${rs.party}): ${rs.relation}`;
+      if(rs.type==='policy_theme') return `${rs.theme} 테마${rs.description?' - '+rs.description:''}`;
+      return '';
+    }).filter(Boolean).join(' | ');
+
+    tbody.innerHTML+=`<tr title="${reasonTexts}">
+      <td>${idx}</td><td><strong>${r.name}</strong></td><td style="color:var(--muted)">${r.ticker}</td>
+      <td>${tagsHTML}</td><td>${r.close.toLocaleString()}</td>
+      <td class="${cls}">${r.change_pct>0?'+':''}${r.change_pct.toFixed(2)}%</td>
+      <td>${r.ratio.toFixed(2)}x</td><td>${surgeHTML}</td>
+      <td>${tradeLinks(r.ticker)}</td></tr>`;
+  }
 }
 
 function renderChart(results) {
-  const sorted = [...results].sort((a, b) => a.change_pct - b.change_pct);
-  new Chart(document.getElementById('chart-bar'), {
-    type: 'bar',
-    data: {
-      labels: sorted.map(r => r.name),
-      datasets: [{
-        data: sorted.map(r => r.change_pct),
-        backgroundColor: sorted.map(r => r.change_pct >= 0 ? 'rgba(63,185,80,0.7)' : 'rgba(248,81,73,0.7)'),
-        borderRadius: 4,
-      }]
+  const sorted=[...results].filter(r=>r.close>0).sort((a,b)=>a.change_pct-b.change_pct);
+  new Chart(document.getElementById('chart-bar'),{
+    type:'bar',
+    data:{
+      labels:sorted.map(r=>`${r.name} (${(r.tags||[]).join(', ')})`),
+      datasets:[{data:sorted.map(r=>r.change_pct),
+        backgroundColor:sorted.map(r=>r.change_pct>=0?'rgba(63,185,80,.7)':'rgba(248,81,73,.7)'),borderRadius:3}]
     },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: ctx => `${ctx.raw > 0 ? '+' : ''}${ctx.raw.toFixed(2)}%` } }
-      },
-      scales: {
-        x: {
-          grid: { color: 'rgba(48,54,61,0.5)' },
-          ticks: { color: '#8b949e', callback: v => v + '%' }
-        },
-        y: { grid: { display: false }, ticks: { color: '#e6edf3', font: { size: 11 } } }
-      }
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        label:ctx=>`${ctx.raw>0?'+':''}${ctx.raw.toFixed(2)}%`,
+        afterLabel:ctx=>{const r=sorted[ctx.dataIndex];return(r.tags||[]).join(', ');}
+      }}},
+      scales:{x:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}}}}
     }
+  });
+}
+
+function renderConsultant(candidateStocks, summary) {
+  const partyF=document.getElementById('cons-party-filter').value;
+  const regionF=document.getElementById('cons-region-filter').value;
+  const grid=document.getElementById('consultant-grid');
+  grid.innerHTML='';
+  for(const [name,info] of Object.entries(summary||{})) {
+    if(partyF!=='all' && info.party!==partyF) continue;
+    if(regionF!=='all' && info.region!==regionF) continue;
+    const changeColor=info.avg_change_pct>0?'var(--up)':info.avg_change_pct<0?'var(--down)':'var(--text)';
+    const fullInfo=candidateStocks[name]||{};
+    grid.innerHTML+=`<div class="cons-card">
+      <div class="name">${name} ${makePartyTag(info.party)}</div>
+      <div class="stat">${info.region} | ${info.stock_count}종목 | 총거래량 ${info.total_volume.toLocaleString()}</div>
+      <div class="change" style="color:${changeColor}">${info.avg_change_pct>0?'+':''}${info.avg_change_pct.toFixed(2)}%</div>
+      <div class="stat">평균 등락률</div>
+      ${fullInfo.assets?`<div class="stat" style="color:var(--warn);margin-top:4px">💰 ${fullInfo.assets}</div>`:''}
+    </div>`;
+  }
+}
+
+function renderConsultantChart(summary) {
+  const names=Object.keys(summary||{});
+  const values=names.map(n=>(summary[n]||{}).avg_change_pct||0);
+  const parties=names.map(n=>(summary[n]||{}).party||'');
+  const colors=parties.map(p=>p==='더불어민주당'?'rgba(28,109,208,.7)':p==='국민의힘'?'rgba(230,57,74,.7)':'rgba(243,156,18,.7)');
+  new Chart(document.getElementById('chart-consultant'),{
+    type:'bar',
+    data:{labels:names,datasets:[{data:values,backgroundColor:colors,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
+        x:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}}}
   });
 }
 
 function renderCandidates(candidateStocks, allResults) {
-  const tabsEl = document.getElementById('candidate-tabs');
-  const contentsEl = document.getElementById('candidate-contents');
-  const names = Object.keys(candidateStocks);
-  if (!names.length) { tabsEl.innerHTML = '<p style="color:var(--muted)">후보 데이터 없음</p>'; return; }
+  const tabsEl=document.getElementById('candidate-tabs');
+  const contentsEl=document.getElementById('candidate-contents');
+  const names=Object.keys(candidateStocks||{});
+  if(!names.length) return;
 
-  names.forEach((name, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
-    btn.textContent = name;
-    btn.onclick = () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  names.forEach((name,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(i===0?' active':'');
+    const info=candidateStocks[name];
+    btn.innerHTML=`${name} ${makePartyTag(info.party)}`;
+    btn.onclick=()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(`tab-${i}`).classList.add('active');
     };
     tabsEl.appendChild(btn);
 
-    const info = candidateStocks[name];
-    let html = `<div class="tab-content${i === 0 ? ' active' : ''}" id="tab-${i}">`;
-    html += `<p style="color:var(--muted);margin-bottom:8px">${info.party || ''} | ${info.region || ''}</p>`;
+    let html=`<div class="tab-content${i===0?' active':''}" id="tab-${i}">`;
 
-    if (info.screening && info.screening.length) {
-      html += '<table><thead><tr><th>종목명</th><th>코드</th><th>종가</th><th>등락률</th><th>연관</th></tr></thead><tbody>';
-      info.screening.filter(s => s.close > 0).forEach(s => {
-        const stockInfo = (info.stocks || []).find(st => st.ticker === s.ticker);
-        const relation = stockInfo ? stockInfo.relation : '';
-        const cls = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : '';
-        html += `<tr><td><strong>${s.name}</strong></td><td>${s.ticker}</td><td>${s.close.toLocaleString()}</td><td class="${cls}">${s.change_pct > 0 ? '+' : ''}${s.change_pct.toFixed(2)}%</td><td style="color:var(--muted);font-size:0.8rem">${relation}</td></tr>`;
-      });
-      html += '</tbody></table>';
+    // 프로필 카드
+    html+=`<div class="profile-card">
+      <h4>${name}</h4>
+      <div class="meta">${info.role||''} | ${info.region||''} ${info.poll_status?'| '+info.poll_status:''}</div>
+      ${info.profile?`<div class="profile-text">📋 ${info.profile}</div>`:''}
+      ${info.assets?`<div class="assets">💰 재산: ${info.assets}</div>`:''}
+    </div>`;
+
+    // 관련주 테이블
+    if(info.screening && info.screening.length) {
+      html+='<table><thead><tr><th>종목</th><th>코드</th><th>연관 이유</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
+      for(const s of info.screening.filter(x=>x.close>0)) {
+        const stockDef=(info.stocks||[]).find(st=>st.ticker===s.ticker);
+        const relation=stockDef?stockDef.relation:'';
+        const cls=s.change_pct>0?'up':s.change_pct<0?'down':'';
+        html+=`<tr><td><strong>${s.name}</strong></td><td>${s.ticker}</td><td style="font-size:.8rem">${relation}</td>
+          <td>${s.close.toLocaleString()}</td><td class="${cls}">${s.change_pct>0?'+':''}${s.change_pct.toFixed(2)}%</td>
+          <td>${tradeLinks(s.ticker)}</td></tr>`;
+      }
+      html+='</tbody></table>';
     } else {
-      html += '<p style="color:var(--muted)">관련주 데이터 없음</p>';
+      html+='<p style="color:var(--muted);padding:12px">관련주 데이터 없음</p>';
     }
-    html += '</div>';
-    contentsEl.innerHTML += html;
+    html+='</div>';
+    contentsEl.innerHTML+=html;
   });
 }
 
 function renderTimeline(currentPhase) {
-  const el = document.getElementById('timeline');
-  TIMELINE_DATA.forEach(t => {
-    const isCurrent = currentPhase && currentPhase.includes(t.phase.replace('선거 ',''));
-    el.innerHTML += `<div class="timeline-item${isCurrent ? ' current' : ''}">
-      <h4>${SIGNAL_ICONS[t.signal] || ''} ${t.phase} <span style="color:var(--muted);font-size:0.8rem">(${t.period})</span></h4>
-      <p>${t.pattern} | 시그널: ${t.signal}</p>
-    </div>`;
+  const el=document.getElementById('timeline');
+  TIMELINE.forEach(t=>{
+    const isCurrent=currentPhase && t.phase.includes(currentPhase.replace('선거 ',''));
+    el.innerHTML+=`<div class="timeline-item${isCurrent?' current':''}">
+      <h4>${SIG_ICONS[t.signal]||''} ${t.phase} <span style="color:var(--muted);font-size:.78rem">(${t.period})</span></h4>
+      <p>${t.pattern} | 시그널: ${t.signal}</p></div>`;
   });
 }
 

@@ -7,7 +7,7 @@
     "days_until_election": 68,
     "election_name": "제9회 전국동시지방선거"
   },
-  "total_tracked": 28,
+  "total_tracked": 43,
   "candidates": [
     {
       "name": "정원오",
@@ -154,6 +154,11 @@
     "정원오": {
       "party": "더불어민주당",
       "region": "서울",
+      "role": "서울시장 후보 (경선 중)",
+      "profile": "성동구청장 3선. 성수동 도시재생·소셜벤처 육성으로 전국적 주목. 여수 출신",
+      "assets": "약 12억원 (2025년 재산신고 기준, 성동구청장 시절)",
+      "election": "2026지방선거",
+      "poll_status": "선두권 (2026년 3월 기준)",
       "stocks": [
         {
           "ticker": "058430",
@@ -181,11 +186,137 @@
           "relation": "성동구청장 시절 협력"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ratio": 0.59,
+          "today_volume": 158925,
+          "avg_volume": 270841,
+          "close": 502,
+          "change_pct": -1.18,
+          "ticker": "007720",
+          "name": "소노스퀘어",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "출신지(여수) 내 공장",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.31,
+          "today_volume": 19143,
+          "avg_volume": 62692,
+          "close": 6840,
+          "change_pct": -0.87,
+          "ticker": "045340",
+          "name": "토탈소프트",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "종친(경주 정씨) 연결",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.31,
+          "today_volume": 34052,
+          "avg_volume": 110655,
+          "close": 16980,
+          "change_pct": 1.56,
+          "ticker": "030190",
+          "name": "NICE평가정보",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "성동구청장 시절 협력",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.31,
+          "today_volume": 51163,
+          "avg_volume": 165465,
+          "close": 2210,
+          "change_pct": -2.0,
+          "ticker": "038540",
+          "name": "상상인",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "지역구 연관",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.22,
+          "today_volume": 17254,
+          "avg_volume": 78636,
+          "close": 45650,
+          "change_pct": -0.54,
+          "ticker": "058430",
+          "name": "포스코스틸리온",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "지역구(성수동) 내 부지 보유",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "오세훈": {
       "party": "국민의힘",
       "region": "서울",
+      "role": "서울시장 (현직, 재선 도전 검토)",
+      "profile": "서울시장 3선. 디자인서울·UAM(도심항공교통)·재건축 규제 완화 추진",
+      "assets": "약 56억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "",
       "stocks": [
         {
           "ticker": "000270",
@@ -198,11 +329,65 @@
           "relation": "서울시 소상공인 정책 연관"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ratio": 0.31,
+          "today_volume": 524415,
+          "avg_volume": 1705580,
+          "close": 155600,
+          "change_pct": 0.58,
+          "ticker": "000270",
+          "name": "기아",
+          "tags": [
+            "오세훈 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "오세훈",
+              "party": "국민의힘",
+              "role": "서울시장 (현직, 재선 도전 검토)",
+              "region": "서울",
+              "relation": "서울시 UAM(도심항공) 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 1.47,
+          "today_volume": 74563,
+          "avg_volume": 50865,
+          "close": 129900,
+          "change_pct": 3.84,
+          "ticker": "282330",
+          "name": "BGF리테일",
+          "tags": [
+            "오세훈 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "오세훈",
+              "party": "국민의힘",
+              "role": "서울시장 (현직, 재선 도전 검토)",
+              "region": "서울",
+              "relation": "서울시 소상공인 정책 연관",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "김동연": {
       "party": "더불어민주당",
       "region": "경기",
+      "role": "경기지사 후보 (현직, 경선 중)",
+      "profile": "기획재정부 차관·경기지사 역임. 반도체 클러스터·GTX 추진",
+      "assets": "약 23억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "",
       "stocks": [
         {
           "ticker": "003490",
@@ -215,11 +400,65 @@
           "relation": "경기도 반도체 클러스터 정책"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ratio": 0.42,
+          "today_volume": 1264996,
+          "avg_volume": 3028026,
+          "close": 25250,
+          "change_pct": 1.2,
+          "ticker": "003490",
+          "name": "대한항공",
+          "tags": [
+            "김동연 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "김동연",
+              "party": "더불어민주당",
+              "role": "경기지사 후보 (현직, 경선 중)",
+              "region": "경기",
+              "relation": "경기도 항공 물류 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.22,
+          "today_volume": 69924,
+          "avg_volume": 310852,
+          "close": 329000,
+          "change_pct": -2.23,
+          "ticker": "034730",
+          "name": "SK",
+          "tags": [
+            "김동연 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "김동연",
+              "party": "더불어민주당",
+              "role": "경기지사 후보 (현직, 경선 중)",
+              "region": "경기",
+              "relation": "경기도 반도체 클러스터 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "추미애": {
       "party": "더불어민주당",
       "region": "경기",
+      "role": "경기지사 후보 (경선 중)",
+      "profile": "법무부장관·국회의원 6선. 사법개혁 추진, 여성 정치인 대표격",
+      "assets": "약 18억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "",
       "stocks": [
         {
           "ticker": "006800",
@@ -227,11 +466,41 @@
           "relation": "연관 테마"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ratio": 0.34,
+          "today_volume": 1665822,
+          "avg_volume": 4852095,
+          "close": 66200,
+          "change_pct": 1.38,
+          "ticker": "006800",
+          "name": "미래에셋증권",
+          "tags": [
+            "추미애 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "추미애",
+              "party": "더불어민주당",
+              "role": "경기지사 후보 (경선 중)",
+              "region": "경기",
+              "relation": "연관 테마",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "박찬대": {
       "party": "더불어민주당",
       "region": "인천",
+      "role": "인천시장 후보 (단수 공천 확정)",
+      "profile": "국회 원내대표 역임. 인천 연수구 지역구, 인천항 물류·경제자유구역 공약",
+      "assets": "약 32억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "단수 공천 확정 (2026.03.04)",
       "stocks": [
         {
           "ticker": "010060",
@@ -249,11 +518,99 @@
           "relation": "인천 지역 연관"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ratio": 0.5,
+          "today_volume": 272353,
+          "avg_volume": 546384,
+          "close": 34750,
+          "change_pct": -2.8,
+          "ticker": "003160",
+          "name": "디아이",
+          "tags": [
+            "박찬대 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 후보 (단수 공천 확정)",
+              "region": "인천",
+              "relation": "인천 지역 연관",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.41,
+          "today_volume": 107036,
+          "avg_volume": 262758,
+          "close": 177000,
+          "change_pct": -3.44,
+          "ticker": "010060",
+          "name": "OCI홀딩스",
+          "tags": [
+            "박찬대 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 후보 (단수 공천 확정)",
+              "region": "인천",
+              "relation": "인천 기반 기업",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.26,
+          "today_volume": 851156,
+          "avg_volume": 3298874,
+          "close": 19470,
+          "change_pct": -1.72,
+          "ticker": "011200",
+          "name": "HMM",
+          "tags": [
+            "박찬대 관련주",
+            "박형준 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 후보 (단수 공천 확정)",
+              "region": "인천",
+              "relation": "인천항 물류 정책",
+              "election": "2026지방선거"
+            },
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산항 물류 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "박형준": {
       "party": "국민의힘",
       "region": "부산",
+      "role": "부산시장 후보 (현직, 3선 도전 유력)",
+      "profile": "부산시장 현직. 북항 재개발·부산엑스포·가덕도 신공항 추진",
+      "assets": "약 15억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "",
       "stocks": [
         {
           "ticker": "000100",
@@ -271,11 +628,104 @@
           "relation": "부산 조선업 지원"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ticker": "010620",
+          "name": "HD현대미포",
+          "tags": [
+            "박형준 관련주",
+            "전재수 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산 조선업 지원",
+              "election": "2026지방선거"
+            },
+            {
+              "type": "local_candidate",
+              "name": "전재수",
+              "party": "더불어민주당",
+              "role": "부산시장 후보 (출마 공식화)",
+              "region": "부산",
+              "relation": "부산 조선업",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.26,
+          "today_volume": 851156,
+          "avg_volume": 3298874,
+          "close": 19470,
+          "change_pct": -1.72,
+          "ticker": "011200",
+          "name": "HMM",
+          "tags": [
+            "박찬대 관련주",
+            "박형준 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 후보 (단수 공천 확정)",
+              "region": "인천",
+              "relation": "인천항 물류 정책",
+              "election": "2026지방선거"
+            },
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산항 물류 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.32,
+          "today_volume": 104051,
+          "avg_volume": 325920,
+          "close": 99200,
+          "change_pct": 0.2,
+          "ticker": "000100",
+          "name": "유한양행",
+          "tags": [
+            "박형준 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산 바이오 클러스터 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "전재수": {
       "party": "더불어민주당",
       "region": "부산",
+      "role": "부산시장 후보 (출마 공식화)",
+      "profile": "국회의원 3선. 중소기업·조선업 육성 공약, 부산 북·사상구 지역구",
+      "assets": "약 8억원 (2024년 재산신고 기준)",
+      "election": "2026지방선거",
+      "poll_status": "",
       "stocks": [
         {
           "ticker": "010620",
@@ -283,11 +733,45 @@
           "relation": "부산 조선업"
         }
       ],
-      "screening": []
+      "screening": [
+        {
+          "surge": false,
+          "ticker": "010620",
+          "name": "HD현대미포",
+          "tags": [
+            "박형준 관련주",
+            "전재수 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산 조선업 지원",
+              "election": "2026지방선거"
+            },
+            {
+              "type": "local_candidate",
+              "name": "전재수",
+              "party": "더불어민주당",
+              "role": "부산시장 후보 (출마 공식화)",
+              "region": "부산",
+              "relation": "부산 조선업",
+              "election": "2026지방선거"
+            }
+          ]
+        }
+      ]
     },
     "이재명": {
-      "party": "",
+      "party": "더불어민주당",
       "region": "전국(대선)",
+      "role": "대통령 (2025.06~ 현직)",
+      "profile": "성남시장·경기지사 역임, 기본소득·부동산 공공개발 주창. 반도체·전기차 산업 육성 공약",
+      "assets": "",
+      "election": "대선",
       "stocks": [
         {
           "ticker": "001500",
@@ -323,69 +807,181 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.63,
-          "today_volume": 31402,
+          "ratio": 0.26,
+          "today_volume": 320198,
+          "avg_volume": 1221049,
+          "close": 182400,
+          "change_pct": -3.9,
+          "ticker": "064350",
+          "name": "현대로템",
+          "tags": [
+            "이재명 관련주",
+            "방산 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "공약(방산)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "방산",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.57,
+          "today_volume": 19539562,
+          "avg_volume": 34296630,
+          "close": 176900,
+          "change_pct": -1.78,
+          "ticker": "005930",
+          "name": "삼성전자",
+          "tags": [
+            "이재명 관련주",
+            "반도체 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "공약(반도체 지원)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "반도체",
+              "description": "경기도 반도체 클러스터(용인·평택)"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.73,
+          "today_volume": 36305,
           "avg_volume": 49573,
-          "close": 1911,
-          "change_pct": -2.95,
+          "close": 1912,
+          "change_pct": -2.89,
           "ticker": "010040",
-          "name": "한국내화"
+          "name": "한국내화",
+          "tags": [
+            "이재명 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "대선 캠프 인사 연관",
+              "election": "대선"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.33,
+          "today_volume": 840167,
+          "avg_volume": 2513756,
+          "close": 48350,
+          "change_pct": -0.62,
+          "ticker": "035720",
+          "name": "카카오",
+          "tags": [
+            "이재명 관련주",
+            "기본소득 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "연관 테마",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "기본소득",
+              "description": ""
+            }
+          ]
         },
         {
           "surge": false,
           "ratio": 0.23,
-          "today_volume": 275563,
-          "avg_volume": 1221049,
-          "close": 179900,
-          "change_pct": -5.22,
-          "ticker": "064350",
-          "name": "현대로템"
-        },
-        {
-          "surge": false,
-          "ratio": 0.27,
-          "today_volume": 690094,
-          "avg_volume": 2513756,
-          "close": 47850,
-          "change_pct": -1.64,
-          "ticker": "035720",
-          "name": "카카오"
-        },
-        {
-          "surge": false,
-          "ratio": 0.19,
-          "today_volume": 67984,
+          "today_volume": 82325,
           "avg_volume": 359183,
-          "close": 10710,
-          "change_pct": -1.74,
+          "close": 10820,
+          "change_pct": -0.73,
           "ticker": "001500",
-          "name": "현대차증권"
+          "name": "현대차증권",
+          "tags": [
+            "이재명 관련주",
+            "전기차 테마",
+            "지방개발 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "공약(전기차 보조금)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "전기차",
+              "description": ""
+            },
+            {
+              "type": "policy_theme",
+              "theme": "지방개발",
+              "description": "공공기관 2차 이전·GTX 역세권 개발"
+            }
+          ]
         },
         {
           "surge": false,
-          "ratio": 0.4,
-          "today_volume": 1565924,
+          "ratio": 0.44,
+          "today_volume": 1742468,
           "avg_volume": 3937839,
-          "close": 27550,
-          "change_pct": -5.0,
+          "close": 28200,
+          "change_pct": -2.76,
           "ticker": "001440",
-          "name": "대한전선"
-        },
-        {
-          "surge": false,
-          "ratio": 0.47,
-          "today_volume": 16098868,
-          "avg_volume": 34296630,
-          "close": 173100,
-          "change_pct": -3.89,
-          "ticker": "005930",
-          "name": "삼성전자"
+          "name": "대한전선",
+          "tags": [
+            "이재명 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "대선 캠프 인사 연관",
+              "election": "대선"
+            }
+          ]
         }
       ]
     },
     "김문수": {
-      "party": "",
+      "party": "국민의힘",
       "region": "전국(대선)",
+      "role": "전 대선 후보",
+      "profile": "경기지사 역임, 노동운동가 출신. 원전 확대·방산 강화 공약",
+      "assets": "",
+      "election": "대선",
       "stocks": [
         {
           "ticker": "012330",
@@ -406,39 +1002,94 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.38,
-          "today_volume": 136237,
-          "avg_volume": 362527,
-          "close": 401500,
-          "change_pct": 0.75,
-          "ticker": "012330",
-          "name": "현대모비스"
-        },
-        {
-          "surge": false,
-          "ratio": 0.27,
-          "today_volume": 281317,
+          "ratio": 0.32,
+          "today_volume": 331898,
           "avg_volume": 1023626,
-          "close": 182050,
-          "change_pct": -3.16,
+          "close": 186200,
+          "change_pct": -0.96,
           "ticker": "047810",
-          "name": "한국항공우주"
+          "name": "한국항공우주",
+          "tags": [
+            "김문수 관련주",
+            "방산 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "김문수",
+              "party": "국민의힘",
+              "role": "전 대선 후보",
+              "relation": "공약(방산)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "방산",
+              "description": ""
+            }
+          ]
         },
         {
           "surge": false,
-          "ratio": 0.35,
-          "today_volume": 2267126,
+          "ratio": 0.4,
+          "today_volume": 2645055,
           "avg_volume": 6548863,
-          "close": 96200,
-          "change_pct": -4.66,
+          "close": 97900,
+          "change_pct": -2.97,
           "ticker": "034020",
-          "name": "두산에너빌리티"
+          "name": "두산에너빌리티",
+          "tags": [
+            "김문수 관련주",
+            "원전 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "김문수",
+              "party": "국민의힘",
+              "role": "전 대선 후보",
+              "relation": "공약(원전)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "원전",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.5,
+          "today_volume": 181423,
+          "avg_volume": 362527,
+          "close": 408000,
+          "change_pct": 2.38,
+          "ticker": "012330",
+          "name": "현대모비스",
+          "tags": [
+            "김문수 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "김문수",
+              "party": "국민의힘",
+              "role": "전 대선 후보",
+              "relation": "연관 테마",
+              "election": "대선"
+            }
+          ]
         }
       ]
     },
     "이준석": {
-      "party": "",
+      "party": "개혁신당",
       "region": "전국(대선)",
+      "role": "대선 후보",
+      "profile": "IT 업계 출신 최연소 당대표 역임. 청년·기술 혁신 공약",
+      "assets": "",
+      "election": "대선",
       "stocks": [
         {
           "ticker": "035420",
@@ -454,23 +1105,892 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.3,
-          "today_volume": 262926,
+          "ratio": 0.35,
+          "today_volume": 302760,
           "avg_volume": 873483,
-          "close": 209000,
-          "change_pct": -1.18,
+          "close": 211250,
+          "change_pct": -0.12,
           "ticker": "035420",
-          "name": "NAVER"
+          "name": "NAVER",
+          "tags": [
+            "이준석 관련주",
+            "기본소득 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이준석",
+              "party": "개혁신당",
+              "role": "대선 후보",
+              "relation": "IT 정책 공약",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "기본소득",
+              "description": ""
+            }
+          ]
         },
         {
           "surge": false,
-          "ratio": 0.37,
-          "today_volume": 145179,
+          "ratio": 0.43,
+          "today_volume": 164834,
           "avg_volume": 387270,
-          "close": 51500,
-          "change_pct": 0.0,
+          "close": 51800,
+          "change_pct": 0.58,
           "ticker": "251270",
-          "name": "넷마블"
+          "name": "넷마블",
+          "tags": [
+            "이준석 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이준석",
+              "party": "개혁신당",
+              "role": "대선 후보",
+              "relation": "연관 테마",
+              "election": "대선"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "candidate_market_summary": {
+    "정원오": {
+      "stock_count": 5,
+      "total_volume": 280537,
+      "avg_change_pct": -0.61,
+      "party": "더불어민주당",
+      "region": "서울"
+    },
+    "오세훈": {
+      "stock_count": 2,
+      "total_volume": 598978,
+      "avg_change_pct": 2.21,
+      "party": "국민의힘",
+      "region": "서울"
+    },
+    "김동연": {
+      "stock_count": 2,
+      "total_volume": 1334920,
+      "avg_change_pct": -0.52,
+      "party": "더불어민주당",
+      "region": "경기"
+    },
+    "추미애": {
+      "stock_count": 1,
+      "total_volume": 1665822,
+      "avg_change_pct": 1.38,
+      "party": "더불어민주당",
+      "region": "경기"
+    },
+    "박찬대": {
+      "stock_count": 3,
+      "total_volume": 1230545,
+      "avg_change_pct": -2.65,
+      "party": "더불어민주당",
+      "region": "인천"
+    },
+    "박형준": {
+      "stock_count": 3,
+      "total_volume": 955207,
+      "avg_change_pct": -0.51,
+      "party": "국민의힘",
+      "region": "부산"
+    },
+    "전재수": {
+      "stock_count": 1,
+      "total_volume": 0,
+      "avg_change_pct": 0.0,
+      "party": "더불어민주당",
+      "region": "부산"
+    },
+    "이재명": {
+      "stock_count": 6,
+      "total_volume": 22561025,
+      "avg_change_pct": -2.11,
+      "party": "더불어민주당",
+      "region": "전국(대선)"
+    },
+    "김문수": {
+      "stock_count": 3,
+      "total_volume": 3158376,
+      "avg_change_pct": -0.52,
+      "party": "국민의힘",
+      "region": "전국(대선)"
+    },
+    "이준석": {
+      "stock_count": 2,
+      "total_volume": 467594,
+      "avg_change_pct": 0.23,
+      "party": "개혁신당",
+      "region": "전국(대선)"
+    }
+  },
+  "stock_contexts": {
+    "064350": {
+      "ticker": "064350",
+      "name": "현대로템",
+      "tags": [
+        "이재명 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "298040": {
+      "ticker": "298040",
+      "name": "효성중공업",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "007720": {
+      "ticker": "007720",
+      "name": "대주산업",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "출신지(여수) 내 공장",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "045340": {
+      "ticker": "045340",
+      "name": "나우IB",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "종친(경주 정씨) 연결",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "017550": {
+      "ticker": "017550",
+      "name": "한국전력기술",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "000760": {
+      "ticker": "000760",
+      "name": "이화공영",
+      "tags": [
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "000720": {
+      "ticker": "000720",
+      "name": "현대건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": "2026 지방선거 SOC예산 수혜"
+        }
+      ]
+    },
+    "012450": {
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
+      "tags": [
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "005930": {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "tags": [
+        "이재명 관련주",
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(반도체 지원)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": "경기도 반도체 클러스터(용인·평택)"
+        }
+      ]
+    },
+    "003490": {
+      "ticker": "003490",
+      "name": "대한항공",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 항공 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "010040": {
+      "ticker": "010040",
+      "name": "상지건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    "006800": {
+      "ticker": "006800",
+      "name": "미래에셋증권",
+      "tags": [
+        "추미애 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "추미애",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (경선 중)",
+          "region": "경기",
+          "relation": "연관 테마",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "000660": {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "tags": [
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
+        }
+      ]
+    },
+    "047810": {
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "tags": [
+        "김문수 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "009540": {
+      "ticker": "009540",
+      "name": "한국조선해양",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "003160": {
+      "ticker": "003160",
+      "name": "디아이씨",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 지역 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "030190": {
+      "ticker": "030190",
+      "name": "NICE평가정보",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "성동구청장 시절 협력",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "010060": {
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 기반 기업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "003410": {
+      "ticker": "003410",
+      "name": "쌍용C&E",
+      "tags": [
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    "000270": {
+      "ticker": "000270",
+      "name": "기아",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 UAM(도심항공) 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "035720": {
+      "ticker": "035720",
+      "name": "카카오",
+      "tags": [
+        "이재명 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "연관 테마",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    "023000": {
+      "ticker": "023000",
+      "name": "삼성엔지니어링",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "038540": {
+      "ticker": "038540",
+      "name": "삼표시멘트",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "지역구 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "001500": {
+      "ticker": "001500",
+      "name": "현대차",
+      "tags": [
+        "이재명 관련주",
+        "전기차 테마",
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(전기차 보조금)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        },
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": "공공기관 2차 이전·GTX 역세권 개발"
+        }
+      ]
+    },
+    "097950": {
+      "ticker": "097950",
+      "name": "CJ제일제당",
+      "tags": [
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    "051910": {
+      "ticker": "051910",
+      "name": "LG화학",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    "006360": {
+      "ticker": "006360",
+      "name": "GS건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "058430": {
+      "ticker": "058430",
+      "name": "에스제이그룹",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "지역구(성수동) 내 부지 보유",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "096770": {
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    "010620": {
+      "ticker": "010620",
+      "name": "현대미포조선",
+      "tags": [
+        "박형준 관련주",
+        "전재수 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산 조선업 지원",
+          "election": "2026지방선거"
+        },
+        {
+          "type": "local_candidate",
+          "name": "전재수",
+          "party": "더불어민주당",
+          "role": "부산시장 후보 (출마 공식화)",
+          "region": "부산",
+          "relation": "부산 조선업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "011200": {
+      "ticker": "011200",
+      "name": "HMM",
+      "tags": [
+        "박찬대 관련주",
+        "박형준 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천항 물류 정책",
+          "election": "2026지방선거"
+        },
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산항 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "000100": {
+      "ticker": "000100",
+      "name": "유한양행",
+      "tags": [
+        "박형준 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산 바이오 클러스터 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "009150": {
+      "ticker": "009150",
+      "name": "삼성전기",
+      "tags": [
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
+        }
+      ]
+    },
+    "282330": {
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 소상공인 정책 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "006400": {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    "034020": {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "tags": [
+        "김문수 관련주",
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(원전)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "047040": {
+      "ticker": "047040",
+      "name": "대우건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "035420": {
+      "ticker": "035420",
+      "name": "NAVER",
+      "tags": [
+        "이준석 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "IT 정책 공약",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    "251270": {
+      "ticker": "251270",
+      "name": "넷마블",
+      "tags": [
+        "이준석 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
+        }
+      ]
+    },
+    "000210": {
+      "ticker": "000210",
+      "name": "DL이앤씨",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "001440": {
+      "ticker": "001440",
+      "name": "일성건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    "012330": {
+      "ticker": "012330",
+      "name": "현대모비스",
+      "tags": [
+        "김문수 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
+        }
+      ]
+    },
+    "034730": {
+      "ticker": "034730",
+      "name": "SK",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 반도체 클러스터 정책",
+          "election": "2026지방선거"
         }
       ]
     }
@@ -478,283 +1998,1021 @@
   "screening_results": [
     {
       "surge": false,
-      "ratio": 0.92,
-      "today_volume": 34823828,
+      "ratio": 1.2,
+      "today_volume": 45474837,
       "avg_volume": 37939966,
-      "close": 16790,
-      "change_pct": 5.6,
+      "close": 17350,
+      "change_pct": 9.12,
       "ticker": "047040",
-      "name": "대우건설"
+      "name": "대우건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
     },
     {
       "surge": false,
-      "ratio": 0.41,
-      "today_volume": 88725,
-      "avg_volume": 218202,
-      "close": 60100,
-      "change_pct": 1.18,
-      "ticker": "000210",
-      "name": "DL"
-    },
-    {
-      "surge": false,
-      "ratio": 0.38,
-      "today_volume": 136237,
-      "avg_volume": 362527,
-      "close": 401500,
-      "change_pct": 0.75,
-      "ticker": "012330",
-      "name": "현대모비스"
-    },
-    {
-      "surge": false,
-      "ticker": "003410",
-      "name": "쌍용C&E"
-    },
-    {
-      "surge": false,
-      "ratio": 0.37,
-      "today_volume": 145179,
-      "avg_volume": 387270,
-      "close": 51500,
-      "change_pct": 0.0,
-      "ticker": "251270",
-      "name": "넷마블"
-    },
-    {
-      "surge": false,
-      "ratio": 0.29,
-      "today_volume": 10612,
-      "avg_volume": 37088,
-      "close": 2350,
-      "change_pct": -0.42,
-      "ticker": "023000",
-      "name": "삼원강재"
-    },
-    {
-      "surge": false,
-      "ratio": 0.29,
-      "today_volume": 20182,
-      "avg_volume": 69481,
-      "close": 215500,
-      "change_pct": -0.46,
-      "ticker": "097950",
-      "name": "CJ제일제당"
-    },
-    {
-      "surge": false,
-      "ratio": 0.55,
-      "today_volume": 386481,
-      "avg_volume": 700655,
-      "close": 394500,
-      "change_pct": -0.5,
-      "ticker": "006400",
-      "name": "삼성SDI"
-    },
-    {
-      "surge": false,
-      "ratio": 0.3,
-      "today_volume": 262926,
-      "avg_volume": 873483,
-      "close": 209000,
-      "change_pct": -1.18,
-      "ticker": "035420",
-      "name": "NAVER"
-    },
-    {
-      "surge": false,
-      "ratio": 0.43,
-      "today_volume": 178597,
-      "avg_volume": 415955,
-      "close": 1891,
-      "change_pct": -1.51,
-      "ticker": "017550",
-      "name": "수산세보틱스"
-    },
-    {
-      "surge": false,
-      "ratio": 0.4,
-      "today_volume": 1427,
-      "avg_volume": 3569,
-      "close": 14880,
-      "change_pct": -1.59,
-      "ticker": "000760",
-      "name": "이화산업"
-    },
-    {
-      "surge": false,
-      "ratio": 0.27,
-      "today_volume": 690094,
-      "avg_volume": 2513756,
-      "close": 47850,
-      "change_pct": -1.64,
-      "ticker": "035720",
-      "name": "카카오"
-    },
-    {
-      "surge": false,
-      "ratio": 0.19,
-      "today_volume": 190512,
-      "avg_volume": 1010722,
-      "close": 109400,
-      "change_pct": -1.71,
-      "ticker": "096770",
-      "name": "SK이노베이션"
-    },
-    {
-      "surge": false,
-      "ratio": 0.19,
-      "today_volume": 67984,
-      "avg_volume": 359183,
-      "close": 10710,
-      "change_pct": -1.74,
-      "ticker": "001500",
-      "name": "현대차증권"
-    },
-    {
-      "surge": false,
-      "ratio": 0.36,
-      "today_volume": 149396,
-      "avg_volume": 413036,
-      "close": 307500,
-      "change_pct": -2.07,
-      "ticker": "051910",
-      "name": "LG화학"
-    },
-    {
-      "surge": false,
-      "ratio": 0.51,
-      "today_volume": 1288198,
-      "avg_volume": 2539360,
-      "close": 25650,
-      "change_pct": -2.29,
-      "ticker": "006360",
-      "name": "GS건설"
-    },
-    {
-      "surge": false,
-      "ratio": 0.63,
-      "today_volume": 31402,
-      "avg_volume": 49573,
-      "close": 1911,
-      "change_pct": -2.95,
-      "ticker": "010040",
-      "name": "한국내화"
-    },
-    {
-      "surge": false,
-      "ratio": 0.27,
-      "today_volume": 281317,
-      "avg_volume": 1023626,
-      "close": 182050,
-      "change_pct": -3.16,
-      "ticker": "047810",
-      "name": "한국항공우주"
-    },
-    {
-      "surge": false,
-      "ratio": 0.23,
-      "today_volume": 97313,
-      "avg_volume": 421894,
-      "close": 1316000,
-      "change_pct": -3.87,
-      "ticker": "012450",
-      "name": "한화에어로스페이스"
-    },
-    {
-      "surge": false,
-      "ratio": 0.47,
-      "today_volume": 16098868,
-      "avg_volume": 34296630,
-      "close": 173100,
-      "change_pct": -3.89,
-      "ticker": "005930",
-      "name": "삼성전자"
+      "ratio": 1.47,
+      "today_volume": 74563,
+      "avg_volume": 50865,
+      "close": 129900,
+      "change_pct": 3.84,
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 소상공인 정책 연관",
+          "election": "2026지방선거"
+        }
+      ]
     },
     {
       "surge": false,
       "ratio": 0.52,
-      "today_volume": 2501174,
-      "avg_volume": 4853118,
-      "close": 893000,
-      "change_pct": -4.29,
-      "ticker": "000660",
-      "name": "SK하이닉스"
-    },
-    {
-      "surge": false,
-      "ratio": 0.35,
-      "today_volume": 2267126,
-      "avg_volume": 6548863,
-      "close": 96200,
-      "change_pct": -4.66,
-      "ticker": "034020",
-      "name": "두산에너빌리티"
-    },
-    {
-      "surge": false,
-      "ratio": 0.59,
-      "today_volume": 148460,
-      "avg_volume": 251611,
-      "close": 357500,
-      "change_pct": -4.67,
-      "ticker": "009540",
-      "name": "HD한국조선해양"
-    },
-    {
-      "surge": false,
-      "ratio": 0.33,
-      "today_volume": 640368,
-      "avg_volume": 1918162,
-      "close": 144800,
-      "change_pct": -4.99,
-      "ticker": "000720",
-      "name": "현대건설"
-    },
-    {
-      "surge": false,
-      "ratio": 0.4,
-      "today_volume": 1565924,
-      "avg_volume": 3937839,
-      "close": 27550,
-      "change_pct": -5.0,
-      "ticker": "001440",
-      "name": "대한전선"
-    },
-    {
-      "surge": false,
-      "ratio": 0.23,
-      "today_volume": 275563,
-      "avg_volume": 1221049,
-      "close": 179900,
-      "change_pct": -5.22,
-      "ticker": "064350",
-      "name": "현대로템"
+      "today_volume": 113724,
+      "avg_volume": 218202,
+      "close": 61100,
+      "change_pct": 2.86,
+      "ticker": "000210",
+      "name": "DL",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
     },
     {
       "surge": false,
       "ratio": 0.5,
-      "today_volume": 390010,
-      "avg_volume": 781213,
-      "close": 420500,
-      "change_pct": -7.99,
-      "ticker": "009150",
-      "name": "삼성전기"
+      "today_volume": 181423,
+      "avg_volume": 362527,
+      "close": 408000,
+      "change_pct": 2.38,
+      "ticker": "012330",
+      "name": "현대모비스",
+      "tags": [
+        "김문수 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
+        }
+      ]
     },
     {
       "surge": false,
-      "ratio": 0.86,
-      "today_volume": 39466,
+      "ratio": 0.44,
+      "today_volume": 1567,
+      "avg_volume": 3569,
+      "close": 15360,
+      "change_pct": 1.59,
+      "ticker": "000760",
+      "name": "이화산업",
+      "tags": [
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.31,
+      "today_volume": 34052,
+      "avg_volume": 110655,
+      "close": 16980,
+      "change_pct": 1.56,
+      "ticker": "030190",
+      "name": "NICE평가정보",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "성동구청장 시절 협력",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.34,
+      "today_volume": 1665822,
+      "avg_volume": 4852095,
+      "close": 66200,
+      "change_pct": 1.38,
+      "ticker": "006800",
+      "name": "미래에셋증권",
+      "tags": [
+        "추미애 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "추미애",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (경선 중)",
+          "region": "경기",
+          "relation": "연관 테마",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.42,
+      "today_volume": 1264996,
+      "avg_volume": 3028026,
+      "close": 25250,
+      "change_pct": 1.2,
+      "ticker": "003490",
+      "name": "대한항공",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 항공 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.6,
+      "today_volume": 420984,
+      "avg_volume": 700655,
+      "close": 399000,
+      "change_pct": 0.63,
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.31,
+      "today_volume": 524415,
+      "avg_volume": 1705580,
+      "close": 155600,
+      "change_pct": 0.58,
+      "ticker": "000270",
+      "name": "기아",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 UAM(도심항공) 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.43,
+      "today_volume": 164834,
+      "avg_volume": 387270,
+      "close": 51800,
+      "change_pct": 0.58,
+      "ticker": "251270",
+      "name": "넷마블",
+      "tags": [
+        "이준석 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.32,
+      "today_volume": 104051,
+      "avg_volume": 325920,
+      "close": 99200,
+      "change_pct": 0.2,
+      "ticker": "000100",
+      "name": "유한양행",
+      "tags": [
+        "박형준 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산 바이오 클러스터 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.6,
+      "today_volume": 1535527,
+      "avg_volume": 2539360,
+      "close": 26300,
+      "change_pct": 0.19,
+      "ticker": "006360",
+      "name": "GS건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ticker": "003410",
+      "name": "쌍용C&E",
+      "tags": [
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ticker": "010620",
+      "name": "HD현대미포",
+      "tags": [
+        "박형준 관련주",
+        "전재수 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산 조선업 지원",
+          "election": "2026지방선거"
+        },
+        {
+          "type": "local_candidate",
+          "name": "전재수",
+          "party": "더불어민주당",
+          "role": "부산시장 후보 (출마 공식화)",
+          "region": "부산",
+          "relation": "부산 조선업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.35,
+      "today_volume": 302760,
+      "avg_volume": 873483,
+      "close": 211250,
+      "change_pct": -0.12,
+      "ticker": "035420",
+      "name": "NAVER",
+      "tags": [
+        "이준석 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "IT 정책 공약",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.34,
+      "today_volume": 23669,
+      "avg_volume": 69481,
+      "close": 215500,
+      "change_pct": -0.46,
+      "ticker": "097950",
+      "name": "CJ제일제당",
+      "tags": [
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.22,
+      "today_volume": 17254,
+      "avg_volume": 78636,
+      "close": 45650,
+      "change_pct": -0.54,
+      "ticker": "058430",
+      "name": "포스코스틸리온",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "지역구(성수동) 내 부지 보유",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.33,
+      "today_volume": 840167,
+      "avg_volume": 2513756,
+      "close": 48350,
+      "change_pct": -0.62,
+      "ticker": "035720",
+      "name": "카카오",
+      "tags": [
+        "이재명 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "연관 테마",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.51,
+      "today_volume": 18818,
+      "avg_volume": 37088,
+      "close": 2345,
+      "change_pct": -0.64,
+      "ticker": "023000",
+      "name": "삼원강재",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.23,
+      "today_volume": 82325,
+      "avg_volume": 359183,
+      "close": 10820,
+      "change_pct": -0.73,
+      "ticker": "001500",
+      "name": "현대차증권",
+      "tags": [
+        "이재명 관련주",
+        "전기차 테마",
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(전기차 보조금)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        },
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": "공공기관 2차 이전·GTX 역세권 개발"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.31,
+      "today_volume": 19143,
+      "avg_volume": 62692,
+      "close": 6840,
+      "change_pct": -0.87,
+      "ticker": "045340",
+      "name": "토탈소프트",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "종친(경주 정씨) 연결",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.32,
+      "today_volume": 331898,
+      "avg_volume": 1023626,
+      "close": 186200,
+      "change_pct": -0.96,
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "tags": [
+        "김문수 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.49,
+      "today_volume": 204357,
+      "avg_volume": 415955,
+      "close": 1900,
+      "change_pct": -1.04,
+      "ticker": "017550",
+      "name": "수산세보틱스",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.59,
+      "today_volume": 158925,
+      "avg_volume": 270841,
+      "close": 502,
+      "change_pct": -1.18,
+      "ticker": "007720",
+      "name": "소노스퀘어",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "출신지(여수) 내 공장",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.41,
+      "today_volume": 168415,
+      "avg_volume": 413036,
+      "close": 310000,
+      "change_pct": -1.27,
+      "ticker": "051910",
+      "name": "LG화학",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.21,
+      "today_volume": 213101,
+      "avg_volume": 1010722,
+      "close": 109700,
+      "change_pct": -1.44,
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.26,
+      "today_volume": 851156,
+      "avg_volume": 3298874,
+      "close": 19470,
+      "change_pct": -1.72,
+      "ticker": "011200",
+      "name": "HMM",
+      "tags": [
+        "박찬대 관련주",
+        "박형준 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천항 물류 정책",
+          "election": "2026지방선거"
+        },
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산항 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.57,
+      "today_volume": 19539562,
+      "avg_volume": 34296630,
+      "close": 176900,
+      "change_pct": -1.78,
+      "ticker": "005930",
+      "name": "삼성전자",
+      "tags": [
+        "이재명 관련주",
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(반도체 지원)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": "경기도 반도체 클러스터(용인·평택)"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.61,
+      "today_volume": 2973269,
+      "avg_volume": 4853118,
+      "close": 915000,
+      "change_pct": -1.93,
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "tags": [
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.31,
+      "today_volume": 51163,
+      "avg_volume": 165465,
+      "close": 2210,
+      "change_pct": -2.0,
+      "ticker": "038540",
+      "name": "상상인",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "지역구 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.22,
+      "today_volume": 69924,
+      "avg_volume": 310852,
+      "close": 329000,
+      "change_pct": -2.23,
+      "ticker": "034730",
+      "name": "SK",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 반도체 클러스터 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.44,
+      "today_volume": 1742468,
+      "avg_volume": 3937839,
+      "close": 28200,
+      "change_pct": -2.76,
+      "ticker": "001440",
+      "name": "대한전선",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.5,
+      "today_volume": 272353,
+      "avg_volume": 546384,
+      "close": 34750,
+      "change_pct": -2.8,
+      "ticker": "003160",
+      "name": "디아이",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 지역 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.43,
+      "today_volume": 830050,
+      "avg_volume": 1918162,
+      "close": 148000,
+      "change_pct": -2.89,
+      "ticker": "000720",
+      "name": "현대건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": "2026 지방선거 SOC예산 수혜"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.73,
+      "today_volume": 36305,
+      "avg_volume": 49573,
+      "close": 1912,
+      "change_pct": -2.89,
+      "ticker": "010040",
+      "name": "한국내화",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.4,
+      "today_volume": 2645055,
+      "avg_volume": 6548863,
+      "close": 97900,
+      "change_pct": -2.97,
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "tags": [
+        "김문수 관련주",
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(원전)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.67,
+      "today_volume": 168276,
+      "avg_volume": 251611,
+      "close": 363000,
+      "change_pct": -3.2,
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.41,
+      "today_volume": 107036,
+      "avg_volume": 262758,
+      "close": 177000,
+      "change_pct": -3.44,
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 기반 기업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.27,
+      "today_volume": 113038,
+      "avg_volume": 421894,
+      "close": 1318000,
+      "change_pct": -3.73,
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
+      "tags": [
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.26,
+      "today_volume": 320198,
+      "avg_volume": 1221049,
+      "close": 182400,
+      "change_pct": -3.9,
+      "ticker": "064350",
+      "name": "현대로템",
+      "tags": [
+        "이재명 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.59,
+      "today_volume": 457840,
+      "avg_volume": 781213,
+      "close": 428500,
+      "change_pct": -6.24,
+      "ticker": "009150",
+      "name": "삼성전기",
+      "tags": [
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.03,
+      "today_volume": 47346,
       "avg_volume": 46017,
-      "close": 2608000,
-      "change_pct": -8.81,
+      "close": 2672000,
+      "change_pct": -6.57,
       "ticker": "298040",
-      "name": "효성중공업"
+      "name": "효성중공업",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
     }
   ],
   "summary": {
-    "up": 3,
-    "down": 23,
-    "surge_count": 0
+    "up": 13,
+    "down": 28,
+    "surge_count": 0,
+    "top_gainer": "대우건설",
+    "top_loser": "효성중공업"
   }
 }
