@@ -79,6 +79,14 @@
     .reason-type-pol{background:rgba(88,166,255,.15);color:var(--accent);}
     .reason-type-local{background:rgba(63,185,80,.15);color:var(--up);}
     .reason-type-theme{background:rgba(210,153,34,.15);color:var(--warn);}
+    .signal-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:700;}
+    .signal-strong_bull{background:rgba(63,185,80,.25);color:var(--up);}
+    .signal-bull{background:rgba(63,185,80,.15);color:var(--up);}
+    .signal-bear{background:rgba(248,81,73,.15);color:var(--down);}
+    .signal-strong_bear{background:rgba(248,81,73,.25);color:var(--down);}
+    .signal-neutral{background:rgba(139,148,158,.15);color:var(--muted);}
+    .battle-bar{height:20px;border-radius:4px;display:flex;overflow:hidden;margin:6px 0;}
+    .battle-bar .seg{height:100%;transition:width .3s;}
     @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;}}
   </style>
 </head>
@@ -144,6 +152,29 @@
     <section>
       <h2>📊 후보별 평균 등락률 비교</h2>
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
+    </section>
+
+    <!-- 여론조사 호재/악재 시그널 -->
+    <section id="poll-signal-section" style="display:none">
+      <h2>📊 여론조사 호재/악재 시그널</h2>
+      <div class="metrics" id="poll-metrics" style="margin-bottom:12px;"></div>
+      <div class="table-wrap">
+        <table><thead><tr>
+          <th>후보</th><th>지역</th><th>현재 지지율</th><th>변동</th><th>시그널</th><th>관련주</th><th>상세</th>
+        </tr></thead><tbody id="tb-poll-signals"></tbody></table>
+      </div>
+    </section>
+
+    <!-- AI 여론조사 분석 -->
+    <section id="poll-ai-section" style="display:none">
+      <h2>🤖 AI 여론조사 분석 — 호재/악재 해석</h2>
+      <div class="profile-card" id="poll-ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
+    </section>
+
+    <!-- 지역별 경쟁 구도 -->
+    <section id="battle-section" style="display:none">
+      <h2>🏆 지역별 경쟁 구도</h2>
+      <div class="consultant-grid" id="battle-grid"></div>
     </section>
 
     <!-- 지역별 후보 & 테마주 -->
@@ -364,6 +395,7 @@ function render(data) {
   renderChart(results);
   renderConsultant(candidate_stocks, candidate_market_summary);
   renderConsultantChart(candidate_market_summary);
+  renderPollSignals(data.poll_signals, candidate_stocks);
   renderRegionView(candidate_stocks, results);
   renderAssetChart(candidate_stocks);
   renderCandidates(candidate_stocks, results);
@@ -544,6 +576,75 @@ function renderRegionView(candidateStocks, allResults) {
     html+='</div>';
     contentsEl.innerHTML+=html;
   });
+}
+
+function renderPollSignals(pollData, candidateStocks) {
+  if(!pollData || !pollData.signals || !pollData.signals.length) return;
+  document.getElementById('poll-signal-section').style.display='block';
+
+  // 요약 메트릭
+  const metricsEl=document.getElementById('poll-metrics');
+  metricsEl.innerHTML=`
+    <div class="metric-card"><div class="value" style="color:var(--up)">${pollData.bull_count||0}</div><div class="label">호재 시그널</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--down)">${pollData.bear_count||0}</div><div class="label">악재 시그널</div></div>
+    <div class="metric-card"><div class="value">${pollData.neutral_count||0}</div><div class="label">보합</div></div>
+    <div class="metric-card"><div class="value">${pollData.total_analyzed||0}</div><div class="label">분석 대상</div></div>`;
+
+  // 시그널 테이블
+  const tbody=document.getElementById('tb-poll-signals');
+  tbody.innerHTML='';
+  const SIGNAL_KR={'strong_bull':'강한 호재','bull':'호재','bear':'악재','strong_bear':'강한 악재','neutral':'보합'};
+  for(const s of pollData.signals) {
+    if(s.signal==='neutral' && !s.current_rate) continue; // 데이터 없는 보합은 숨김
+    const changeTxt = s.change!=null ? `${s.change>0?'+':''}${s.change}%p` : '-';
+    const changeColor = s.change>0?'var(--up)':s.change<0?'var(--down)':'var(--muted)';
+    const stockNames = (s.affected_stocks||[]).slice(0,3).map(st=>st.name).join(', ') || '-';
+    tbody.innerHTML+=`<tr>
+      <td><strong>${s.name}</strong></td>
+      <td>${s.region||'-'}</td>
+      <td>${s.current_rate!=null?s.current_rate+'%':'-'}</td>
+      <td style="color:${changeColor};font-weight:700">${changeTxt}</td>
+      <td><span class="signal-badge signal-${s.signal}">${s.signal_kr||SIGNAL_KR[s.signal]||s.signal}</span></td>
+      <td style="font-size:.8rem">${stockNames}</td>
+      <td style="font-size:.8rem;color:var(--muted)">${s.detail||''}</td>
+    </tr>`;
+  }
+
+  // AI 여론조사 분석
+  if(pollData.ai_analysis) {
+    document.getElementById('poll-ai-section').style.display='block';
+    document.getElementById('poll-ai-report').textContent=pollData.ai_analysis;
+  }
+
+  // 지역별 경쟁 구도
+  const battles = pollData.regional_battles||{};
+  const battleKeys = Object.keys(battles).filter(k=>battles[k].leader);
+  if(battleKeys.length) {
+    document.getElementById('battle-section').style.display='block';
+    const grid=document.getElementById('battle-grid');
+    grid.innerHTML='';
+    for(const region of battleKeys) {
+      const b=battles[region];
+      if(!b.leader || !b.leader.name) continue;
+      const total=b.leader.rate+(b.runner_up?b.runner_up.rate:0)||100;
+      const leaderPct=Math.round((b.leader.rate/total)*100);
+      const runnerPct=100-leaderPct;
+      const compColor=b.competitiveness==='초접전'?'var(--down)':b.competitiveness==='경합'?'var(--warn)':'var(--up)';
+      grid.innerHTML+=`<div class="cons-card">
+        <div class="name">${region}</div>
+        <div class="stat" style="color:${compColor};font-weight:700">${b.competitiveness||''} (격차 ${b.gap||0}%p)</div>
+        <div style="font-size:.85rem;margin-top:6px">
+          <strong>${b.leader.name}</strong> ${b.leader.rate}%
+          ${b.runner_up&&b.runner_up.name?` vs <strong>${b.runner_up.name}</strong> ${b.runner_up.rate}%`:''}
+        </div>
+        <div class="battle-bar">
+          <div class="seg" style="width:${leaderPct}%;background:var(--dem)"></div>
+          <div class="seg" style="width:${runnerPct}%;background:var(--ppp)"></div>
+        </div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:4px">${b.date||''} | ${b.source?b.source.substring(0,40)+'...':''}</div>
+      </div>`;
+    }
+  }
 }
 
 function renderAssetChart(candidateStocks) {

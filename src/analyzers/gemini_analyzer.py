@@ -320,3 +320,44 @@ JSON만 응답."""
         if report:
             self._set_cache(ck, report)
         return report
+
+    def analyze_poll_impact(self, poll_signals: list[dict], news_titles: list[str] = None) -> str:
+        """여론조사 + 뉴스 복합 분석 — 지지율 변동 원인과 테마주 영향 해석"""
+        if not poll_signals:
+            return ""
+        signals_text = "\n".join(
+            f"- {s.get('name','')}: {s.get('current_rate','')}% "
+            f"(변동 {'+' if (s.get('change') or 0) > 0 else ''}{s.get('change','?')}%p) "
+            f"→ {s.get('signal_kr','')}"
+            for s in poll_signals if s.get("current_rate")
+        )
+        if not signals_text:
+            return ""
+
+        ck = self._cache_key("poll_impact", signals_text[:200])
+        cached = self._get_cache(ck)
+        if cached is not None:
+            return cached
+
+        news_text = ""
+        if news_titles:
+            news_text = "\n최근 관련 뉴스:\n" + "\n".join(f"- {t}" for t in news_titles[:10])
+
+        prompt = f"""여론조사 지지율 변동 데이터와 뉴스를 분석해서, 정치 테마주에 미치는 영향을 해석해줘.
+
+여론조사 시그널:
+{signals_text}
+{news_text}
+
+다음 형식으로 작성:
+1. 핵심 변동 (지지율 변동이 큰 후보 + 원인 추정)
+2. 테마주 호재 분석 (지지율 상승 → 관련주 긍정 영향)
+3. 테마주 악재 분석 (지지율 하락 → 관련주 부정 영향)
+4. 지역별 경합 변화와 투자 전략
+
+한국어, 500자 이내."""
+
+        result = self._call(prompt)
+        if result:
+            self._set_cache(ck, result)
+        return result
