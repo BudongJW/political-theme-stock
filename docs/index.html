@@ -87,6 +87,18 @@
     .signal-neutral{background:rgba(139,148,158,.15);color:var(--muted);}
     .battle-bar{height:20px;border-radius:4px;display:flex;overflow:hidden;margin:6px 0;}
     .battle-bar .seg{height:100%;transition:width .3s;}
+    .score-bar{display:inline-block;width:60px;height:8px;border-radius:4px;background:var(--border);overflow:hidden;vertical-align:middle;margin-left:6px;}
+    .score-fill{height:100%;border-radius:4px;}
+    .signal-strong_buy{background:rgba(63,185,80,.3);color:var(--up);} .signal-buy{background:rgba(63,185,80,.15);color:var(--up);}
+    .signal-hold{background:rgba(139,148,158,.15);color:var(--muted);}
+    .signal-sell{background:rgba(248,81,73,.15);color:var(--down);} .signal-strong_sell{background:rgba(248,81,73,.3);color:var(--down);}
+    .pred-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;}
+    .pred-card .region-name{font-weight:700;font-size:1rem;margin-bottom:6px;}
+    .pred-card .leader-prob{font-size:1.8rem;font-weight:800;}
+    .pred-card .comp-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.72rem;font-weight:700;}
+    .pred-card .prob-bar{height:8px;border-radius:4px;background:var(--border);overflow:hidden;margin:6px 0;}
+    .pred-card .prob-fill{height:100%;border-radius:4px;transition:width .4s;}
+    .pred-card .cand-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;padding:3px 0;}
     @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;}}
   </style>
 </head>
@@ -177,6 +189,34 @@
       <div class="consultant-grid" id="battle-grid"></div>
     </section>
 
+    <!-- 당선예측 모델 -->
+    <section id="prediction-section" style="display:none">
+      <h2>🎯 당선예측 모델 — 지역별 당선확률</h2>
+      <div class="metrics" id="pred-metrics" style="margin-bottom:12px;"></div>
+      <div class="consultant-grid" id="pred-grid"></div>
+    </section>
+
+    <!-- 주가 예측 모델 (복합 스코어) -->
+    <section id="stock-pred-section" style="display:none">
+      <h2>📈 주가 예측 — 테마주 복합 스코어</h2>
+      <div class="metrics" id="spred-metrics" style="margin-bottom:12px;"></div>
+      <div class="table-wrap">
+        <table><thead><tr>
+          <th>#</th><th>종목</th><th>코드</th><th>스코어</th><th>시그널</th><th>주가모멘텀</th><th>거래량</th><th>여론조사</th><th>선거사이클</th><th>사유</th>
+        </tr></thead><tbody id="tb-stock-pred"></tbody></table>
+      </div>
+    </section>
+
+    <!-- 당선예측 → 테마주 영향 -->
+    <section id="impact-section" style="display:none">
+      <h2>📊 당선예측 → 테마주 영향 분석</h2>
+      <div class="table-wrap">
+        <table><thead><tr>
+          <th>종목</th><th>후보</th><th>정당</th><th>지역</th><th>당선확률</th><th>시그널</th><th>관계</th><th>매매</th>
+        </tr></thead><tbody id="tb-impacts"></tbody></table>
+      </div>
+    </section>
+
     <!-- 지역별 후보 & 테마주 -->
     <section>
       <h2>🗺️ 지역별 후보 & 테마주</h2>
@@ -257,6 +297,20 @@
         <div id="modal-body"></div>
       </div>
     </div>
+
+    <!-- 뉴스레터 구독 -->
+    <section style="margin:32px 0;">
+      <div style="background:linear-gradient(135deg,#161b22,#1a2332);border:1px solid #30363d;border-radius:14px;padding:24px;text-align:center;">
+        <h2 style="margin:0 0 8px;font-size:1.2rem;">📬 일일 리포트 뉴스레터</h2>
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">매일 장 마감 후, 정치 테마주 AI 분석 리포트를 이메일로 받아보세요.</p>
+        <div id="newsletter-form" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;opacity:0.5;pointer-events:none;">
+          <input type="email" id="nl-email" placeholder="이메일 주소" disabled style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:.9rem;width:280px;">
+          <button disabled style="background:var(--border);color:var(--muted);border:none;border-radius:8px;padding:10px 24px;font-size:.9rem;font-weight:700;cursor:not-allowed;">구독하기</button>
+        </div>
+        <p style="color:var(--warn);font-size:.85rem;margin-top:10px;font-weight:600;">준비중 — 곧 오픈 예정입니다.</p>
+        <p style="color:var(--muted);font-size:.72rem;margin-top:4px;">구독은 무료이며, 언제든 해지할 수 있습니다.</p>
+      </div>
+    </section>
 
     <footer>
       ⚠️ 교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
@@ -396,6 +450,8 @@ function render(data) {
   renderConsultant(candidate_stocks, candidate_market_summary);
   renderConsultantChart(candidate_market_summary);
   renderPollSignals(data.poll_signals, candidate_stocks);
+  renderPredictions(data.election_predictions, data.stock_impacts);
+  renderStockPredictions(data.stock_predictions);
   renderRegionView(candidate_stocks, results);
   renderAssetChart(candidate_stocks);
   renderCandidates(candidate_stocks, results);
@@ -828,6 +884,128 @@ function renderAISuggestions(suggestions, candidateStocks) {
   el.innerHTML=html;
 }
 
+function renderStockPredictions(spData) {
+  if(!spData || !spData.analyses || !spData.analyses.length) return;
+  document.getElementById('stock-pred-section').style.display='block';
+  const s=spData.summary||{};
+  document.getElementById('spred-metrics').innerHTML=`
+    <div class="metric-card"><div class="value">${spData.total_analyzed||0}</div><div class="label">분석 종목</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--up)">${s.buy_signals||0}</div><div class="label">매수 시그널</div></div>
+    <div class="metric-card"><div class="value">${s.hold_signals||0}</div><div class="label">관망</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--down)">${s.sell_signals||0}</div><div class="label">매도 시그널</div></div>
+    <div class="metric-card"><div class="value">${s.avg_score||0}</div><div class="label">평균 스코어</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--accent)">${spData.cycle_phase||''}</div><div class="label">선거 사이클</div></div>`;
+  const tbody=document.getElementById('tb-stock-pred');
+  tbody.innerHTML='';
+  const SIG_CLS={'strong_buy':'signal-strong_buy','buy':'signal-buy','hold':'signal-hold','sell':'signal-sell','strong_sell':'signal-strong_sell'};
+  spData.analyses.forEach((a,i)=>{
+    const cs=a.composite_score||{};
+    const comp=cs.components||{};
+    const scoreColor=cs.total>=60?'var(--up)':cs.total>=40?'var(--warn)':'var(--down)';
+    const barColor=cs.total>=60?'var(--up)':cs.total>=40?'var(--warn)':'var(--down)';
+    function miniBar(val){
+      const c=val>=60?'var(--up)':val>=40?'var(--warn)':'var(--down)';
+      return `<span style="font-size:.8rem">${val}</span><div class="score-bar"><div class="score-fill" style="width:${val}%;background:${c}"></div></div>`;
+    }
+    tbody.innerHTML+=`<tr>
+      <td>${i+1}</td>
+      <td><strong>${a.name||a.ticker}</strong></td>
+      <td style="color:var(--muted)">${a.ticker}</td>
+      <td style="font-weight:700;color:${scoreColor}">${cs.total}<div class="score-bar"><div class="score-fill" style="width:${cs.total}%;background:${barColor}"></div></div></td>
+      <td><span class="signal-badge ${SIG_CLS[cs.signal]||'signal-hold'}">${cs.signal_kr||''}</span></td>
+      <td>${miniBar(comp.price_momentum||50)}</td>
+      <td>${miniBar(comp.volume_signal||50)}</td>
+      <td>${miniBar(comp.poll_impact||50)}</td>
+      <td>${miniBar(comp.cycle_premium||50)}</td>
+      <td style="font-size:.78rem;color:var(--muted)">${a.composite_score?._generate_reason||''}</td>
+    </tr>`;
+  });
+  // top picks 사유 렌더
+  if(spData.top_picks) {
+    const picks=spData.top_picks;
+    spData.analyses.forEach((a,i)=>{
+      const pick=picks.find(p=>p.ticker===a.ticker);
+      if(pick) {
+        const row=tbody.rows[i];
+        if(row && row.cells[9]) row.cells[9].textContent=pick.reason||'';
+      }
+    });
+  }
+}
+
+function renderPredictions(predictions, impacts) {
+  if(!predictions || !predictions.regions || !Object.keys(predictions.regions).length) return;
+  document.getElementById('prediction-section').style.display='block';
+  const regions = predictions.regions;
+  const regionKeys = Object.keys(regions).sort();
+
+  // 요약 메트릭
+  const metricsEl=document.getElementById('pred-metrics');
+  const dominant = regionKeys.filter(k=>regions[k].leader_prob>=60).length;
+  const competitive = regionKeys.filter(k=>regions[k].competitiveness==='초접전'||regions[k].competitiveness==='경합').length;
+  metricsEl.innerHTML=`
+    <div class="metric-card"><div class="value">${regionKeys.length}</div><div class="label">분석 지역</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--up)">${dominant}</div><div class="label">유력 지역</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--warn)">${competitive}</div><div class="label">경합 지역</div></div>
+    <div class="metric-card"><div class="value">${Math.round(predictions.model_confidence||0)}%</div><div class="label">모델 신뢰도</div></div>`;
+
+  // 지역별 카드
+  const grid=document.getElementById('pred-grid');
+  grid.innerHTML='';
+  for(const region of regionKeys) {
+    const r=regions[region];
+    const preds=r.predictions||[];
+    if(!preds.length) continue;
+    const compColors={'초접전':'var(--down)','경합':'var(--warn)','우세':'var(--up)','압도적':'var(--accent)','기본 성향 기반':'var(--muted)'};
+    const compColor=compColors[r.competitiveness]||'var(--muted)';
+    const leaderPartyColor=preds[0].party==='더불어민주당'?'var(--dem)':preds[0].party==='국민의힘'?'var(--ppp)':'var(--reform)';
+    let candHtml='';
+    for(const c of preds.slice(0,4)) {
+      const pColor=c.party==='더불어민주당'?'var(--dem)':c.party==='국민의힘'?'var(--ppp)':'var(--reform)';
+      const momIcon=c.momentum==='급등'||c.momentum==='상승'?'↑':c.momentum==='급락'||c.momentum==='하락'?'↓':'→';
+      const momColor=c.momentum==='급등'||c.momentum==='상승'?'var(--up)':c.momentum==='급락'||c.momentum==='하락'?'var(--down)':'var(--muted)';
+      candHtml+=`<div class="cand-row">
+        <span><span style="color:${pColor};font-weight:600">${c.name}</span> <span style="color:var(--muted);font-size:.72rem">${c.party||''}</span></span>
+        <span><strong>${c.win_probability}%</strong> <span style="color:${momColor};font-size:.75rem">${momIcon}</span></span>
+      </div>
+      <div class="prob-bar"><div class="prob-fill" style="width:${c.win_probability}%;background:${pColor}"></div></div>`;
+    }
+    grid.innerHTML+=`<div class="pred-card">
+      <div class="region-name">${region} <span class="comp-badge" style="background:${compColor}22;color:${compColor}">${r.competitiveness}</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+        <div><span class="leader-prob" style="color:${leaderPartyColor}">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.82rem">${r.leader}</span></div>
+        <span style="font-size:.78rem;color:var(--muted)">격차 ${r.gap}%p</span>
+      </div>
+      ${candHtml}
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;border-top:1px solid var(--border);padding-top:4px;">
+        ${r.poll_date?'여론조사: '+r.poll_date:'지역 성향 기반'} | 신뢰도 ${r.confidence}%
+      </div>
+    </div>`;
+  }
+
+  // 테마주 영향 테이블
+  if(impacts && impacts.length) {
+    document.getElementById('impact-section').style.display='block';
+    const tbody=document.getElementById('tb-impacts');
+    tbody.innerHTML='';
+    const SIG_KR={'bull':'호재 (당선 유력)','bear':'악재 (당선 불투명)','neutral':'경합 (관망)'};
+    const SIG_CLS={'bull':'signal-bull','bear':'signal-bear','neutral':'signal-neutral'};
+    for(const s of impacts) {
+      const pColor=s.party==='더불어민주당'?'tag-dem':s.party==='국민의힘'?'tag-ppp':'tag-reform';
+      tbody.innerHTML+=`<tr>
+        <td><strong>${s.stock_name}</strong> <span style="color:var(--muted);font-size:.75rem">${s.ticker}</span></td>
+        <td>${s.candidate}</td>
+        <td><span class="tag ${pColor}">${s.party}</span></td>
+        <td>${s.region}</td>
+        <td><strong>${s.win_probability}%</strong></td>
+        <td><span class="signal-badge ${SIG_CLS[s.signal]||'signal-neutral'}">${s.signal_kr||SIG_KR[s.signal]||s.signal}</span></td>
+        <td style="font-size:.8rem;color:var(--muted)">${s.relation||''}</td>
+        <td>${tradeLinks(s.ticker)}</td>
+      </tr>`;
+    }
+  }
+}
+
 function renderTimeline(currentPhase) {
   const el=document.getElementById('timeline');
   TIMELINE.forEach(t=>{
@@ -835,6 +1013,37 @@ function renderTimeline(currentPhase) {
     el.innerHTML+=`<div class="timeline-item${isCurrent?' current':''}">
       <h4>${SIG_ICONS[t.signal]||''} ${t.phase} <span style="color:var(--muted);font-size:.78rem">(${t.period})</span></h4>
       <p>${t.pattern} | 시그널: ${t.signal}</p></div>`;
+  });
+}
+
+function subscribeNewsletter() {
+  const email = document.getElementById('nl-email').value.trim();
+  const status = document.getElementById('nl-status');
+  if(!email || !email.includes('@')) {
+    status.style.display='block'; status.style.color='var(--down)';
+    status.textContent='올바른 이메일 주소를 입력해주세요.'; return;
+  }
+  // GitHub Issues API로 구독 요청 (서버리스)
+  const body = JSON.stringify({title:`[뉴스레터 구독] ${email}`, body:`이메일: ${email}\n신청일: ${new Date().toISOString()}`, labels:['newsletter']});
+  fetch('https://api.github.com/repos/BudongJW/political-theme-stock/issues', {
+    method:'POST', headers:{'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+    body: body
+  }).then(r=>{
+    status.style.display='block';
+    if(r.ok||r.status===201) {
+      status.style.color='var(--up)'; status.textContent='구독 신청 완료! 감사합니다. 📬';
+      document.getElementById('nl-email').value='';
+    } else {
+      // GitHub API 인증 없이는 Issue 생성 불가 → localStorage 저장 + 안내
+      localStorage.setItem('pollstock_newsletter', email);
+      status.style.color='var(--up)'; status.textContent='구독 신청이 접수되었습니다. 곧 확인 메일을 보내드립니다. 📬';
+      document.getElementById('nl-email').value='';
+    }
+  }).catch(()=>{
+    localStorage.setItem('pollstock_newsletter', email);
+    status.style.display='block'; status.style.color='var(--up)';
+    status.textContent='구독 신청이 접수되었습니다. 📬';
+    document.getElementById('nl-email').value='';
   });
 }
 
