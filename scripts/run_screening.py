@@ -1,5 +1,5 @@
 """
-GitHub Actions용 스크리닝 스크립트
+PollStock 스크리닝 스크립트
 결과를 docs/data/latest.json + docs/data/YYYY-MM-DD.json으로 저장
 (GitHub Pages 대시보드가 latest.json을 읽음)
 """
@@ -8,6 +8,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT / "src"))
+
+# .env 파일 로드 (로컬 실행 시)
+try:
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except ImportError:
+    pass
 
 from collectors.stock_collector import StockCollector
 from analyzers.theme_mapper import ThemeMapper
@@ -26,7 +33,8 @@ class SafeEncoder(json.JSONEncoder):
 
 def main():
     sc = StockCollector()
-    tm = ThemeMapper(ROOT / "config" / "politician_stock_map.yaml")
+    tm = ThemeMapper(ROOT / "config" / "politician_stock_map.yaml",
+                     data_dir=str(ROOT / "data" / "raw"))
     pc = PollCollector()
     ac = AssetCollector(data_dir=str(ROOT / "data" / "assets"))
 
@@ -165,15 +173,49 @@ def main():
     except Exception as e:
         print(f"Gemini 테마주 제안 실패 (무시): {e}")
 
+    # 국회의원 요약 (지역별·정당별)
+    assembly_members = tm.get_assembly_members()
+    assembly_by_region = {}
+    assembly_by_party = {}
+    for m in assembly_members:
+        region = m.get("region", "기타")
+        party = m.get("party", "기타")
+        assembly_by_region.setdefault(region, []).append(m)
+        assembly_by_party.setdefault(party, []).append({
+            "name": m["name"], "district": m.get("district", ""),
+            "region": region, "election_type": m.get("election_type", ""),
+        })
+    print(f"22대 국회의원: {len(assembly_members)}명 ({len(assembly_by_region)}개 지역)")
+
+    # 전체 지방선거 후보 (YAML+JSON 병합 결과)
+    all_local_candidates = []
+    for c in tm.data.get("local_candidates_2026", []):
+        all_local_candidates.append({
+            "name": c.get("name", ""),
+            "party": c.get("party", ""),
+            "role": c.get("role", ""),
+            "region": c.get("region", ""),
+            "has_stocks": len(c.get("related_stocks", [])) > 0,
+        })
+    print(f"지방선거 후보: {len(all_local_candidates)}명")
+
     output = {
         "date": today,
         "election_phase": phase,
         "total_tracked": len(tickers),
+        "total_politicians": len(assembly_members) + len(all_local_candidates),
         "candidates": candidates,
         "candidate_stocks": candidate_stocks,
         "candidate_market_summary": candidate_market_summary,
         "stock_contexts": stock_contexts,
         "screening_results": enriched,
+        "assembly_members": {
+            "total": len(assembly_members),
+            "by_region": {k: len(v) for k, v in assembly_by_region.items()},
+            "by_party": {k: len(v) for k, v in assembly_by_party.items()},
+            "members": assembly_members,
+        },
+        "local_candidates": all_local_candidates,
         "ai_report": daily_report,
         "ai_suggestions": suggestions,
         "summary": {
