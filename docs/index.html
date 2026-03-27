@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정치 테마주 분석 대시보드</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d1117; --card: #161b22; --border: #30363d;
+      --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff;
+      --up: #3fb950; --down: #f85149; --warn: #d29922;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, 'Pretendard', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { text-align: center; padding: 30px 0 20px; }
+    header h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    header p { color: var(--muted); font-size: 0.9rem; }
+
+    /* Metric Cards */
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+    .metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+    .metric-card .value { font-size: 1.8rem; font-weight: 700; }
+    .metric-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+    /* Phase Banner */
+    .phase-banner { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin: 16px 0; display: flex; align-items: center; gap: 12px; }
+    .phase-banner .icon { font-size: 2rem; }
+    .phase-banner .info h3 { font-size: 1rem; }
+    .phase-banner .info p { color: var(--muted); font-size: 0.85rem; }
+
+    /* Sections */
+    section { margin: 28px 0; }
+    section h2 { font-size: 1.2rem; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th { background: var(--card); color: var(--muted); text-align: left; padding: 10px 12px; font-weight: 600; position: sticky; top: 0; }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    tr:hover { background: rgba(88,166,255,0.05); }
+    .up { color: var(--up); } .down { color: var(--down); }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+    .badge-surge { background: rgba(248,81,73,0.2); color: var(--down); }
+    .badge-safe { background: rgba(63,185,80,0.1); color: var(--muted); }
+
+    /* Chart */
+    .chart-container { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+
+    /* Candidate Tabs */
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tab-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+    .tab-btn:hover { border-color: var(--accent); }
+    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--border); }
+    .timeline-item.current::before { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
+    .timeline-item h4 { font-size: 0.95rem; }
+    .timeline-item p { color: var(--muted); font-size: 0.85rem; }
+
+    /* Footer */
+    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 0.8rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* Loading */
+    #loading { text-align: center; padding: 60px; color: var(--muted); }
+    #app { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="loading">데이터를 불러오는 중...</div>
+    <div id="app">
+
+      <header>
+        <h1>🗳️ 정치 테마주 분석 대시보드</h1>
+        <p>제9회 전국동시지방선거 (2026.06.03) 기반 테마주 실시간 모니터링</p>
+      </header>
+
+      <!-- Metrics -->
+      <div class="metrics">
+        <div class="metric-card">
+          <div class="value" id="m-dday">-</div>
+          <div class="label">선거까지</div>
+        </div>
+        <div class="metric-card">
+          <div class="value" id="m-phase">-</div>
+          <div class="label">현재 단계</div>
+        </div>
+        <div class="metric-card">
+          <div class="value" style="color:var(--up)" id="m-up">-</div>
+          <div class="label">상승 종목</div>
+        </div>
+        <div class="metric-card">
+          <div class="value" style="color:var(--down)" id="m-down">-</div>
+          <div class="label">하락 종목</div>
+        </div>
+        <div class="metric-card">
+          <div class="value" style="color:var(--warn)" id="m-surge">-</div>
+          <div class="label">거래량 급등</div>
+        </div>
+      </div>
+
+      <!-- Phase Banner -->
+      <div class="phase-banner" id="phase-banner">
+        <div class="icon" id="phase-icon">🟡</div>
+        <div class="info">
+          <h3 id="phase-title">-</h3>
+          <p id="phase-desc">-</p>
+        </div>
+      </div>
+
+      <!-- Screening Table -->
+      <section>
+        <h2>📊 오늘의 정치 테마주 스크리닝 (<span id="data-date">-</span>)</h2>
+        <div class="table-wrap">
+          <table id="screening-table">
+            <thead>
+              <tr><th>#</th><th>종목명</th><th>코드</th><th>종가</th><th>등락률</th><th>거래량 배수</th><th>상태</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Chart -->
+      <section>
+        <h2>📈 등락률 차트</h2>
+        <div class="chart-container">
+          <canvas id="chart-bar" height="400"></canvas>
+        </div>
+      </section>
+
+      <!-- Candidate Tabs -->
+      <section>
+        <h2>🏛️ 후보별 관련주</h2>
+        <div class="tabs" id="candidate-tabs"></div>
+        <div id="candidate-contents"></div>
+      </section>
+
+      <!-- Timeline -->
+      <section>
+        <h2>📅 테마주 시즌 타임라인</h2>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <footer>
+        ⚠️ 본 대시보드는 교육/연구 목적으로 제작되었으며, 투자 권유가 아닙니다.<br>
+        <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> |
+        데이터 출처: KRX (pykrx), 중앙선거관리위원회
+      </footer>
+    </div>
+  </div>
+
+<script>
+const SIGNAL_ICONS = {
+  '매수 관심': '🟢', '강한 매수 시그널': '🟢',
+  '고점 주의, 분할 매도 고려': '🟡', '매도 시그널': '🔴', '관망': '⚪'
+};
+
+const TIMELINE_DATA = [
+  { phase: '선거 12~6개월 전', period: '2025-06 ~ 2025-12', pattern: '유력 후보 거론 → 관련주 1차 급등', signal: '매수 관심' },
+  { phase: '선거 6~3개월 전', period: '2025-12 ~ 2026-03', pattern: '경선/여론조사 결과 → 관련주 2차 급등', signal: '강한 매수 시그널' },
+  { phase: '선거 3~1개월 전', period: '2026-03 ~ 2026-05', pattern: '공천 확정 → 최고 과열 구간', signal: '고점 주의, 분할 매도 고려' },
+  { phase: '선거 당일 전후', period: '2026-06-03 전후', pattern: '최고점 도달 후 급락 시작', signal: '매도 시그널' },
+  { phase: '선거 이후', period: '2026-06 ~', pattern: '당락 무관 대부분 급락 마무리', signal: '관망' },
+];
+
+async function init() {
+  try {
+    const resp = await fetch('data/latest.json');
+    const data = await resp.json();
+    render(data);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      '데이터 로드 실패. <a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>';
+  }
+}
+
+function render(data) {
+  const { election_phase: phase, screening_results: results, summary, date, candidate_stocks } = data;
+
+  // Metrics
+  document.getElementById('m-dday').textContent = `D-${phase.days_until_election || '?'}`;
+  document.getElementById('m-phase').textContent = phase.phase || '-';
+  document.getElementById('m-phase').style.fontSize = '0.9rem';
+  document.getElementById('m-up').textContent = summary.up;
+  document.getElementById('m-down').textContent = summary.down;
+  document.getElementById('m-surge').textContent = summary.surge_count;
+  document.getElementById('data-date').textContent = date;
+
+  // Phase banner
+  const sig = phase.signal || '';
+  document.getElementById('phase-icon').textContent = SIGNAL_ICONS[sig] || '⚪';
+  document.getElementById('phase-title').textContent = `${phase.phase}: ${sig}`;
+  document.getElementById('phase-desc').textContent = phase.pattern || '';
+
+  // Table
+  const tbody = document.querySelector('#screening-table tbody');
+  const valid = results.filter(r => r.close > 0);
+  valid.forEach((r, i) => {
+    const pctClass = r.change_pct > 0 ? 'up' : r.change_pct < 0 ? 'down' : '';
+    const badge = r.surge ? '<span class="badge badge-surge">급등</span>' : '<span class="badge badge-safe">-</span>';
+    tbody.innerHTML += `<tr>
+      <td>${i + 1}</td>
+      <td><strong>${r.name}</strong></td>
+      <td style="color:var(--muted)">${r.ticker}</td>
+      <td>${r.close.toLocaleString()}</td>
+      <td class="${pctClass}">${r.change_pct > 0 ? '+' : ''}${r.change_pct.toFixed(2)}%</td>
+      <td>${r.ratio.toFixed(2)}x</td>
+      <td>${badge}</td>
+    </tr>`;
+  });
+
+  // Chart
+  renderChart(valid);
+
+  // Candidate tabs
+  renderCandidates(candidate_stocks || {}, results);
+
+  // Timeline
+  renderTimeline(phase.phase);
+}
+
+function renderChart(results) {
+  const sorted = [...results].sort((a, b) => a.change_pct - b.change_pct);
+  new Chart(document.getElementById('chart-bar'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(r => r.name),
+      datasets: [{
+        data: sorted.map(r => r.change_pct),
+        backgroundColor: sorted.map(r => r.change_pct >= 0 ? 'rgba(63,185,80,0.7)' : 'rgba(248,81,73,0.7)'),
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `${ctx.raw > 0 ? '+' : ''}${ctx.raw.toFixed(2)}%` } }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(48,54,61,0.5)' },
+          ticks: { color: '#8b949e', callback: v => v + '%' }
+        },
+        y: { grid: { display: false }, ticks: { color: '#e6edf3', font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+function renderCandidates(candidateStocks, allResults) {
+  const tabsEl = document.getElementById('candidate-tabs');
+  const contentsEl = document.getElementById('candidate-contents');
+  const names = Object.keys(candidateStocks);
+  if (!names.length) { tabsEl.innerHTML = '<p style="color:var(--muted)">후보 데이터 없음</p>'; return; }
+
+  names.forEach((name, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = name;
+    btn.onclick = () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`tab-${i}`).classList.add('active');
+    };
+    tabsEl.appendChild(btn);
+
+    const info = candidateStocks[name];
+    let html = `<div class="tab-content${i === 0 ? ' active' : ''}" id="tab-${i}">`;
+    html += `<p style="color:var(--muted);margin-bottom:8px">${info.party || ''} | ${info.region || ''}</p>`;
+
+    if (info.screening && info.screening.length) {
+      html += '<table><thead><tr><th>종목명</th><th>코드</th><th>종가</th><th>등락률</th><th>연관</th></tr></thead><tbody>';
+      info.screening.filter(s => s.close > 0).forEach(s => {
+        const stockInfo = (info.stocks || []).find(st => st.ticker === s.ticker);
+        const relation = stockInfo ? stockInfo.relation : '';
+        const cls = s.change_pct > 0 ? 'up' : s.change_pct < 0 ? 'down' : '';
+        html += `<tr><td><strong>${s.name}</strong></td><td>${s.ticker}</td><td>${s.close.toLocaleString()}</td><td class="${cls}">${s.change_pct > 0 ? '+' : ''}${s.change_pct.toFixed(2)}%</td><td style="color:var(--muted);font-size:0.8rem">${relation}</td></tr>`;
+      });
+      html += '</tbody></table>';
+    } else {
+      html += '<p style="color:var(--muted)">관련주 데이터 없음</p>';
+    }
+    html += '</div>';
+    contentsEl.innerHTML += html;
+  });
+}
+
+function renderTimeline(currentPhase) {
+  const el = document.getElementById('timeline');
+  TIMELINE_DATA.forEach(t => {
+    const isCurrent = currentPhase && currentPhase.includes(t.phase.replace('선거 ',''));
+    el.innerHTML += `<div class="timeline-item${isCurrent ? ' current' : ''}">
+      <h4>${SIGNAL_ICONS[t.signal] || ''} ${t.phase} <span style="color:var(--muted);font-size:0.8rem">(${t.period})</span></h4>
+      <p>${t.pattern} | 시그널: ${t.signal}</p>
+    </div>`;
+  });
+}
+
+init();
+</script>
+</body>
+</html>
