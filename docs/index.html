@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>정치 테마주 분석 대시보드</title>
+  <title>PollStock 폴스탁 — 정치 테마주 분석</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     :root {
@@ -75,8 +75,9 @@
   <div id="loading">데이터를 불러오는 중...</div>
   <div id="app">
     <header>
-      <h1>🗳️ 정치 테마주 분석 대시보드</h1>
-      <p>제9회 전국동시지방선거 (2026.06.03) 기반 테마주 모니터링</p>
+      <h1>📊 PollStock 폴스탁</h1>
+      <p style="font-size:1rem;margin-bottom:4px;">여론조사 × 주식 — 정치 테마주 AI 분석 대시보드</p>
+      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span></p>
     </header>
 
     <div class="metrics">
@@ -132,11 +133,38 @@
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
     </section>
 
+    <!-- 지역별 후보 & 테마주 -->
+    <section>
+      <h2>🗺️ 지역별 후보 & 테마주</h2>
+      <div class="tabs" id="region-tabs"></div>
+      <div id="region-contents"></div>
+    </section>
+
+    <!-- 후보별 재산 비교 차트 -->
+    <section>
+      <h2>💰 후보별 재산 비교</h2>
+      <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
+      <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
+    </section>
+
     <!-- 후보별 상세 -->
     <section>
       <h2>👤 후보별 상세 (프로필 · 재산 · 관련주)</h2>
       <div class="tabs" id="candidate-tabs"></div>
       <div id="candidate-contents"></div>
+    </section>
+
+    <!-- AI 일일 리포트 -->
+    <section id="ai-report-section" style="display:none">
+      <h2>🤖 AI 일일 분석 리포트</h2>
+      <div class="profile-card" id="ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
+    </section>
+
+    <!-- AI 테마주 제안 -->
+    <section id="ai-suggest-section" style="display:none">
+      <h2>💡 AI 신규 테마주 제안 (본관·학연·지연·인맥 분석)</h2>
+      <p style="color:var(--muted);font-size:.78rem;margin-bottom:10px;">AI 자동 분석 기반. 투자 참고용이며 직접 검증 필요.</p>
+      <div id="ai-suggestions"></div>
     </section>
 
     <!-- 타임라인 -->
@@ -147,7 +175,8 @@
 
     <footer>
       ⚠️ 교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
-      <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> | 데이터: KRX(pykrx), 중앙선거관리위원회
+      <strong>PollStock 폴스탁</strong> — 여론조사 × 주식 정치 테마주 AI 분석<br>
+      <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> | 데이터: KRX(pykrx), 뉴스타파, 중앙선거관리위원회
     </footer>
   </div>
 </div>
@@ -199,6 +228,7 @@ function render(data) {
   const {election_phase:phase, screening_results:results, summary, date, candidate_stocks, candidate_market_summary, stock_contexts} = data;
 
   document.getElementById('m-dday').textContent=`D-${phase.days_until_election||'?'}`;
+  document.getElementById('header-dday').textContent=phase.days_until_election||'?';
   document.getElementById('m-phase').textContent=phase.phase||'-';
   document.getElementById('m-up').textContent=summary.up;
   document.getElementById('m-down').textContent=summary.down;
@@ -227,7 +257,11 @@ function render(data) {
   renderChart(results);
   renderConsultant(candidate_stocks, candidate_market_summary);
   renderConsultantChart(candidate_market_summary);
+  renderRegionView(candidate_stocks, results);
+  renderAssetChart(candidate_stocks);
   renderCandidates(candidate_stocks, results);
+  renderAIReport(data.ai_report);
+  renderAISuggestions(data.ai_suggestions, candidate_stocks);
   renderTimeline(phase.phase);
 
   // 필터 이벤트
@@ -347,6 +381,84 @@ function renderConsultantChart(summary) {
   });
 }
 
+function renderRegionView(candidateStocks, allResults) {
+  const tabsEl=document.getElementById('region-tabs');
+  const contentsEl=document.getElementById('region-contents');
+  // 지역별 그룹핑
+  const regionMap={};
+  for(const [name,info] of Object.entries(candidateStocks||{})) {
+    const region = info.region||'전국(대선)';
+    if(!regionMap[region]) regionMap[region]=[];
+    regionMap[region].push({name, ...info});
+  }
+  const regions=Object.keys(regionMap).sort();
+  if(!regions.length) return;
+
+  regions.forEach((region,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(i===0?' active':'');
+    btn.textContent=region;
+    btn.onclick=()=>{
+      document.querySelectorAll('#region-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.region-tab-content').forEach(c=>c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`region-${i}`).classList.add('active');
+    };
+    tabsEl.appendChild(btn);
+
+    const cands=regionMap[region];
+    let html=`<div class="region-tab-content tab-content${i===0?' active':''}" id="region-${i}">`;
+    for(const cand of cands) {
+      const ad=cand.assets_detail||{};
+      const assetLink=ad.detail_url?` <a href="${ad.detail_url}" target="_blank" class="btn-trade">재산상세</a>`:'';
+      html+=`<div class="profile-card" style="margin-bottom:8px">
+        <h4>${cand.name} ${makePartyTag(cand.party)}</h4>
+        <div class="meta">${cand.role||''} ${cand.poll_status?'| '+cand.poll_status:''}</div>
+        ${cand.profile?`<div class="profile-text" style="font-size:.84rem">📋 ${cand.profile}</div>`:''}
+        ${cand.assets?`<div style="color:var(--warn);font-size:.85rem;margin-top:2px">💰 ${cand.assets}${assetLink}</div>`:''}`;
+      // 관련 종목 미니 테이블
+      const screening=cand.screening||[];
+      const stocks=cand.stocks||[];
+      if(stocks.length) {
+        html+='<table style="margin-top:8px;font-size:.8rem"><thead><tr><th>종목</th><th>연관</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
+        for(const s of stocks) {
+          const sr=screening.find(r=>r.ticker===s.ticker);
+          const cls=sr&&sr.change_pct>0?'up':sr&&sr.change_pct<0?'down':'';
+          const close=sr?sr.close.toLocaleString():'-';
+          const chg=sr?`${sr.change_pct>0?'+':''}${sr.change_pct.toFixed(2)}%`:'-';
+          html+=`<tr><td><strong>${s.name}</strong></td><td>${s.relation||''}</td><td>${close}</td><td class="${cls}">${chg}</td><td>${tradeLinks(s.ticker)}</td></tr>`;
+        }
+        html+='</tbody></table>';
+      }
+      html+='</div>';
+    }
+    html+='</div>';
+    contentsEl.innerHTML+=html;
+  });
+}
+
+function renderAssetChart(candidateStocks) {
+  const entries = Object.entries(candidateStocks||{})
+    .filter(([,info])=>info.assets_detail && info.assets_detail.total_억원>0)
+    .sort((a,b)=>b[1].assets_detail.total_억원 - a[1].assets_detail.total_억원);
+  if(!entries.length) return;
+  const names=entries.map(([n])=>n);
+  const values=entries.map(([,info])=>info.assets_detail.total_억원);
+  const parties=entries.map(([,info])=>info.party||'');
+  const colors=parties.map(p=>p==='더불어민주당'?'rgba(28,109,208,.7)':p==='국민의힘'?'rgba(230,57,74,.7)':'rgba(243,156,18,.7)');
+  new Chart(document.getElementById('chart-assets'),{
+    type:'bar',
+    data:{labels:names,datasets:[{label:'재산(억원)',data:values,backgroundColor:colors,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        label:ctx=>`${ctx.raw}억원`,
+        afterLabel:ctx=>{const info=entries[ctx.dataIndex][1];return `${info.role||''} | ${info.party||''}`;}
+      }}},
+      scales:{y:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'억원'}},
+        x:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}}}
+  });
+}
+
 function renderCandidates(candidateStocks, allResults) {
   const tabsEl=document.getElementById('candidate-tabs');
   const contentsEl=document.getElementById('candidate-contents');
@@ -368,12 +480,15 @@ function renderCandidates(candidateStocks, allResults) {
 
     let html=`<div class="tab-content${i===0?' active':''}" id="tab-${i}">`;
 
-    // 프로필 카드
+    // 프로필 카드 (재산 상세 + 뉴스타파 링크)
+    const ad = info.assets_detail||{};
+    const assetLink = ad.detail_url ? `<a href="${ad.detail_url}" target="_blank" class="btn-trade" style="margin-left:6px">뉴스타파 상세</a>` : '';
+    const assetSource = ad.source ? `<span style="font-size:.72rem;color:var(--muted);margin-left:6px">(출처: ${ad.source})</span>` : '';
     html+=`<div class="profile-card">
-      <h4>${name}</h4>
+      <h4>${name} ${makePartyTag(info.party)}</h4>
       <div class="meta">${info.role||''} | ${info.region||''} ${info.poll_status?'| '+info.poll_status:''}</div>
       ${info.profile?`<div class="profile-text">📋 ${info.profile}</div>`:''}
-      ${info.assets?`<div class="assets">💰 재산: ${info.assets}</div>`:''}
+      ${info.assets?`<div class="assets">💰 재산: ${info.assets} ${assetSource} ${assetLink}</div>`:''}
     </div>`;
 
     // 관련주 테이블
@@ -394,6 +509,43 @@ function renderCandidates(candidateStocks, allResults) {
     html+='</div>';
     contentsEl.innerHTML+=html;
   });
+}
+
+const CATEGORY_LABELS = {policy:'정책/공약',region:'지역(지연)',career:'경력',network:'인맥/측근',clan:'본관(종친)',school:'학연',family:'혈연/인척'};
+
+function renderAIReport(report) {
+  if(!report) return;
+  document.getElementById('ai-report-section').style.display='block';
+  document.getElementById('ai-report').textContent=report;
+}
+
+function renderAISuggestions(suggestions, candidateStocks) {
+  if(!suggestions || !Object.keys(suggestions).length) return;
+  document.getElementById('ai-suggest-section').style.display='block';
+  const el=document.getElementById('ai-suggestions');
+  let html='';
+  for(const [name, items] of Object.entries(suggestions)) {
+    const info = candidateStocks[name]||{};
+    html+=`<div class="profile-card" style="margin-bottom:10px">
+      <h4>${name} ${makePartyTag(info.party||'')} <span style="color:var(--muted);font-size:.8rem">${info.region||''}</span></h4>
+      <table style="margin-top:6px"><thead><tr>
+        <th>종목</th><th>코드</th><th>분류</th><th>신뢰도</th><th>관련 이유</th><th>매매</th>
+      </tr></thead><tbody>`;
+    for(const s of items) {
+      const catLabel = CATEGORY_LABELS[s.category]||s.category||'';
+      const confColor = s.confidence==='high'?'var(--up)':s.confidence==='medium'?'var(--warn)':'var(--muted)';
+      html+=`<tr>
+        <td><strong>${s.name||''}</strong></td>
+        <td style="color:var(--muted)">${s.ticker||''}</td>
+        <td><span class="tag tag-theme">${catLabel}</span></td>
+        <td style="color:${confColor};font-weight:600">${s.confidence||''}</td>
+        <td style="font-size:.8rem">${s.relation||''}</td>
+        <td>${tradeLinks(s.ticker||'')}</td>
+      </tr>`;
+    }
+    html+='</tbody></table></div>';
+  }
+  el.innerHTML=html;
 }
 
 function renderTimeline(currentPhase) {

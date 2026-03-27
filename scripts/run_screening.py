@@ -12,6 +12,9 @@ sys.path.insert(0, str(ROOT / "src"))
 from collectors.stock_collector import StockCollector
 from analyzers.theme_mapper import ThemeMapper
 from collectors.poll_collector import PollCollector
+from collectors.asset_collector import AssetCollector
+from analyzers.gemini_analyzer import GeminiAnalyzer
+from analyzers.auto_mapper import AutoMapper
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -25,6 +28,7 @@ def main():
     sc = StockCollector()
     tm = ThemeMapper(ROOT / "config" / "politician_stock_map.yaml")
     pc = PollCollector()
+    ac = AssetCollector(data_dir=str(ROOT / "data" / "assets"))
 
     tickers = tm.get_all_tickers()
     results = sc.screen_theme_stocks(tickers, surge_ratio=2.0)
@@ -36,7 +40,19 @@ def main():
     today = datetime.date.today().isoformat()
 
     # 후보별 관련주 매핑 (프로필·재산·정당·지역 포함)
+    # 뉴스타파 API로 실시간 재산 데이터 수집
+    all_candidate_names = []
     local_cands = tm.data.get("local_candidates_2026", [])
+    for cand in local_cands:
+        if cand.get("name"):
+            all_candidate_names.append(cand["name"])
+    for pol in tm.data.get("politicians", []):
+        if pol.get("name"):
+            all_candidate_names.append(pol["name"])
+
+    asset_data = ac.get_multiple(all_candidate_names)
+    print(f"재산 데이터 수집: {sum(1 for v in asset_data.values() if v.get('source') != 'none')}/{len(all_candidate_names)}명 성공")
+
     candidate_stocks = {}
     for cand in local_cands:
         name = cand.get("name", "")
@@ -44,12 +60,19 @@ def main():
         if stocks:
             ticker_list = [s["ticker"] for s in stocks]
             matched = [r for r in results if r["ticker"] in ticker_list]
+            ad = asset_data.get(name, {})
             candidate_stocks[name] = {
                 "party": cand.get("party", ""),
                 "region": cand.get("region", ""),
                 "role": cand.get("role", ""),
                 "profile": cand.get("profile", ""),
-                "assets": cand.get("assets", ""),
+                "assets": ad.get("total_display") or cand.get("assets", ""),
+                "assets_detail": {
+                    "total_억원": ad.get("total_억원", 0),
+                    "source": ad.get("source", ""),
+                    "detail_url": ad.get("detail_url", ""),
+                    "position": ad.get("position", ""),
+                },
                 "election": cand.get("election", ""),
                 "poll_status": cand.get("poll_status", ""),
                 "stocks": stocks,
@@ -61,12 +84,19 @@ def main():
         if pol_stocks:
             ticker_list = [s["ticker"] for s in pol_stocks]
             matched = [r for r in results if r["ticker"] in ticker_list]
+            ad = asset_data.get(pol_name, {})
             candidate_stocks[pol_name] = {
                 "party": pol.get("party", ""),
                 "region": "전국(대선)",
                 "role": pol.get("role", ""),
                 "profile": pol.get("profile", ""),
-                "assets": pol.get("assets", ""),
+                "assets": ad.get("total_display") or pol.get("assets", ""),
+                "assets_detail": {
+                    "total_억원": ad.get("total_억원", 0),
+                    "source": ad.get("source", ""),
+                    "detail_url": ad.get("detail_url", ""),
+                    "position": ad.get("position", ""),
+                },
                 "election": pol.get("election", ""),
                 "stocks": pol_stocks,
                 "screening": matched,
@@ -103,6 +133,38 @@ def main():
             "region": info.get("region", ""),
         }
 
+    # Gemini AI 분석 (캐싱 — 같은 날 재실행 시 API 미호출)
+    ga = GeminiAnalyzer(cache_dir=str(ROOT / "data" / "gemini_cache"))
+    am = AutoMapper(tm, ga, output_dir=str(ROOT / "data" / "suggestions"))
+
+    # 일일 리포트 생성 (output 완성 전이므로 임시 데이터로)
+    report_input = {
+        "date": today,
+        "screening_results": enriched,
+        "summary": {
+            "up": sum(1 for r in results if r.get("change_pct", 0) > 0),
+            "down": sum(1 for r in results if r.get("change_pct", 0) < 0),
+            "surge_count": sum(1 for r in results if r.get("surge")),
+        },
+        "election_phase": phase,
+        "candidate_market_summary": candidate_market_summary,
+    }
+    daily_report = ""
+    try:
+        daily_report = ga.generate_daily_report(report_input)
+        print(f"Gemini 일일 리포트 생성 완료")
+    except Exception as e:
+        print(f"Gemini 리포트 생성 실패 (무시): {e}")
+
+    # 테마주 자동 제안 (캐싱 — 같은 날 재실행 시 API 미호출)
+    suggestions = {}
+    try:
+        suggestions = am.suggest_for_all()
+        new_tickers = am.get_new_tickers(suggestions)
+        print(f"Gemini 테마주 제안: {sum(len(v) for v in suggestions.values())}개 ({len(new_tickers)}개 신규)")
+    except Exception as e:
+        print(f"Gemini 테마주 제안 실패 (무시): {e}")
+
     output = {
         "date": today,
         "election_phase": phase,
@@ -112,6 +174,8 @@ def main():
         "candidate_market_summary": candidate_market_summary,
         "stock_contexts": stock_contexts,
         "screening_results": enriched,
+        "ai_report": daily_report,
+        "ai_suggestions": suggestions,
         "summary": {
             "up": sum(1 for r in results if r.get("change_pct", 0) > 0),
             "down": sum(1 for r in results if r.get("change_pct", 0) < 0),
