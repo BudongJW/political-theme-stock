@@ -1,21 +1,20 @@
 """
 Gemini API 기반 정치 뉴스 분석 + 테마주 자동 매핑
-- Claude API의 무료 대안 (Gemini 2.5 Flash)
+- google.genai SDK (신규 패키지) 사용
 - 뉴스 감성 분석 + 신규 테마주 후보 자동 제안
 """
 import hashlib
 import json
 import logging
 import os
-import random
 from datetime import datetime
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-# Gemini API 키 로테이션 풀 (환경변수에서 로드)
-# GEMINI_API_KEY: 메인 키 (필수)
-# GEMINI_API_KEY_2: 로테이션용 보조 키 (선택)
+MODEL_NAME = "gemini-2.5-flash"
+
+
 def _load_api_keys() -> list[str]:
     keys = []
     main_key = os.environ.get("GEMINI_API_KEY", "")
@@ -26,12 +25,13 @@ def _load_api_keys() -> list[str]:
         keys.append(key2)
     return keys
 
+
 GEMINI_API_KEYS = _load_api_keys()
 
 
 class GeminiAnalyzer:
     def __init__(self, api_keys: list[str] = None, cache_dir: str = "data/gemini_cache"):
-        import google.generativeai as genai
+        from google import genai
 
         self._genai = genai
         self._keys = api_keys or GEMINI_API_KEYS
@@ -48,8 +48,7 @@ class GeminiAnalyzer:
         self._cache_dir.mkdir(parents=True, exist_ok=True)
 
     def _configure_key(self, key: str):
-        self._genai.configure(api_key=key)
-        self.model = self._genai.GenerativeModel("gemini-2.5-flash")
+        self._client = self._genai.Client(api_key=key)
         self._current_key = key
 
     def _rotate_key(self):
@@ -83,16 +82,25 @@ class GeminiAnalyzer:
     def _call(self, prompt: str, retries: int = 1) -> str:
         if getattr(self, '_disabled', False):
             return ""
+        tried_keys = set()
         for attempt in range(retries + 1):
             try:
-                response = self.model.generate_content(prompt)
+                response = self._client.models.generate_content(
+                    model=MODEL_NAME, contents=prompt
+                )
                 return response.text.strip()
             except Exception as e:
                 err_str = str(e).lower()
-                if ("quota" in err_str or "429" in err_str or "leaked" in err_str) and attempt < retries:
-                    logger.warning(f"Gemini 할당량 초과/키 문제, 키 로테이션 시도")
-                    self._rotate_key()
-                    continue
+                is_quota = "quota" in err_str or "429" in err_str or "leaked" in err_str
+                if is_quota:
+                    tried_keys.add(self._key_idx)
+                    if len(tried_keys) < len(self._keys):
+                        logger.warning(f"Gemini 할당량 초과, 키 로테이션 시도")
+                        self._rotate_key()
+                        continue
+                    else:
+                        logger.error(f"Gemini API 모든 키 할당량 초과 — 건너뜀")
+                        return ""
                 logger.error(f"Gemini API 호출 실패: {e}")
                 return ""
 

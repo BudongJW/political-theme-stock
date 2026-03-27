@@ -8,6 +8,7 @@
     "election_name": "제9회 전국동시지방선거"
   },
   "total_tracked": 43,
+  "total_politicians": 380,
   "candidates": [
     {
       "name": "정원오",
@@ -195,11 +196,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.48,
-          "today_volume": 78662,
+          "ratio": 0.49,
+          "today_volume": 80548,
           "avg_volume": 165465,
-          "close": 2250,
-          "change_pct": -0.22,
+          "close": 2245,
+          "change_pct": -0.44,
           "ticker": "038540",
           "name": "상상인",
           "tags": [
@@ -219,35 +220,11 @@
         },
         {
           "surge": false,
-          "ratio": 0.47,
-          "today_volume": 29481,
-          "avg_volume": 62692,
-          "close": 7010,
-          "change_pct": 1.59,
-          "ticker": "045340",
-          "name": "토탈소프트",
-          "tags": [
-            "정원오 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "정원오",
-              "party": "더불어민주당",
-              "role": "서울시장 후보 (경선 중)",
-              "region": "서울",
-              "relation": "종친(경주 정씨) 연결",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.27,
-          "today_volume": 21117,
+          "ratio": 0.34,
+          "today_volume": 26916,
           "avg_volume": 78636,
-          "close": 45900,
-          "change_pct": 0.0,
+          "close": 45700,
+          "change_pct": -0.44,
           "ticker": "058430",
           "name": "포스코스틸리온",
           "tags": [
@@ -267,11 +244,35 @@
         },
         {
           "surge": false,
-          "ratio": 0.4,
-          "today_volume": 43764,
+          "ratio": 0.85,
+          "today_volume": 53510,
+          "avg_volume": 62692,
+          "close": 7050,
+          "change_pct": 2.17,
+          "ticker": "045340",
+          "name": "토탈소프트",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "종친(경주 정씨) 연결",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.43,
+          "today_volume": 48004,
           "avg_volume": 110655,
-          "close": 16970,
-          "change_pct": 1.5,
+          "close": 16900,
+          "change_pct": 1.08,
           "ticker": "030190",
           "name": "NICE평가정보",
           "tags": [
@@ -291,11 +292,11 @@
         },
         {
           "surge": false,
-          "ratio": 0.68,
-          "today_volume": 185431,
+          "ratio": 0.69,
+          "today_volume": 186550,
           "avg_volume": 270841,
-          "close": 505,
-          "change_pct": -0.59,
+          "close": 503,
+          "change_pct": -0.98,
           "ticker": "007720",
           "name": "소노스퀘어",
           "tags": [
@@ -344,11 +345,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.38,
-          "today_volume": 647360,
+          "ratio": 0.41,
+          "today_volume": 702841,
           "avg_volume": 1705580,
-          "close": 155400,
-          "change_pct": 0.45,
+          "close": 154900,
+          "change_pct": 0.13,
           "ticker": "000270",
           "name": "기아",
           "tags": [
@@ -368,11 +369,11 @@
         },
         {
           "surge": false,
-          "ratio": 1.92,
-          "today_volume": 97840,
+          "ratio": 1.98,
+          "today_volume": 100526,
           "avg_volume": 50865,
-          "close": 130500,
-          "change_pct": 4.32,
+          "close": 130200,
+          "change_pct": 4.08,
           "ticker": "282330",
           "name": "BGF리테일",
           "tags": [
@@ -421,35 +422,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.62,
-          "today_volume": 1865975,
-          "avg_volume": 3028026,
-          "close": 25200,
-          "change_pct": 1.0,
-          "ticker": "003490",
-          "name": "대한항공",
-          "tags": [
-            "김동연 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "김동연",
-              "party": "더불어민주당",
-              "role": "경기지사 후보 (현직, 경선 중)",
-              "region": "경기",
-              "relation": "경기도 항공 물류 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.29,
-          "today_volume": 90101,
+          "ratio": 0.32,
+          "today_volume": 97973,
           "avg_volume": 310852,
-          "close": 335000,
-          "change_pct": -0.45,
+          "close": 334500,
+          "change_pct": -0.59,
           "ticker": "034730",
           "name": "SK",
           "tags": [
@@ -463,6 +440,30 @@
               "role": "경기지사 후보 (현직, 경선 중)",
               "region": "경기",
               "relation": "경기도 반도체 클러스터 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.69,
+          "today_volume": 2079899,
+          "avg_volume": 3028026,
+          "close": 25050,
+          "change_pct": 0.4,
+          "ticker": "003490",
+          "name": "대한항공",
+          "tags": [
+            "김동연 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "김동연",
+              "party": "더불어민주당",
+              "role": "경기지사 후보 (현직, 경선 중)",
+              "region": "경기",
+              "relation": "경기도 항공 물류 정책",
               "election": "2026지방선거"
             }
           ]
@@ -493,11 +494,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.5,
-          "today_volume": 2428656,
+          "ratio": 0.57,
+          "today_volume": 2778188,
           "avg_volume": 4852095,
-          "close": 66800,
-          "change_pct": 2.3,
+          "close": 66900,
+          "change_pct": 2.45,
           "ticker": "006800",
           "name": "미래에셋증권",
           "tags": [
@@ -551,13 +552,13 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.48,
-          "today_volume": 126445,
-          "avg_volume": 262758,
-          "close": 177200,
-          "change_pct": -3.33,
-          "ticker": "010060",
-          "name": "OCI홀딩스",
+          "ratio": 0.64,
+          "today_volume": 349185,
+          "avg_volume": 546384,
+          "close": 34400,
+          "change_pct": -3.78,
+          "ticker": "003160",
+          "name": "디아이",
           "tags": [
             "박찬대 관련주"
           ],
@@ -568,18 +569,18 @@
               "party": "더불어민주당",
               "role": "인천시장 후보 (단수 공천 확정)",
               "region": "인천",
-              "relation": "인천 기반 기업",
+              "relation": "인천 지역 연관",
               "election": "2026지방선거"
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 0.34,
-          "today_volume": 1135154,
+          "ratio": 0.41,
+          "today_volume": 1341562,
           "avg_volume": 3298874,
-          "close": 19620,
-          "change_pct": -0.96,
+          "close": 19600,
+          "change_pct": -1.06,
           "ticker": "011200",
           "name": "HMM",
           "tags": [
@@ -609,13 +610,13 @@
         },
         {
           "surge": false,
-          "ratio": 0.61,
-          "today_volume": 335499,
-          "avg_volume": 546384,
-          "close": 34700,
-          "change_pct": -2.94,
-          "ticker": "003160",
-          "name": "디아이",
+          "ratio": 0.54,
+          "today_volume": 140807,
+          "avg_volume": 262758,
+          "close": 178000,
+          "change_pct": -2.89,
+          "ticker": "010060",
+          "name": "OCI홀딩스",
           "tags": [
             "박찬대 관련주"
           ],
@@ -626,7 +627,7 @@
               "party": "더불어민주당",
               "role": "인천시장 후보 (단수 공천 확정)",
               "region": "인천",
-              "relation": "인천 지역 연관",
+              "relation": "인천 기반 기업",
               "election": "2026지방선거"
             }
           ]
@@ -667,35 +668,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.45,
-          "today_volume": 145985,
-          "avg_volume": 325920,
-          "close": 100200,
-          "change_pct": 1.21,
-          "ticker": "000100",
-          "name": "유한양행",
-          "tags": [
-            "박형준 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "박형준",
-              "party": "국민의힘",
-              "role": "부산시장 후보 (현직, 3선 도전 유력)",
-              "region": "부산",
-              "relation": "부산 바이오 클러스터 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.34,
-          "today_volume": 1135154,
+          "ratio": 0.41,
+          "today_volume": 1341562,
           "avg_volume": 3298874,
-          "close": 19620,
-          "change_pct": -0.96,
+          "close": 19600,
+          "change_pct": -1.06,
           "ticker": "011200",
           "name": "HMM",
           "tags": [
@@ -748,6 +725,30 @@
               "role": "부산시장 후보 (출마 공식화)",
               "region": "부산",
               "relation": "부산 조선업",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.5,
+          "today_volume": 164031,
+          "avg_volume": 325920,
+          "close": 100000,
+          "change_pct": 1.01,
+          "ticker": "000100",
+          "name": "유한양행",
+          "tags": [
+            "박형준 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "부산시장 후보 (현직, 3선 도전 유력)",
+              "region": "부산",
+              "relation": "부산 바이오 클러스터 정책",
               "election": "2026지방선거"
             }
           ]
@@ -855,11 +856,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.44,
-          "today_volume": 1100797,
+          "ratio": 0.46,
+          "today_volume": 1165542,
           "avg_volume": 2513756,
-          "close": 48750,
-          "change_pct": 0.21,
+          "close": 48700,
+          "change_pct": 0.1,
           "ticker": "035720",
           "name": "카카오",
           "tags": [
@@ -884,15 +885,16 @@
         },
         {
           "surge": false,
-          "ratio": 0.96,
-          "today_volume": 47400,
-          "avg_volume": 49573,
-          "close": 1920,
-          "change_pct": -2.49,
-          "ticker": "010040",
-          "name": "한국내화",
+          "ratio": 0.35,
+          "today_volume": 421589,
+          "avg_volume": 1221049,
+          "close": 183600,
+          "change_pct": -3.27,
+          "ticker": "064350",
+          "name": "현대로템",
           "tags": [
-            "이재명 관련주"
+            "이재명 관련주",
+            "방산 테마"
           ],
           "reasons": [
             {
@@ -900,41 +902,23 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (2025.06~ 현직)",
-              "relation": "대선 캠프 인사 연관",
+              "relation": "공약(방산)",
               "election": "대선"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.52,
-          "today_volume": 2054572,
-          "avg_volume": 3937839,
-          "close": 28300,
-          "change_pct": -2.41,
-          "ticker": "001440",
-          "name": "대한전선",
-          "tags": [
-            "이재명 관련주"
-          ],
-          "reasons": [
+            },
             {
-              "type": "politician",
-              "name": "이재명",
-              "party": "더불어민주당",
-              "role": "대통령 (2025.06~ 현직)",
-              "relation": "대선 캠프 인사 연관",
-              "election": "대선"
+              "type": "policy_theme",
+              "theme": "방산",
+              "description": ""
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 0.28,
-          "today_volume": 101598,
+          "ratio": 0.34,
+          "today_volume": 123776,
           "avg_volume": 359183,
-          "close": 10960,
-          "change_pct": 0.55,
+          "close": 10910,
+          "change_pct": 0.09,
           "ticker": "001500",
           "name": "현대차증권",
           "tags": [
@@ -965,16 +949,15 @@
         },
         {
           "surge": false,
-          "ratio": 0.32,
-          "today_volume": 395337,
-          "avg_volume": 1221049,
-          "close": 184300,
-          "change_pct": -2.9,
-          "ticker": "064350",
-          "name": "현대로템",
+          "ratio": 0.55,
+          "today_volume": 2148789,
+          "avg_volume": 3937839,
+          "close": 28250,
+          "change_pct": -2.59,
+          "ticker": "001440",
+          "name": "대한전선",
           "tags": [
-            "이재명 관련주",
-            "방산 테마"
+            "이재명 관련주"
           ],
           "reasons": [
             {
@@ -982,23 +965,41 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (2025.06~ 현직)",
-              "relation": "공약(방산)",
+              "relation": "대선 캠프 인사 연관",
               "election": "대선"
-            },
-            {
-              "type": "policy_theme",
-              "theme": "방산",
-              "description": ""
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 0.74,
-          "today_volume": 25287628,
+          "ratio": 1.04,
+          "today_volume": 51521,
+          "avg_volume": 49573,
+          "close": 1923,
+          "change_pct": -2.34,
+          "ticker": "010040",
+          "name": "한국내화",
+          "tags": [
+            "이재명 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (2025.06~ 현직)",
+              "relation": "대선 캠프 인사 연관",
+              "election": "대선"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.78,
+          "today_volume": 26868601,
           "avg_volume": 34296630,
-          "close": 180200,
-          "change_pct": 0.06,
+          "close": 179200,
+          "change_pct": -0.5,
           "ticker": "005930",
           "name": "삼성전자",
           "tags": [
@@ -1056,63 +1057,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.4,
-          "today_volume": 414034,
-          "avg_volume": 1023626,
-          "close": 187600,
-          "change_pct": -0.21,
-          "ticker": "047810",
-          "name": "한국항공우주",
-          "tags": [
-            "김문수 관련주",
-            "방산 테마"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "김문수",
-              "party": "국민의힘",
-              "role": "전 대선 후보",
-              "relation": "공약(방산)",
-              "election": "대선"
-            },
-            {
-              "type": "policy_theme",
-              "theme": "방산",
-              "description": ""
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.68,
-          "today_volume": 244743,
-          "avg_volume": 362527,
-          "close": 408500,
-          "change_pct": 2.51,
-          "ticker": "012330",
-          "name": "현대모비스",
-          "tags": [
-            "김문수 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "김문수",
-              "party": "국민의힘",
-              "role": "전 대선 후보",
-              "relation": "연관 테마",
-              "election": "대선"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.49,
-          "today_volume": 3221369,
+          "ratio": 0.52,
+          "today_volume": 3400537,
           "avg_volume": 6548863,
-          "close": 98200,
-          "change_pct": -2.68,
+          "close": 97800,
+          "change_pct": -3.07,
           "ticker": "034020",
           "name": "두산에너빌리티",
           "tags": [
@@ -1131,6 +1080,58 @@
             {
               "type": "policy_theme",
               "theme": "원전",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.73,
+          "today_volume": 264485,
+          "avg_volume": 362527,
+          "close": 407500,
+          "change_pct": 2.26,
+          "ticker": "012330",
+          "name": "현대모비스",
+          "tags": [
+            "김문수 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "김문수",
+              "party": "국민의힘",
+              "role": "전 대선 후보",
+              "relation": "연관 테마",
+              "election": "대선"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.43,
+          "today_volume": 445150,
+          "avg_volume": 1023626,
+          "close": 185900,
+          "change_pct": -1.12,
+          "ticker": "047810",
+          "name": "한국항공우주",
+          "tags": [
+            "김문수 관련주",
+            "방산 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "김문수",
+              "party": "국민의힘",
+              "role": "전 대선 후보",
+              "relation": "공약(방산)",
+              "election": "대선"
+            },
+            {
+              "type": "policy_theme",
+              "theme": "방산",
               "description": ""
             }
           ]
@@ -1165,34 +1166,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.54,
-          "today_volume": 209160,
-          "avg_volume": 387270,
-          "close": 52200,
-          "change_pct": 1.36,
-          "ticker": "251270",
-          "name": "넷마블",
-          "tags": [
-            "이준석 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "이준석",
-              "party": "개혁신당",
-              "role": "대선 후보",
-              "relation": "연관 테마",
-              "election": "대선"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.42,
-          "today_volume": 370724,
+          "ratio": 0.45,
+          "today_volume": 390875,
           "avg_volume": 873483,
-          "close": 212750,
-          "change_pct": 0.59,
+          "close": 212500,
+          "change_pct": 0.47,
           "ticker": "035420",
           "name": "NAVER",
           "tags": [
@@ -1214,6 +1192,29 @@
               "description": ""
             }
           ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.57,
+          "today_volume": 221224,
+          "avg_volume": 387270,
+          "close": 52300,
+          "change_pct": 1.55,
+          "ticker": "251270",
+          "name": "넷마블",
+          "tags": [
+            "이준석 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이준석",
+              "party": "개혁신당",
+              "role": "대선 후보",
+              "relation": "연관 테마",
+              "election": "대선"
+            }
+          ]
         }
       ]
     }
@@ -1221,43 +1222,43 @@
   "candidate_market_summary": {
     "정원오": {
       "stock_count": 5,
-      "total_volume": 358455,
-      "avg_change_pct": 0.46,
+      "total_volume": 395528,
+      "avg_change_pct": 0.28,
       "party": "더불어민주당",
       "region": "서울"
     },
     "오세훈": {
       "stock_count": 2,
-      "total_volume": 745200,
-      "avg_change_pct": 2.39,
+      "total_volume": 803367,
+      "avg_change_pct": 2.1,
       "party": "국민의힘",
       "region": "서울"
     },
     "김동연": {
       "stock_count": 2,
-      "total_volume": 1956076,
-      "avg_change_pct": 0.28,
+      "total_volume": 2177872,
+      "avg_change_pct": -0.09,
       "party": "더불어민주당",
       "region": "경기"
     },
     "추미애": {
       "stock_count": 1,
-      "total_volume": 2428656,
-      "avg_change_pct": 2.3,
+      "total_volume": 2778188,
+      "avg_change_pct": 2.45,
       "party": "더불어민주당",
       "region": "경기"
     },
     "박찬대": {
       "stock_count": 3,
-      "total_volume": 1597098,
-      "avg_change_pct": -2.41,
+      "total_volume": 1831554,
+      "avg_change_pct": -2.58,
       "party": "더불어민주당",
       "region": "인천"
     },
     "박형준": {
       "stock_count": 3,
-      "total_volume": 1281139,
-      "avg_change_pct": 0.08,
+      "total_volume": 1505593,
+      "avg_change_pct": -0.02,
       "party": "국민의힘",
       "region": "부산"
     },
@@ -1270,60 +1271,130 @@
     },
     "이재명": {
       "stock_count": 6,
-      "total_volume": 28987332,
-      "avg_change_pct": -1.16,
+      "total_volume": 30779818,
+      "avg_change_pct": -1.42,
       "party": "더불어민주당",
       "region": "전국(대선)"
     },
     "김문수": {
       "stock_count": 3,
-      "total_volume": 3880146,
-      "avg_change_pct": -0.13,
+      "total_volume": 4110172,
+      "avg_change_pct": -0.64,
       "party": "국민의힘",
       "region": "전국(대선)"
     },
     "이준석": {
       "stock_count": 2,
-      "total_volume": 579884,
-      "avg_change_pct": 0.98,
+      "total_volume": 612099,
+      "avg_change_pct": 1.01,
       "party": "개혁신당",
       "region": "전국(대선)"
     }
   },
   "stock_contexts": {
-    "006800": {
-      "ticker": "006800",
-      "name": "미래에셋증권",
+    "003410": {
+      "ticker": "003410",
+      "name": "쌍용C&E",
       "tags": [
-        "추미애 관련주"
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    "009150": {
+      "ticker": "009150",
+      "name": "삼성전기",
+      "tags": [
+        "반도체 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
+        }
+      ]
+    },
+    "035720": {
+      "ticker": "035720",
+      "name": "카카오",
+      "tags": [
+        "이재명 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "연관 테마",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    "064350": {
+      "ticker": "064350",
+      "name": "현대로템",
+      "tags": [
+        "이재명 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "003160": {
+      "ticker": "003160",
+      "name": "디아이씨",
+      "tags": [
+        "박찬대 관련주"
       ],
       "reasons": [
         {
           "type": "local_candidate",
-          "name": "추미애",
+          "name": "박찬대",
           "party": "더불어민주당",
-          "role": "경기지사 후보 (경선 중)",
-          "region": "경기",
-          "relation": "연관 테마",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 지역 연관",
           "election": "2026지방선거"
         }
       ]
     },
-    "000100": {
-      "ticker": "000100",
-      "name": "유한양행",
+    "000660": {
+      "ticker": "000660",
+      "name": "SK하이닉스",
       "tags": [
-        "박형준 관련주"
+        "반도체 테마"
       ],
       "reasons": [
         {
-          "type": "local_candidate",
-          "name": "박형준",
-          "party": "국민의힘",
-          "role": "부산시장 후보 (현직, 3선 도전 유력)",
-          "region": "부산",
-          "relation": "부산 바이오 클러스터 정책",
-          "election": "2026지방선거"
+          "type": "policy_theme",
+          "theme": "반도체",
+          "description": ""
         }
       ]
     },
@@ -1345,9 +1416,27 @@
         }
       ]
     },
-    "298040": {
-      "ticker": "298040",
-      "name": "효성중공업",
+    "034730": {
+      "ticker": "034730",
+      "name": "SK",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 반도체 클러스터 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "009540": {
+      "ticker": "009540",
+      "name": "한국조선해양",
       "tags": [
         "원전 테마"
       ],
@@ -1359,61 +1448,16 @@
         }
       ]
     },
-    "038540": {
-      "ticker": "038540",
-      "name": "삼표시멘트",
+    "000210": {
+      "ticker": "000210",
+      "name": "DL이앤씨",
       "tags": [
-        "정원오 관련주"
+        "SOC건설 테마"
       ],
       "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "정원오",
-          "party": "더불어민주당",
-          "role": "서울시장 후보 (경선 중)",
-          "region": "서울",
-          "relation": "지역구 연관",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    "045340": {
-      "ticker": "045340",
-      "name": "나우IB",
-      "tags": [
-        "정원오 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "정원오",
-          "party": "더불어민주당",
-          "role": "서울시장 후보 (경선 중)",
-          "region": "서울",
-          "relation": "종친(경주 정씨) 연결",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    "047810": {
-      "ticker": "047810",
-      "name": "한국항공우주",
-      "tags": [
-        "김문수 관련주",
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "김문수",
-          "party": "국민의힘",
-          "role": "전 대선 후보",
-          "relation": "공약(방산)",
-          "election": "대선"
-        },
         {
           "type": "policy_theme",
-          "theme": "방산",
+          "theme": "SOC건설",
           "description": ""
         }
       ]
@@ -1432,52 +1476,61 @@
         }
       ]
     },
-    "251270": {
-      "ticker": "251270",
-      "name": "넷마블",
+    "006800": {
+      "ticker": "006800",
+      "name": "미래에셋증권",
       "tags": [
-        "이준석 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이준석",
-          "party": "개혁신당",
-          "role": "대선 후보",
-          "relation": "연관 테마",
-          "election": "대선"
-        }
-      ]
-    },
-    "009150": {
-      "ticker": "009150",
-      "name": "삼성전기",
-      "tags": [
-        "반도체 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "반도체",
-          "description": ""
-        }
-      ]
-    },
-    "010060": {
-      "ticker": "010060",
-      "name": "OCI홀딩스",
-      "tags": [
-        "박찬대 관련주"
+        "추미애 관련주"
       ],
       "reasons": [
         {
           "type": "local_candidate",
-          "name": "박찬대",
+          "name": "추미애",
           "party": "더불어민주당",
-          "role": "인천시장 후보 (단수 공천 확정)",
-          "region": "인천",
-          "relation": "인천 기반 기업",
+          "role": "경기지사 후보 (경선 중)",
+          "region": "경기",
+          "relation": "연관 테마",
           "election": "2026지방선거"
+        }
+      ]
+    },
+    "034020": {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "tags": [
+        "김문수 관련주",
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(원전)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "012330": {
+      "ticker": "012330",
+      "name": "현대모비스",
+      "tags": [
+        "김문수 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
         }
       ]
     },
@@ -1500,80 +1553,6 @@
         {
           "type": "policy_theme",
           "theme": "기본소득",
-          "description": ""
-        }
-      ]
-    },
-    "009540": {
-      "ticker": "009540",
-      "name": "한국조선해양",
-      "tags": [
-        "원전 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "원전",
-          "description": ""
-        }
-      ]
-    },
-    "058430": {
-      "ticker": "058430",
-      "name": "에스제이그룹",
-      "tags": [
-        "정원오 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "정원오",
-          "party": "더불어민주당",
-          "role": "서울시장 후보 (경선 중)",
-          "region": "서울",
-          "relation": "지역구(성수동) 내 부지 보유",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    "051910": {
-      "ticker": "051910",
-      "name": "LG화학",
-      "tags": [
-        "전기차 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        }
-      ]
-    },
-    "000760": {
-      "ticker": "000760",
-      "name": "이화공영",
-      "tags": [
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "방산",
-          "description": ""
-        }
-      ]
-    },
-    "023000": {
-      "ticker": "023000",
-      "name": "삼성엔지니어링",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
           "description": ""
         }
       ]
@@ -1606,21 +1585,17 @@
         }
       ]
     },
-    "003490": {
-      "ticker": "003490",
-      "name": "대한항공",
+    "051910": {
+      "ticker": "051910",
+      "name": "LG화학",
       "tags": [
-        "김동연 관련주"
+        "전기차 테마"
       ],
       "reasons": [
         {
-          "type": "local_candidate",
-          "name": "김동연",
-          "party": "더불어민주당",
-          "role": "경기지사 후보 (현직, 경선 중)",
-          "region": "경기",
-          "relation": "경기도 항공 물류 정책",
-          "election": "2026지방선거"
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
         }
       ]
     },
@@ -1638,98 +1613,9 @@
         }
       ]
     },
-    "035720": {
-      "ticker": "035720",
-      "name": "카카오",
-      "tags": [
-        "이재명 관련주",
-        "기본소득 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "연관 테마",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "기본소득",
-          "description": ""
-        }
-      ]
-    },
-    "010040": {
-      "ticker": "010040",
-      "name": "상지건설",
-      "tags": [
-        "이재명 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "대선 캠프 인사 연관",
-          "election": "대선"
-        }
-      ]
-    },
-    "000660": {
-      "ticker": "000660",
-      "name": "SK하이닉스",
-      "tags": [
-        "반도체 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "반도체",
-          "description": ""
-        }
-      ]
-    },
-    "282330": {
-      "ticker": "282330",
-      "name": "BGF리테일",
-      "tags": [
-        "오세훈 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "오세훈",
-          "party": "국민의힘",
-          "role": "서울시장 (현직, 재선 도전 검토)",
-          "region": "서울",
-          "relation": "서울시 소상공인 정책 연관",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    "001440": {
-      "ticker": "001440",
-      "name": "일성건설",
-      "tags": [
-        "이재명 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "대선 캠프 인사 연관",
-          "election": "대선"
-        }
-      ]
-    },
-    "030190": {
-      "ticker": "030190",
-      "name": "NICE평가정보",
+    "038540": {
+      "ticker": "038540",
+      "name": "삼표시멘트",
       "tags": [
         "정원오 관련주"
       ],
@@ -1740,39 +1626,7 @@
           "party": "더불어민주당",
           "role": "서울시장 후보 (경선 중)",
           "region": "서울",
-          "relation": "성동구청장 시절 협력",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    "000720": {
-      "ticker": "000720",
-      "name": "현대건설",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": "2026 지방선거 SOC예산 수혜"
-        }
-      ]
-    },
-    "003160": {
-      "ticker": "003160",
-      "name": "디아이씨",
-      "tags": [
-        "박찬대 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "박찬대",
-          "party": "더불어민주당",
-          "role": "인천시장 후보 (단수 공천 확정)",
-          "region": "인천",
-          "relation": "인천 지역 연관",
+          "relation": "지역구 연관",
           "election": "2026지방선거"
         }
       ]
@@ -1787,168 +1641,6 @@
         {
           "type": "policy_theme",
           "theme": "방산",
-          "description": ""
-        }
-      ]
-    },
-    "012330": {
-      "ticker": "012330",
-      "name": "현대모비스",
-      "tags": [
-        "김문수 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "김문수",
-          "party": "국민의힘",
-          "role": "전 대선 후보",
-          "relation": "연관 테마",
-          "election": "대선"
-        }
-      ]
-    },
-    "034020": {
-      "ticker": "034020",
-      "name": "두산에너빌리티",
-      "tags": [
-        "김문수 관련주",
-        "원전 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "김문수",
-          "party": "국민의힘",
-          "role": "전 대선 후보",
-          "relation": "공약(원전)",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "원전",
-          "description": ""
-        }
-      ]
-    },
-    "000210": {
-      "ticker": "000210",
-      "name": "DL이앤씨",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": ""
-        }
-      ]
-    },
-    "001500": {
-      "ticker": "001500",
-      "name": "현대차",
-      "tags": [
-        "이재명 관련주",
-        "전기차 테마",
-        "지방개발 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "공약(전기차 보조금)",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        },
-        {
-          "type": "policy_theme",
-          "theme": "지방개발",
-          "description": "공공기관 2차 이전·GTX 역세권 개발"
-        }
-      ]
-    },
-    "064350": {
-      "ticker": "064350",
-      "name": "현대로템",
-      "tags": [
-        "이재명 관련주",
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "공약(방산)",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "방산",
-          "description": ""
-        }
-      ]
-    },
-    "006400": {
-      "ticker": "006400",
-      "name": "삼성SDI",
-      "tags": [
-        "전기차 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        }
-      ]
-    },
-    "096770": {
-      "ticker": "096770",
-      "name": "SK이노베이션",
-      "tags": [
-        "전기차 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        }
-      ]
-    },
-    "006360": {
-      "ticker": "006360",
-      "name": "GS건설",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": ""
-        }
-      ]
-    },
-    "047040": {
-      "ticker": "047040",
-      "name": "대우건설",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
           "description": ""
         }
       ]
@@ -1981,23 +1673,26 @@
         }
       ]
     },
-    "003410": {
-      "ticker": "003410",
-      "name": "쌍용C&E",
+    "251270": {
+      "ticker": "251270",
+      "name": "넷마블",
       "tags": [
-        "지방개발 테마"
+        "이준석 관련주"
       ],
       "reasons": [
         {
-          "type": "policy_theme",
-          "theme": "지방개발",
-          "description": ""
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
         }
       ]
     },
-    "007720": {
-      "ticker": "007720",
-      "name": "대주산업",
+    "058430": {
+      "ticker": "058430",
+      "name": "에스제이그룹",
       "tags": [
         "정원오 관련주"
       ],
@@ -2008,14 +1703,14 @@
           "party": "더불어민주당",
           "role": "서울시장 후보 (경선 중)",
           "region": "서울",
-          "relation": "출신지(여수) 내 공장",
+          "relation": "지역구(성수동) 내 부지 보유",
           "election": "2026지방선거"
         }
       ]
     },
-    "034730": {
-      "ticker": "034730",
-      "name": "SK",
+    "003490": {
+      "ticker": "003490",
+      "name": "대한항공",
       "tags": [
         "김동연 관련주"
       ],
@@ -2026,7 +1721,295 @@
           "party": "더불어민주당",
           "role": "경기지사 후보 (현직, 경선 중)",
           "region": "경기",
-          "relation": "경기도 반도체 클러스터 정책",
+          "relation": "경기도 항공 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "001500": {
+      "ticker": "001500",
+      "name": "현대차",
+      "tags": [
+        "이재명 관련주",
+        "전기차 테마",
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(전기차 보조금)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        },
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": "공공기관 2차 이전·GTX 역세권 개발"
+        }
+      ]
+    },
+    "006360": {
+      "ticker": "006360",
+      "name": "GS건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "000760": {
+      "ticker": "000760",
+      "name": "이화공영",
+      "tags": [
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "001440": {
+      "ticker": "001440",
+      "name": "일성건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    "010040": {
+      "ticker": "010040",
+      "name": "상지건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    "282330": {
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 소상공인 정책 연관",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "000720": {
+      "ticker": "000720",
+      "name": "현대건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": "2026 지방선거 SOC예산 수혜"
+        }
+      ]
+    },
+    "047810": {
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "tags": [
+        "김문수 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    "023000": {
+      "ticker": "023000",
+      "name": "삼성엔지니어링",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "298040": {
+      "ticker": "298040",
+      "name": "효성중공업",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    "096770": {
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    "010060": {
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 기반 기업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "047040": {
+      "ticker": "047040",
+      "name": "대우건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    "006400": {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    "045340": {
+      "ticker": "045340",
+      "name": "나우IB",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "종친(경주 정씨) 연결",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "030190": {
+      "ticker": "030190",
+      "name": "NICE평가정보",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "성동구청장 시절 협력",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    "000100": {
+      "ticker": "000100",
+      "name": "유한양행",
+      "tags": [
+        "박형준 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박형준",
+          "party": "국민의힘",
+          "role": "부산시장 후보 (현직, 3선 도전 유력)",
+          "region": "부산",
+          "relation": "부산 바이오 클러스터 정책",
           "election": "2026지방선거"
         }
       ]
@@ -2053,16 +2036,34 @@
           "description": "경기도 반도체 클러스터(용인·평택)"
         }
       ]
+    },
+    "007720": {
+      "ticker": "007720",
+      "name": "대주산업",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "출신지(여수) 내 공장",
+          "election": "2026지방선거"
+        }
+      ]
     }
   },
   "screening_results": [
     {
       "surge": false,
-      "ratio": 1.36,
-      "today_volume": 51563869,
+      "ratio": 1.4,
+      "today_volume": 53231122,
       "avg_volume": 37939966,
-      "close": 17170,
-      "change_pct": 7.99,
+      "close": 17230,
+      "change_pct": 8.36,
       "ticker": "047040",
       "name": "대우건설",
       "tags": [
@@ -2078,11 +2079,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.77,
-      "today_volume": 168500,
+      "ratio": 0.88,
+      "today_volume": 191147,
       "avg_volume": 218202,
-      "close": 62300,
-      "change_pct": 4.88,
+      "close": 62500,
+      "change_pct": 5.22,
       "ticker": "000210",
       "name": "DL",
       "tags": [
@@ -2098,11 +2099,11 @@
     },
     {
       "surge": false,
-      "ratio": 1.92,
-      "today_volume": 97840,
+      "ratio": 1.98,
+      "today_volume": 100526,
       "avg_volume": 50865,
-      "close": 130500,
-      "change_pct": 4.32,
+      "close": 130200,
+      "change_pct": 4.08,
       "ticker": "282330",
       "name": "BGF리테일",
       "tags": [
@@ -2122,34 +2123,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.68,
-      "today_volume": 244743,
-      "avg_volume": 362527,
-      "close": 408500,
-      "change_pct": 2.51,
-      "ticker": "012330",
-      "name": "현대모비스",
-      "tags": [
-        "김문수 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "김문수",
-          "party": "국민의힘",
-          "role": "전 대선 후보",
-          "relation": "연관 테마",
-          "election": "대선"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.5,
-      "today_volume": 2428656,
+      "ratio": 0.57,
+      "today_volume": 2778188,
       "avg_volume": 4852095,
-      "close": 66800,
-      "change_pct": 2.3,
+      "close": 66900,
+      "change_pct": 2.45,
       "ticker": "006800",
       "name": "미래에셋증권",
       "tags": [
@@ -2169,31 +2147,34 @@
     },
     {
       "surge": false,
-      "ratio": 0.83,
-      "today_volume": 581073,
-      "avg_volume": 700655,
-      "close": 405000,
-      "change_pct": 2.14,
-      "ticker": "006400",
-      "name": "삼성SDI",
+      "ratio": 0.73,
+      "today_volume": 264485,
+      "avg_volume": 362527,
+      "close": 407500,
+      "change_pct": 2.26,
+      "ticker": "012330",
+      "name": "현대모비스",
       "tags": [
-        "전기차 테마"
+        "김문수 관련주"
       ],
       "reasons": [
         {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.47,
-      "today_volume": 29481,
+      "ratio": 0.85,
+      "today_volume": 53510,
       "avg_volume": 62692,
-      "close": 7010,
-      "change_pct": 1.59,
+      "close": 7050,
+      "change_pct": 2.17,
       "ticker": "045340",
       "name": "토탈소프트",
       "tags": [
@@ -2213,11 +2194,54 @@
     },
     {
       "surge": false,
-      "ratio": 0.4,
-      "today_volume": 43764,
+      "ratio": 0.88,
+      "today_volume": 616135,
+      "avg_volume": 700655,
+      "close": 404000,
+      "change_pct": 1.89,
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "tags": [
+        "전기차 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "전기차",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.57,
+      "today_volume": 221224,
+      "avg_volume": 387270,
+      "close": 52300,
+      "change_pct": 1.55,
+      "ticker": "251270",
+      "name": "넷마블",
+      "tags": [
+        "이준석 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이준석",
+          "party": "개혁신당",
+          "role": "대선 후보",
+          "relation": "연관 테마",
+          "election": "대선"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.43,
+      "today_volume": 48004,
       "avg_volume": 110655,
-      "close": 16970,
-      "change_pct": 1.5,
+      "close": 16900,
+      "change_pct": 1.08,
       "ticker": "030190",
       "name": "NICE평가정보",
       "tags": [
@@ -2237,34 +2261,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.54,
-      "today_volume": 209160,
-      "avg_volume": 387270,
-      "close": 52200,
-      "change_pct": 1.36,
-      "ticker": "251270",
-      "name": "넷마블",
-      "tags": [
-        "이준석 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이준석",
-          "party": "개혁신당",
-          "role": "대선 후보",
-          "relation": "연관 테마",
-          "election": "대선"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.45,
-      "today_volume": 145985,
+      "ratio": 0.5,
+      "today_volume": 164031,
       "avg_volume": 325920,
-      "close": 100200,
-      "change_pct": 1.21,
+      "close": 100000,
+      "change_pct": 1.01,
       "ticker": "000100",
       "name": "유한양행",
       "tags": [
@@ -2284,35 +2285,31 @@
     },
     {
       "surge": false,
-      "ratio": 0.62,
-      "today_volume": 1865975,
-      "avg_volume": 3028026,
-      "close": 25200,
-      "change_pct": 1.0,
-      "ticker": "003490",
-      "name": "대한항공",
+      "ratio": 0.56,
+      "today_volume": 2013,
+      "avg_volume": 3569,
+      "close": 15200,
+      "change_pct": 0.53,
+      "ticker": "000760",
+      "name": "이화산업",
       "tags": [
-        "김동연 관련주"
+        "방산 테마"
       ],
       "reasons": [
         {
-          "type": "local_candidate",
-          "name": "김동연",
-          "party": "더불어민주당",
-          "role": "경기지사 후보 (현직, 경선 중)",
-          "region": "경기",
-          "relation": "경기도 항공 물류 정책",
-          "election": "2026지방선거"
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.42,
-      "today_volume": 370724,
+      "ratio": 0.45,
+      "today_volume": 390875,
       "avg_volume": 873483,
-      "close": 212750,
-      "change_pct": 0.59,
+      "close": 212500,
+      "change_pct": 0.47,
       "ticker": "035420",
       "name": "NAVER",
       "tags": [
@@ -2337,11 +2334,108 @@
     },
     {
       "surge": false,
-      "ratio": 0.28,
-      "today_volume": 101598,
+      "ratio": 0.69,
+      "today_volume": 2079899,
+      "avg_volume": 3028026,
+      "close": 25050,
+      "change_pct": 0.4,
+      "ticker": "003490",
+      "name": "대한항공",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "경기지사 후보 (현직, 경선 중)",
+          "region": "경기",
+          "relation": "경기도 항공 물류 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.74,
+      "today_volume": 1878859,
+      "avg_volume": 2539360,
+      "close": 26350,
+      "change_pct": 0.38,
+      "ticker": "006360",
+      "name": "GS건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.41,
+      "today_volume": 702841,
+      "avg_volume": 1705580,
+      "close": 154900,
+      "change_pct": 0.13,
+      "ticker": "000270",
+      "name": "기아",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (현직, 재선 도전 검토)",
+          "region": "서울",
+          "relation": "서울시 UAM(도심항공) 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.46,
+      "today_volume": 1165542,
+      "avg_volume": 2513756,
+      "close": 48700,
+      "change_pct": 0.1,
+      "ticker": "035720",
+      "name": "카카오",
+      "tags": [
+        "이재명 관련주",
+        "기본소득 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "연관 테마",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "기본소득",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.34,
+      "today_volume": 123776,
       "avg_volume": 359183,
-      "close": 10960,
-      "change_pct": 0.55,
+      "close": 10910,
+      "change_pct": 0.09,
       "ticker": "001500",
       "name": "현대차증권",
       "tags": [
@@ -2372,126 +2466,15 @@
     },
     {
       "surge": false,
-      "ratio": 0.38,
-      "today_volume": 647360,
-      "avg_volume": 1705580,
-      "close": 155400,
-      "change_pct": 0.45,
-      "ticker": "000270",
-      "name": "기아",
+      "ticker": "003410",
+      "name": "쌍용C&E",
       "tags": [
-        "오세훈 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "오세훈",
-          "party": "국민의힘",
-          "role": "서울시장 (현직, 재선 도전 검토)",
-          "region": "서울",
-          "relation": "서울시 UAM(도심항공) 정책",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.44,
-      "today_volume": 1100797,
-      "avg_volume": 2513756,
-      "close": 48750,
-      "change_pct": 0.21,
-      "ticker": "035720",
-      "name": "카카오",
-      "tags": [
-        "이재명 관련주",
-        "기본소득 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "연관 테마",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "기본소득",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.74,
-      "today_volume": 25287628,
-      "avg_volume": 34296630,
-      "close": 180200,
-      "change_pct": 0.06,
-      "ticker": "005930",
-      "name": "삼성전자",
-      "tags": [
-        "이재명 관련주",
-        "반도체 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "공약(반도체 지원)",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "반도체",
-          "description": "경기도 반도체 클러스터(용인·평택)"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.27,
-      "today_volume": 21117,
-      "avg_volume": 78636,
-      "close": 45900,
-      "change_pct": 0.0,
-      "ticker": "058430",
-      "name": "포스코스틸리온",
-      "tags": [
-        "정원오 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "정원오",
-          "party": "더불어민주당",
-          "role": "서울시장 후보 (경선 중)",
-          "region": "서울",
-          "relation": "지역구(성수동) 내 부지 보유",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.56,
-      "today_volume": 2009,
-      "avg_volume": 3569,
-      "close": 15120,
-      "change_pct": 0.0,
-      "ticker": "000760",
-      "name": "이화산업",
-      "tags": [
-        "방산 테마"
+        "지방개발 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "방산",
+          "theme": "지방개발",
           "description": ""
         }
       ]
@@ -2527,26 +2510,31 @@
     },
     {
       "surge": false,
-      "ticker": "003410",
-      "name": "쌍용C&E",
+      "ratio": 0.53,
+      "today_volume": 219499,
+      "avg_volume": 413036,
+      "close": 313500,
+      "change_pct": -0.16,
+      "ticker": "051910",
+      "name": "LG화학",
       "tags": [
-        "지방개발 테마"
+        "전기차 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "지방개발",
+          "theme": "전기차",
           "description": ""
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.27,
-      "today_volume": 268382,
+      "ratio": 0.28,
+      "today_volume": 286872,
       "avg_volume": 1010722,
-      "close": 111100,
-      "change_pct": -0.18,
+      "close": 111000,
+      "change_pct": -0.27,
       "ticker": "096770",
       "name": "SK이노베이션",
       "tags": [
@@ -2562,13 +2550,13 @@
     },
     {
       "surge": false,
-      "ratio": 0.71,
-      "today_volume": 1793824,
-      "avg_volume": 2539360,
-      "close": 26200,
-      "change_pct": -0.19,
-      "ticker": "006360",
-      "name": "GS건설",
+      "ratio": 0.67,
+      "today_volume": 24952,
+      "avg_volume": 37088,
+      "close": 2350,
+      "change_pct": -0.42,
+      "ticker": "023000",
+      "name": "삼원강재",
       "tags": [
         "SOC건설 테마"
       ],
@@ -2582,40 +2570,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.4,
-      "today_volume": 414034,
-      "avg_volume": 1023626,
-      "close": 187600,
-      "change_pct": -0.21,
-      "ticker": "047810",
-      "name": "한국항공우주",
-      "tags": [
-        "김문수 관련주",
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "김문수",
-          "party": "국민의힘",
-          "role": "전 대선 후보",
-          "relation": "공약(방산)",
-          "election": "대선"
-        },
-        {
-          "type": "policy_theme",
-          "theme": "방산",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.48,
-      "today_volume": 78662,
+      "ratio": 0.49,
+      "today_volume": 80548,
       "avg_volume": 165465,
-      "close": 2250,
-      "change_pct": -0.22,
+      "close": 2245,
+      "change_pct": -0.44,
       "ticker": "038540",
       "name": "상상인",
       "tags": [
@@ -2635,71 +2594,64 @@
     },
     {
       "surge": false,
-      "ratio": 0.44,
-      "today_volume": 30486,
-      "avg_volume": 69481,
-      "close": 216000,
-      "change_pct": -0.23,
-      "ticker": "097950",
-      "name": "CJ제일제당",
+      "ratio": 0.34,
+      "today_volume": 26916,
+      "avg_volume": 78636,
+      "close": 45700,
+      "change_pct": -0.44,
+      "ticker": "058430",
+      "name": "포스코스틸리온",
       "tags": [
-        "지방개발 테마"
+        "정원오 관련주"
       ],
       "reasons": [
         {
-          "type": "policy_theme",
-          "theme": "지방개발",
-          "description": ""
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "서울시장 후보 (경선 중)",
+          "region": "서울",
+          "relation": "지역구(성수동) 내 부지 보유",
+          "election": "2026지방선거"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.57,
-      "today_volume": 238013,
-      "avg_volume": 415955,
-      "close": 1915,
-      "change_pct": -0.26,
-      "ticker": "017550",
-      "name": "수산세보틱스",
+      "ratio": 0.78,
+      "today_volume": 26868601,
+      "avg_volume": 34296630,
+      "close": 179200,
+      "change_pct": -0.5,
+      "ticker": "005930",
+      "name": "삼성전자",
       "tags": [
-        "원전 테마"
+        "이재명 관련주",
+        "반도체 테마"
       ],
       "reasons": [
         {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "공약(반도체 지원)",
+          "election": "대선"
+        },
+        {
           "type": "policy_theme",
-          "theme": "원전",
-          "description": ""
+          "theme": "반도체",
+          "description": "경기도 반도체 클러스터(용인·평택)"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.49,
-      "today_volume": 203348,
-      "avg_volume": 413036,
-      "close": 313000,
-      "change_pct": -0.32,
-      "ticker": "051910",
-      "name": "LG화학",
-      "tags": [
-        "전기차 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.29,
-      "today_volume": 90101,
+      "ratio": 0.32,
+      "today_volume": 97973,
       "avg_volume": 310852,
-      "close": 335000,
-      "change_pct": -0.45,
+      "close": 334500,
+      "change_pct": -0.59,
       "ticker": "034730",
       "name": "SK",
       "tags": [
@@ -2719,11 +2671,51 @@
     },
     {
       "surge": false,
-      "ratio": 0.68,
-      "today_volume": 185431,
+      "ratio": 0.62,
+      "today_volume": 257141,
+      "avg_volume": 415955,
+      "close": 1907,
+      "change_pct": -0.68,
+      "ticker": "017550",
+      "name": "수산세보틱스",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.51,
+      "today_volume": 35252,
+      "avg_volume": 69481,
+      "close": 214500,
+      "change_pct": -0.92,
+      "ticker": "097950",
+      "name": "CJ제일제당",
+      "tags": [
+        "지방개발 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "지방개발",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.69,
+      "today_volume": 186550,
       "avg_volume": 270841,
-      "close": 505,
-      "change_pct": -0.59,
+      "close": 503,
+      "change_pct": -0.98,
       "ticker": "007720",
       "name": "소노스퀘어",
       "tags": [
@@ -2743,31 +2735,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.67,
-      "today_volume": 24789,
-      "avg_volume": 37088,
-      "close": 2345,
-      "change_pct": -0.64,
-      "ticker": "023000",
-      "name": "삼원강재",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.34,
-      "today_volume": 1135154,
+      "ratio": 0.41,
+      "today_volume": 1341562,
       "avg_volume": 3298874,
-      "close": 19620,
-      "change_pct": -0.96,
+      "close": 19600,
+      "change_pct": -1.06,
       "ticker": "011200",
       "name": "HMM",
       "tags": [
@@ -2797,11 +2769,40 @@
     },
     {
       "surge": false,
-      "ratio": 0.8,
-      "today_volume": 3866874,
+      "ratio": 0.43,
+      "today_volume": 445150,
+      "avg_volume": 1023626,
+      "close": 185900,
+      "change_pct": -1.12,
+      "ticker": "047810",
+      "name": "한국항공우주",
+      "tags": [
+        "김문수 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "김문수",
+          "party": "국민의힘",
+          "role": "전 대선 후보",
+          "relation": "공약(방산)",
+          "election": "대선"
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.86,
+      "today_volume": 4153705,
       "avg_volume": 4853118,
-      "close": 922000,
-      "change_pct": -1.18,
+      "close": 917000,
+      "change_pct": -1.71,
       "ticker": "000660",
       "name": "SK하이닉스",
       "tags": [
@@ -2817,74 +2818,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.53,
-      "today_volume": 1012541,
-      "avg_volume": 1918162,
-      "close": 149300,
-      "change_pct": -2.03,
-      "ticker": "000720",
-      "name": "현대건설",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": "2026 지방선거 SOC예산 수혜"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.79,
-      "today_volume": 197767,
-      "avg_volume": 251611,
-      "close": 366500,
-      "change_pct": -2.27,
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "tags": [
-        "원전 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "원전",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.52,
-      "today_volume": 2054572,
-      "avg_volume": 3937839,
-      "close": 28300,
-      "change_pct": -2.41,
-      "ticker": "001440",
-      "name": "대한전선",
-      "tags": [
-        "이재명 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (2025.06~ 현직)",
-          "relation": "대선 캠프 인사 연관",
-          "election": "대선"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.96,
-      "today_volume": 47400,
+      "ratio": 1.04,
+      "today_volume": 51521,
       "avg_volume": 49573,
-      "close": 1920,
-      "change_pct": -2.49,
+      "close": 1923,
+      "change_pct": -2.34,
       "ticker": "010040",
       "name": "한국내화",
       "tags": [
@@ -2903,11 +2841,98 @@
     },
     {
       "surge": false,
-      "ratio": 0.34,
-      "today_volume": 143749,
+      "ratio": 0.57,
+      "today_volume": 1093440,
+      "avg_volume": 1918162,
+      "close": 148800,
+      "change_pct": -2.36,
+      "ticker": "000720",
+      "name": "현대건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": "2026 지방선거 SOC예산 수혜"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.55,
+      "today_volume": 2148789,
+      "avg_volume": 3937839,
+      "close": 28250,
+      "change_pct": -2.59,
+      "ticker": "001440",
+      "name": "대한전선",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (2025.06~ 현직)",
+          "relation": "대선 캠프 인사 연관",
+          "election": "대선"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.84,
+      "today_volume": 210405,
+      "avg_volume": 251611,
+      "close": 364500,
+      "change_pct": -2.8,
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "tags": [
+        "원전 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "원전",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.54,
+      "today_volume": 140807,
+      "avg_volume": 262758,
+      "close": 178000,
+      "change_pct": -2.89,
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 후보 (단수 공천 확정)",
+          "region": "인천",
+          "relation": "인천 기반 기업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.36,
+      "today_volume": 152982,
       "avg_volume": 421894,
-      "close": 1333000,
-      "change_pct": -2.63,
+      "close": 1328000,
+      "change_pct": -2.99,
       "ticker": "012450",
       "name": "한화에어로스페이스",
       "tags": [
@@ -2923,11 +2948,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.49,
-      "today_volume": 3221369,
+      "ratio": 0.52,
+      "today_volume": 3400537,
       "avg_volume": 6548863,
-      "close": 98200,
-      "change_pct": -2.68,
+      "close": 97800,
+      "change_pct": -3.07,
       "ticker": "034020",
       "name": "두산에너빌리티",
       "tags": [
@@ -2952,11 +2977,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.32,
-      "today_volume": 395337,
+      "ratio": 0.35,
+      "today_volume": 421589,
       "avg_volume": 1221049,
-      "close": 184300,
-      "change_pct": -2.9,
+      "close": 183600,
+      "change_pct": -3.27,
       "ticker": "064350",
       "name": "현대로템",
       "tags": [
@@ -2981,11 +3006,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.61,
-      "today_volume": 335499,
+      "ratio": 0.64,
+      "today_volume": 349185,
       "avg_volume": 546384,
-      "close": 34700,
-      "change_pct": -2.94,
+      "close": 34400,
+      "change_pct": -3.78,
       "ticker": "003160",
       "name": "디아이",
       "tags": [
@@ -3005,35 +3030,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.48,
-      "today_volume": 126445,
-      "avg_volume": 262758,
-      "close": 177200,
-      "change_pct": -3.33,
-      "ticker": "010060",
-      "name": "OCI홀딩스",
-      "tags": [
-        "박찬대 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "박찬대",
-          "party": "더불어민주당",
-          "role": "인천시장 후보 (단수 공천 확정)",
-          "region": "인천",
-          "relation": "인천 기반 기업",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.78,
-      "today_volume": 613156,
+      "ratio": 0.86,
+      "today_volume": 674053,
       "avg_volume": 781213,
-      "close": 436000,
-      "change_pct": -4.6,
+      "close": 433500,
+      "change_pct": -5.14,
       "ticker": "009150",
       "name": "삼성전기",
       "tags": [
@@ -3049,11 +3050,11 @@
     },
     {
       "surge": false,
-      "ratio": 1.27,
-      "today_volume": 58629,
+      "ratio": 1.38,
+      "today_volume": 63429,
       "avg_volume": 46017,
-      "close": 2689000,
-      "change_pct": -5.98,
+      "close": 2669000,
+      "change_pct": -6.68,
       "ticker": "298040",
       "name": "효성중공업",
       "tags": [
@@ -3066,6 +3067,2703 @@
           "description": ""
         }
       ]
+    }
+  ],
+  "assembly_members": {
+    "total": 306,
+    "by_region": {
+      "서울특별시": 48,
+      "부산광역시": 18,
+      "대구광역시": 12,
+      "인천광역시": 14,
+      "광주광역시": 8,
+      "대전광역시": 7,
+      "울산광역시": 6,
+      "세종특별자치시": 2,
+      "경기도": 60,
+      "강원특별자치도": 8,
+      "충청북도": 8,
+      "충청남도": 11,
+      "전북특별자치도": 10,
+      "전라남도": 10,
+      "경상북도": 13,
+      "경상남도": 16,
+      "제주특별자치도": 3,
+      "비례대표": 52
+    },
+    "by_party": {
+      "더불어민주당": 165,
+      "국민의힘": 91,
+      "진보당": 1,
+      "새로운미래": 1,
+      "개혁신당": 3,
+      "국민의미래": 18,
+      "더불어민주연합": 14,
+      "조국혁신당": 13
+    },
+    "members": [
+      {
+        "name": "곽상언",
+        "district": "종로구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "전현희",
+        "district": "중구·성동구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박성준",
+        "district": "중구·성동구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "권영세",
+        "district": "용산구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "이정헌",
+        "district": "광진구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "고민정",
+        "district": "광진구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "안규백",
+        "district": "동대문구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "장경태",
+        "district": "동대문구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "서영교",
+        "district": "중랑구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박홍근",
+        "district": "중랑구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김영배",
+        "district": "성북구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김남근",
+        "district": "성북구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "천준호",
+        "district": "강북구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "한민수",
+        "district": "강북구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김재섭",
+        "district": "도봉구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "오기형",
+        "district": "도봉구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "우원식",
+        "district": "노원구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김성환",
+        "district": "노원구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박주민",
+        "district": "은평구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김우영",
+        "district": "은평구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김동아",
+        "district": "서대문구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김영호",
+        "district": "서대문구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "조정훈",
+        "district": "마포구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "정청래",
+        "district": "마포구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "황희",
+        "district": "양천구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "이용선",
+        "district": "양천구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "강선우",
+        "district": "강서구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "진성준",
+        "district": "강서구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "한정애",
+        "district": "강서구 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "이인영",
+        "district": "구로구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "윤건영",
+        "district": "구로구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "최기상",
+        "district": "금천구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "채현일",
+        "district": "영등포구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김민석",
+        "district": "영등포구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "김병기",
+        "district": "동작구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "나경원",
+        "district": "동작구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박민규",
+        "district": "관악구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "정태호",
+        "district": "관악구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "조은희",
+        "district": "서초구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "신동욱",
+        "district": "서초구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "서명옥",
+        "district": "강남구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박수민",
+        "district": "강남구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "고동진",
+        "district": "강남구 병",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "박정훈",
+        "district": "송파구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "배현진",
+        "district": "송파구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "남인순",
+        "district": "송파구 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "진선미",
+        "district": "강동구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "이해식",
+        "district": "강동구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "서울특별시"
+      },
+      {
+        "name": "조승환",
+        "district": "중구·영도구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "곽규택",
+        "district": "서구·동구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "정성국",
+        "district": "부산진구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "이헌승",
+        "district": "부산진구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "서지영",
+        "district": "동래구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "박수영",
+        "district": "남구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "전재수",
+        "district": "북구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "박성훈",
+        "district": "북구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "주진우",
+        "district": "해운대구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "김미애",
+        "district": "해운대구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "이성권",
+        "district": "사하구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "조경태",
+        "district": "사하구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "백종헌",
+        "district": "금정구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "김도읍",
+        "district": "강서구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "김희정",
+        "district": "연제구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "정연욱",
+        "district": "수영구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "김대식",
+        "district": "사상구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "정동만",
+        "district": "기장군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "부산광역시"
+      },
+      {
+        "name": "김기웅",
+        "district": "중구·남구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "최은석",
+        "district": "동구·군위군 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "강대식",
+        "district": "동구·군위군 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "김상훈",
+        "district": "서구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "우재준",
+        "district": "북구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "김승수",
+        "district": "북구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "주호영",
+        "district": "수성구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "이인선",
+        "district": "수성구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "유영하",
+        "district": "달서구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "윤재옥",
+        "district": "달서구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "권영진",
+        "district": "달서구 병",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "추경호",
+        "district": "달성군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "대구광역시"
+      },
+      {
+        "name": "배준영",
+        "district": "중구·강화군·옹진군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "허종식",
+        "district": "동구·미추홀구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "윤상현",
+        "district": "동구·미추홀구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "박찬대",
+        "district": "연수구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "정일영",
+        "district": "연수구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "맹성규",
+        "district": "남동구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "이훈기",
+        "district": "남동구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "노종면",
+        "district": "부평구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "박선원",
+        "district": "부평구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "유동수",
+        "district": "계양구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "이재명",
+        "district": "계양구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "김교흥",
+        "district": "서구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "이용우",
+        "district": "서구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "모경종",
+        "district": "서구 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "인천광역시"
+      },
+      {
+        "name": "정진욱",
+        "district": "동구·남구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "안도걸",
+        "district": "동구·남구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "조인철",
+        "district": "서구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "양부남",
+        "district": "서구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "정준호",
+        "district": "북구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "전진숙",
+        "district": "북구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "박균택",
+        "district": "광산구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "민형배",
+        "district": "광산구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "광주광역시"
+      },
+      {
+        "name": "장철민",
+        "district": "동구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "박용갑",
+        "district": "중구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "장종태",
+        "district": "서구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "박범계",
+        "district": "서구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "조승래",
+        "district": "유성구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "황정아",
+        "district": "유성구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "박정현",
+        "district": "대덕구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "대전광역시"
+      },
+      {
+        "name": "박성민",
+        "district": "중구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "김상욱",
+        "district": "남구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "김기현",
+        "district": "남구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "김태선",
+        "district": "동구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "윤종오",
+        "district": "북구",
+        "party": "진보당",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "서범수",
+        "district": "울주군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "울산광역시"
+      },
+      {
+        "name": "김종민",
+        "district": "세종특별자치시 갑",
+        "party": "새로운미래",
+        "election_type": "지역구",
+        "region": "세종특별자치시"
+      },
+      {
+        "name": "강준현",
+        "district": "세종특별자치시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "세종특별자치시"
+      },
+      {
+        "name": "김승원",
+        "district": "수원시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "백혜련",
+        "district": "수원시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김영진",
+        "district": "수원시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김준혁",
+        "district": "수원시 정",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "염태영",
+        "district": "수원시 무",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김태년",
+        "district": "성남시 수정구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이수진",
+        "district": "성남시 중원구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "안철수",
+        "district": "성남시 분당구 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김은혜",
+        "district": "성남시 분당구 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "박지혜",
+        "district": "의정부시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이재강",
+        "district": "의정부시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "강득구",
+        "district": "안양시 만안구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "민병덕",
+        "district": "안양시 동안구 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이재정",
+        "district": "안양시 동안구 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "서영석",
+        "district": "부천시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김기표",
+        "district": "부천시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이건태",
+        "district": "부천시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "임오경",
+        "district": "광명시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김남희",
+        "district": "광명시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "홍기원",
+        "district": "평택시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이병진",
+        "district": "평택시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김현정",
+        "district": "평택시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "정성호",
+        "district": "동두천시·양주시·연천군 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김성원",
+        "district": "동두천시·양주시·연천군 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "양문석",
+        "district": "안산시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김현",
+        "district": "안산시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "박해철",
+        "district": "안산시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김성회",
+        "district": "고양시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "한준호",
+        "district": "고양시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이기헌",
+        "district": "고양시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김영환",
+        "district": "고양시 정",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이소영",
+        "district": "의왕시·과천시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "윤호중",
+        "district": "구리시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "최민희",
+        "district": "남양주시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김병주",
+        "district": "남양주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김용민",
+        "district": "남양주시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "차지호",
+        "district": "오산시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "문정복",
+        "district": "시흥시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "조정식",
+        "district": "시흥시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이학영",
+        "district": "군포시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "추미애",
+        "district": "하남시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김용만",
+        "district": "하남시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이상식",
+        "district": "용인시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "손명수",
+        "district": "용인시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "부승찬",
+        "district": "용인시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이언주",
+        "district": "용인시 정",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "윤후덕",
+        "district": "파주시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "박정",
+        "district": "파주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "송석준",
+        "district": "이천시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "윤종군",
+        "district": "안성시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김주영",
+        "district": "김포시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "박상혁",
+        "district": "김포시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "송옥주",
+        "district": "화성시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "이준석",
+        "district": "화성시 을",
+        "party": "개혁신당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "권칠승",
+        "district": "화성시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "전용기",
+        "district": "화성시 정",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "소병훈",
+        "district": "광주시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "안태준",
+        "district": "광주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김용태",
+        "district": "포천시·가평군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "김선교",
+        "district": "여주시·양평군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경기도"
+      },
+      {
+        "name": "허영",
+        "district": "춘천시·철원군·화천군·양구군 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "한기호",
+        "district": "춘천시·철원군·화천군·양구군 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "박정하",
+        "district": "원주시 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "송기헌",
+        "district": "원주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "권성동",
+        "district": "강릉시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "이철규",
+        "district": "동해시·태백시·삼척시·정선군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "이양수",
+        "district": "속초시·인제군·고성군·양양군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "유상범",
+        "district": "홍천군·횡성군·영월군·평창군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "강원특별자치도"
+      },
+      {
+        "name": "이강일",
+        "district": "청주시 상당구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "이광희",
+        "district": "청주시 서원구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "이연희",
+        "district": "청주시 흥덕구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "송재봉",
+        "district": "청주시 청원구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "이종배",
+        "district": "충주시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "엄태영",
+        "district": "제천시·단양군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "박덕흠",
+        "district": "보은군·옥천군·영동군·괴산군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "임호선",
+        "district": "증평군·진천군·음성군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청북도"
+      },
+      {
+        "name": "문진석",
+        "district": "천안시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "이재관",
+        "district": "천안시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "이정문",
+        "district": "천안시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "박수현",
+        "district": "공주시·부여군·청양군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "장동혁",
+        "district": "보령시·서천군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "복기왕",
+        "district": "아산시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "강훈식",
+        "district": "아산시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "성일종",
+        "district": "서산시·태안군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "황명선",
+        "district": "논산시·계룡시·금산군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "어기구",
+        "district": "당진시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "강승규",
+        "district": "홍성군·예산군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "충청남도"
+      },
+      {
+        "name": "김윤덕",
+        "district": "전주시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "이성윤",
+        "district": "전주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "정동영",
+        "district": "전주시 병",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "신영대",
+        "district": "군산시·김제시·부안군 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "이원택",
+        "district": "군산시·김제시·부안군 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "이춘석",
+        "district": "익산시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "한병도",
+        "district": "익산시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "윤준병",
+        "district": "정읍시·고창군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "박희승",
+        "district": "남원시·장수군·임실군·순창군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "안호영",
+        "district": "완주군·진안군·무주군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전북특별자치도"
+      },
+      {
+        "name": "김원이",
+        "district": "목포시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "주철현",
+        "district": "여수시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "조계원",
+        "district": "여수시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "김문수",
+        "district": "순천시·광양시·곡성군·구례군 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "권향엽",
+        "district": "순천시·광양시·곡성군·구례군 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "신정훈",
+        "district": "나주시·화순군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "이개호",
+        "district": "담양군·함평군·영광군·장성군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "문금주",
+        "district": "고흥군·보성군·장흥군·강진군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "박지원",
+        "district": "해남군·완도군·진도군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "서삼석",
+        "district": "영암군·무안군·신안군",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "전라남도"
+      },
+      {
+        "name": "김정재",
+        "district": "포항시 북구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "이상휘",
+        "district": "포항시 남구·울릉군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "김석기",
+        "district": "경주시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "송언석",
+        "district": "김천시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "김형동",
+        "district": "안동시·예천군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "구자근",
+        "district": "구미시 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "강명구",
+        "district": "구미시 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "임종득",
+        "district": "영주시·영양군·봉화군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "이만희",
+        "district": "영천시·청도군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "임이자",
+        "district": "상주시·문경시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "조지연",
+        "district": "경산시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "박형수",
+        "district": "의성군·청송군·영덕군·울진군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "정희용",
+        "district": "고령군·성주군·칠곡군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상북도"
+      },
+      {
+        "name": "김종양",
+        "district": "창원시 의창구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "허성무",
+        "district": "창원시 성산구",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "최형두",
+        "district": "창원시 마산합포구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "윤한홍",
+        "district": "창원시 마산회원구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "이종욱",
+        "district": "창원시 진해구",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "박대출",
+        "district": "진주시 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "강민국",
+        "district": "진주시 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "정점식",
+        "district": "통영시·고성군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "서천호",
+        "district": "사천시·남해군·하동군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "민홍철",
+        "district": "김해시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "김정호",
+        "district": "김해시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "박상웅",
+        "district": "밀양시·의령군·함안군·창녕군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "서일준",
+        "district": "거제시",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "윤영석",
+        "district": "양산시 갑",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "김태호",
+        "district": "양산시 을",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "신성범",
+        "district": "산청군·함양군·거창군·합천군",
+        "party": "국민의힘",
+        "election_type": "지역구",
+        "region": "경상남도"
+      },
+      {
+        "name": "문대림",
+        "district": "제주시 갑",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "제주특별자치도"
+      },
+      {
+        "name": "김한규",
+        "district": "제주시 을",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "제주특별자치도"
+      },
+      {
+        "name": "위성곤",
+        "district": "서귀포시",
+        "party": "더불어민주당",
+        "election_type": "지역구",
+        "region": "제주특별자치도"
+      },
+      {
+        "name": "최보윤",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "박충권",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "최수진",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "진종오",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "강선영",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김건",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김소희",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "인요한",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김민전",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김위상",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "한지아",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "유용원",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "조배숙",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김장겸",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김예지",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "안상훈",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "이달희",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "박준태",
+        "district": "비례대표",
+        "party": "국민의미래",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "이소희",
+        "district": "비례대표",
+        "party": "국민의힘",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "서미화",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "위성락",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "백승아",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "임광현",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "정혜경",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "용혜인",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "오세희",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "박홍배",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "강유정",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "한창민",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "전종덕",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김윤",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "임미애",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "정을호",
+        "district": "비례대표",
+        "party": "더불어민주연합",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "손솔",
+        "district": "비례대표",
+        "party": "더불어민주당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "최혁진",
+        "district": "비례대표",
+        "party": "더불어민주당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "이주희",
+        "district": "비례대표",
+        "party": "더불어민주당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김준환",
+        "district": "비례대표",
+        "party": "더불어민주당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "박은정",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "조국",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "이해민",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "신장식",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김선민",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김준형",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "김재원",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "황운하",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "정춘생",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "차규근",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "강경숙",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "서왕진",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "백선희",
+        "district": "비례대표",
+        "party": "조국혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "이주영",
+        "district": "비례대표",
+        "party": "개혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      },
+      {
+        "name": "천하람",
+        "district": "비례대표",
+        "party": "개혁신당",
+        "election_type": "비례대표",
+        "region": "비례대표"
+      }
+    ]
+  },
+  "local_candidates": [
+    {
+      "name": "정원오",
+      "party": "더불어민주당",
+      "role": "서울시장 후보 (경선 중)",
+      "region": "서울",
+      "has_stocks": true
+    },
+    {
+      "name": "오세훈",
+      "party": "국민의힘",
+      "role": "서울시장 (현직, 재선 도전 검토)",
+      "region": "서울",
+      "has_stocks": true
+    },
+    {
+      "name": "윤희숙",
+      "party": "국민의힘",
+      "role": "서울시장 후보 (출마 공식화)",
+      "region": "서울",
+      "has_stocks": false
+    },
+    {
+      "name": "김동연",
+      "party": "더불어민주당",
+      "role": "경기지사 후보 (현직, 경선 중)",
+      "region": "경기",
+      "has_stocks": true
+    },
+    {
+      "name": "추미애",
+      "party": "더불어민주당",
+      "role": "경기지사 후보 (경선 중)",
+      "region": "경기",
+      "has_stocks": true
+    },
+    {
+      "name": "박찬대",
+      "party": "더불어민주당",
+      "role": "인천시장 후보 (단수 공천 확정)",
+      "region": "인천",
+      "has_stocks": true
+    },
+    {
+      "name": "박형준",
+      "party": "국민의힘",
+      "role": "부산시장 후보 (현직, 3선 도전 유력)",
+      "region": "부산",
+      "has_stocks": true
+    },
+    {
+      "name": "전재수",
+      "party": "더불어민주당",
+      "role": "부산시장 후보 (출마 공식화)",
+      "region": "부산",
+      "has_stocks": true
+    },
+    {
+      "name": "박수민",
+      "party": "국민의힘",
+      "role": "현 국회의원",
+      "region": "서울",
+      "has_stocks": false
+    },
+    {
+      "name": "박주민",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "서울",
+      "has_stocks": false
+    },
+    {
+      "name": "전현희",
+      "party": "더불어민주당",
+      "role": "전 국민권익위원장",
+      "region": "서울",
+      "has_stocks": false
+    },
+    {
+      "name": "한준호",
+      "party": "더불어민주당",
+      "role": "현 국회의원 (고양을)",
+      "region": "경기",
+      "has_stocks": false
+    },
+    {
+      "name": "양향자",
+      "party": "국민의힘",
+      "role": "국민의힘 최고위원",
+      "region": "경기",
+      "has_stocks": false
+    },
+    {
+      "name": "유정복",
+      "party": "국민의힘",
+      "role": "현 인천시장",
+      "region": "인천",
+      "has_stocks": false
+    },
+    {
+      "name": "이기붕",
+      "party": "개혁신당",
+      "role": "개혁신당 인천시당위원장",
+      "region": "인천",
+      "has_stocks": false
+    },
+    {
+      "name": "주진우",
+      "party": "국민의힘",
+      "role": "현 국회의원",
+      "region": "부산",
+      "has_stocks": false
+    },
+    {
+      "name": "이재성",
+      "party": "더불어민주당",
+      "role": "전 부산시당위원장",
+      "region": "부산",
+      "has_stocks": false
+    },
+    {
+      "name": "윤재옥",
+      "party": "국민의힘",
+      "role": "현 국회의원 (4선)",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "추경호",
+      "party": "국민의힘",
+      "role": "현 국회의원 (3선)",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "최은석",
+      "party": "국민의힘",
+      "role": "현 국회의원 (초선)",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "유영하",
+      "party": "국민의힘",
+      "role": "현 국회의원 (초선)",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "이재만",
+      "party": "국민의힘",
+      "role": "전 대구 동구청장",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "홍석준",
+      "party": "국민의힘",
+      "role": "전 국회의원",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "김부겸",
+      "party": "더불어민주당",
+      "role": "전 국무총리",
+      "region": "대구",
+      "has_stocks": false
+    },
+    {
+      "name": "이장우",
+      "party": "국민의힘",
+      "role": "현 대전시장",
+      "region": "대전",
+      "has_stocks": false
+    },
+    {
+      "name": "장철민",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "대전",
+      "has_stocks": false
+    },
+    {
+      "name": "장종태",
+      "party": "더불어민주당",
+      "role": "현 국회의원 (전 서구청장)",
+      "region": "대전",
+      "has_stocks": false
+    },
+    {
+      "name": "허태정",
+      "party": "더불어민주당",
+      "role": "전 대전시장",
+      "region": "대전",
+      "has_stocks": false
+    },
+    {
+      "name": "민형배",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "강기정",
+      "party": "더불어민주당",
+      "role": "현 광주시장",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "정준호",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "이병훈",
+      "party": "더불어민주당",
+      "role": "전 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "김영록",
+      "party": "더불어민주당",
+      "role": "현 전남도지사",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "신정훈",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "이개호",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "주철현",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "광주/전남",
+      "has_stocks": false
+    },
+    {
+      "name": "김두겸",
+      "party": "국민의힘",
+      "role": "현 울산시장",
+      "region": "울산",
+      "has_stocks": false
+    },
+    {
+      "name": "김상욱",
+      "party": "더불어민주당",
+      "role": "현 국회의원 (울산 남구갑)",
+      "region": "울산",
+      "has_stocks": false
+    },
+    {
+      "name": "송철호",
+      "party": "더불어민주당",
+      "role": "전 울산시장",
+      "region": "울산",
+      "has_stocks": false
+    },
+    {
+      "name": "안재현",
+      "party": "더불어민주당",
+      "role": "전 청와대 자치발전비서관",
+      "region": "울산",
+      "has_stocks": false
+    },
+    {
+      "name": "이선호",
+      "party": "더불어민주당",
+      "role": "전 청와대 자치발전비서관",
+      "region": "울산",
+      "has_stocks": false
+    },
+    {
+      "name": "최민호",
+      "party": "국민의힘",
+      "role": "현 세종시장",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "고준일",
+      "party": "더불어민주당",
+      "role": "전 세종시의회 의장",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "김수현",
+      "party": "더불어민주당",
+      "role": "민주당 당대표 특보",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "이춘희",
+      "party": "더불어민주당",
+      "role": "전 세종시장",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "조상호",
+      "party": "더불어민주당",
+      "role": "전 민주당 당대표 정무조정실장",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "홍순식",
+      "party": "더불어민주당",
+      "role": "충남대 겸임 부교수",
+      "region": "세종",
+      "has_stocks": false
+    },
+    {
+      "name": "김진태",
+      "party": "국민의힘",
+      "role": "현 강원도지사",
+      "region": "강원",
+      "has_stocks": false
+    },
+    {
+      "name": "우상호",
+      "party": "더불어민주당",
+      "role": "전 청와대 정무수석",
+      "region": "강원",
+      "has_stocks": false
+    },
+    {
+      "name": "노영민",
+      "party": "더불어민주당",
+      "role": "전 대통령비서실장",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "송기섭",
+      "party": "더불어민주당",
+      "role": "전 진천군수",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "신용한",
+      "party": "더불어민주당",
+      "role": "전 정치인",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "한범덕",
+      "party": "더불어민주당",
+      "role": "전 청주시장",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "김수민",
+      "party": "국민의힘",
+      "role": "전 충북 정무부지사",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "윤갑근",
+      "party": "국민의힘",
+      "role": "변호사",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "윤희근",
+      "party": "국민의힘",
+      "role": "전 경찰청장",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "조길현",
+      "party": "국민의힘",
+      "role": "전 충주시장",
+      "region": "충북",
+      "has_stocks": false
+    },
+    {
+      "name": "김태흠",
+      "party": "국민의힘",
+      "role": "현 충남도지사",
+      "region": "충남",
+      "has_stocks": false
+    },
+    {
+      "name": "양승조",
+      "party": "더불어민주당",
+      "role": "전 충남도지사",
+      "region": "충남",
+      "has_stocks": false
+    },
+    {
+      "name": "박수현",
+      "party": "더불어민주당",
+      "role": "전 청와대 대변인",
+      "region": "충남",
+      "has_stocks": false
+    },
+    {
+      "name": "나소열",
+      "party": "더불어민주당",
+      "role": "청년 농부",
+      "region": "충남",
+      "has_stocks": false
+    },
+    {
+      "name": "김관영",
+      "party": "더불어민주당",
+      "role": "현 전북특별자치도지사",
+      "region": "전북",
+      "has_stocks": false
+    },
+    {
+      "name": "안호영",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "전북",
+      "has_stocks": false
+    },
+    {
+      "name": "이원택",
+      "party": "더불어민주당",
+      "role": "현 국회의원",
+      "region": "전북",
+      "has_stocks": false
+    },
+    {
+      "name": "이철우",
+      "party": "국민의힘",
+      "role": "현 경북도지사 (재선)",
+      "region": "경북",
+      "has_stocks": false
+    },
+    {
+      "name": "김재원",
+      "party": "국민의힘",
+      "role": "전 국회 예산결산특별위원장",
+      "region": "경북",
+      "has_stocks": false
+    },
+    {
+      "name": "임미애",
+      "party": "더불어민주당",
+      "role": "현 비례대표 국회의원",
+      "region": "경북",
+      "has_stocks": false
+    },
+    {
+      "name": "오중기",
+      "party": "더불어민주당",
+      "role": "전 청와대 선임행정관",
+      "region": "경북",
+      "has_stocks": false
+    },
+    {
+      "name": "박완수",
+      "party": "국민의힘",
+      "role": "현 경남도지사",
+      "region": "경남",
+      "has_stocks": false
+    },
+    {
+      "name": "김경수",
+      "party": "더불어민주당",
+      "role": "전 경남도지사 (현 지방시대위원장)",
+      "region": "경남",
+      "has_stocks": false
+    },
+    {
+      "name": "문대림",
+      "party": "더불어민주당",
+      "role": "현 국회의원 (전 도의회 의장)",
+      "region": "제주",
+      "has_stocks": false
+    },
+    {
+      "name": "오영훈",
+      "party": "더불어민주당",
+      "role": "현 제주도지사",
+      "region": "제주",
+      "has_stocks": false
+    },
+    {
+      "name": "위성곤",
+      "party": "더불어민주당",
+      "role": "현 국회의원 (3선)",
+      "region": "제주",
+      "has_stocks": false
+    },
+    {
+      "name": "문성유",
+      "party": "국민의힘",
+      "role": "전 한국자산관리공사 사장",
+      "region": "제주",
+      "has_stocks": false
     }
   ],
   "ai_report": "## 일일 정치 테마주 분석 리포트 (D-68)\n\n**1. 오늘의 핵심 포인트**\n정치 테마주는 하락 종목 수가 우세한 가운데, SOC 건설 테마의 강세가 돋보였습니다. 오세훈, 추미애 관련주는 긍정적인 흐름을 보인 반면, 박찬대, 이재명 관련주는 약세를 기록하며 후보별 등락이 극명하게 갈렸습니다.\n\n**2. 주목할 움직임**\n*   **SOC 건설 테마 상승:** 대우건설(+8.68%), DL(+5.05%) 등 SOC 건설 관련주들이 강한 상승세를 보이며 인프라 공약 기대감을 반영했습니다.\n*   **오세훈, 추미애 관련주 선전:** 오세훈 관련주인 BGF리테일(+4.24%)이 크게 오르고, 추미애 관련주의 평균 등락률도 +2.14%로 긍정적이었습니다.\n*   **박찬대, 이재명 관련주 약세:** OCI홀딩스(-3.06%) 등 박찬대 관련주와 한국내화(-2.95%) 등 이재명 관련주가 눈에 띄게 하락하며 후보별 희비가 엇갈렸습니다.\n\n**3. 선거 시즌 관점 해석**\n선거 D-68을 앞두고 정책 테마와 인물 테마 간의 온도 차가 확연합니다. 특히 SOC 건설 테마의 강세는 향후 인프라 투자 확대에 대한 기대감이 반영된 것으로 풀이됩니다. 후보별로는 지지율 변동이나 정책 발표에 따라 관련주 등락이 예민하게 반응하고 있어, 각 후보의 행보에 대한 시장의 평가가 직접적으로 주가에 반영되는 시점으로 보입니다.\n\n**4. 내일 주의 사항**\n선거일이 가까워질수록 정치 테마주의 변동성은 더욱 확대될 것으로 예상됩니다. 특히 정책 관련 뉴스와 후보들의 발언 하나하나에 민감하게 반응할 수 있으니, 관련 정보 확인이 필수적입니다. 또한, 오늘 강세를 보인 SOC 건설 테마의 지속 여부와 약세를 보인 후보 관련주의 반등 가능성을 주시해야 할 것입니다.",
@@ -3707,11 +6405,1284 @@
         "confidence": "medium",
         "category": "policy"
       }
+    ],
+    "박수민": [
+      {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "relation": "국민의힘의 주요 정책 기조인 '탈원전 정책 폐기 및 원전 생태계 복원'과 밀접하게 연관된 국내 대표 원전 기업입니다. 박수민 의원이 당론에 따라 원전 산업 활성화 정책을 추진할 경우 수혜가 예상됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "국민의힘이 강조하는 '자주국방 강화' 및 'K-방산 수출 확대' 정책과 관련이 깊은 국내 대표 방산 기업입니다. 박수민 의원이 국방 및 안보 관련 정책을 지지하거나 추진할 경우 수혜 가능성이 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "005930",
+        "name": "삼성전자",
+        "relation": "'반도체 초강대국 달성'은 여야를 막론한 국가 핵심 정책이며, 국민의힘 또한 반도체 산업 육성을 강조합니다. 박수민 의원이 경제 및 산업 관련 정책 추진 시 직간접적 수혜를 입을 수 있는 대표 기업입니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "012630",
+        "name": "HDC현대산업개발",
+        "relation": "박수민 의원이 서울 지역구 현직 국회의원으로서 서울 지역 재개발, 재건축 등 도시정비 사업 및 SOC 투자 확대 정책 추진 시 수혜를 입을 수 있는 주요 건설사입니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "006360",
+        "name": "GS건설",
+        "relation": "서울 및 수도권 도시정비 사업에 강점을 가진 대형 건설사로, 박수민 의원이 서울 지역 발전을 위한 부동산 정책 완화 및 SOC 확충 정책을 추진할 경우 수혜가 예상됩니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "017390",
+        "name": "서울가스",
+        "relation": "'서울'이라는 지역명을 사용하는 도시가스 공급 기업으로, 박수민 의원의 서울 지역 인프라 확충 또는 지역 주민 생활 편의 증진 정책과 간접적으로 연관될 가능성이 있습니다.",
+        "confidence": "low",
+        "category": "region"
+      }
+    ],
+    "박주민": [
+      {
+        "ticker": "009830",
+        "name": "한화솔루션",
+        "relation": "박주민 의원이 소속된 더불어민주당의 핵심 정책 기조인 '기후위기 대응' 및 '재생에너지 확대'에 따라 태양광 사업을 영위하는 동사의 수혜가 기대됩니다. 박주민 의원 또한 관련 정책에 적극적인 입장입니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "112610",
+        "name": "씨에스윈드",
+        "relation": "더불어민주당의 재생에너지 확대 정책에 따라 풍력 발전 시장 성장이 예상되며, 세계 1위 풍력 타워 제조업체인 동사가 수혜를 받을 것으로 기대됩니다. 박주민 의원의 친환경 정책 기조와 부합합니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "119650",
+        "name": "KC코트렐",
+        "relation": "대기오염 방지 및 환경 설비 사업을 영위하며, 신재생에너지 분야에도 진출해 있습니다. 박주민 의원을 포함한 더불어민주당의 탄소중립 및 친환경 정책 강화 기조와 맞물려 환경 산업 전반의 성장이 기대됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "001270",
+        "name": "에스원",
+        "relation": "세월호 참사 변호사 경력으로 재난 안전 시스템 강화에 대한 높은 관심을 보인 박주민 의원의 사회 안전망 확충 및 국민 안전 강화 정책에 따라 종합 보안 서비스를 제공하는 동사의 역할이 부각될 수 있습니다.",
+        "confidence": "low",
+        "category": "policy"
+      },
+      {
+        "ticker": "150900",
+        "name": "파수",
+        "relation": "박주민 의원이 소속된 법제사법위원회의 역할과 그의 법률가적 배경을 고려할 때, 개인정보 보호 및 데이터 보안 강화에 대한 목소리를 낼 가능성이 높습니다. 문서 및 데이터 보안 솔루션 기업인 동사가 간접적인 수혜를 볼 수 있습니다.",
+        "confidence": "low",
+        "category": "committee"
+      },
+      {
+        "ticker": "042520",
+        "name": "라온시큐어",
+        "relation": "블록체인 기반의 신원인증 및 모바일 보안 솔루션을 제공합니다. 디지털 전환 시대에 전자 금융 사기 방지, 개인정보 보호 등 디지털 안전 강화는 박주민 의원의 법사위 활동 및 사회적 약자 보호 정책과 간접적으로 연관될 수 있습니다.",
+        "confidence": "low",
+        "category": "committee"
+      }
+    ],
+    "전현희": [
+      {
+        "ticker": "263690",
+        "name": "K조선",
+        "relation": "전현희 전 위원장의 출신 지역인 통영과 인접한 경남 고성군에 주력 생산기지를 둔 조선업체로, 통영은 조선 및 해양 산업이 발달한 지역임.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "009830",
+        "name": "한화솔루션",
+        "relation": "전현희 전 위원장의 환경 변호사 경력과 더불어민주당의 친환경 에너지 정책 기조에 부합하는 태양광 및 화학 사업을 영위. 에너지 전환 정책의 수혜 기대.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "010060",
+        "name": "OCI홀딩스",
+        "relation": "태양광 발전의 핵심 소재인 폴리실리콘을 생산하는 기업으로, 전현희 전 위원장의 환경 분야 전문성 및 친환경 에너지 정책 강조와 부합.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "000720",
+        "name": "현대건설",
+        "relation": "전현희 전 위원장이 국회 국토교통위원회 위원으로 활동한 경력이 있어 사회간접자본(SOC) 확충 및 건설 관련 정책 수혜 기대.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "000660",
+        "name": "대우건설",
+        "relation": "전현희 전 위원장이 국회 국토교통위원회 위원으로 활동한 경력이 있어 건설 및 SOC 관련 정책 수혜 기대.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "000100",
+        "name": "유한양행",
+        "relation": "전현희 전 위원장이 국회 보건복지위원회 위원으로 활동한 경력이 있어 제약, 바이오 산업 및 보건의료 정책 관련 수혜 기대.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "002410",
+        "name": "신라SG",
+        "relation": "전현희 전 위원장의 출신 지역인 경상남도와 연고가 있는 수산물 유통 및 식품 가공업체로, 통영의 주요 산업 중 하나인 수산업과 연관성이 있음.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "096770",
+        "name": "SK이노베이션",
+        "relation": "배터리, 친환경 소재 등 미래 성장 동력에 투자하며 친환경 에너지 전환을 강조하는 민주당의 정책 방향과 일치하며, 전현희 전 위원장의 환경 분야 전문성과도 연결 가능.",
+        "confidence": "medium",
+        "category": "policy"
+      }
+    ],
+    "한준호": [
+      {
+        "ticker": "035760",
+        "name": "CJ ENM",
+        "relation": "한준호 의원은 KBS 기자 및 앵커 출신이며, 전 국회 과학기술정보방송통신위원회, 현 문화체육관광위원회 소속입니다. CJ ENM은 국내 대표적인 미디어 콘텐츠 및 엔터테인먼트 기업으로, 방송, 영화, 음악 등 다양한 콘텐츠 사업을 영위하며, 고양시에 CJ ENM 스튜디오센터 등 주요 시설을 보유하고 있어 지역 관련성도 높습니다. 한 의원의 미디어 전문성과 정책 활동의 직접적인 수혜가 예상됩니다.",
+        "confidence": "high",
+        "category": "career"
+      },
+      {
+        "ticker": "253450",
+        "name": "STUDIO DRAGON",
+        "relation": "한준호 의원의 KBS 기자 및 앵커 경력과 전 국회 과학기술정보방송통신위원회, 현 문화체육관광위원회 소속 이력을 고려할 때, 콘텐츠 산업에 대한 이해와 관심이 높습니다. STUDIO DRAGON은 국내 최고의 드라마 제작사로, 콘텐츠 산업 육성 및 지원 정책의 직접적인 수혜를 받을 수 있는 기업입니다.",
+        "confidence": "high",
+        "category": "committee"
+      },
+      {
+        "ticker": "034120",
+        "name": "SBS",
+        "relation": "한준호 의원은 KBS 기자 및 앵커 출신으로 방송 산업 전반에 대한 깊은 이해를 가지고 있습니다. SBS는 지상파 방송사로, 특히 고양시 일산에 대규모 제작센터를 운영하고 있어 한 의원의 지역구와 직접적인 연관성이 있습니다. 방송 정책 및 미디어 환경 변화에 따라 수혜를 받을 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "030200",
+        "name": "KT",
+        "relation": "한준호 의원은 전 국회 과학기술정보방송통신위원회 소속으로 ICT 및 방송통신 분야에 대한 전문성을 갖추고 있습니다. KT는 국내 3대 통신사이자 미디어 플랫폼(Genie TV 등) 및 콘텐츠 사업을 영위하는 기업으로, 한 의원의 관련 정책 방향에 따라 직접적인 영향을 받을 수 있습니다.",
+        "confidence": "medium",
+        "category": "committee"
+      },
+      {
+        "ticker": "160550",
+        "name": "NEW",
+        "relation": "한준호 의원이 현 문화체육관광위원회 위원으로 활동하고 있으며, 미디어 관련 전문성을 보유하고 있습니다. NEW는 영화, 드라마 등 다양한 콘텐츠를 제작 및 배급하는 기업으로, 문화 콘텐츠 산업 진흥 정책 및 관련 예산 지원에 따라 수혜를 기대할 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "067160",
+        "name": "아프리카TV",
+        "relation": "한준호 의원은 전 국회 과학기술정보방송통신위원회 및 현 문화체육관광위원회 소속으로, 디지털 콘텐츠 및 뉴미디어 산업에 대한 관심을 가질 수 있습니다. 아프리카TV는 국내 대표적인 라이브 스트리밍 플랫폼으로, 새로운 미디어 환경 및 관련 정책 변화에 따른 수혜를 받을 수 있습니다.",
+        "confidence": "medium",
+        "category": "committee"
+      },
+      {
+        "ticker": "036420",
+        "name": "제이콘텐트리",
+        "relation": "한준호 의원이 현 문화체육관광위원회 소속인 점을 고려할 때, 미디어 콘텐츠 및 문화 산업 전반에 대한 정책적 영향력이 있습니다. 제이콘텐트리는 JTBC 계열의 드라마 제작 스튜디오(SLL중앙)와 멀티플렉스(메가박스)를 운영하며, 콘텐츠 기획/제작부터 배급까지 전반적인 사업을 영위하여 관련 정책 수혜를 기대할 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      }
+    ],
+    "양향자": [
+      {
+        "ticker": "005930",
+        "name": "삼성전자",
+        "relation": "양향자 의원의 가장 핵심적인 이력인 '삼성전자 상무 출신'이라는 경력과 직접적으로 연결됩니다. 또한 그녀의 주된 정책 방향인 반도체 산업 육성의 직접적인 수혜 기업입니다. 삼성전자는 경기도에 다수의 주요 사업장을 두고 있습니다.",
+        "confidence": "high",
+        "category": "career, policy, region"
+      },
+      {
+        "ticker": "000660",
+        "name": "SK하이닉스",
+        "relation": "삼성전자와 함께 대한민국 반도체 산업의 양대 산맥으로, 양향자 의원이 강조하는 국내 반도체 산업 경쟁력 강화 및 생태계 조성 정책의 수혜가 예상됩니다. 경기도 이천에 대규모 생산 시설을 보유하고 있습니다.",
+        "confidence": "high",
+        "category": "policy, region"
+      },
+      {
+        "ticker": "000990",
+        "name": "DB하이텍",
+        "relation": "메모리 반도체 외 시스템 반도체 육성을 강조하는 양향자 의원의 정책 방향과 부합하는 국내 대표적인 시스템 반도체 파운드리(위탁생산) 기업입니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "067310",
+        "name": "하나마이크론",
+        "relation": "반도체 후공정(패키징 및 테스트) 전문 기업으로, 양향자 의원이 주장하는 국내 반도체 산업 전반의 경쟁력 강화에 필수적인 중소·중견기업 육성 정책의 수혜가 기대됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "240810",
+        "name": "원익IPS",
+        "relation": "반도체 및 디스플레이 공정 장비 전문 기업으로, 국내 반도체 장비 국산화 및 기술 독립을 강조하는 양향자 의원의 정책 기조와 연관성이 높습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "036540",
+        "name": "SFA반도체",
+        "relation": "반도체 조립 및 테스트 전문 기업으로, 국내 반도체 후공정 분야의 핵심 기업 중 하나입니다. 양향자 의원의 반도체 산업 육성 정책에 따른 국내 공급망 강화의 수혜를 입을 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "253590",
+        "name": "네오셈",
+        "relation": "SSD(솔리드 스테이트 드라이브) 테스트 장비 전문 기업으로, 반도체 생산의 필수적인 테스트 공정을 담당하는 국내 기술 기업입니다. 양향자 의원이 강조하는 고부가가치 반도체 산업 지원 정책과 연관됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "009150",
+        "name": "삼성전기",
+        "relation": "양향자 의원의 전 직장인 삼성그룹의 계열사이자 주요 전자부품 제조 기업입니다. 반도체, IT 기기용 핵심 부품을 생산하며, 그녀가 강조하는 첨단산업 생태계 강화 및 경기도 내 산업 발전과도 연관됩니다.",
+        "confidence": "medium",
+        "category": "career, region, policy"
+      }
+    ],
+    "유정복": [
+      {
+        "ticker": "068270",
+        "name": "셀트리온",
+        "relation": "유정복 시장의 핵심 공약 중 하나인 인천 바이오산업 육성의 대표 기업. 송도국제도시에 본사와 생산시설을 두고 있어 지역 경제 활성화 및 바이오 클러스터 조성 정책과 직접적인 연관성이 높음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "207940",
+        "name": "삼성바이오로직스",
+        "relation": "인천 송도 바이오클러스터의 핵심 기업으로, 유정복 시장의 바이오산업 육성 및 글로벌 바이오 허브 구축 정책과 긴밀하게 연결됨. 대규모 투자를 통한 고용 창출 및 지역 경제 기여도 높음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "302440",
+        "name": "SK바이오사이언스",
+        "relation": "인천 송도에 R&D 센터 및 생산시설을 운영하며 바이오 클러스터 조성에 기여. 유정복 시장의 바이오산업 육성 정책의 주요 수혜주로 꼽힐 수 있음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "042700",
+        "name": "한미반도체",
+        "relation": "유정복 시장이 인천 반도체 특화단지 유치를 강력하게 추진 중. 한미반도체는 인천 서구에 본사 및 공장이 위치하여 지역 경제 활성화 및 반도체 산업 육성 정책의 직접적 수혜주로 부각될 수 있음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "047050",
+        "name": "POSCO인터내셔널",
+        "relation": "인천 송도국제도시에 본사를 둔 대표적인 기업으로, 유정복 시장의 인천 지역 경제 활성화, 투자 유치, 스마트시티 개발 정책과 연관성이 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "180640",
+        "name": "한진칼",
+        "relation": "대한항공의 지주회사로 인천국제공항을 거점으로 하는 항공, 물류, 관광 산업과 밀접한 관련. 유정복 시장의 인천공항 경쟁력 강화 및 항공 물류 허브화 정책과 연관성이 있음.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "000120",
+        "name": "CJ대한통운",
+        "relation": "인천항을 포함한 물류 인프라를 적극 활용하는 국내 최대 종합물류기업. 유정복 시장의 인천 지역 물류 산업 육성 및 스마트 항만 구축 정책의 수혜를 기대할 수 있음.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "000720",
+        "name": "현대건설",
+        "relation": "유정복 시장의 인천 지역 SOC 확충, 도시 재생, 교통 인프라(GTX-B 노선, 제2경인고속도로 등) 개발 공약과 관련하여 대규모 건설 프로젝트 참여 가능성.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "005960",
+        "name": "동부건설",
+        "relation": "인천 지역 내 다양한 건설 사업에 참여 이력이 있으며, 최근에도 인천 지역에서 수주 소식이 있었음. 유정복 시장의 인천 지역 개발 정책 추진 시 수혜를 입을 수 있는 기업.",
+        "confidence": "medium",
+        "category": "policy"
+      }
+    ],
+    "이기붕": [
+      {
+        "ticker": "068270",
+        "name": "셀트리온",
+        "relation": "본사 및 주요 생산시설이 인천 송도에 위치한 대표적인 바이오 기업으로, 이기붕 의원의 인천 지역 바이오산업 육성 및 경제 활성화 공약과 깊은 연관성을 가집니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "034590",
+        "name": "인천도시가스",
+        "relation": "인천 지역에 도시가스를 공급하는 핵심 인프라 기업으로, 본사가 인천에 위치하며 지역 주민의 생활 환경 개선 및 에너지 정책과 밀접하게 연관됩니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "000880",
+        "name": "한진",
+        "relation": "인천항 및 인천국제공항을 거점으로 물류 사업을 영위하며, 인천의 교통 및 물류 인프라 강화, 지역 경제 활성화 공약 추진 시 수혜가 예상됩니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "000720",
+        "name": "현대건설",
+        "relation": "인천 지역의 대규모 사회간접자본(SOC) 확충, 도시 재개발, 주택 공급 등의 건설 정책 추진 시 주요 참여 기업으로서 수혜가 기대됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "097230",
+        "name": "HJ중공업",
+        "relation": "조선 및 건설 사업을 영위하며 인천항과 관련된 역사와 사업 연관성을 가지고 있어, 인천 지역 인프라 및 산업 발전 정책과 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "302440",
+        "name": "SK바이오사이언스",
+        "relation": "인천 송도에 R&D 센터 및 생산시설을 보유하고 있으며, 인천 바이오산업 클러스터 강화 및 미래 성장 동력 확보 정책 추진 시 수혜가 예상됩니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "006730",
+        "name": "서부T&D",
+        "relation": "인천 지역에서 복합쇼핑몰(스타필드 시티 인천) 및 물류단지 개발 등 부동산 사업을 활발히 진행하며, 지역 개발 및 상권 활성화 정책과 연관됩니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "000390",
+        "name": "삼화페인트공업",
+        "relation": "본사가 인천 서구에 위치한 중견 제조 기업으로, 지역 경제 활성화 및 중소기업 지원 정책과 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "주진우": [
+      {
+        "ticker": "138930",
+        "name": "BNK금융지주",
+        "relation": "본사가 부산에 위치한 대표적인 지역 금융지주사로, 주진우 의원의 지역구인 부산 경제 활성화 및 금융 산업 육성 정책에 따른 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "011390",
+        "name": "부산산업",
+        "relation": "부산 지역을 기반으로 하는 레미콘 및 아스콘 제조업체로, 주진우 의원의 지역 기반 SOC 확충 및 건설 경기 활성화 정책 추진 시 수혜 가능성.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "240790",
+        "name": "파나시아",
+        "relation": "부산에 본사를 둔 선박 평형수 처리장치 및 대기오염 방지 설비 전문기업으로, 부산을 중심으로 한 해양 산업 및 조선 기자재 산업 육성 정책과 연관성.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "028670",
+        "name": "팬오션",
+        "relation": "부산항을 포함한 국내 주요 항만 물동량과 밀접한 해운 물류 기업으로, 부산 지역 발전 및 해운 산업 정책 추진 시 수혜 가능성.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "004840",
+        "name": "DRB동일",
+        "relation": "부산에 주요 생산 거점(본사 및 공장)을 둔 산업용 고무제품 제조업체로, 부산 지역 산업 발전 및 제조업 경쟁력 강화 정책 수립 시 관련 기업으로 부각될 수 있음.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "058820",
+        "name": "KNN",
+        "relation": "부산·경남 지역을 기반으로 하는 민영 방송사로, 주진우 의원의 지역구인 부산의 문화 콘텐츠 산업 육성 및 지역 경제 활성화 정책 발표 시 지역 대표 기업으로 부각 가능성.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "203650",
+        "name": "드림시큐리티",
+        "relation": "공인인증서 및 정보보안 솔루션 전문기업으로, 법제사법위원회 소속이자 검사 출신 의원의 정보보호 및 디지털 전환 관련 법률 정비 논의 시 수혜 기대.",
+        "confidence": "low",
+        "category": "committee"
+      },
+      {
+        "ticker": "103140",
+        "name": "풍산",
+        "relation": "부산 및 울산에 주요 사업장을 둔 비철금속 및 방산 기업으로, 부산 지역 산업 발전 및 국가 방위 산업 정책 추진 시 관련 기업으로 주목.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "이재성": [
+      {
+        "ticker": "000400",
+        "name": "BNK금융지주",
+        "relation": "부산은행을 자회사로 둔 부산 지역 대표 금융 지주사. 이재성 정치인의 출신 지역인 부산 경제 활성화 및 지역 밀착형 금융 지원 공약과 연관 가능성이 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "097230",
+        "name": "HJ중공업",
+        "relation": "부산 영도에 조선소를 둔 기업으로, 부산 지역 경제 및 고용에 중요한 역할을 함. 이재성 정치인의 지역구인 부산의 조선 산업 부흥 및 지역 경제 활성화 공약과 연관 가능성이 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "013120",
+        "name": "동원개발",
+        "relation": "부산에 본사를 둔 중견 건설사로, 부산 및 영남권에서 주택 공급 및 도시 개발 사업을 활발히 진행. 지역 기반 건설 산업 육성, 주거 안정 및 도시 재생 관련 정책과 연관 가능성이 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "001790",
+        "name": "아이에스동서",
+        "relation": "부산에 본사를 둔 건설 및 환경 사업 영위 기업. 부산 지역의 도시 개발, 친환경 인프라 구축, 자원 순환 사업 등 이재성 정치인의 지역 개발 및 환경 정책과 연관될 수 있음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "004360",
+        "name": "세방",
+        "relation": "부산항을 포함한 주요 항만에서 컨테이너 터미널 운영 및 항만 하역 사업을 영위하는 종합 물류 기업. 이재성 정치인의 부산항 스마트 물류 시스템 구축 및 해운 산업 육성 공약과 연관 가능성이 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "044490",
+        "name": "태웅",
+        "relation": "부산 강서구에 본사를 둔 단조 전문 기업으로, 조선, 풍력, 플랜트 등 다양한 산업에 핵심 부품을 공급. 부산 지역 제조업 활성화 및 신성장 산업(풍력 등) 육성 정책과 연관 가능성이 있음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "003280",
+        "name": "흥아해운",
+        "relation": "아시아 역내 컨테이너 정기선 사업을 주력으로 하는 해운사. 부산항을 거점으로 한 해운 산업 발전 및 물류 경쟁력 강화 정책과 연관 가능성이 있음.",
+        "confidence": "high",
+        "category": "region"
+      }
+    ],
+    "윤재옥": [
+      {
+        "ticker": "139130",
+        "name": "DGB금융지주",
+        "relation": "윤재옥 의원의 지역구인 대구에 본사를 둔 대표적인 지역 금융 기업. 지역 경제 활성화 및 균형 발전 정책 추진 시 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "009000",
+        "name": "평화산업",
+        "relation": "윤재옥 의원의 지역구인 대구에 본사를 둔 자동차 부품 제조 기업. 지역 산업 육성 및 고용 창출 정책과 연관 가능성.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "윤재옥 의원의 지역구인 대구에 본사를 둔 산업용 정밀 부품 및 로봇 제조 기업. 지역 경제 활성화 및 첨단 산업 육성 정책과 연관 가능성.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "002460",
+        "name": "화성산업",
+        "relation": "윤재옥 의원의 지역구인 대구에 본사를 둔 주요 건설 기업. 지역 인프라 확충 및 도시 개발 정책 추진 시 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "윤재옥 의원이 국회 국방위원회에서 활동했으며, 국민의힘 원내대표로서 당의 국방력 강화 및 방위산업 육성 정책을 주도할 가능성이 높음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "079550",
+        "name": "LIG넥스원",
+        "relation": "윤재옥 의원이 국회 국방위원회에서 활동했으며, 국민의힘 원내대표로서 당의 국방력 강화 및 첨단 방위산업 기술 개발 지원 정책에 영향력을 행사할 수 있음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "relation": "윤재옥 의원이 국민의힘 원내대표로서, 당의 주요 에너지 정책인 원자력 발전 산업 생태계 강화 및 SMR(소형모듈원전) 기술 개발 지원 정책 추진에 영향력을 행사할 수 있음.",
+        "confidence": "high",
+        "category": "policy"
+      }
+    ],
+    "추경호": [
+      {
+        "ticker": "042700",
+        "name": "한미반도체",
+        "relation": "추경호 의원은 경제부총리 재임 시절 반도체 산업에 대한 세제 지원 및 정책적 육성을 적극 강조했습니다. 한미반도체는 HBM 관련 장비 기업으로 반도체 산업의 핵심 성장 동력을 대표합니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "relation": "추경호 의원이 소속된 국민의힘과 현 정부의 핵심 에너지 정책인 '탈원전 폐기 및 원전 산업 생태계 복원' 정책 수혜 기업입니다. 경제 수장으로서 관련 정책에 영향력을 행사했습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "002460",
+        "name": "화성산업",
+        "relation": "추경호 의원의 지역구인 대구에 본사를 둔 대표적인 건설사입니다. 지역 개발 및 SOC 사업 관련 정책 추진 시 수혜를 입을 가능성이 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "국민의힘 정부는 방위산업을 전략 산업으로 육성하고 수출을 적극 지원하고 있습니다. 추경호 의원은 경제 정책을 총괄하며 이러한 산업 육성 기조에 기여했습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "240810",
+        "name": "원익IPS",
+        "relation": "추경호 의원이 핵심적으로 지원했던 반도체 산업의 장비 공급 기업입니다. 반도체 생산 능력 확대를 위한 투자 및 지원 정책의 수혜가 예상됩니다.",
+        "confidence": "medium-high",
+        "category": "policy"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "대구에 본사를 둔 산업용 기계 부품 전문 기업으로, 추경호 의원의 지역 기반 기업 테마와 연관성이 있습니다. 지역 경제 활성화 정책의 수혜를 기대할 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "최은석": [
+      {
+        "ticker": "002460",
+        "name": "화성산업",
+        "relation": "대구에 본사를 둔 대표적인 건설사로, 최은석 의원의 지역구(대구 동구·군위군 을) 개발 공약(대구 국제공항 K-2 이전 후적지 개발 및 신공항 건설 연계, 군위 스마트 물류단지 조성, 군위 첨단 산업단지 유치, 동구 도시 재생)과 밀접하게 연관되어 수혜가 기대됩니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "011370",
+        "name": "서한",
+        "relation": "화성산업과 더불어 대구 지역의 주요 건설사 중 하나로, 최은석 의원의 지역구 개발 공약(대구 국제공항 K-2 이전 후적지 개발 및 신공항 건설 연계, 군위 스마트 물류단지 조성, 군위 첨단 산업단지 유치, 동구 도시 재생)과 밀접하게 연관되어 수혜가 기대됩니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "대구에 본사를 둔 정밀 기계 부품 및 로봇 자동화 시스템 제조 기업으로, 최은석 의원의 군위 첨단 산업단지 조성 및 스마트 물류단지 공약과 관련하여 자동화 및 스마트 팩토리 솔루션 공급 측면에서 잠재적인 연관성을 가집니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "009000",
+        "name": "평화산업",
+        "relation": "대구에 본사를 둔 자동차 부품 전문 기업으로, 최은석 의원이 추진할 지역 경제 활성화 및 산업 발전 정책의 수혜를 받을 수 있는 대표적인 대구 기반 제조업체 중 하나입니다.",
+        "confidence": "low",
+        "category": "region"
+      },
+      {
+        "ticker": "004140",
+        "name": "동방",
+        "relation": "주요 물류 및 항만 하역 전문 기업으로, 최은석 의원의 군위 스마트 물류단지 조성 공약과 관련하여 물류 인프라 구축 및 운영 사업에 참여할 가능성이 있으며, 대규모 SOC 사업에도 간접적 연관이 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "국민의힘의 주요 정책 기조인 방위산업 육성과 궤를 같이하며, 최은석 의원의 대구 K-2 공군기지 이전 및 항공우주 관련 산업 육성 공약 추진 시 간접적인 수혜가 기대됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "047810",
+        "name": "한국항공우주",
+        "relation": "국내 유일의 항공기 제조업체로, 최은석 의원의 대구 K-2 공군기지 이전 및 항공우주 산업 육성 공약과 간접적으로 연관되며, 정부의 항공우주 및 방산 정책 추진 시 수혜가 기대됩니다.",
+        "confidence": "medium",
+        "category": "policy"
+      }
+    ],
+    "유영하": [
+      {
+        "ticker": "139130",
+        "name": "DGB금융지주",
+        "relation": "유영하 의원의 지역구인 대구·경북을 기반으로 하는 대표적인 금융지주사로, 지역 경제 활성화 및 발전에 대한 정책 추진 시 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "000470",
+        "name": "화성산업",
+        "relation": "대구에 본사를 둔 대표적인 건설사로, 유영하 의원의 대구 지역구 내 재개발/재건축, 신청사 건립 등 도시 개발 공약 추진 시 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "011370",
+        "name": "서한",
+        "relation": "대구 기반의 중견 건설사로, 유영하 의원의 대구 지역 개발 (서대구역세권 개발 등) 및 SOC 관련 공약과 연관되어 테마주로 분류될 가능성.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "039010",
+        "name": "현대에이치티",
+        "relation": "대구에 본사를 둔 스마트홈 및 스마트시티 솔루션 기업으로, 유영하 의원의 대구 스마트시티 조성 등 첨단 도시 개발 공약 추진 시 수혜 기대.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "대구에 본사를 둔 정밀기계 및 공장자동화 설비 제조업체로, 지역 산업 발전 및 스마트 팩토리 관련 정책 추진 시 연관될 가능성.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "066970",
+        "name": "엘앤에프",
+        "relation": "대구에 본사를 둔 2차전지 양극재 생산 기업으로, 지역 경제 활성화 및 첨단 산업 육성 정책과 연관되어 테마주로 언급될 가능성.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "000100",
+        "name": "유한양행",
+        "relation": "유한양행의 창업주 유일한 박사가 유영하 의원과 같은 '문화 류씨'로 알려져 있어, 종친 관련 테마주로 분류될 가능성.",
+        "confidence": "low",
+        "category": "clan"
+      },
+      {
+        "ticker": "103140",
+        "name": "풍산",
+        "relation": "풍산그룹 창업주 류찬우 회장이 유영하 의원과 같은 '문화 류씨'로 알려져 있으며, 국민의힘의 국방·방산 산업 육성 기조와도 연관 가능성.",
+        "confidence": "low",
+        "category": "clan"
+      }
+    ],
+    "이재만": [
+      {
+        "ticker": "002270",
+        "name": "화성산업",
+        "relation": "대구에 본사를 둔 대표적인 건설회사로, 이재만 전 청장의 대구 지역 기반 정치 활동 및 토목공학 전공 경력과 연관성이 높습니다. 지역 SOC 사업 및 건설 활성화 정책 수혜 기대를 받을 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "006370",
+        "name": "대구백화점",
+        "relation": "대구를 대표하는 향토 기업이자 상징적인 유통사입니다. 이재만 전 청장의 대구 지역 기반 및 지역 경제 활성화 공약과 밀접한 연관성을 가질 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "090000",
+        "name": "평화산업",
+        "relation": "대구에 본사를 둔 자동차 부품 제조 기업인 평화그룹의 계열사입니다. 이재만 전 청장의 대구 지역 기반과 지역 산업 육성 정책에 대한 기대로 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "002150",
+        "name": "도화엔지니어링",
+        "relation": "토목 설계 및 감리 분야 국내 선두 기업입니다. 이재만 전 청장의 영남대학교 토목공학과 학력 및 대구 동구청장으로서의 도시 개발, SOC 사업 추진 경력과 직접적인 연관성을 가집니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "375500",
+        "name": "DL이앤씨",
+        "relation": "국내 주요 건설사 중 하나로, 이재만 전 청장의 토목공학 전공 및 과거 대구 동구청장으로서 지역 SOC 및 건설 사업에 대한 전문성과 연관되어 인프라 투자 정책의 수혜 기대를 받을 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "011370",
+        "name": "서한",
+        "relation": "대구 지역을 기반으로 하는 중견 건설사로, 이재만 전 청장의 지역구 활동 및 SOC 확충, 도시 개발 정책 수혜 기대로 관련주로 부각될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "000590",
+        "name": "유신",
+        "relation": "국내 대표적인 엔지니어링 컨설팅 기업으로, 이재만 전 청장의 토목공학 전문성 및 SOC 관련 경력과 밀접하게 연관되어 정부 및 지자체의 인프라 투자 확대 정책 수혜 기대를 받을 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      }
+    ],
+    "홍석준": [
+      {
+        "ticker": "066970",
+        "name": "엘앤에프",
+        "relation": "대구 달서구(홍석준 전 의원의 지역구)에 본사를 둔 2차전지 양극재 기업입니다. 홍석준 전 의원이 대구시 경제부시장 및 국회의원으로서 지역 경제 활성화와 미래차 산업 육성을 강조했기에 관련성이 높습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "대구 달서구(홍석준 전 의원의 지역구)에 본사를 둔 정밀기계 부품 기업으로, 리니어 로봇 및 산업 자동화 솔루션을 제공합니다. 홍석준 전 의원이 대구의 로봇 산업 육성과 스마트 팩토리 지원에 관심을 보였기에 관련성이 높습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "139130",
+        "name": "DGB금융지주",
+        "relation": "대구를 기반으로 하는 대표적인 지방 금융지주사입니다. 대구시 경제부시장 및 지역 국회의원으로서 지역 경제와 밀접한 DGB금융지주와의 관계가 부각될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "002460",
+        "name": "화성산업",
+        "relation": "대구에 본사를 둔 중견 건설사입니다. 홍석준 전 의원이 추진한 대구경북통합신공항 건설 등 지역 SOC 사업에 참여 가능성이 있으며, 지역 기반 기업으로서 연관성을 가집니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "relation": "원자력 발전 설비 핵심 기업입니다. 홍석준 전 의원이 국회 산업통상자원중소벤처기업위원회 위원으로서 정부의 에너지 정책(탈원전 폐기 및 원전 확대)을 지지하고, 관련 산업 육성에 관여했기에 정책적 연관성이 높습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "108490",
+        "name": "로보티즈",
+        "relation": "로봇 솔루션 전문 기업입니다. 홍석준 전 의원이 대구시 경제부시장 시절 로봇 산업 육성 정책을 추진했으며, 국회 산자중기위 활동을 통해 4차 산업혁명 기술(로봇 포함) 지원에 대한 관심을 표명했기에 관련성이 높습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "036930",
+        "name": "주성엔지니어링",
+        "relation": "반도체 및 디스플레이 장비 제조 기업입니다. 홍석준 전 의원이 산업통상자원부 근무 및 국회 산업통상자원중소벤처기업위원회 위원으로서 반도체 산업 지원 및 육성에 대한 정책적 관심을 가졌기에 관련성이 부각될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "090000",
+        "name": "평화산업",
+        "relation": "대구 달서구(홍석준 전 의원의 지역구)에 본사를 둔 자동차 부품 기업입니다. 홍석준 전 의원의 지역구 기업이며, 대구시 경제부시장 시절 지역 제조업 및 미래차 산업 육성과 관련하여 언급될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "김부겸": [
+      {
+        "ticker": "002270",
+        "name": "화성산업",
+        "relation": "대구에 본사를 둔 대표적인 건설사로, 김부겸 전 총리의 대구 지역구 활동 및 지역 발전 공약과 밀접한 연관성이 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "043370",
+        "name": "평화정공",
+        "relation": "대구에 본사를 둔 자동차 부품 전문 기업으로, 김부겸 전 총리의 지역구인 대구의 산업 기반을 대표하는 기업입니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "004380",
+        "name": "삼익THK",
+        "relation": "대구에 본사를 둔 산업용 로봇 및 자동화 설비 기업으로, 김부겸 전 총리의 대구 지역구 활동 시 지역 제조업 및 4차 산업 관련 정책 방향과 연관될 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "036460",
+        "name": "한국가스공사",
+        "relation": "대구 혁신도시로 본사를 이전한 주요 공기업으로, 김부겸 전 총리가 대구 지역 정치 활동 시 지역 균형 발전 및 에너지 공기업의 역할에 대해 언급할 때마다 관련주로 부각될 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "005370",
+        "name": "경창산업",
+        "relation": "대구에 본사를 둔 자동차 부품 전문 기업으로, 김부겸 전 총리의 지역구인 대구의 주력 산업과 관련된 종목입니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "000630",
+        "name": "대구백화점",
+        "relation": "대구를 대표하는 향토 백화점으로, 김부겸 전 총리의 대구 지역 기반 정치 활동 시 지역 상권 활성화 및 소비 진작 정책과 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "003570",
+        "name": "S&T중공업",
+        "relation": "대구에 공장을 둔 산업용 부품 및 방위산업 관련 기업으로, 지역 경제 활성화 및 국가 산업 정책과 연관성이 있을 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "이장우": [
+      {
+        "ticker": "013580",
+        "name": "계룡건설",
+        "relation": "대전 지역 기반 대표 건설사로 본사가 대전에 위치. 이장우 대전시장의 SOC 확충, 도시재생, 재개발/재건축 등 도시 개발 공약 추진 시 직접적인 수혜 기대. 이장우 시장이 과거 국회 국토교통위원회 위원을 역임한 경력과도 연결됨.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "대전 대덕연구단지에 연구소 등 주요 사업장이 위치하며, 대전시가 역점적으로 추진하는 국방 및 첨단산업 육성 정책의 핵심 수혜주로 꼽힘.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "272210",
+        "name": "한화시스템",
+        "relation": "한화그룹 계열사로 국방 ICT, 방산전자 등 첨단 기술 분야를 담당. 대전이 국방과학연구소 등 국방 R&D의 중심지인 점과 시너지 효과 기대. 이장우 시장의 첨단산업 육성 공약과 연관성이 높음.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "121600",
+        "name": "나노신소재",
+        "relation": "첨단 나노소재 전문 기업으로, 대전 대덕연구개발특구를 중심으로 첨단소재 산업을 육성하려는 대전시의 정책 방향성과 부합. 본사는 공주시에 위치하나 대전과 인접하여 지역적 연관성이 있음.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "353200",
+        "name": "대덕전자",
+        "relation": "사명 자체가 대전의 과학연구단지인 '대덕'과 연관성이 깊고, PCB(인쇄회로기판) 등 반도체 및 전자부품 전문 기업으로서 대전의 첨단 과학기술 및 미래 산업 육성 정책과 간접적으로 연결됨.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "101180",
+        "name": "인바이오젠",
+        "relation": "대전에 본사를 둔 바이오 관련 기업으로, 이장우 시장이 강조하는 바이오산업 육성 및 지역 경제 활성화 정책의 수혜를 기대할 수 있음.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "038950",
+        "name": "파인디지털",
+        "relation": "내비게이션, 블랙박스 등 스마트카 및 IT 기기 전문 기업으로 대전에 본사를 두고 있음. 대전의 IT/첨단 산업 육성 및 지역 내 기업 활동 지원 정책과 연관될 수 있음.",
+        "confidence": "low",
+        "category": "region"
+      }
+    ],
+    "장철민": [
+      {
+        "ticker": "013580",
+        "name": "계룡건설",
+        "relation": "장철민 의원의 지역구인 대전광역시에 본사를 둔 대표적인 지역 건설사입니다. 의원의 지역 개발 및 SOC 정책과 연관될 가능성이 높습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "089010",
+        "name": "켐트로닉스",
+        "relation": "대전광역시에 본사를 둔 IT 및 화학 소재 전문 기업입니다. 대전의 과학산업단지 위상과 지역 경제 활성화 정책에 대한 의원의 관심과 연관될 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "215000",
+        "name": "골프존",
+        "relation": "대전에서 시작하여 주요 R&D 센터를 대전에 두고 있는 지역 혁신 기업입니다. 대전 지역 경제 및 ICT 산업 진흥 정책과 간접적인 연관 가능성이 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "000100",
+        "name": "유한양행",
+        "relation": "장철민 의원이 국회 보건복지위원회 소속이므로, 국내 주요 제약사로서 보건복지 정책 변화에 따라 직간접적인 영향을 받을 수 있는 종목입니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "068270",
+        "name": "셀트리온",
+        "relation": "국회 보건복지위원회 소속 의원으로서 바이오 산업 육성 및 건강보험 관련 정책을 추진할 경우, 국내 대표 바이오 기업인 셀트리온의 사업 환경에 영향을 줄 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "032850",
+        "name": "비트컴퓨터",
+        "relation": "보건복지위원회 소속 의원으로서 디지털 헬스케어, 의료 정보화 정책 추진 시, 병원 정보 시스템 및 원격 의료 솔루션 전문 기업인 비트컴퓨터가 수혜를 입을 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "187300",
+        "name": "뷰웍스",
+        "relation": "의료용 영상 장비 및 솔루션 전문 기업으로, 보건복지위원회 소속 장철민 의원의 의료기기 산업 지원 및 보건의료 디지털 전환 관련 정책에 따라 잠재적 수혜를 기대할 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "033230",
+        "name": "인성정보",
+        "relation": "헬스케어 IT 솔루션 및 원격의료 서비스 관련 사업을 영위하는 기업입니다. 보건복지위원회 소속 의원으로서 디지털 헬스케어 및 스마트 병원 구축 정책 추진 시 주목받을 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      }
+    ],
+    "장종태": [
+      {
+        "ticker": "017670",
+        "name": "SK텔레콤",
+        "relation": "장종태 의원의 소속 위원회인 과학기술정보방송통신위원회 활동과 밀접한 관련이 있는 국내 대표 통신 및 ICT 분야 기업.",
+        "confidence": "high",
+        "category": "committee"
+      },
+      {
+        "ticker": "035420",
+        "name": "NAVER",
+        "relation": "과학기술정보방송통신위원회 소속으로서 디지털 전환, AI 기술 발전에 대한 정책적 관심이 예상되며, 관련 연구 및 사업을 활발히 진행하는 국내 대표 IT 플랫폼 기업.",
+        "confidence": "high",
+        "category": "committee"
+      },
+      {
+        "ticker": "067310",
+        "name": "하나마이크론",
+        "relation": "과학기술정보방송통신위원회 활동은 첨단 IT 산업 및 반도체 분야에 대한 정책적 관심을 높일 수 있으며, 하나마이크론은 반도체 후공정 전문 기업으로 관련 수혜 기대.",
+        "confidence": "medium",
+        "category": "committee"
+      },
+      {
+        "ticker": "033780",
+        "name": "KT&G",
+        "relation": "장종태 의원의 지역구이자 활동 기반인 대전에 본사를 둔 대표적인 향토 기업으로, 지역 경제 활성화 정책 추진 시 수혜가 예상됨.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "대전 대덕연구단지에 주요 방위산업 및 항공우주 연구 시설을 보유하고 있어, 지역 과학기술 및 방산 분야 발전에 대한 정책 추진 시 관련성 높음.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "264520",
+        "name": "이노뎁",
+        "relation": "대전에 본사를 둔 AI 기반 영상 보안 솔루션 기업으로, 지역 경제 활성화와 함께 과학기술정보방송통신위원회 활동을 통한 AI 및 ICT 산업 육성 정책과 연관성 높음.",
+        "confidence": "high",
+        "category": "region"
+      }
+    ],
+    "허태정": [
+      {
+        "ticker": "013580",
+        "name": "계룡건설산업",
+        "relation": "대전 지역의 대표적인 건설사로, 허태정 전 대전시장의 재임 기간 동안 추진된 지역 개발 및 사회간접자본(SOC) 확충 정책과 관련하여 수혜 기대로 테마주로 분류될 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "relation": "대전 지역에 국방과학연구소(ADD) 등 주요 국방 관련 기관 및 한화그룹 계열사 사업장이 다수 위치해 있습니다. 허태정 전 대전시장의 지역 발전 정책 중 대전의 과학 및 국방 산업 육성 의지와 연관되어 테마주로 연결될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "064550",
+        "name": "바이오니아",
+        "relation": "대전 대덕연구단지에 본사를 둔 생명공학 기업으로, 대전의 '과학도시' 및 '바이오 클러스터' 육성 정책을 추진했던 허태정 전 시장의 정책적 지향점과 일치하여 수혜 기대감으로 테마주로 분류될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "082270",
+        "name": "젬백스",
+        "relation": "대전 유성구에 본사를 둔 바이오 제약 기업으로, 대전의 첨단 과학기술 산업 발전 및 바이오 헬스케어 산업 진흥에 대한 허태정 전 시장의 정책 기조와 연관되어 테마주로 인식될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "033780",
+        "name": "KT&G",
+        "relation": "본사가 대전 대덕구에 위치한 대전 지역의 대표적인 대기업으로, 허태정 전 대전시장의 지역 경제 활성화 및 지역 기업과의 상생을 강조하는 정책 방향과 연관되어 테마주로 언급될 수 있습니다.",
+        "confidence": "low",
+        "category": "region"
+      },
+      {
+        "ticker": "208340",
+        "name": "파멥신",
+        "relation": "대전 유성구에 본사를 둔 신약 개발 바이오 기업으로, 대전의 과학 인프라를 활용한 바이오산업 육성에 대한 허태정 전 시장의 정책 기대감과 연관되어 테마주로 분류될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "101400",
+        "name": "인바이오젠",
+        "relation": "대전 유성구에 본사를 둔 생명공학 기업으로, 대전 과학도시로서의 위상 강화 및 바이오 헬스케어 산업 발전 공약과 관련하여 허태정 전 시장의 정책 수혜 기대감으로 테마주로 인식될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      }
+    ],
+    "민형배": [
+      {
+        "ticker": "175330",
+        "name": "JB금융지주",
+        "relation": "광주은행의 지주사로, 민형배 의원의 지역구(광주 광산을) 경제 활성화 및 지역 금융 발전 정책 추진 시 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "000890",
+        "name": "보해양조",
+        "relation": "전남 지역을 기반으로 하는 대표적인 향토 기업으로, 민형배 의원의 광주/전남 지역 경제 발전 및 특산품 육성 공약과 연관 가능성.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "002990",
+        "name": "금호건설",
+        "relation": "광주를 연고로 시작한 기업으로 지역 개발 및 SOC 사업 참여 가능성이 높으며, 민형배 의원의 국토교통위원회 활동 이력과 연관.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "040160",
+        "name": "누리플렉스",
+        "relation": "광주지역에 R&D센터를 보유하고 있으며, 스마트시티 및 AI 관련 인프라 사업 추진 가능성으로 민 의원의 지역구 AI 산업 육성 정책과 연관.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "037710",
+        "name": "광주신세계",
+        "relation": "광주 지역 대표 유통 기업으로, 민형배 의원의 지역 경제 활성화 및 상권 개발 관련 정책 추진 시 수혜 기대.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "203450",
+        "name": "유니온커뮤니티",
+        "relation": "생체인식 보안 솔루션 기업으로, 광주 지역에 R&D센터를 보유하고 있으며 스마트시티 및 디지털 신원 확인 관련 정책 추진 시 수혜 기대.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "041020",
+        "name": "인프라웨어",
+        "relation": "AI 및 스마트 오피스, 스마트 솔루션 사업을 영위하여 민 의원의 지역구(광주) AI 산업 육성 및 디지털 전환 정책 기대감에 편승 가능.",
+        "confidence": "low",
+        "category": "policy"
+      }
+    ],
+    "정준호": [
+      {
+        "ticker": "091590",
+        "name": "남화토건",
+        "relation": "본사가 광주에 위치한 지역 기반 건설사로, 정준호 의원의 지역 개발 및 SOC 확충 공약과 밀접하게 연관될 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "002290",
+        "name": "삼일기업공사",
+        "relation": "본사가 광주에 소재하고 있는 중견 건설사로, 정준호 의원의 지역구인 광주의 개발 정책 및 인프라 투자 확대 시 수혜를 기대할 수 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "007680",
+        "name": "대원",
+        "relation": "본사를 광주에 둔 건설 회사로, 정준호 의원의 지역 경제 활성화 및 주택 공급, 도시 재생 등 건설 관련 정책과 연계될 가능성이 있습니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "002990",
+        "name": "금호건설",
+        "relation": "비록 본사는 서울에 있으나, 광주/전남 지역에 깊은 역사적 연고와 사업 기반을 가진 건설사입니다. 정준호 의원의 광주/전남 지역 발전 공약과 간접적으로 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "112610",
+        "name": "씨에스윈드",
+        "relation": "전남 지역이 해상풍력 발전의 핵심 거점으로 부상함에 따라, 신재생에너지 확대 및 친환경 정책을 지지하는 정준호 의원의 정책 테마주로 연관 가능성이 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "010690",
+        "name": "화신",
+        "relation": "광주글로벌모터스(GGM) 등 광주 지역의 미래 모빌리티 산업 육성 정책과 연관될 수 있는 자동차 부품 제조사입니다. 정준호 의원의 지역 미래 산업 발전 공약과 연계될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "015760",
+        "name": "한국전력공사",
+        "relation": "본사가 전남 나주 혁신도시에 위치하여, 광주/전남 지역의 전력 인프라 및 에너지 정책에 핵심적인 역할을 합니다. 정준호 의원의 광주/전남 지역구 활동 및 에너지 관련 정책과 연관 가능성이 있습니다.",
+        "confidence": "medium",
+        "category": "region"
+      }
+    ],
+    "김영록": [
+      {
+        "ticker": "100090",
+        "name": "SK오션플랜트",
+        "relation": "김영록 전남도지사가 '글로벌 해상풍력 클러스터' 조성 등 전남 해상풍력 발전 산업을 핵심 정책으로 추진하고 있습니다. 해상풍력 하부구조물 전문 기업인 SK오션플랜트는 전남 지역 사업 확대에 직접적인 수혜를 받을 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "322000",
+        "name": "CS윈드",
+        "relation": "전남이 해상풍력 발전의 중심지로 부상함에 따라, 풍력 터빈 타워 제조 글로벌 선두 기업인 CS윈드는 김영록 지사의 친환경 에너지 정책 및 관련 산업 육성 기조에 따라 수혜를 입을 수 있습니다.",
+        "confidence": "high",
+        "category": "policy"
+      },
+      {
+        "ticker": "009540",
+        "name": "한국조선해양",
+        "relation": "한국조선해양의 주요 자회사인 현대삼호중공업이 전남 영암에 대규모 조선소를 운영하고 있습니다. 전남도지사인 김영록의 지역 경제 활성화 및 산업 육성 정책에 밀접하게 연관된 핵심 기업입니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "015760",
+        "name": "한국전력공사",
+        "relation": "한국전력공사의 본사가 전남 나주에 위치해 있어, 김영록 도지사의 전남 지역 에너지 정책, 전력 인프라 구축, 신재생에너지 사업 등 다양한 도정 사업에 필수적인 협력 관계를 가집니다.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "011780",
+        "name": "금호석유화학",
+        "relation": "금호석유화학은 전남 여수에 대규모 생산 시설을 보유하고 있는 지역 기반의 핵심 산업 기업입니다. 김영록 도지사의 전남 산업 육성 및 지역 경제 발전에 대한 정책적 관심과 연관성이 높습니다.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "097950",
+        "name": "CJ제일제당",
+        "relation": "김영록 지사는 과거 농림축산식품부 장관을 역임하며 농수산 및 식품 산업에 대한 깊은 이해를 가지고 있습니다. 식품 및 바이오 산업을 선도하는 CJ제일제당은 농식품 산업 발전 정책과 연관될 수 있습니다.",
+        "confidence": "medium",
+        "category": "career"
+      },
+      {
+        "ticker": "064350",
+        "name": "현대로템",
+        "relation": "김영록 지사가 전남의 미래 성장 동력으로 '미래 이동수단 및 수소경제'를 강조하고 있어, 수소전기트램 및 수소충전소 등 수소 모빌리티 인프라 사업을 영위하는 현대로템이 정책 수혜주로 부각될 수 있습니다.",
+        "confidence": "medium",
+        "category": "policy"
+      },
+      {
+        "ticker": "036580",
+        "name": "팜스토리",
+        "relation": "김영록 지사가 농림축산식품부 장관을 지낸 이력과 관련하여, 사료 및 축산물 가공을 주요 사업으로 하는 팜스토리는 농수축산업 관련 정책 테마주로 분류될 가능성이 있습니다.",
+        "confidence": "medium",
+        "category": "career"
+      }
+    ],
+    "이선호": [
+      {
+        "ticker": "322000",
+        "name": "HD현대중공업",
+        "relation": "이선호 전 비서관의 지역 기반인 울산에 본사를 둔 주요 조선 해양 기업. 울산 경제 발전에 대한 공약이나 정책 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "010660",
+        "name": "현대미포조선",
+        "relation": "울산에 본사를 둔 HD현대중공업 계열의 중형 조선사. 이선호 전 비서관의 지역 기반과 연관된 울산 경제 활성화 정책 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "005380",
+        "name": "현대자동차",
+        "relation": "세계 최대 규모의 자동차 생산 공장이 울산에 위치하여 지역 경제의 핵심적인 역할을 함. 이선호 전 비서관의 울산 관련 정책 수혜 기대.",
+        "confidence": "high",
+        "category": "region"
+      },
+      {
+        "ticker": "267270",
+        "name": "현대건설기계",
+        "relation": "HD현대그룹 계열의 건설장비 제조사로 울산에 본사를 두고 있음. '자치발전' 관련 정책 추진 시 인프라 투자 및 건설경기 활성화 수혜 기대.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "267260",
+        "name": "현대일렉트릭",
+        "relation": "HD현대그룹 계열의 전력기기 및 에너지솔루션 기업으로 울산에 본사를 두고 있음. 지역 산업 발전 및 에너지 인프라 투자 관련 정책 수혜 기대.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "025000",
+        "name": "KPX케미칼",
+        "relation": "울산에 주요 생산 시설을 두고 있는 정밀화학 기업. 이선호 전 비서관의 울산 지역 산업 지원 또는 발전 공약과 연관 가능성.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "003240",
+        "name": "태광산업",
+        "relation": "울산에 대규모 석유화학 및 섬유 생산 공장을 운영 중인 기업. 이선호 전 비서관의 울산 지역 경제 활성화 정책과 연관될 수 있음.",
+        "confidence": "medium",
+        "category": "region"
+      },
+      {
+        "ticker": "004000",
+        "name": "롯데정밀화학",
+        "relation": "울산에 대규모 화학 생산 공장을 보유하고 있는 기업. 이선호 전 비서관의 울산 산업 진흥 또는 지역 투자 유치 공약과 관련될 수 있음.",
+        "confidence": "medium",
+        "category": "region"
+      }
     ]
   },
   "summary": {
-    "up": 16,
-    "down": 23,
+    "up": 17,
+    "down": 24,
     "surge_count": 0,
     "top_gainer": "대우건설",
     "top_loser": "효성중공업"

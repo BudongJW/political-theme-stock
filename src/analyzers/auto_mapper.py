@@ -38,28 +38,43 @@ class AutoMapper:
             "keywords": pol_data.get("keywords", []),
         }
 
-    def suggest_for_all(self) -> dict:
+    def suggest_for_all(self, max_calls: int = 15) -> dict:
         """
-        모든 후보에 대해 Gemini 테마주 자동 제안 실행
+        주요 후보에 대해 Gemini 테마주 자동 제안 실행 (API 호출 수 제한)
+        profile이 있는 후보만 대상 (정보 없으면 의미 있는 제안 불가)
         Returns: {후보이름: [제안 종목 리스트]}
         """
         all_suggestions = {}
+        call_count = 0
 
-        # 대선 후보
+        # 대선 후보 (우선)
         for pol in self.tm.data.get("politicians", []):
+            if call_count >= max_calls:
+                break
+            if not pol.get("profile"):
+                continue
             existing = [s["ticker"] for s in pol.get("related_stocks", [])]
             info = self._get_politician_info(pol)
             suggestions = self.ga.suggest_theme_stocks(info, existing)
+            call_count += 1
             if suggestions:
                 all_suggestions[pol["name"]] = suggestions
 
-        # 지방선거 후보
+        # 지방선거 후보 (profile 있는 것만)
         for cand in self.tm.data.get("local_candidates_2026", []):
+            if call_count >= max_calls:
+                break
+            if not cand.get("profile"):
+                continue
             existing = [s["ticker"] for s in cand.get("related_stocks", [])]
             info = self._get_politician_info(cand)
             suggestions = self.ga.suggest_theme_stocks(info, existing)
+            call_count += 1
             if suggestions:
                 all_suggestions[cand["name"]] = suggestions
+
+        logger.info(f"Gemini API 호출 {call_count}회 (한도 {max_calls})")
+
 
         # 결과 저장
         today = datetime.now().strftime("%Y-%m-%d")
