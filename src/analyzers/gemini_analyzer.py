@@ -13,11 +13,20 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-# Gemini API 키 로테이션 풀
-GEMINI_API_KEYS = [
-    os.environ.get("GEMINI_API_KEY", "AIzaSyBlv7zxICHbsRDUwoCK1aVcsLxXj8JcYOA"),
-    "AIzaSyBeAPpbEu4at_mv00T5bwz2G8TdtbOOA7I",
-]
+# Gemini API 키 로테이션 풀 (환경변수에서 로드)
+# GEMINI_API_KEY: 메인 키 (필수)
+# GEMINI_API_KEY_2: 로테이션용 보조 키 (선택)
+def _load_api_keys() -> list[str]:
+    keys = []
+    main_key = os.environ.get("GEMINI_API_KEY", "")
+    if main_key:
+        keys.append(main_key)
+    key2 = os.environ.get("GEMINI_API_KEY_2", "")
+    if key2:
+        keys.append(key2)
+    return keys
+
+GEMINI_API_KEYS = _load_api_keys()
 
 
 class GeminiAnalyzer:
@@ -26,6 +35,13 @@ class GeminiAnalyzer:
 
         self._genai = genai
         self._keys = api_keys or GEMINI_API_KEYS
+        if not self._keys:
+            logger.warning("GEMINI_API_KEY 환경변수 미설정 — AI 분석 기능 비활성화")
+            self._disabled = True
+            self._cache_dir = Path(cache_dir)
+            self._cache_dir.mkdir(parents=True, exist_ok=True)
+            return
+        self._disabled = False
         self._key_idx = 0
         self._configure_key(self._keys[self._key_idx])
         self._cache_dir = Path(cache_dir)
@@ -65,14 +81,16 @@ class GeminiAnalyzer:
             json.dump({"key": key, "cached_at": datetime.now().isoformat(), "data": data}, f, ensure_ascii=False, indent=2)
 
     def _call(self, prompt: str, retries: int = 1) -> str:
+        if getattr(self, '_disabled', False):
+            return ""
         for attempt in range(retries + 1):
             try:
                 response = self.model.generate_content(prompt)
                 return response.text.strip()
             except Exception as e:
                 err_str = str(e).lower()
-                if ("quota" in err_str or "429" in err_str) and attempt < retries:
-                    logger.warning(f"Gemini 할당량 초과, 키 로테이션 시도")
+                if ("quota" in err_str or "429" in err_str or "leaked" in err_str) and attempt < retries:
+                    logger.warning(f"Gemini 할당량 초과/키 문제, 키 로테이션 시도")
                     self._rotate_key()
                     continue
                 logger.error(f"Gemini API 호출 실패: {e}")

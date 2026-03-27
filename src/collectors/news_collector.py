@@ -14,6 +14,9 @@ NAVER_RSS_TOPICS = {
     "선거": "https://news.naver.com/main/rss/section.naver?sid1=100&sid2=269",
 }
 
+# 구글 뉴스 RSS (네이버 RSS 차단 시 폴백)
+GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?hl=ko&gl=KR&ceid=KR:ko&q="
+
 
 class NewsCollector:
     def __init__(self, naver_client_id: str = None, naver_client_secret: str = None):
@@ -68,13 +71,40 @@ class NewsCollector:
             logger.error(f"네이버 뉴스 수집 실패 ({query}): {e}")
             return []
 
+    def fetch_google_news(self, query: str, max_items: int = 20) -> list[dict]:
+        """구글 뉴스 RSS 검색 (네이버 API 키 없어도 동작)"""
+        try:
+            from urllib.parse import quote
+            url = GOOGLE_NEWS_RSS + quote(query)
+            feed = feedparser.parse(url)
+            results = []
+            for entry in feed.entries[:max_items]:
+                results.append({
+                    "title": entry.get("title", ""),
+                    "summary": BeautifulSoup(entry.get("summary", ""), "lxml").get_text()[:200],
+                    "link": entry.get("link", ""),
+                    "published": entry.get("published", ""),
+                    "source": "google_news",
+                    "collected_at": datetime.now().isoformat(),
+                })
+            return results
+        except Exception as e:
+            logger.error(f"구글 뉴스 수집 실패 ({query}): {e}")
+            return []
+
     def collect_all(self, keywords: list[str]) -> list[dict]:
-        """RSS + 키워드 검색 통합 수집"""
+        """RSS + 키워드 검색 통합 수집 (구글 뉴스 폴백 포함)"""
         all_news = []
+        # 네이버 RSS 시도
         for _, url in NAVER_RSS_TOPICS.items():
             all_news.extend(self.fetch_rss(url))
+        # 네이버 API 시도
         for kw in keywords:
             all_news.extend(self.fetch_naver_news(kw))
+        # 결과 없으면 구글 뉴스 RSS 폴백
+        if not all_news:
+            for kw in keywords:
+                all_news.extend(self.fetch_google_news(kw))
         seen = set()
         deduped = []
         for item in all_news:
