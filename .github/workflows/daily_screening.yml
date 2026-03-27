@@ -4,15 +4,13 @@ on:
   schedule:
     # 평일 장 마감 후 (KST 15:40 = UTC 06:40)
     - cron: '40 6 * * 1-5'
-    # 평일 장 시작 전 (KST 08:50 = UTC 23:50 전일)
-    - cron: '50 23 * * 0-4'
   workflow_dispatch:  # 수동 실행 가능
 
 jobs:
   screening:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 결과 파일 커밋용
+      contents: write
 
     steps:
       - name: Checkout
@@ -29,13 +27,11 @@ jobs:
 
       - name: 스크리닝 실행
         run: python scripts/run_screening.py
-        env:
-          PYTHONPATH: src
 
-      - name: 결과 커밋
+      - name: 결과 커밋 (GitHub Pages 갱신)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/processed/
-          git diff --staged --quiet || git commit -m "chore: 자동 스크리닝 결과 업데이트 ($(date +'%Y-%m-%d %H:%M KST'))"
+          git add docs/data/ data/processed/
+          git diff --staged --quiet || git commit -m "chore: 일일 스크리닝 $(date -u +'%Y-%m-%d')"
           git push
