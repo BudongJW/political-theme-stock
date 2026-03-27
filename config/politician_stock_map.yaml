@@ -2,9 +2,14 @@
 # 출처: 언론 보도, 금감원 공시 기반 수동 정리
 # 업데이트: 2026-03-27
 
+# ============================================================
+# 대선 후보 (제21대 대통령선거 2025.06.03 - 완료)
+# ============================================================
 politicians:
   - name: "이재명"
     party: "더불어민주당"
+    role: "대통령 (2025.06~ 현직)"
+    election: "대선"
     related_stocks:
       - ticker: "001500"
         name: "현대차"
@@ -18,14 +23,23 @@ politicians:
       - ticker: "064350"
         name: "현대로템"
         relation: "공약(방산)"
+      - ticker: "001440"
+        name: "일성건설"
+        relation: "대선 캠프 인사 연관"
+      - ticker: "010040"
+        name: "상지건설"
+        relation: "대선 캠프 인사 연관"
     keywords:
       - "이재명"
       - "민주당"
       - "기본소득"
       - "경기도"
+      - "대통령"
 
   - name: "김문수"
     party: "국민의힘"
+    role: "전 대선 후보"
+    election: "대선"
     related_stocks:
       - ticker: "012330"
         name: "현대모비스"
@@ -44,6 +58,8 @@ politicians:
 
   - name: "이준석"
     party: "개혁신당"
+    role: "대선 후보"
+    election: "대선"
     related_stocks:
       - ticker: "035420"
         name: "NAVER"
@@ -56,7 +72,155 @@ politicians:
       - "개혁신당"
       - "청년"
 
+# ============================================================
+# 2026 지방선거 후보 (제9회 전국동시지방선거 2026.06.03 - 예정)
+# ============================================================
+local_candidates_2026:
+
+  - name: "정원오"
+    party: "더불어민주당"
+    role: "서울시장 후보 (경선 중)"
+    region: "서울"
+    election: "2026지방선거"
+    poll_status: "선두권 (2026년 3월 기준)"
+    related_stocks:
+      - ticker: "058430"
+        name: "에스제이그룹"
+        relation: "지역구(성수동) 내 부지 보유"
+      - ticker: "007720"
+        name: "대주산업"
+        relation: "출신지(여수) 내 공장"
+      - ticker: "038540"
+        name: "삼표시멘트"
+        relation: "지역구 연관"
+      - ticker: "045340"
+        name: "나우IB"
+        relation: "종친(경주 정씨) 연결"
+      - ticker: "030190"
+        name: "NICE평가정보"
+        relation: "성동구청장 시절 협력"
+    keywords:
+      - "정원오"
+      - "서울시장"
+      - "성동구"
+      - "민주당 서울"
+
+  - name: "오세훈"
+    party: "국민의힘"
+    role: "서울시장 (현직, 재선 도전 검토)"
+    region: "서울"
+    election: "2026지방선거"
+    related_stocks:
+      - ticker: "000270"
+        name: "기아"
+        relation: "서울시 UAM(도심항공) 정책"
+      - ticker: "282330"
+        name: "BGF리테일"
+        relation: "서울시 소상공인 정책 연관"
+    keywords:
+      - "오세훈"
+      - "서울시장"
+      - "재선"
+
+  - name: "윤희숙"
+    party: "국민의힘"
+    role: "서울시장 후보 (출마 공식화)"
+    region: "서울"
+    election: "2026지방선거"
+    related_stocks: []
+    keywords:
+      - "윤희숙"
+      - "서울시장"
+      - "국민의힘"
+
+  - name: "김동연"
+    party: "더불어민주당"
+    role: "경기지사 후보 (현직, 경선 중)"
+    region: "경기"
+    election: "2026지방선거"
+    related_stocks:
+      - ticker: "003490"
+        name: "대한항공"
+        relation: "경기도 항공 물류 정책"
+      - ticker: "034730"
+        name: "SK"
+        relation: "경기도 반도체 클러스터 정책"
+    keywords:
+      - "김동연"
+      - "경기지사"
+      - "경기도"
+
+  - name: "추미애"
+    party: "더불어민주당"
+    role: "경기지사 후보 (경선 중)"
+    region: "경기"
+    election: "2026지방선거"
+    related_stocks:
+      - ticker: "006800"
+        name: "미래에셋증권"
+        relation: "연관 테마"
+    keywords:
+      - "추미애"
+      - "경기지사"
+
+  - name: "박찬대"
+    party: "더불어민주당"
+    role: "인천시장 후보 (단수 공천 확정)"
+    region: "인천"
+    election: "2026지방선거"
+    poll_status: "단수 공천 확정 (2026.03.04)"
+    related_stocks:
+      - ticker: "010060"
+        name: "OCI홀딩스"
+        relation: "인천 기반 기업"
+      - ticker: "011200"
+        name: "HMM"
+        relation: "인천항 물류 정책"
+      - ticker: "003160"
+        name: "디아이씨"
+        relation: "인천 지역 연관"
+    keywords:
+      - "박찬대"
+      - "인천시장"
+      - "인천"
+      - "원내대표"
+
+  - name: "박형준"
+    party: "국민의힘"
+    role: "부산시장 후보 (현직, 3선 도전 유력)"
+    region: "부산"
+    election: "2026지방선거"
+    related_stocks:
+      - ticker: "000100"
+        name: "유한양행"
+        relation: "부산 바이오 클러스터 정책"
+      - ticker: "011200"
+        name: "HMM"
+        relation: "부산항 물류 정책"
+      - ticker: "010620"
+        name: "현대미포조선"
+        relation: "부산 조선업 지원"
+    keywords:
+      - "박형준"
+      - "부산시장"
+      - "부산"
+
+  - name: "전재수"
+    party: "더불어민주당"
+    role: "부산시장 후보 (출마 공식화)"
+    region: "부산"
+    election: "2026지방선거"
+    related_stocks:
+      - ticker: "010620"
+        name: "현대미포조선"
+        relation: "부산 조선업"
+    keywords:
+      - "전재수"
+      - "부산시장"
+
+# ============================================================
 # 정책 테마별 종목 (정치인 무관)
+# ============================================================
 policy_themes:
   원전:
     - ticker: "034020"
@@ -65,6 +229,8 @@ policy_themes:
       name: "한국전력기술"
     - ticker: "009540"
       name: "한국조선해양"
+    - ticker: "298040"
+      name: "효성중공업"
 
   방산:
     - ticker: "047810"
@@ -73,6 +239,8 @@ policy_themes:
       name: "현대로템"
     - ticker: "012450"
       name: "한화에어로스페이스"
+    - ticker: "000760"
+      name: "이화공영"
 
   전기차:
     - ticker: "001500"
@@ -81,9 +249,42 @@ policy_themes:
       name: "LG화학"
     - ticker: "006400"
       name: "삼성SDI"
+    - ticker: "096770"
+      name: "SK이노베이션"
 
   기본소득:
     - ticker: "035720"
       name: "카카오"
     - ticker: "035420"
       name: "NAVER"
+
+  SOC건설:
+    description: "2026 지방선거 선심성 SOC 예산 수혜 (역대 최대 21.1조)"
+    - ticker: "000720"
+      name: "현대건설"
+    - ticker: "000210"
+      name: "DL이앤씨"
+    - ticker: "047040"
+      name: "대우건설"
+    - ticker: "006360"
+      name: "GS건설"
+    - ticker: "023000"
+      name: "삼성엔지니어링"
+
+  지방개발:
+    description: "공공기관 2차 이전, 세종시 완성, GTX 역세권 개발"
+    - ticker: "001500"
+      name: "현대차"
+    - ticker: "097950"
+      name: "CJ제일제당"
+    - ticker: "003410"
+      name: "쌍용C&E"
+
+  반도체:
+    description: "경기도 반도체 클러스터 (용인·평택) 정책"
+    - ticker: "005930"
+      name: "삼성전자"
+    - ticker: "000660"
+      name: "SK하이닉스"
+    - ticker: "009150"
+      name: "삼성전기"
