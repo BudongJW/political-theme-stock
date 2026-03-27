@@ -36,10 +36,10 @@ def check_news_triggers():
 
     themes = list(tm.data.get("policy_themes", {}).keys())
 
-    # 최근 뉴스 수집
+    # 최근 뉴스 수집 (구글 뉴스 RSS — API 키 불필요)
     all_news = []
     for pol_name in politicians[:5]:  # 상위 5명만 (API 절약)
-        news = nc.search_naver_news(pol_name, count=5)
+        news = nc.fetch_google_news(f"{pol_name} 테마주", max_items=5)
         all_news.extend(news)
 
     if not all_news:
