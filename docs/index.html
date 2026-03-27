@@ -341,7 +341,8 @@ async function init() {
     document.getElementById('loading').style.display='none';
     document.getElementById('app').style.display='block';
   } catch(e) {
-    document.getElementById('loading').innerHTML='데이터 로드 실패. <a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>';
+    console.error('PollStock init error:', e);
+    document.getElementById('loading').innerHTML=`데이터 로드 실패: ${e.message} <br><a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>`;
   }
 }
 
@@ -445,21 +446,22 @@ function render(data) {
   fillSelect('filter-region', allRegions);
   fillSelect('cons-region-filter', allRegions);
 
-  renderTable(results, candidate_stocks);
-  renderChart(results);
-  renderConsultant(candidate_stocks, candidate_market_summary);
-  renderConsultantChart(candidate_market_summary);
-  renderPollSignals(data.poll_signals, candidate_stocks);
-  renderPredictions(data.election_predictions, data.stock_impacts);
-  renderStockPredictions(data.stock_predictions);
-  renderRegionView(candidate_stocks, results);
-  renderAssetChart(candidate_stocks);
-  renderCandidates(candidate_stocks, results);
-  renderAssemblyMembers(data.assembly_members);
-  renderLocalCandidatesFull(data.local_candidates);
-  renderAIReport(data.ai_report);
-  renderAISuggestions(data.ai_suggestions, candidate_stocks);
-  renderTimeline(phase.phase);
+  const safe = (fn, name) => { try { fn(); } catch(e) { console.error(`[${name}]`, e); } };
+  safe(()=>renderTable(results, candidate_stocks), 'Table');
+  safe(()=>renderChart(results), 'Chart');
+  safe(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
+  safe(()=>renderConsultantChart(candidate_market_summary), 'ConsultantChart');
+  safe(()=>renderPollSignals(data.poll_signals, candidate_stocks), 'PollSignals');
+  safe(()=>renderPredictions(data.election_predictions, data.stock_impacts), 'Predictions');
+  safe(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
+  safe(()=>renderRegionView(candidate_stocks, results), 'RegionView');
+  safe(()=>renderAssetChart(candidate_stocks), 'AssetChart');
+  safe(()=>renderCandidates(candidate_stocks, results), 'Candidates');
+  safe(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
+  safe(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
+  safe(()=>renderAIReport(data.ai_report), 'AIReport');
+  safe(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
+  safe(()=>renderTimeline(phase.phase), 'Timeline');
 
   // 필터 이벤트
   document.getElementById('filter-theme').onchange=()=>renderTable(results, candidate_stocks);
