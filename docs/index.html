@@ -112,6 +112,9 @@
       <h1>📊 PollStock 폴스탁</h1>
       <p style="font-size:1rem;margin-bottom:4px;">여론조사 × 주식 — 정치 테마주 AI 분석 대시보드</p>
       <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span></p>
+      <p style="margin-top:8px;padding:6px 16px;background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.25);border-radius:8px;color:#f85149;font-size:.82rem;font-weight:600;display:inline-block;">
+        ⚠️ 본 서비스는 교육·연구 목적이며, 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.
+      </p>
     </header>
 
     <div class="metrics">
@@ -377,19 +380,20 @@ function showReasonModal(ticker, tagName, evt) {
       if(r.type==='politician' || r.type==='local_candidate') {
         const partyColor = r.party==='더불어민주당'?'var(--dem)':r.party==='국민의힘'?'var(--ppp)':'var(--reform)';
         detail = `<div class="reason-detail">
-          <div><strong>${r.name}</strong> <span style="color:${partyColor};font-size:.78rem;">${r.party||''}</span></div>
-          <div style="font-size:.8rem;color:var(--muted);margin-top:2px;">${r.role||''}</div>
-          <div style="margin-top:4px;font-size:.8rem;">
-            <span class="label">연관</span><span class="value">${r.relation||'-'}</span>
+          <div><strong>${r.name}</strong> <span style="color:${partyColor};font-size:.78rem;font-weight:600;">${r.party||''}</span></div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:1px;">${r.role||''}</div>
+          <div style="margin-top:6px;padding:6px 8px;background:rgba(88,166,255,.06);border-radius:6px;border-left:3px solid var(--accent);">
+            <div style="font-size:.72rem;color:var(--muted);margin-bottom:2px;">테마주 연관 이유</div>
+            <div style="font-size:.84rem;line-height:1.5;">${r.relation||'상세 정보 없음'}</div>
           </div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:2px;">
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px;">
             ${r.election||''} ${r.region?'· '+r.region:''}
           </div>
         </div>`;
       } else if(r.type==='policy_theme') {
         detail = `<div class="reason-detail">
           <div><strong>${r.theme}</strong> 테마</div>
-          ${r.description?`<div style="font-size:.8rem;color:var(--muted);margin-top:2px;">${r.description}</div>`:''}
+          ${r.description?`<div style="margin-top:4px;padding:6px 8px;background:rgba(210,153,34,.06);border-radius:6px;border-left:3px solid var(--warn);font-size:.84rem;line-height:1.5;">${r.description}</div>`:''}
         </div>`;
       }
       html += `<div class="reason-item"><span class="reason-type ${typeCls}">${typeLabel}</span>${detail}</div>`;
