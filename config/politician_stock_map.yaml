@@ -1,0 +1,89 @@
+# 정치인-테마주 매핑 DB
+# 출처: 언론 보도, 금감원 공시 기반 수동 정리
+# 업데이트: 2026-03-27
+
+politicians:
+  - name: "이재명"
+    party: "더불어민주당"
+    related_stocks:
+      - ticker: "001500"
+        name: "현대차"
+        relation: "공약(전기차 보조금)"
+      - ticker: "005930"
+        name: "삼성전자"
+        relation: "공약(반도체 지원)"
+      - ticker: "035720"
+        name: "카카오"
+        relation: "연관 테마"
+      - ticker: "064350"
+        name: "현대로템"
+        relation: "공약(방산)"
+    keywords:
+      - "이재명"
+      - "민주당"
+      - "기본소득"
+      - "경기도"
+
+  - name: "김문수"
+    party: "국민의힘"
+    related_stocks:
+      - ticker: "012330"
+        name: "현대모비스"
+        relation: "연관 테마"
+      - ticker: "047810"
+        name: "한국항공우주"
+        relation: "공약(방산)"
+      - ticker: "034020"
+        name: "두산에너빌리티"
+        relation: "공약(원전)"
+    keywords:
+      - "김문수"
+      - "국민의힘"
+      - "노동"
+      - "경북"
+
+  - name: "이준석"
+    party: "개혁신당"
+    related_stocks:
+      - ticker: "035420"
+        name: "NAVER"
+        relation: "IT 정책 공약"
+      - ticker: "251270"
+        name: "넷마블"
+        relation: "연관 테마"
+    keywords:
+      - "이준석"
+      - "개혁신당"
+      - "청년"
+
+# 정책 테마별 종목 (정치인 무관)
+policy_themes:
+  원전:
+    - ticker: "034020"
+      name: "두산에너빌리티"
+    - ticker: "017550"
+      name: "한국전력기술"
+    - ticker: "009540"
+      name: "한국조선해양"
+
+  방산:
+    - ticker: "047810"
+      name: "한국항공우주"
+    - ticker: "064350"
+      name: "현대로템"
+    - ticker: "012450"
+      name: "한화에어로스페이스"
+
+  전기차:
+    - ticker: "001500"
+      name: "현대차"
+    - ticker: "051910"
+      name: "LG화학"
+    - ticker: "006400"
+      name: "삼성SDI"
+
+  기본소득:
+    - ticker: "035720"
+      name: "카카오"
+    - ticker: "035420"
+      name: "NAVER"

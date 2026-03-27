@@ -1,0 +1,19 @@
+anthropic:
+  api_key: "sk-ant-..."
+
+slack:
+  webhook_url: "https://hooks.slack.com/services/..."
+  channel: "#정치테마주-알림"
+
+schedule:
+  poll_interval_hours: 6       # 여론조사 수집 주기
+  news_interval_minutes: 30    # 뉴스 수집 주기
+  stock_check_minutes: 10      # 주가 체크 주기 (장중)
+
+thresholds:
+  poll_change_pct: 2.0         # 지지율 변동 알림 기준 (%)
+  volume_surge_ratio: 3.0      # 거래량 급증 기준 (평균 대비 배수)
+  price_change_pct: 5.0        # 주가 변동 알림 기준 (%)
+
+dart:
+  api_key: ""                  # 금감원 DART OpenAPI 키 (선택)
