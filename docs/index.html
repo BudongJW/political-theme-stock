@@ -68,17 +68,19 @@
     #loading{text-align:center;padding:60px;color:var(--muted);}
     #app{display:none;}
     .tag{cursor:pointer;transition:opacity .15s;} .tag:hover{opacity:.8;}
-    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:100;justify-content:center;align-items:center;}
-    .modal-overlay.show{display:flex;}
-    .modal{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;max-width:520px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
-    .modal h3{font-size:1rem;margin-bottom:10px;} .modal .close-btn{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;}
-    .modal .close-btn:hover{color:var(--text);}
-    .reason-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:.85rem;}
+    .dropdown-reason{position:absolute;z-index:200;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;width:360px;max-height:320px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;}
+    .dropdown-reason.show{display:block;}
+    .dropdown-reason h4{font-size:.9rem;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .dropdown-reason .close-dd{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;line-height:1;} .dropdown-reason .close-dd:hover{color:var(--text);}
+    .reason-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem;line-height:1.5;}
     .reason-item:last-child{border-bottom:none;}
-    .reason-type{display:inline-block;padding:1px 6px;border-radius:6px;font-size:.7rem;font-weight:600;margin-right:6px;}
+    .reason-type{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:600;margin-right:6px;vertical-align:middle;}
     .reason-type-pol{background:rgba(88,166,255,.15);color:var(--accent);}
     .reason-type-local{background:rgba(63,185,80,.15);color:var(--up);}
     .reason-type-theme{background:rgba(210,153,34,.15);color:var(--warn);}
+    .reason-detail{margin-top:4px;padding-left:4px;}
+    .reason-detail .label{color:var(--muted);font-size:.75rem;margin-right:4px;}
+    .reason-detail .value{font-size:.82rem;}
     .signal-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:700;}
     .signal-strong_bull{background:rgba(63,185,80,.25);color:var(--up);}
     .signal-bull{background:rgba(63,185,80,.15);color:var(--up);}
@@ -289,13 +291,11 @@
       <div class="timeline" id="timeline"></div>
     </section>
 
-    <!-- 테마 이유 모달 -->
-    <div class="modal-overlay" id="reason-modal">
-      <div class="modal">
-        <button class="close-btn" onclick="closeReasonModal()">&times;</button>
-        <h3 id="modal-title">-</h3>
-        <div id="modal-body"></div>
-      </div>
+    <!-- 테마 이유 드롭다운 (동적 위치) -->
+    <div class="dropdown-reason" id="reason-dropdown">
+      <button class="close-dd" onclick="closeReasonDD()">&times;</button>
+      <h4 id="dd-title">-</h4>
+      <div id="dd-body"></div>
     </div>
 
     <!-- 뉴스레터 구독 -->
@@ -349,60 +349,85 @@ async function init() {
 function makeTagHTML(tags, ticker) {
   return (tags||[]).map(t => {
     const cls = t.includes('관련주') ? 'tag-pol' : 'tag-theme';
-    return `<span class="tag ${cls}" onclick="showReasonModal('${ticker||''}','${t.replace(/'/g,'')}')">${t}</span>`;
+    return `<span class="tag ${cls}" onclick="showReasonModal('${ticker||''}','${t.replace(/'/g,'')}',event)">${t}</span>`;
   }).join('');
 }
 
-function showReasonModal(ticker, tagName) {
+function showReasonModal(ticker, tagName, evt) {
   if(!DATA) return;
+  const dd = document.getElementById('reason-dropdown');
+  // 이미 같은 종목 열려있으면 닫기 (토글)
+  if(dd.classList.contains('show') && dd.dataset.ticker===ticker) { closeReasonDD(); return; }
+
   const ctx = (DATA.stock_contexts||{})[ticker] || {};
   const stockName = ctx.name || ticker;
   const reasons = ctx.reasons || [];
-  const modal = document.getElementById('reason-modal');
-  document.getElementById('modal-title').textContent = `${stockName} (${ticker}) — 테마주 분류 이유`;
+  document.getElementById('dd-title').textContent = `${stockName} (${ticker})`;
 
   let html = '';
   if(!reasons.length) {
-    html = '<p style="color:var(--muted)">상세 이유 정보 없음</p>';
+    html = '<p style="color:var(--muted);font-size:.82rem;">상세 이유 정보 없음</p>';
   } else {
     for(const r of reasons) {
-      let typeCls = 'reason-type-theme', typeLabel = '정책테마';
+      let typeCls='reason-type-theme', typeLabel='정책테마';
       if(r.type==='politician') { typeCls='reason-type-pol'; typeLabel='대선후보'; }
       else if(r.type==='local_candidate') { typeCls='reason-type-local'; typeLabel='지방선거'; }
 
       let detail = '';
       if(r.type==='politician' || r.type==='local_candidate') {
-        detail = `<strong>${r.name}</strong> (${r.party||''}) ${r.role||''}<br>`
-          + `<span style="color:var(--muted)">연관: ${r.relation||'-'} | 선거: ${r.election||'-'}</span>`;
-        if(r.region) detail += ` | 지역: ${r.region}`;
+        const partyColor = r.party==='더불어민주당'?'var(--dem)':r.party==='국민의힘'?'var(--ppp)':'var(--reform)';
+        detail = `<div class="reason-detail">
+          <div><strong>${r.name}</strong> <span style="color:${partyColor};font-size:.78rem;">${r.party||''}</span></div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:2px;">${r.role||''}</div>
+          <div style="margin-top:4px;font-size:.8rem;">
+            <span class="label">연관</span><span class="value">${r.relation||'-'}</span>
+          </div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:2px;">
+            ${r.election||''} ${r.region?'· '+r.region:''}
+          </div>
+        </div>`;
       } else if(r.type==='policy_theme') {
-        detail = `<strong>${r.theme} 테마</strong>`;
-        if(r.description) detail += `<br><span style="color:var(--muted)">${r.description}</span>`;
+        detail = `<div class="reason-detail">
+          <div><strong>${r.theme}</strong> 테마</div>
+          ${r.description?`<div style="font-size:.8rem;color:var(--muted);margin-top:2px;">${r.description}</div>`:''}
+        </div>`;
       }
       html += `<div class="reason-item"><span class="reason-type ${typeCls}">${typeLabel}</span>${detail}</div>`;
     }
   }
 
-  // 네이버/한투 매매 링크
-  html += `<div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+  html += `<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);text-align:center;">
     ${tradeLinks(ticker)}
   </div>`;
 
-  document.getElementById('modal-body').innerHTML = html;
-  modal.classList.add('show');
+  document.getElementById('dd-body').innerHTML = html;
+  dd.dataset.ticker = ticker;
+
+  // 클릭 위치 기준 배치
+  if(evt) {
+    const rect = evt.target.getBoundingClientRect();
+    let top = rect.bottom + window.scrollY + 6;
+    let left = rect.left + window.scrollX;
+    // 화면 밖으로 나가지 않도록 보정
+    if(left + 360 > window.innerWidth) left = window.innerWidth - 370;
+    if(left < 10) left = 10;
+    dd.style.top = top+'px';
+    dd.style.left = left+'px';
+  }
+  dd.classList.add('show');
 }
 
-function closeReasonModal() {
-  document.getElementById('reason-modal').classList.remove('show');
+function closeReasonDD() {
+  document.getElementById('reason-dropdown').classList.remove('show');
 }
 
-// 오버레이 클릭 시 닫기
+// 바깥 클릭 시 닫기
 document.addEventListener('click', e => {
-  if(e.target.id === 'reason-modal') closeReasonModal();
+  const dd = document.getElementById('reason-dropdown');
+  if(dd.classList.contains('show') && !dd.contains(e.target) && !e.target.classList.contains('tag')) closeReasonDD();
 });
-// ESC 키로 닫기
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closeReasonModal();
+  if(e.key==='Escape') closeReasonDD();
 });
 
 function makePartyTag(party) {
