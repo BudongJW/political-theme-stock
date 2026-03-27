@@ -1,0 +1,162 @@
+# 선거 일정 및 결과 데이터베이스
+# 마지막 업데이트: 2026-03-27
+
+elections:
+
+  # =============================================
+  # 제21대 대통령 선거 (2025.06.03) - 완료
+  # =============================================
+  presidential_21st:
+    name: "제21대 대통령선거"
+    date: "2025-06-03"
+    type: "대선"
+    status: "completed"
+    result:
+      winner:
+        name: "이재명"
+        party: "더불어민주당"
+        vote_pct: 49.42
+      runner_up:
+        name: "김문수"
+        party: "국민의힘"
+        vote_pct: 41.15
+      margin_pct: 8.27
+      turnout_pct: 79.38
+    incumbent_president: "이재명"
+    notes: "윤석열 전 대통령 탄핵 이후 치러진 보궐 성격 대선"
+
+  # =============================================
+  # 제9회 전국동시지방선거 (2026.06.03) - 예정
+  # =============================================
+  local_9th:
+    name: "제9회 전국동시지방선거"
+    date: "2026-06-03"
+    early_voting: "2026-05-29 ~ 2026-05-30"  # 예상
+    type: "지방선거"
+    status: "upcoming"
+    significance: "이재명 정부 출범 1년, 사실상 중간평가 선거"
+    seats:
+      - "광역단체장 17명 (시·도지사)"
+      - "기초단체장 226명 (시장·군수·구청장)"
+      - "광역의회의원"
+      - "기초의회의원"
+      - "교육감"
+
+    # 주요 광역단체장 후보 현황 (2026년 3월 기준)
+    candidates:
+      seoul:
+        region: "서울시장"
+        민주당:
+          - name: "정원오"
+            status: "경선 진행"
+            background: "성동구청장"
+            poll_rank: 1
+          - name: "박주민"
+            status: "경선 진행"
+            background: "국회의원"
+          - name: "김영배"
+            status: "경선 진행"
+            background: "국회의원"
+          - name: "전현희"
+            status: "경선 진행"
+            background: "전 국민권익위원장"
+        국민의힘:
+          - name: "윤희숙"
+            status: "출마 공식화"
+            background: "전 혁신위원장"
+          - name: "오세훈"
+            status: "현직 시장 (재선 도전 검토)"
+            background: "현 서울시장"
+
+      gyeonggi:
+        region: "경기지사"
+        민주당:
+          - name: "김동연"
+            status: "경선 진행"
+            background: "현 경기지사"
+          - name: "추미애"
+            status: "경선 진행"
+            background: "전 법무부장관"
+          - name: "권칠승"
+            status: "경선 진행"
+            background: "국회의원"
+          - name: "양기대"
+            status: "경선 진행"
+            background: "국회의원"
+          - name: "한준호"
+            status: "경선 진행"
+            background: "국회의원"
+        국민의힘:
+          - name: "양향자"
+            status: "출마 시사"
+            background: "최고위원"
+
+      incheon:
+        region: "인천시장"
+        민주당:
+          - name: "박찬대"
+            status: "단수 공천 확정 (2026.03.04)"
+            background: "국회의원 (원내대표)"
+        국민의힘:
+          - name: "미정"
+            status: "후보 미확정"
+
+      busan:
+        region: "부산시장"
+        국민의힘:
+          - name: "박형준"
+            status: "3선 도전 유력"
+            background: "현 부산시장"
+          - name: "주진우"
+            status: "출마 검토"
+            background: "국회의원"
+        민주당:
+          - name: "전재수"
+            status: "출마 공식화"
+            background: "국회의원"
+
+      daegu:
+        region: "대구시장"
+        국민의힘:
+          - name: "주호영"
+            status: "거론"
+            background: "국회의원"
+          - name: "윤재옥"
+            status: "거론"
+            background: "국회의원"
+          - name: "추경호"
+            status: "거론"
+            background: "국회의원"
+
+# 정치 테마주 시즌 분석 타임라인
+theme_stock_timeline:
+  - phase: "선거 12~6개월 전"
+    period: "2025-06 ~ 2025-12"
+    pattern: "유력 후보 거론 → 테마주 1차 급등"
+    signal: "매수 관심"
+
+  - phase: "선거 6~3개월 전"
+    period: "2025-12 ~ 2026-03"
+    pattern: "경선/여론조사 결과 발표 → 테마주 2차 급등"
+    signal: "강한 매수 시그널"
+
+  - phase: "선거 3~1개월 전"
+    period: "2026-03 ~ 2026-05"
+    pattern: "공천 확정 → 최고 과열 구간"
+    signal: "고점 주의, 분할 매도 고려"
+
+  - phase: "선거 당일 전후"
+    period: "2026-06-03 전후"
+    pattern: "최고점 도달 후 급락 시작"
+    signal: "매도 시그널"
+
+  - phase: "선거 이후"
+    period: "2026-06 ~"
+    pattern: "당락 무관 대부분 급락 마무리"
+    signal: "관망"
+
+# 현재 선거 사이클 (자동 계산용)
+current_cycle:
+  next_election: "2026-06-03"
+  election_name: "제9회 전국동시지방선거"
+  days_until: null  # 런타임에 계산
