@@ -25,17 +25,18 @@ jobs:
           cache: 'pip'
 
       - name: 패키지 설치
-        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools google-generativeai feedparser
+        run: pip install pykrx pandas pyyaml requests beautifulsoup4 lxml setuptools google-generativeai feedparser python-dotenv
 
       - name: 스크리닝 실행
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
         run: python scripts/run_screening.py
 
       - name: 결과 커밋 (GitHub Pages 갱신)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data/ data/processed/ data/gemini_cache/ data/suggestions/ data/assets/
+          git add docs/data/ data/processed/ data/gemini_cache/ data/suggestions/ data/assets/ data/raw/
           git diff --staged --quiet || git commit -m "chore: PollStock 스크리닝 $(date -u +'%Y-%m-%d %H:%M')"
           git push

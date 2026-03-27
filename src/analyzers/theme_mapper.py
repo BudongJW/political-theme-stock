@@ -1,6 +1,9 @@
 """
 정치인-테마주 매핑 관리
+- YAML: 수동 큐레이션 매핑 (대선 후보, 주요 지방선거 후보, 정책 테마)
+- JSON: 전체 정치인 DB (22대 국회의원 306명, 지방선거 후보 74명)
 """
+import json
 import yaml
 import logging
 from pathlib import Path
@@ -9,9 +12,14 @@ logger = logging.getLogger(__name__)
 
 
 class ThemeMapper:
-    def __init__(self, map_file: str = "config/politician_stock_map.yaml"):
+    def __init__(self, map_file: str = "config/politician_stock_map.yaml",
+                 data_dir: str = None):
         self.map_file = Path(map_file)
+        self.data_dir = Path(data_dir) if data_dir else self.map_file.parent.parent / "data" / "raw"
         self.data = self._load()
+        self._assembly_members = self._load_assembly_members()
+        self._local_candidates_full = self._load_local_candidates_full()
+        self._merge_local_candidates()
 
     def _load(self) -> dict:
         try:
@@ -20,6 +28,43 @@ class ThemeMapper:
         except Exception as e:
             logger.error(f"매핑 파일 로드 실패: {e}")
             return {"politicians": [], "policy_themes": {}}
+
+    def _load_assembly_members(self) -> list[dict]:
+        path = self.data_dir / "assembly_members_22.json"
+        try:
+            with open(path, encoding="utf-8") as f:
+                members = json.load(f)
+            logger.info(f"22대 국회의원 {len(members)}명 로드")
+            return members
+        except Exception as e:
+            logger.warning(f"국회의원 데이터 로드 실패: {e}")
+            return []
+
+    def _load_local_candidates_full(self) -> list[dict]:
+        path = self.data_dir / "local_candidates_2026_full.json"
+        try:
+            with open(path, encoding="utf-8") as f:
+                cands = json.load(f)
+            logger.info(f"지방선거 후보 {len(cands)}명 로드")
+            return cands
+        except Exception as e:
+            logger.warning(f"지방선거 후보 데이터 로드 실패: {e}")
+            return []
+
+    def _merge_local_candidates(self):
+        """JSON 후보 데이터를 YAML에 없는 경우 추가 (YAML이 우선)"""
+        yaml_names = {c.get("name") for c in self.data.get("local_candidates_2026", [])}
+        for cand in self._local_candidates_full:
+            if cand.get("name") and cand["name"] not in yaml_names:
+                self.data.setdefault("local_candidates_2026", []).append({
+                    "name": cand["name"],
+                    "party": cand.get("party", ""),
+                    "role": cand.get("role", cand.get("position", "")),
+                    "region": cand.get("region", ""),
+                    "election": "2026지방선거",
+                    "related_stocks": [],
+                    "keywords": [cand["name"]],
+                })
 
     def get_tickers_for_politician(self, name: str) -> list[dict]:
         """정치인 이름으로 관련 종목 반환"""
@@ -47,7 +92,31 @@ class ThemeMapper:
         return list(tickers)
 
     def get_all_politicians(self) -> list[str]:
-        return [p["name"] for p in self.data.get("politicians", [])]
+        """전체 정치인 이름 (대선후보 + 지방선거후보 + 국회의원)"""
+        names = set()
+        for p in self.data.get("politicians", []):
+            names.add(p["name"])
+        for c in self.data.get("local_candidates_2026", []):
+            names.add(c.get("name", ""))
+        for m in self._assembly_members:
+            names.add(m.get("name", ""))
+        names.discard("")
+        return list(names)
+
+    def get_assembly_members(self) -> list[dict]:
+        return self._assembly_members
+
+    def get_assembly_member(self, name: str) -> dict | None:
+        for m in self._assembly_members:
+            if m.get("name") == name:
+                return m
+        return None
+
+    def get_members_by_region(self, region: str) -> list[dict]:
+        return [m for m in self._assembly_members if region in m.get("region", "")]
+
+    def get_members_by_party(self, party: str) -> list[dict]:
+        return [m for m in self._assembly_members if m.get("party") == party]
 
     def get_politician_keywords(self) -> dict[str, list[str]]:
         return {

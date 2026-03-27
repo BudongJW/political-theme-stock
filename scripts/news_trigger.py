@@ -13,6 +13,12 @@ from datetime import datetime
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except ImportError:
+    pass
+
 from collectors.news_collector import NewsCollector
 from analyzers.theme_mapper import ThemeMapper
 from analyzers.gemini_analyzer import GeminiAnalyzer
@@ -24,7 +30,8 @@ TRIGGER_THRESHOLD = 7  # impact_score 7 이상이면 스크리닝 트리거
 
 
 def check_news_triggers():
-    tm = ThemeMapper(ROOT / "config" / "politician_stock_map.yaml")
+    tm = ThemeMapper(ROOT / "config" / "politician_stock_map.yaml",
+                     data_dir=str(ROOT / "data" / "raw"))
     nc = NewsCollector()
     ga = GeminiAnalyzer(cache_dir=str(ROOT / "data" / "gemini_cache"))
 
