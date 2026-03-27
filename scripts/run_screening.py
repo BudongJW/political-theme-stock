@@ -24,6 +24,8 @@ from collectors.asset_collector import AssetCollector
 from analyzers.gemini_analyzer import GeminiAnalyzer
 from analyzers.auto_mapper import AutoMapper
 from analyzers.poll_signal import PollSignalEngine
+from analyzers.election_predictor import ElectionPredictor
+from analyzers.stock_predictor import StockPredictor
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -224,6 +226,38 @@ def main():
     except Exception as e:
         print(f"여론조사 분석 실패 (무시): {e}")
 
+    # 당선예측 모델
+    election_predictions = {}
+    stock_impacts = []
+    try:
+        days_until = phase.get("days_until_election", 68)
+        ep = ElectionPredictor(pdc, tm, days_until_election=days_until)
+        election_predictions = ep.predict_all_regions()
+        stock_impacts = ep.get_stock_impact(election_predictions)
+        region_count = len(election_predictions.get("regions", {}))
+        print(f"당선예측: {region_count}개 지역 분석 완료 (D-{days_until})")
+        if stock_impacts:
+            bull_cnt = sum(1 for s in stock_impacts if s["signal"] == "bull")
+            bear_cnt = sum(1 for s in stock_impacts if s["signal"] == "bear")
+            print(f"당선예측 → 테마주 영향: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
+    except Exception as e:
+        print(f"당선예측 분석 실패 (무시): {e}")
+
+    # 주가 예측 모델 (복합 스코어)
+    stock_predictions = {}
+    try:
+        days_until = phase.get("days_until_election", 68)
+        sp = StockPredictor(sc, pdc, tm, days_until_election=days_until)
+        stock_predictions = sp.analyze_all_theme_stocks(max_tickers=50)
+        summary = stock_predictions.get("summary", {})
+        print(f"주가 예측: {stock_predictions.get('total_analyzed', 0)}개 종목 분석 완료")
+        print(f"  매수 {summary.get('buy_signals', 0)} / 관망 {summary.get('hold_signals', 0)} / 매도 {summary.get('sell_signals', 0)}")
+        if stock_predictions.get("top_picks"):
+            top = stock_predictions["top_picks"][0]
+            print(f"  TOP: {top['name']} ({top['ticker']}) 스코어 {top['score']} [{top['signal']}]")
+    except Exception as e:
+        print(f"주가 예측 분석 실패 (무시): {e}")
+
     output = {
         "date": today,
         "election_phase": phase,
@@ -242,6 +276,9 @@ def main():
         },
         "local_candidates": all_local_candidates,
         "poll_signals": poll_signal_summary,
+        "election_predictions": election_predictions,
+        "stock_impacts": stock_impacts,
+        "stock_predictions": stock_predictions,
         "ai_report": daily_report,
         "ai_suggestions": suggestions,
         "summary": {

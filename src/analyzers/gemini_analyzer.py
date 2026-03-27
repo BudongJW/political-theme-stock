@@ -23,6 +23,9 @@ def _load_api_keys() -> list[str]:
     key2 = os.environ.get("GEMINI_API_KEY_2", "")
     if key2:
         keys.append(key2)
+    key3 = os.environ.get("GEMINI_API_KEY_3", "")
+    if key3:
+        keys.append(key3)
     return keys
 
 
