@@ -104,40 +104,126 @@
     /* 상단 네비게이션 */
     .top-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
     .top-nav::-webkit-scrollbar{height:0;}
-    .nav-btn{padding:10px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:.85rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+    .nav-btn{padding:10px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:.85rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;}
     .nav-btn:hover{color:var(--text);background:rgba(88,166,255,.05);}
     .nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+    .nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;font-size:.65rem;font-weight:700;background:rgba(88,166,255,.15);color:var(--accent);line-height:1;}
+    .nav-btn.active .nav-badge{background:var(--accent);color:#fff;}
+    /* 통합 검색 */
+    .search-wrap{position:relative;margin:12px 0;}
+    .search-wrap input{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 16px 10px 38px;font-size:.9rem;transition:border-color .2s;}
+    .search-wrap input:focus{outline:none;border-color:var(--accent);}
+    .search-wrap .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;}
+    .search-results{position:absolute;top:100%;left:0;right:0;z-index:150;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-top:4px;max-height:320px;overflow-y:auto;display:none;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+    .search-results.show{display:block;}
+    .sr-item{padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:background .1s;}
+    .sr-item:last-child{border-bottom:none;}
+    .sr-item:hover{background:rgba(88,166,255,.08);}
+    .sr-type{display:inline-block;width:42px;text-align:center;padding:2px 0;border-radius:6px;font-size:.68rem;font-weight:700;flex-shrink:0;}
+    .sr-type-stock{background:rgba(63,185,80,.15);color:var(--up);}
+    .sr-type-cand{background:rgba(88,166,255,.15);color:var(--accent);}
+    .sr-name{font-weight:600;} .sr-detail{color:var(--muted);font-size:.78rem;}
     .page{display:none;} .page.active{display:block;}
     .data-quality{display:inline-block;padding:1px 6px;border-radius:8px;font-size:.65rem;font-weight:600;vertical-align:middle;margin-left:4px;}
     .dq-high{background:rgba(63,185,80,.15);color:var(--up);}
     .dq-medium{background:rgba(210,153,34,.15);color:var(--warn);}
     .dq-low{background:rgba(139,148,158,.15);color:var(--muted);}
+    /* 테이블 정렬 + 페이지네이션 */
+    th.sortable{cursor:pointer;user-select:none;position:relative;padding-right:18px;}
+    th.sortable:hover{color:var(--accent);}
+    th.sortable::after{content:'⇅';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:.65rem;opacity:.4;}
+    th.sortable.asc::after{content:'↑';opacity:1;color:var(--accent);}
+    th.sortable.desc::after{content:'↓';opacity:1;color:var(--accent);}
+    .pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.82rem;}
+    .pagination button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:.82rem;transition:all .15s;}
+    .pagination button:hover:not(:disabled){border-color:var(--accent);color:var(--accent);}
+    .pagination button:disabled{opacity:.3;cursor:default;}
+    .pagination .pg-info{color:var(--muted);}
+    /* 스켈레톤 로딩 */
+    @keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+    .skeleton{background:linear-gradient(90deg,var(--card) 25%,#1e2530 50%,var(--card) 75%);background-size:800px 100%;animation:shimmer 1.5s infinite;border-radius:8px;}
+    .sk-card{height:80px;border-radius:12px;margin-bottom:10px;}
+    .sk-row{height:18px;margin-bottom:10px;border-radius:4px;}
+    .sk-circle{width:40px;height:40px;border-radius:50%;}
+    .sk-banner{height:56px;border-radius:12px;margin:12px 0;}
+    .sk-table-row{height:36px;margin-bottom:6px;border-radius:6px;}
+    .sk-chart{height:300px;border-radius:12px;margin-top:12px;}
+    #loading{padding:0;}
+    #loading .skeleton-wrap{max-width:1280px;margin:0 auto;padding:20px;}
+    #loading .sk-header{text-align:center;padding:30px 0 16px;}
+    #loading .sk-header .sk-title{width:240px;height:28px;margin:0 auto 8px;border-radius:6px;}
+    #loading .sk-header .sk-sub{width:360px;height:14px;margin:0 auto;border-radius:4px;}
     @media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr);} .filter-bar{flex-direction:column;} .top-nav{gap:0;} .nav-btn{padding:8px 12px;font-size:.78rem;}}
+    @media(min-width:601px) and (max-width:1024px){
+      .metrics{grid-template-columns:repeat(3,1fr);}
+      .consultant-grid{grid-template-columns:repeat(2,1fr);}
+      .container{padding:12px;}
+      header h1{font-size:1.5rem;}
+      table{font-size:.78rem;}
+      th,td{padding:6px 8px;}
+      .pred-card .leader-prob{font-size:1.4rem;}
+      .search-wrap input{font-size:.85rem;}
+      .nav-btn{padding:8px 14px;font-size:.82rem;}
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <div id="loading">데이터를 불러오는 중...</div>
+  <div id="loading">
+    <div class="skeleton-wrap">
+      <div class="sk-header">
+        <div class="skeleton sk-title"></div>
+        <div class="skeleton sk-sub"></div>
+      </div>
+      <div class="metrics" style="margin:16px 0;">
+        <div class="skeleton sk-card"></div>
+        <div class="skeleton sk-card"></div>
+        <div class="skeleton sk-card"></div>
+        <div class="skeleton sk-card"></div>
+        <div class="skeleton sk-card"></div>
+      </div>
+      <div class="skeleton sk-banner"></div>
+      <div style="margin-top:20px;">
+        <div class="skeleton sk-row" style="width:180px;height:22px;margin-bottom:14px;"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+        <div class="skeleton sk-table-row"></div>
+      </div>
+      <div class="skeleton sk-chart"></div>
+      <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px;">데이터를 불러오는 중...</p>
+    </div>
+  </div>
   <div id="app">
     <header>
       <h1>📊 PollStock 폴스탁</h1>
       <p style="font-size:1rem;margin-bottom:4px;">여론조사 × 주식 — 정치 테마주 AI 분석 대시보드</p>
-      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span></p>
+      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span> <span id="update-time" style="font-size:.78rem;color:var(--muted);margin-left:8px;"></span></p>
       <p style="margin-top:8px;padding:6px 16px;background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.25);border-radius:8px;color:#f85149;font-size:.82rem;font-weight:600;display:inline-block;">
         ⚠️ 본 서비스는 교육·연구 목적이며, 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.
       </p>
     </header>
 
     <nav class="top-nav" id="top-nav">
-      <button class="nav-btn active" data-page="page-dashboard">대시보드</button>
-      <button class="nav-btn" data-page="page-candidates">후보 분석</button>
-      <button class="nav-btn" data-page="page-polls">여론·예측</button>
-      <button class="nav-btn" data-page="page-ai">AI 분석</button>
-      <button class="nav-btn" data-page="page-reference">참고 데이터</button>
+      <button class="nav-btn active" data-page="page-dashboard"><span>📊</span> 대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
+      <button class="nav-btn" data-page="page-candidates"><span>👤</span> 후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
+      <button class="nav-btn" data-page="page-polls"><span>🗳️</span> 여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
+      <button class="nav-btn" data-page="page-ai"><span>🤖</span> AI 분석</button>
+      <button class="nav-btn" data-page="page-reference"><span>📚</span> 참고 데이터</button>
     </nav>
 
     <!-- ==================== 페이지 1: 대시보드 ==================== -->
     <div class="page active" id="page-dashboard">
+
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="global-search" placeholder="종목명, 후보명, 정당, 지역으로 검색..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+
     <div class="metrics">
       <div class="metric-card"><div class="value" id="m-dday">-</div><div class="label">선거까지</div></div>
       <div class="metric-card"><div class="value" id="m-phase" style="font-size:.85rem">-</div><div class="label">현재 단계</div></div>
@@ -163,8 +249,9 @@
       </div>
       <div class="table-wrap">
         <table><thead><tr>
-          <th>#</th><th>종목명</th><th>코드</th><th>테마 분류</th><th>종가</th><th>등락률</th><th>거래량</th><th>상태</th><th>매매</th>
+          <th>#</th><th class="sortable" data-key="name">종목명</th><th>코드</th><th>테마 분류</th><th class="sortable" data-key="close">종가</th><th class="sortable" data-key="change_pct">등락률</th><th class="sortable" data-key="ratio">거래량</th><th>상태</th><th>매매</th>
         </tr></thead><tbody id="tb-screening"></tbody></table>
+        <div class="pagination" id="pg-screening"></div>
       </div>
     </section>
 
@@ -224,9 +311,11 @@
     <div class="page" id="page-polls">
 
     <section id="polls-empty-msg">
-      <div style="text-align:center;padding:40px;color:var(--muted);">
-        <p style="font-size:1.1rem;">여론조사 데이터를 불러오는 중이거나, 아직 수집된 데이터가 없습니다.</p>
-        <p style="font-size:.85rem;margin-top:6px;">스크리닝이 실행되면 여론조사 시그널과 당선예측 결과가 표시됩니다.</p>
+      <div style="text-align:center;padding:60px 20px;color:var(--muted);">
+        <div style="font-size:3rem;margin-bottom:12px;opacity:.5;">🗳️</div>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:6px;">여론조사 데이터 준비 중</p>
+        <p style="font-size:.85rem;line-height:1.6;">스크리닝이 실행되면 여론조사 시그널, 당선예측,<br>주가 복합 스코어 분석 결과가 이곳에 표시됩니다.</p>
+        <p style="font-size:.78rem;margin-top:12px;color:var(--border);">매일 장중 3회 (10:00 / 13:00 / 15:40) 자동 업데이트</p>
       </div>
     </section>
 
@@ -300,9 +389,11 @@
     </section>
 
     <section id="ai-empty-msg">
-      <div style="text-align:center;padding:40px;color:var(--muted);">
-        <p style="font-size:1.1rem;">AI 분석 데이터가 아직 없습니다.</p>
-        <p style="font-size:.85rem;margin-top:6px;">스크리닝 실행 후 Gemini AI 리포트가 이곳에 표시됩니다.</p>
+      <div style="text-align:center;padding:60px 20px;color:var(--muted);">
+        <div style="font-size:3rem;margin-bottom:12px;opacity:.5;">🤖</div>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:6px;">AI 분석 리포트 준비 중</p>
+        <p style="font-size:.85rem;line-height:1.6;">Gemini AI 기반 일일 분석 리포트와<br>신규 테마주 자동 제안이 이곳에 표시됩니다.</p>
+        <p style="font-size:.78rem;margin-top:12px;color:var(--border);">스크리닝 실행 시 자동 생성 (API 키 필요)</p>
       </div>
     </section>
 
@@ -402,11 +493,67 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(pageId).classList.add('active');
-    // 차트가 있는 페이지 전환 시 차트 리사이즈
-    window.dispatchEvent(new Event('resize'));
+    // lazy 차트 렌더링
+    if(pageId==='page-candidates' && !chartsRendered.consultant && DATA) {
+      try{renderConsultantChart(chartsRendered._consultantData);chartsRendered.consultant=true;}catch(e){console.error('[LazyChart]',e);}
+      try{renderAssetChart(chartsRendered._candidateStocks);chartsRendered.asset=true;}catch(e){console.error('[LazyChart]',e);}
+    }
+    setTimeout(()=>window.dispatchEvent(new Event('resize')),100);
     window.scrollTo(0, 0);
   });
 });
+
+// 통합 검색
+document.getElementById('global-search').addEventListener('input', function(){
+  const q=this.value.trim().toLowerCase();
+  const box=document.getElementById('search-results');
+  if(!q||q.length<1||!DATA){box.classList.remove('show');return;}
+  let items=[];
+  // 종목 검색
+  for(const r of (DATA.screening_results||[])){
+    if(r.close<=0) continue;
+    const match=[r.name,r.ticker,...(r.tags||[])].some(s=>(s||'').toLowerCase().includes(q));
+    if(match) items.push({type:'stock',name:r.name,ticker:r.ticker,detail:`${(r.change_pct||0)>0?'+':''}${(r.change_pct||0).toFixed(2)}% | ${(r.close||0).toLocaleString()}원`,tags:r.tags});
+  }
+  // 후보 검색
+  for(const [name,info] of Object.entries(DATA.candidate_stocks||{})){
+    const match=[name,info.party,info.region,info.role].some(s=>(s||'').toLowerCase().includes(q));
+    if(match) items.push({type:'cand',name:name,detail:`${info.party||''} | ${info.region||''} | ${info.role||''}`});
+  }
+  if(!items.length){box.innerHTML='<div class="sr-item" style="color:var(--muted);justify-content:center;">검색 결과 없음</div>';box.classList.add('show');return;}
+  box.innerHTML=items.slice(0,12).map(it=>{
+    if(it.type==='stock') return `<div class="sr-item" onclick="jumpToStock('${it.ticker}')"><span class="sr-type sr-type-stock">종목</span><div><span class="sr-name">${it.name}</span> <span style="color:var(--muted);font-size:.75rem">${it.ticker}</span><div class="sr-detail">${it.detail}</div></div></div>`;
+    return `<div class="sr-item" onclick="jumpToCandidate('${it.name}')"><span class="sr-type sr-type-cand">후보</span><div><span class="sr-name">${it.name}</span><div class="sr-detail">${it.detail}</div></div></div>`;
+  }).join('');
+  box.classList.add('show');
+});
+document.getElementById('global-search').addEventListener('blur',()=>{setTimeout(()=>document.getElementById('search-results').classList.remove('show'),200);});
+document.getElementById('global-search').addEventListener('focus',function(){if(this.value.trim()) this.dispatchEvent(new Event('input'));});
+
+function jumpToStock(ticker){
+  document.getElementById('search-results').classList.remove('show');
+  document.getElementById('global-search').value='';
+  // 대시보드 테이블에서 해당 종목 찾기
+  const rows=document.querySelectorAll('#tb-screening tr');
+  for(const row of rows){
+    if(row.cells[2]&&row.cells[2].textContent.trim()===ticker){
+      row.scrollIntoView({behavior:'smooth',block:'center'});
+      row.style.background='rgba(88,166,255,.15)';
+      setTimeout(()=>row.style.background='',2000);
+      return;
+    }
+  }
+}
+function jumpToCandidate(name){
+  document.getElementById('search-results').classList.remove('show');
+  document.getElementById('global-search').value='';
+  // 후보 분석 페이지로 이동
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-page="page-candidates"]').classList.add('active');
+  document.getElementById('page-candidates').classList.add('active');
+  window.scrollTo(0,0);
+}
 
 async function init() {
   try {
@@ -529,11 +676,35 @@ function render(data) {
   document.getElementById('m-total').textContent=data.total_tracked;
   document.getElementById('m-politicians').textContent=data.total_politicians||'-';
   document.getElementById('data-date').textContent=date;
+  // 업데이트 시각 표시
+  const updateEl=document.getElementById('update-time');
+  if(updateEl){
+    const d=new Date(date);
+    const now=new Date();
+    const diffH=Math.floor((now-d)/(1000*60*60));
+    const diffM=Math.floor((now-d)/(1000*60))%60;
+    let ago='';
+    if(diffH>24) ago=`${Math.floor(diffH/24)}일 전 업데이트`;
+    else if(diffH>0) ago=`${diffH}시간 ${diffM}분 전 업데이트`;
+    else if(diffM>0) ago=`${diffM}분 전 업데이트`;
+    else ago='방금 업데이트';
+    updateEl.textContent=`| ${ago}`;
+  }
 
   const sig=phase.signal||'';
   document.getElementById('phase-icon').textContent=SIG_ICONS[sig]||'⚪';
   document.getElementById('phase-title').textContent=`${phase.phase}: ${sig}`;
-  document.getElementById('phase-desc').textContent=phase.pattern||'';
+  // 다음 업데이트 시간 계산
+  const now=new Date();
+  const schedules=[10,13,15.67]; // 10:00, 13:00, 15:40
+  const h=now.getHours()+now.getMinutes()/60;
+  let nextUpdate='내일 10:00';
+  for(const s of schedules){
+    if(h<s){const hh=Math.floor(s);const mm=Math.round((s-hh)*60);nextUpdate=`오늘 ${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}`;break;}
+  }
+  const dayOfWeek=now.getDay();
+  if(dayOfWeek===0||dayOfWeek===6) nextUpdate='월요일 10:00';
+  document.getElementById('phase-desc').textContent=`${phase.pattern||''} | 다음 업데이트: ${nextUpdate}`;
 
   // 필터 옵션 수집
   const allThemes=new Set(), allParties=new Set(), allRegions=new Set();
@@ -551,12 +722,15 @@ function render(data) {
   safe(()=>renderTable(results, candidate_stocks), 'Table');
   safe(()=>renderChart(results), 'Chart');
   safe(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
-  safe(()=>renderConsultantChart(candidate_market_summary), 'ConsultantChart');
+  // 후보 분석 차트는 lazy 렌더링 (탭 진입 시)
+  chartsRendered._consultantData=candidate_market_summary;
+  chartsRendered._candidateStocks=candidate_stocks;
+  chartsRendered._results=results;
   safe(()=>renderPollSignals(data.poll_signals, candidate_stocks), 'PollSignals');
   safe(()=>renderPredictions(data.election_predictions, data.stock_impacts), 'Predictions');
   safe(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
   safe(()=>renderRegionView(candidate_stocks, results), 'RegionView');
-  safe(()=>renderAssetChart(candidate_stocks), 'AssetChart');
+  // renderAssetChart는 lazy (page-candidates 진입 시)
   safe(()=>renderCandidates(candidate_stocks, results), 'Candidates');
   safe(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
   safe(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
@@ -568,6 +742,17 @@ function render(data) {
     const emptyMsg=document.getElementById('ai-empty-msg');
     if(emptyMsg) emptyMsg.style.display='none';
   }
+
+  // 네비 뱃지 업데이트
+  const nb=id=>document.getElementById(id);
+  const screenCount=results.filter(r=>r.close>0).length;
+  if(nb('nav-b-dash')) nb('nav-b-dash').textContent=screenCount+'종목';
+  const candCount=Object.keys(candidate_stocks||{}).length;
+  if(nb('nav-b-cand')) nb('nav-b-cand').textContent=candCount+'명';
+  const pollCount=(data.poll_signals?.signals||[]).length;
+  const predCount=Object.keys((data.election_predictions?.regions)||{}).length;
+  if(nb('nav-b-poll')) nb('nav-b-poll').textContent=pollCount?pollCount+'시그널':predCount?predCount+'지역':'';
+
 
   // 필터 이벤트
   document.getElementById('filter-theme').onchange=()=>renderTable(results, candidate_stocks);
@@ -596,28 +781,48 @@ function getStockPartyRegion(ticker, candidateStocks) {
   return {parties:[...parties], regions:[...regions]};
 }
 
+let screenSort={key:'change_pct',dir:'desc'};
+let screenPage=1;
+const PAGE_SIZE=20;
+
 function renderTable(results, candidateStocks) {
   const themeF=document.getElementById('filter-theme').value;
   const partyF=document.getElementById('filter-party').value;
   const regionF=document.getElementById('filter-region').value;
 
+  // 필터
+  let filtered=results.filter(r=>r.close>0).map(r=>{
+    const {parties,regions}=getStockPartyRegion(r.ticker,candidateStocks);
+    return {...r,_parties:parties,_regions:regions};
+  }).filter(r=>{
+    if(themeF!=='all' && !(r.tags||[]).includes(themeF)) return false;
+    if(partyF!=='all' && !r._parties.includes(partyF)) return false;
+    if(regionF!=='all' && !r._regions.includes(regionF)) return false;
+    return true;
+  });
+
+  // 정렬
+  const sk=screenSort.key, sd=screenSort.dir==='asc'?1:-1;
+  filtered.sort((a,b)=>{
+    let va=a[sk],vb=b[sk];
+    if(sk==='name') return (va||'').localeCompare(vb||'')*sd;
+    return ((va||0)-(vb||0))*sd;
+  });
+
+  // 페이지네이션
+  const totalPages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));
+  if(screenPage>totalPages) screenPage=totalPages;
+  const start=(screenPage-1)*PAGE_SIZE;
+  const pageItems=filtered.slice(start,start+PAGE_SIZE);
+
   const tbody=document.getElementById('tb-screening');
   tbody.innerHTML='';
-  const valid=results.filter(r=>r.close>0);
-  let idx=0;
-  for(const r of valid) {
-    const {parties, regions}=getStockPartyRegion(r.ticker, candidateStocks);
-    if(themeF!=='all' && !(r.tags||[]).includes(themeF)) continue;
-    if(partyF!=='all' && !parties.includes(partyF)) continue;
-    if(regionF!=='all' && !regions.includes(regionF)) continue;
-    idx++;
-    const chg = r.change_pct!=null ? r.change_pct : 0;
+  pageItems.forEach((r,i)=>{
+    const chg=r.change_pct!=null?r.change_pct:0;
     const cls=chg>0?'up':chg<0?'down':'';
     const surgeHTML=r.surge?'<span class="badge-surge">급등</span>':'-';
-    const tagsHTML=makeTagHTML(r.tags, r.ticker) + parties.map(p=>makePartyTag(p)).join(' ');
-    const ratio = r.ratio!=null ? r.ratio.toFixed(2) : '-';
-
-    // 이유 tooltip
+    const tagsHTML=makeTagHTML(r.tags,r.ticker)+r._parties.map(p=>makePartyTag(p)).join(' ');
+    const ratio=r.ratio!=null?r.ratio.toFixed(2):'-';
     const reasonTexts=(r.reasons||[]).map(rs=>{
       if(rs.type==='politician'||rs.type==='local_candidate') return `${rs.name}(${rs.party}): ${rs.relation}`;
       if(rs.type==='policy_theme') return `${rs.theme} 테마${rs.description?' - '+rs.description:''}`;
@@ -625,13 +830,43 @@ function renderTable(results, candidateStocks) {
     }).filter(Boolean).join(' | ');
 
     tbody.innerHTML+=`<tr title="${reasonTexts}">
-      <td>${idx}</td><td><strong>${r.name}</strong></td><td style="color:var(--muted)">${r.ticker}</td>
+      <td>${start+i+1}</td><td><strong>${r.name}</strong></td><td style="color:var(--muted)">${r.ticker}</td>
       <td>${tagsHTML}</td><td>${(r.close||0).toLocaleString()}</td>
       <td class="${cls}">${chg>0?'+':''}${chg.toFixed(2)}%</td>
       <td>${ratio}x</td><td>${surgeHTML}</td>
       <td>${tradeLinks(r.ticker)}</td></tr>`;
-  }
+  });
+
+  // 페이지네이션 UI
+  const pgEl=document.getElementById('pg-screening');
+  if(filtered.length<=PAGE_SIZE){pgEl.innerHTML='';return;}
+  pgEl.innerHTML=`
+    <button onclick="screenPage=1;renderTable(DATA.screening_results,DATA.candidate_stocks)" ${screenPage===1?'disabled':''}>«</button>
+    <button onclick="screenPage--;renderTable(DATA.screening_results,DATA.candidate_stocks)" ${screenPage===1?'disabled':''}>‹</button>
+    <span class="pg-info">${screenPage} / ${totalPages} (${filtered.length}개)</span>
+    <button onclick="screenPage++;renderTable(DATA.screening_results,DATA.candidate_stocks)" ${screenPage===totalPages?'disabled':''}>›</button>
+    <button onclick="screenPage=${totalPages};renderTable(DATA.screening_results,DATA.candidate_stocks)" ${screenPage===totalPages?'disabled':''}>»</button>`;
+
+  // 정렬 헤더 표시
+  document.querySelectorAll('#tb-screening').closest?.('table')?.querySelectorAll('th.sortable')?.forEach(th=>{
+    th.classList.remove('asc','desc');
+    if(th.dataset.key===screenSort.key) th.classList.add(screenSort.dir);
+  });
 }
+
+// 정렬 헤더 클릭
+document.querySelectorAll('th.sortable').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const key=th.dataset.key;
+    if(screenSort.key===key) screenSort.dir=screenSort.dir==='asc'?'desc':'asc';
+    else { screenSort.key=key; screenSort.dir='desc'; }
+    screenPage=1;
+    // 정렬 표시 갱신
+    document.querySelectorAll('th.sortable').forEach(h=>h.classList.remove('asc','desc'));
+    th.classList.add(screenSort.dir);
+    if(DATA) renderTable(DATA.screening_results, DATA.candidate_stocks);
+  });
+});
 
 function renderChart(results) {
   const sorted=[...results].filter(r=>r.close>0 && r.change_pct!=null).sort((a,b)=>a.change_pct-b.change_pct);
