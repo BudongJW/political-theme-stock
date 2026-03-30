@@ -134,20 +134,24 @@ def main():
     if skipped:
         print(f"스크리닝 필터: {skipped}개 종목 제외 (종가=0 또는 데이터 없음)")
 
-    # 후보별 시가총액 합산 (컨설턴트용)
+    # 후보별 시가총액·거래대금 합산 (컨설턴트용)
     candidate_market_summary = {}
     for cand_name, info in candidate_stocks.items():
-        total_value = 0
         total_volume = 0
+        total_trade_value = 0
         stock_count = len(info.get("screening", []))
         avg_change = 0
         for s in info.get("screening", []):
             total_volume += s.get("today_volume", 0)
+            close = s.get("close", 0) or 0
+            vol = s.get("today_volume", 0) or 0
+            total_trade_value += close * vol  # 거래대금 (원)
             avg_change += s.get("change_pct", 0)
         avg_change = round(avg_change / stock_count, 2) if stock_count else 0
         candidate_market_summary[cand_name] = {
             "stock_count": stock_count,
             "total_volume": total_volume,
+            "total_trade_value_억": round(total_trade_value / 100000000, 1),
             "avg_change_pct": avg_change,
             "party": info.get("party", ""),
             "region": info.get("region", ""),
@@ -174,7 +178,18 @@ def main():
         daily_report = ga.generate_daily_report(report_input)
         print(f"Gemini 일일 리포트 생성 완료")
     except Exception as e:
-        print(f"Gemini 리포트 생성 실패 (무시): {e}")
+        print(f"Gemini 리포트 생성 실패: {e}")
+        # 이전 리포트에서 폴백
+        prev_latest = ROOT / "docs" / "data" / "latest.json"
+        if prev_latest.exists():
+            try:
+                with open(prev_latest, encoding="utf-8") as pf:
+                    prev = json.load(pf)
+                daily_report = prev.get("ai_report", "")
+                if daily_report:
+                    print("이전 AI 리포트로 폴백 성공")
+            except Exception:
+                pass
 
     # 테마주 자동 제안 (캐싱 — 같은 날 재실행 시 API 미호출)
     suggestions = {}
