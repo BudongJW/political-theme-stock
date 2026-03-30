@@ -5,17 +5,38 @@ from pykrx import stock
 import pandas as pd
 from datetime import datetime, timedelta
 import logging
+import time
 
 logger = logging.getLogger(__name__)
+
+MAX_RETRIES = 3
+RETRY_DELAY = 2  # seconds
+
+
+def _retry(fn, label: str, retries: int = MAX_RETRIES):
+    """pykrx API 호출 재시도 래퍼"""
+    for attempt in range(retries):
+        try:
+            return fn()
+        except Exception as e:
+            if attempt < retries - 1:
+                logger.warning(f"{label} 재시도 ({attempt+1}/{retries}): {e}")
+                time.sleep(RETRY_DELAY * (attempt + 1))
+            else:
+                logger.error(f"{label} 최종 실패: {e}")
+                raise
 
 
 class StockCollector:
     def get_ohlcv(self, ticker: str, days: int = 20) -> pd.DataFrame:
-        """OHLCV 조회"""
+        """OHLCV 조회 (재시도 포함)"""
         end = datetime.now().strftime("%Y%m%d")
         start = (datetime.now() - timedelta(days=days + 10)).strftime("%Y%m%d")
         try:
-            df = stock.get_market_ohlcv(start, end, ticker)
+            df = _retry(
+                lambda: stock.get_market_ohlcv(start, end, ticker),
+                f"OHLCV({ticker})"
+            )
             return df.tail(days)
         except Exception as e:
             logger.error(f"OHLCV 조회 실패 ({ticker}): {e}")

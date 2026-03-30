@@ -115,8 +115,8 @@ class StockPredictor:
         current = closes[-1]
 
         # 이동평균
-        ma5 = float(np.mean(closes[-5:])) if len(closes) >= 5 else current
-        ma20 = float(np.mean(closes[-20:])) if len(closes) >= 20 else current
+        ma5 = float(np.nanmean(closes[-5:])) if len(closes) >= 5 else current
+        ma20 = float(np.nanmean(closes[-20:])) if len(closes) >= 20 else current
 
         # 변동성 (20일 표준편차 / 평균)
         if len(closes) >= 5:
@@ -157,8 +157,8 @@ class StockPredictor:
         deltas = np.diff(closes)
         gains = np.where(deltas > 0, deltas, 0)
         losses = np.where(deltas < 0, -deltas, 0)
-        avg_gain = np.mean(gains[-period:])
-        avg_loss = np.mean(losses[-period:])
+        avg_gain = np.nanmean(gains[-period:])
+        avg_loss = np.nanmean(losses[-period:])
         if avg_loss == 0:
             return 100.0
         rs = avg_gain / avg_loss
@@ -171,8 +171,8 @@ class StockPredictor:
 
         vols = df["거래량"].values.astype(float)
         today = vols[-1]
-        avg5 = float(np.mean(vols[-5:])) if len(vols) >= 5 else today
-        avg20 = float(np.mean(vols[-20:])) if len(vols) >= 20 else today
+        avg5 = float(np.nanmean(vols[-5:])) if len(vols) >= 5 else today
+        avg20 = float(np.nanmean(vols[-20:])) if len(vols) >= 20 else today
 
         ratio_5d = today / avg5 if avg5 > 0 else 1
         ratio_20d = today / avg20 if avg20 > 0 else 1
@@ -347,7 +347,7 @@ class StockPredictor:
             "total_analyzed": len(analyses),
             "analyses": analyses,
             "summary": {
-                "avg_score": round(np.mean(scores), 1) if scores else 0,
+                "avg_score": round(np.nanmean(scores), 1) if scores else 0,
                 "max_score": round(max(scores), 1) if scores else 0,
                 "min_score": round(min(scores), 1) if scores else 0,
                 "buy_signals": buy_signals,
