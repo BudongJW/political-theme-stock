@@ -152,6 +152,7 @@
     .sr-type-stock{background:rgba(52,176,96,.12);color:var(--up);}
     .sr-type-cand{background:rgba(78,150,230,.12);color:var(--accent);}
     .sr-name{font-weight:600;} .sr-detail{color:var(--muted);font-size:.75rem;}
+    .signal-clickable{cursor:pointer;transition:opacity .15s;} .signal-clickable:hover{opacity:.8;}
     .page{display:none;} .page.active{display:block;}
     .data-quality{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.65rem;font-weight:600;vertical-align:middle;margin-left:4px;}
     .dq-high{background:rgba(52,176,96,.12);color:var(--up);}
@@ -544,6 +545,13 @@
       <div id="dd-body"></div>
     </div>
 
+    <!-- 시그널 상세 드롭다운 -->
+    <div class="dropdown-reason" id="signal-dropdown">
+      <button class="close-dd" onclick="closeSignalDD()">&times;</button>
+      <h4 id="sig-dd-title">-</h4>
+      <div id="sig-dd-body"></div>
+    </div>
+
     <footer>
       교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
       <strong>PollStock 폴스탁</strong> — 여론조사 × 주식 정치 테마주 AI 분석<br>
@@ -728,13 +736,96 @@ function closeReasonDD() {
   document.getElementById('reason-dropdown').classList.remove('show');
 }
 
+// 시그널 상세 드롭다운
+function showSignalDetail(sigIndex, evt) {
+  if(!DATA) return;
+  const dd = document.getElementById('signal-dropdown');
+  const signals = DATA.poll_signals?.signals || [];
+  const sig = signals[sigIndex];
+  if(!sig) return;
+
+  // 토글
+  if(dd.classList.contains('show') && dd.dataset.sigIdx === String(sigIndex)) { closeSignalDD(); return; }
+
+  const SIGNAL_KR = {'strong_bull':'강한 호재','bull':'호재','bear':'악재','strong_bear':'강한 악재','neutral':'보합'};
+  const sigLabel = sig.signal_kr || SIGNAL_KR[sig.signal] || sig.signal;
+  const sigColor = sig.signal.includes('bull') ? 'var(--up)' : sig.signal.includes('bear') ? 'var(--down)' : 'var(--muted)';
+
+  document.getElementById('sig-dd-title').innerHTML = `${sig.name} <span style="color:${sigColor};font-weight:700;">${sigLabel}</span>`;
+
+  let html = '';
+
+  // 기본 정보
+  html += `<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:.875rem;">`;
+  html += `<div><strong>지역:</strong> ${sig.region || '-'}</div>`;
+  if(sig.current_rate != null) html += `<div><strong>현재 지지율:</strong> ${sig.current_rate}%</div>`;
+  if(sig.change != null) {
+    const chgColor = sig.change > 0 ? 'var(--up)' : sig.change < 0 ? 'var(--down)' : 'var(--muted)';
+    html += `<div><strong>변동:</strong> <span style="color:${chgColor};font-weight:700;">${sig.change > 0 ? '+' : ''}${sig.change}%p</span></div>`;
+  }
+  if(sig.detail) html += `<div style="margin-top:6px;color:var(--muted);font-size:.75rem;">${sig.detail}</div>`;
+  html += `</div>`;
+
+  // 모멘텀 히스토리
+  const mom = sig.momentum;
+  if(mom && mom.history && mom.history.length > 1) {
+    html += `<div style="padding:8px 0;border-bottom:1px solid var(--border);">`;
+    html += `<div style="font-size:.75rem;color:var(--muted);margin-bottom:4px;">여론조사 추이 (${mom.trend || ''})</div>`;
+    html += `<div style="display:flex;gap:4px;flex-wrap:wrap;">`;
+    for(const h of mom.history.slice(-5)) {
+      html += `<span style="background:var(--card);border:1px solid var(--border);border-radius:3px;padding:2px 6px;font-size:.75rem;">${h.date?.slice(5)||''} ${h.rate}%</span>`;
+    }
+    html += `</div></div>`;
+  }
+
+  // 관련주
+  const stocks = sig.affected_stocks || [];
+  if(stocks.length) {
+    html += `<div style="padding:8px 0;">`;
+    html += `<div style="font-size:.75rem;color:var(--muted);margin-bottom:6px;">관련 테마주 (${stocks.length}개)</div>`;
+    for(const st of stocks) {
+      // screening 데이터에서 현재가 가져오기
+      const sr = (DATA.screening_results || []).find(r => r.ticker === st.ticker);
+      const chg = sr ? sr.change_pct : null;
+      const chgStr = chg != null ? `<span style="color:${chg > 0 ? 'var(--up)' : chg < 0 ? 'var(--down)' : 'var(--muted)'};font-weight:700;margin-left:6px;">${chg > 0 ? '+' : ''}${chg.toFixed(2)}%</span>` : '';
+      const close = sr ? `${sr.close.toLocaleString()}원` : '';
+      html += `<div style="padding:4px 0;display:flex;justify-content:space-between;align-items:center;font-size:.875rem;">`;
+      html += `<div><strong>${st.name}</strong> <span style="color:var(--muted);font-size:.75rem;">${st.ticker}</span>${chgStr}</div>`;
+      html += `<div>${close ? close + ' ' : ''}${tradeLinks(st.ticker)}</div>`;
+      html += `</div>`;
+      if(st.relation) html += `<div style="font-size:.75rem;color:var(--muted);padding-left:4px;margin-bottom:4px;">${st.relation}</div>`;
+    }
+    html += `</div>`;
+  }
+
+  document.getElementById('sig-dd-body').innerHTML = html;
+  dd.dataset.sigIdx = String(sigIndex);
+
+  if(evt) {
+    const rect = evt.target.getBoundingClientRect();
+    let top = rect.bottom + window.scrollY + 6;
+    let left = rect.left + window.scrollX;
+    if(left + 360 > window.innerWidth) left = window.innerWidth - 370;
+    if(left < 10) left = 10;
+    dd.style.top = top + 'px';
+    dd.style.left = left + 'px';
+  }
+  dd.classList.add('show');
+}
+
+function closeSignalDD() {
+  document.getElementById('signal-dropdown').classList.remove('show');
+}
+
 // 바깥 클릭 시 닫기
 document.addEventListener('click', e => {
   const dd = document.getElementById('reason-dropdown');
   if(dd.classList.contains('show') && !dd.contains(e.target) && !e.target.classList.contains('tag')) closeReasonDD();
+  const sdd = document.getElementById('signal-dropdown');
+  if(sdd.classList.contains('show') && !sdd.contains(e.target) && !e.target.classList.contains('signal-clickable')) closeSignalDD();
 });
 document.addEventListener('keydown', e => {
-  if(e.key==='Escape') closeReasonDD();
+  if(e.key==='Escape') { closeReasonDD(); closeSignalDD(); }
 });
 
 function makePartyTag(party) {
@@ -844,9 +935,10 @@ function render(data) {
     const topSig=signals.filter(s=>s.signal!=='neutral').slice(0,3);
     if(topSig.length){
       const SIG_ICON={'strong_bull':'++','bull':'+','bear':'-','strong_bear':'--'};
-      document.getElementById('dash-signals-body').innerHTML=topSig.map(s=>
-        `<div style="padding:3px 0;">${SIG_ICON[s.signal]||'⚪'} <strong>${s.name}</strong> <span style="color:var(--muted)">${s.region||''}</span> <span style="font-weight:700;${s.signal.includes('bull')?'color:var(--up)':'color:var(--down)'}">${s.signal_kr||s.signal}</span></div>`
-      ).join('');
+      document.getElementById('dash-signals-body').innerHTML=topSig.map(s=>{
+        const origIdx=signals.indexOf(s);
+        return `<div class="signal-clickable" style="padding:3px 0;cursor:pointer;border-radius:3px;transition:background .15s;" onclick="showSignalDetail(${origIdx},event)" onmouseenter="this.style.background='rgba(78,150,230,.06)'" onmouseleave="this.style.background=''">${SIG_ICON[s.signal]||'·'} <strong>${s.name}</strong> <span style="color:var(--muted)">${s.region||''}</span> <span style="font-weight:700;${s.signal.includes('bull')?'color:var(--up)':'color:var(--down)'}">${s.signal_kr||s.signal}</span></div>`;
+      }).join('');
       hasContent=true;
     } else {
       // 당선예측 요약으로 대체
@@ -1134,19 +1226,23 @@ function renderPollSignals(pollData, candidateStocks) {
   const tbody=document.getElementById('tb-poll-signals');
   tbody.innerHTML='';
   const SIGNAL_KR={'strong_bull':'강한 호재','bull':'호재','bear':'악재','strong_bear':'강한 악재','neutral':'보합'};
+  const allSignals = DATA?.poll_signals?.signals || pollData.signals;
   for(const s of pollData.signals) {
-    if(s.signal==='neutral' && !s.current_rate) continue; // 데이터 없는 보합은 숨김
+    if(s.signal==='neutral' && !s.current_rate) continue;
+    const sigIdx = allSignals.indexOf(s);
     const changeTxt = s.change!=null ? `${s.change>0?'+':''}${s.change}%p` : '-';
     const changeColor = s.change>0?'var(--up)':s.change<0?'var(--down)':'var(--muted)';
     const stockNames = (s.affected_stocks||[]).slice(0,3).map(st=>st.name).join(', ') || '-';
+    const hasDetail = (s.affected_stocks&&s.affected_stocks.length) || s.momentum || s.detail;
+    const clickAttr = hasDetail ? `class="signal-clickable" style="cursor:pointer;" onclick="showSignalDetail(${sigIdx},event)"` : '';
     tbody.innerHTML+=`<tr>
       <td><strong>${s.name}</strong></td>
       <td>${s.region||'-'}</td>
       <td>${s.current_rate!=null?s.current_rate+'%':'-'}</td>
       <td style="color:${changeColor};font-weight:700">${changeTxt}</td>
-      <td><span class="signal-badge signal-${s.signal}">${s.signal_kr||SIGNAL_KR[s.signal]||s.signal}</span></td>
+      <td><span class="signal-badge signal-${s.signal}" ${clickAttr}>${s.signal_kr||SIGNAL_KR[s.signal]||s.signal}</span></td>
       <td style="font-size:.75rem">${stockNames}</td>
-      <td style="font-size:.75rem;color:var(--muted)">${s.detail||''}</td>
+      <td style="font-size:.75rem;color:var(--muted)">${s.detail||''} ${hasDetail?'<span style="color:var(--accent);cursor:pointer;font-size:.75rem;" onclick="showSignalDetail('+sigIdx+',event)">[상세]</span>':''}</td>
     </tr>`;
   }
 
