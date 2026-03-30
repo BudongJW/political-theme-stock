@@ -197,6 +197,14 @@
       <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px;">데이터를 불러오는 중...</p>
     </div>
   </div>
+  <nav class="top-nav" id="top-nav">
+    <button class="nav-btn active" data-page="page-dashboard"><span>📊</span> 대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
+    <button class="nav-btn" data-page="page-candidates"><span>👤</span> 후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
+    <button class="nav-btn" data-page="page-polls"><span>🗳️</span> 여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
+    <button class="nav-btn" data-page="page-ai"><span>🤖</span> AI 분석</button>
+    <button class="nav-btn" data-page="page-reference"><span>📚</span> 참고 데이터</button>
+  </nav>
+
   <div id="app">
     <header>
       <h1>📊 PollStock 폴스탁</h1>
@@ -207,16 +215,27 @@
       </p>
     </header>
 
-    <nav class="top-nav" id="top-nav">
-      <button class="nav-btn active" data-page="page-dashboard"><span>📊</span> 대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
-      <button class="nav-btn" data-page="page-candidates"><span>👤</span> 후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
-      <button class="nav-btn" data-page="page-polls"><span>🗳️</span> 여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
-      <button class="nav-btn" data-page="page-ai"><span>🤖</span> AI 분석</button>
-      <button class="nav-btn" data-page="page-reference"><span>📚</span> 참고 데이터</button>
-    </nav>
-
     <!-- ==================== 페이지 1: 대시보드 ==================== -->
     <div class="page active" id="page-dashboard">
+
+    <!-- 대시보드 요약 카드 (AI·시그널·TOP종목) -->
+    <div id="dash-summary" style="display:none;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
+        <div class="profile-card" id="dash-ai-preview" style="border-left:3px solid var(--accent);">
+          <div style="font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:6px;">🤖 AI 리포트 요약</div>
+          <div id="dash-ai-text" style="font-size:.84rem;line-height:1.6;color:var(--muted);max-height:80px;overflow:hidden;"></div>
+          <button onclick="document.querySelector('[data-page=page-ai]').click()" style="background:none;border:none;color:var(--accent);font-size:.78rem;cursor:pointer;padding:4px 0;margin-top:4px;">전체 보기 →</button>
+        </div>
+        <div class="profile-card" id="dash-top-signals" style="border-left:3px solid var(--up);">
+          <div style="font-size:.75rem;color:var(--up);font-weight:700;margin-bottom:6px;">📊 주요 시그널</div>
+          <div id="dash-signals-body" style="font-size:.84rem;"></div>
+        </div>
+        <div class="profile-card" id="dash-top-stocks" style="border-left:3px solid var(--warn);">
+          <div style="font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:6px;">🔥 TOP 종목</div>
+          <div id="dash-stocks-body" style="font-size:.84rem;"></div>
+        </div>
+      </div>
+    </div>
 
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
@@ -265,6 +284,10 @@
 
     <!-- ==================== 페이지 2: 후보 분석 ==================== -->
     <div class="page" id="page-candidates">
+    <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">👤 후보 분석</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">정치인별 테마주 활성도, 재산 비교, 지역별 관련주 현황</p>
+    </div>
 
     <!-- 정치 컨설턴트 분석 -->
     <section>
@@ -309,6 +332,10 @@
 
     <!-- ==================== 페이지 3: 여론·예측 ==================== -->
     <div class="page" id="page-polls">
+    <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">🗳️ 여론조사 · 선거예측</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">여론조사 시그널, 지역별 당선예측, 테마주 복합 스코어 분석</p>
+    </div>
 
     <section id="polls-empty-msg">
       <div style="text-align:center;padding:60px 20px;color:var(--muted);">
@@ -374,6 +401,10 @@
 
     <!-- ==================== 페이지 4: AI 분석 ==================== -->
     <div class="page" id="page-ai">
+    <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">🤖 AI 분석</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">Gemini AI 기반 일일 리포트 및 신규 테마주 자동 제안</p>
+    </div>
 
     <!-- AI 일일 리포트 -->
     <section id="ai-report-section" style="display:none">
@@ -401,6 +432,10 @@
 
     <!-- ==================== 페이지 5: 참고 데이터 ==================== -->
     <div class="page" id="page-reference">
+    <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">📚 참고 데이터</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">국회의원 현황, 지방선거 후보, 테마주 시즌 타임라인</p>
+    </div>
 
     <!-- 22대 국회의원 현황 -->
     <section id="assembly-section" style="display:none">
@@ -742,6 +777,55 @@ function render(data) {
     const emptyMsg=document.getElementById('ai-empty-msg');
     if(emptyMsg) emptyMsg.style.display='none';
   }
+
+  // 대시보드 요약 카드 (AI 미리보기 + 시그널 + TOP 종목)
+  safe(()=>{
+    let hasContent=false;
+    // AI 리포트 미리보기
+    if(data.ai_report){
+      const preview=data.ai_report.substring(0,200).replace(/\n/g,' ')+'...';
+      document.getElementById('dash-ai-text').textContent=preview;
+      hasContent=true;
+    } else {
+      document.getElementById('dash-ai-preview').style.display='none';
+    }
+    // 주요 시그널
+    const signals=data.poll_signals?.signals||[];
+    const topSig=signals.filter(s=>s.signal!=='neutral').slice(0,3);
+    if(topSig.length){
+      const SIG_ICON={'strong_bull':'🟢','bull':'🟢','bear':'🔴','strong_bear':'🔴'};
+      document.getElementById('dash-signals-body').innerHTML=topSig.map(s=>
+        `<div style="padding:3px 0;">${SIG_ICON[s.signal]||'⚪'} <strong>${s.name}</strong> <span style="color:var(--muted)">${s.region||''}</span> <span style="font-weight:700;${s.signal.includes('bull')?'color:var(--up)':'color:var(--down)'}">${s.signal_kr||s.signal}</span></div>`
+      ).join('');
+      hasContent=true;
+    } else {
+      // 당선예측 요약으로 대체
+      const predRegions=Object.entries(data.election_predictions?.regions||{}).slice(0,3);
+      if(predRegions.length){
+        document.getElementById('dash-signals-body').innerHTML=predRegions.map(([region,r])=>
+          `<div style="padding:3px 0;"><strong>${region}</strong> ${r.leader} <span style="color:var(--accent);font-weight:700">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.78rem">${r.competitiveness}</span></div>`
+        ).join('');
+        hasContent=true;
+      } else {
+        document.getElementById('dash-top-signals').style.display='none';
+      }
+    }
+    // TOP 종목
+    const topPicks=data.stock_predictions?.top_picks||[];
+    const topStocks=topPicks.length?topPicks.slice(0,3):results.filter(r=>r.close>0).slice(0,3);
+    if(topStocks.length){
+      document.getElementById('dash-stocks-body').innerHTML=topStocks.map(s=>{
+        const chg=s.change_pct!=null?s.change_pct:0;
+        const cls=chg>0?'color:var(--up)':chg<0?'color:var(--down)':'';
+        const score=s.score!=null?` <span style="color:var(--accent)">${s.score}점</span>`:'';
+        return `<div style="padding:3px 0;"><strong>${s.name}</strong> <span style="${cls};font-weight:700">${chg>0?'+':''}${chg.toFixed?chg.toFixed(2):chg}%</span>${score}</div>`;
+      }).join('');
+      hasContent=true;
+    } else {
+      document.getElementById('dash-top-stocks').style.display='none';
+    }
+    if(hasContent) document.getElementById('dash-summary').style.display='block';
+  }, 'DashSummary');
 
   // 네비 뱃지 업데이트
   const nb=id=>document.getElementById(id);
