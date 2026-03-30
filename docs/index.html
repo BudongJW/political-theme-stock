@@ -443,14 +443,16 @@
       <div class="filter-bar">
         <label>정당:</label><select id="asm-party-filter"><option value="all">전체</option></select>
         <label>지역:</label><select id="asm-region-filter"><option value="all">전체</option></select>
-        <label>검색:</label><input id="asm-search" placeholder="이름 검색" style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:.82rem;">
+        <label>검색:</label><input id="asm-search" placeholder="이름 검색 후 재산 조회" style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:.82rem;">
+        <button onclick="batchFetchVisibleAssets()" class="btn-trade" style="font-size:.78rem;padding:5px 12px;cursor:pointer;">현재 목록 재산 일괄 조회</button>
       </div>
+      <p style="color:var(--muted);font-size:.72rem;margin-bottom:8px;">💡 이름을 검색한 뒤 [조회] 클릭 또는 [현재 목록 재산 일괄 조회]로 필터된 의원만 일괄 조회. 결과는 브라우저에 캐싱됩니다.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
         <div id="asm-party-chips" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
       </div>
       <div class="table-wrap">
         <table><thead><tr>
-          <th>#</th><th>이름</th><th>정당</th><th>지역</th><th>선거구</th><th>당선구분</th>
+          <th>#</th><th>이름</th><th>정당</th><th>지역</th><th>선거구</th><th>당선구분</th><th>재산</th>
         </tr></thead><tbody id="tb-assembly"></tbody></table>
       </div>
     </section>
@@ -1210,6 +1212,76 @@ function renderCandidates(candidateStocks, allResults) {
 
 const CATEGORY_LABELS = {policy:'정책/공약',region:'지역(지연)',career:'경력',network:'인맥/측근',clan:'본관(종친)',school:'학연',family:'혈연/인척'};
 
+// 국회의원 재산 조회 (뉴스타파 API — 클릭 시 개별 조회, localStorage 캐싱)
+const _assetCache = JSON.parse(localStorage.getItem('pollstock_asset_cache')||'{}');
+function _saveAssetCache(){ try{localStorage.setItem('pollstock_asset_cache',JSON.stringify(_assetCache));}catch(e){} }
+
+async function batchFetchVisibleAssets() {
+  const cells=document.querySelectorAll('[id^="asm-asset-"]');
+  let queued=[];
+  cells.forEach(cell=>{
+    const btn=cell.querySelector('button[onclick^="fetchAsset"]');
+    if(btn) {
+      const match=btn.getAttribute('onclick').match(/fetchAsset\('([^']+)','([^']+)'\)/);
+      if(match) queued.push({name:match[1],cellId:match[2]});
+    }
+  });
+  if(!queued.length) { alert('조회할 의원이 없습니다. (이미 모두 조회됨)'); return; }
+  if(queued.length>30 && !confirm(`${queued.length}명을 일괄 조회합니다. 계속할까요?`)) return;
+  for(const {name,cellId} of queued) {
+    await fetchAsset(name, cellId);
+    await new Promise(r=>setTimeout(r,200)); // rate limit 방지
+  }
+}
+
+async function fetchAsset(name, cellId) {
+  const cell=document.getElementById(cellId);
+  if(!cell) return;
+  // 1) 캐시 확인
+  if(_assetCache[name] && _assetCache[name].total_억원!=null) {
+    _renderAssetCell(cell, _assetCache[name]);
+    return;
+  }
+  cell.innerHTML='<span style="color:var(--muted);font-size:.75rem;">조회 중...</span>';
+  try {
+    const resp=await fetch(`https://jaesan.newstapa.org/api/search?q=${encodeURIComponent(name)}`,{mode:'cors'});
+    if(!resp.ok) throw new Error('API error');
+    const data=await resp.json();
+    const results=data.results||[];
+    if(results.length) {
+      const best=results.reduce((a,b)=>parseInt(b.open_year_last||'0')>parseInt(a.open_year_last||'0')?b:a);
+      const total千=parseInt(best.price_total_last||'0');
+      const info={
+        total_억원: Math.round(total千/100000*10)/10,
+        total_display: `약 ${Math.round(total千/100000*10)/10}억원`,
+        position: best.position||'',
+        detail_url: `https://jaesan.newstapa.org/people/${best.uniqueId||''}`,
+        fetched_at: new Date().toISOString()
+      };
+      _assetCache[name]=info;
+      _saveAssetCache();
+      _renderAssetCell(cell, info);
+    } else {
+      _assetCache[name]={total_억원:null,note:'검색결과 없음'};
+      _saveAssetCache();
+      cell.innerHTML=`<a href="https://jaesan.newstapa.org/search?query=${encodeURIComponent(name)}" target="_blank" class="btn-trade" style="font-size:.72rem;">뉴스타파 검색</a>`;
+    }
+  } catch(e) {
+    // CORS 또는 네트워크 에러 → 뉴스타파 직접 링크
+    cell.innerHTML=`<a href="https://jaesan.newstapa.org/search?query=${encodeURIComponent(name)}" target="_blank" class="btn-trade" style="font-size:.72rem;">뉴스타파에서 조회</a>`;
+  }
+}
+
+function _renderAssetCell(cell, info) {
+  if(info.total_억원==null) {
+    cell.innerHTML='<span style="color:var(--muted);font-size:.75rem;">정보 없음</span>';
+    return;
+  }
+  const color=info.total_억원>=100?'var(--warn)':info.total_억원>=10?'var(--text)':'var(--muted)';
+  cell.innerHTML=`<span style="color:${color};font-weight:700;font-size:.82rem;">${info.total_display}</span>
+    ${info.detail_url?` <a href="${info.detail_url}" target="_blank" class="btn-trade" style="font-size:.68rem;">상세</a>`:''}`;
+}
+
 function renderAssemblyMembers(asm) {
   if(!asm || !asm.members || !asm.members.length) return;
   document.getElementById('assembly-section').style.display='block';
@@ -1228,19 +1300,33 @@ function renderAssemblyMembers(asm) {
     chips.innerHTML+=`<span class="tag ${cls?'tag-'+cls:'tag-theme'}" style="cursor:default">${p}: ${cnt}명</span>`;
   }
 
+  let _asmIdx=0; // 고유 cell ID 생성용
   function renderList() {
     const pF=pSel.value, rF=rSel.value, q=(document.getElementById('asm-search').value||'').trim().toLowerCase();
     const tbody=document.getElementById('tb-assembly');
     tbody.innerHTML='';
     let idx=0;
+    _asmIdx=0;
     for(const m of members) {
       if(pF!=='all' && m.party!==pF) continue;
       if(rF!=='all' && m.region!==rF) continue;
       if(q && !m.name.toLowerCase().includes(q)) continue;
       idx++;
+      const cellId=`asm-asset-${_asmIdx++}`;
+      const cached=_assetCache[m.name];
+      let assetHtml;
+      if(cached && cached.total_억원!=null) {
+        const color=cached.total_억원>=100?'var(--warn)':cached.total_억원>=10?'var(--text)':'var(--muted)';
+        assetHtml=`<span style="color:${color};font-weight:700;font-size:.82rem;">${cached.total_display}</span>${cached.detail_url?` <a href="${cached.detail_url}" target="_blank" class="btn-trade" style="font-size:.68rem;">상세</a>`:''}`;
+      } else if(cached && cached.note) {
+        assetHtml=`<a href="https://jaesan.newstapa.org/search?query=${encodeURIComponent(m.name)}" target="_blank" class="btn-trade" style="font-size:.72rem;">뉴스타파</a>`;
+      } else {
+        assetHtml=`<button onclick="fetchAsset('${m.name.replace(/'/g,"\\'")}','${cellId}')" class="btn-trade" style="font-size:.72rem;cursor:pointer;">조회</button>`;
+      }
       tbody.innerHTML+=`<tr>
         <td>${idx}</td><td><strong>${m.name}</strong></td><td>${makePartyTag(m.party)}</td>
-        <td>${m.region||''}</td><td>${m.district||''}</td><td>${m.election_type||''}</td></tr>`;
+        <td>${m.region||''}</td><td>${m.district||''}</td><td>${m.election_type||''}</td>
+        <td id="${cellId}">${assetHtml}</td></tr>`;
     }
   }
   renderList();
