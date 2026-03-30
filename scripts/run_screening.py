@@ -27,6 +27,7 @@ from analyzers.poll_signal import PollSignalEngine
 from analyzers.election_predictor import ElectionPredictor
 from analyzers.stock_predictor import StockPredictor
 from analyzers.accuracy_tracker import AccuracyTracker
+from analyzers.calibrator import Calibrator
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -267,11 +268,30 @@ def main():
     except Exception as e:
         print(f"당선예측 분석 실패 (무시): {e}")
 
-    # 주가 예측 모델 (복합 스코어)
+    # 자동 캘리브레이션 (적중률 기반 가중치·임계값 보정)
+    calibration_data = {}
+    calibration_result = {}
+    try:
+        calibrator = Calibrator(str(ROOT / "data" / "calibration"))
+        calibration_data = calibrator.load_calibration()
+        if prediction_accuracy.get("status") == "ok":
+            calibration_result = calibrator.calibrate(prediction_accuracy)
+            if calibration_result.get("adjusted"):
+                calibration_data = calibrator.load_calibration()
+                print(f"캘리브레이션 v{calibration_result['version']}: {', '.join(calibration_result['changes'])}")
+            else:
+                print(f"캘리브레이션: {calibration_result.get('reason', '변경 없음')}")
+        else:
+            print("캘리브레이션: 적중률 데이터 부족 (기본값 사용)")
+    except Exception as e:
+        print(f"캘리브레이션 실패 (기본값 사용): {e}")
+
+    # 주가 예측 모델 (복합 스코어 — 캘리브레이션 적용)
     stock_predictions = {}
     try:
         days_until = phase.get("days_until_election", 68)
-        sp = StockPredictor(sc, pdc, tm, days_until_election=days_until)
+        sp = StockPredictor(sc, pdc, tm, days_until_election=days_until,
+                            calibration=calibration_data)
         stock_predictions = sp.analyze_all_theme_stocks(max_tickers=50)
         summary = stock_predictions.get("summary", {})
         print(f"주가 예측: {stock_predictions.get('total_analyzed', 0)}개 종목 분석 완료")
@@ -322,6 +342,14 @@ def main():
         "stock_impacts": stock_impacts,
         "stock_predictions": stock_predictions,
         "prediction_accuracy": prediction_accuracy,
+        "calibration": {
+            "weights": calibration_data.get("weights", {}),
+            "thresholds": calibration_data.get("thresholds", {}),
+            "version": calibration_data.get("version", 0),
+            "last_updated": calibration_data.get("last_updated", ""),
+            "last_adjustment": calibration_result if calibration_result else {},
+            "adjustments": calibration_data.get("adjustments", [])[-5:],
+        },
         "ai_report": daily_report,
         "ai_suggestions": suggestions,
         "summary": {

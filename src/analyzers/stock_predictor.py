@@ -37,11 +37,26 @@ SIGNAL_IMPACT = {
 
 class StockPredictor:
     def __init__(self, stock_collector, poll_data_collector, theme_mapper,
-                 days_until_election: int = 68):
+                 days_until_election: int = 68, calibration: dict = None):
         self.sc = stock_collector
         self.pdc = poll_data_collector
         self.tm = theme_mapper
         self.days_until = days_until_election
+
+        # 캘리브레이션 적용 (없으면 기본값)
+        cal = calibration or {}
+        self.weights = cal.get("weights", {
+            "price_momentum": 0.30,
+            "volume_signal": 0.20,
+            "poll_impact": 0.30,
+            "cycle_premium": 0.20,
+        })
+        self.thresholds = cal.get("thresholds", {
+            "strong_buy": 75,
+            "buy": 60,
+            "hold": 40,
+            "sell": 25,
+        })
 
     def _get_cycle_phase(self) -> dict:
         d = self.days_until
@@ -270,26 +285,28 @@ class StockPredictor:
             (p.get("poll_change") or 0) != 0 for p in poll_impacts
         )
 
-        # 가중 합산
+        # 가중 합산 (캘리브레이션 가중치 사용)
+        w = self.weights
         total = (
-            price_score * 0.30 +
-            volume_score * 0.20 +
-            poll_score * 0.30 +
-            cycle_score * 0.20
+            price_score * w.get("price_momentum", 0.30) +
+            volume_score * w.get("volume_signal", 0.20) +
+            poll_score * w.get("poll_impact", 0.30) +
+            cycle_score * w.get("cycle_premium", 0.20)
         )
         total = max(0, min(100, total))
 
-        # 시그널 판정
-        if total >= 75:
+        # 시그널 판정 (캘리브레이션 임계값 사용)
+        th = self.thresholds
+        if total >= th.get("strong_buy", 75):
             signal = "strong_buy"
             signal_kr = "적극 매수"
-        elif total >= 60:
+        elif total >= th.get("buy", 60):
             signal = "buy"
             signal_kr = "매수"
-        elif total >= 40:
+        elif total >= th.get("hold", 40):
             signal = "hold"
             signal_kr = "관망"
-        elif total >= 25:
+        elif total >= th.get("sell", 25):
             signal = "sell"
             signal_kr = "매도"
         else:
@@ -345,6 +362,10 @@ class StockPredictor:
             "days_until_election": self.days_until,
             "cycle_phase": self._get_cycle_phase()["label"],
             "total_analyzed": len(analyses),
+            "calibration": {
+                "weights": self.weights,
+                "thresholds": self.thresholds,
+            },
             "analyses": analyses,
             "summary": {
                 "avg_score": round(np.nanmean(scores), 1) if scores else 0,

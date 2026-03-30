@@ -489,6 +489,35 @@
       </div>
     </section>
 
+    <!-- 자동 캘리브레이션 (모델 보정 내역) -->
+    <section id="calibration-section" style="display:none">
+      <h2>모델 자동 보정</h2>
+      <p style="color:var(--muted);font-size:.75rem;margin-bottom:12px;">적중률 분석 결과를 기반으로 가중치·임계값이 자동 조정됩니다.</p>
+      <div class="metrics" id="cal-metrics"></div>
+
+      <!-- 현재 가중치 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">현재 가중치</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;" id="cal-weights"></div>
+      </div>
+
+      <!-- 현재 임계값 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">시그널 임계값</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;" id="cal-thresholds"></div>
+      </div>
+
+      <!-- 최근 보정 내역 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">보정 이력</h3>
+        <div class="table-wrap">
+          <table><thead><tr>
+            <th>날짜</th><th>적중률</th><th>변경 내용</th>
+          </tr></thead><tbody id="tb-cal-history"></tbody></table>
+        </div>
+      </div>
+    </section>
+
     </div><!-- /page-polls -->
 
     <!-- ==================== 페이지 4: AI 분석 ==================== -->
@@ -957,6 +986,7 @@ function render(data) {
   run(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
   run(()=>renderTimeline(phase.phase), 'Timeline');
   run(()=>renderAccuracy(data.prediction_accuracy), 'Accuracy');
+  run(()=>renderCalibration(data.calibration), 'Calibration');
   // AI 페이지 빈 메시지 숨김
   if(data.ai_report || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
     const emptyMsg=document.getElementById('ai-empty-msg');
@@ -1824,6 +1854,74 @@ function renderAccuracy(acc) {
       <td style="color:${nColor};font-weight:700">${c.next_change_pct>0?'+':''}${c.next_change_pct}%</td>
       <td style="color:${wColor};font-weight:700">${c.week_change_pct!=null?(c.week_change_pct>0?'+':'')+c.week_change_pct+'%':'-'}</td>
       <td>${okMark}</td>
+    </tr>`;
+  }
+}
+
+function renderCalibration(cal) {
+  if(!cal || !cal.weights || !Object.keys(cal.weights).length) return;
+  document.getElementById('calibration-section').style.display='block';
+
+  const v=cal.version||0;
+  const lastAdj=cal.last_adjustment||{};
+  const updated=cal.last_updated?cal.last_updated.split('T')[0]:'미적용';
+
+  // 메트릭 카드
+  document.getElementById('cal-metrics').innerHTML=`
+    <div class="metric-card"><div class="value" style="color:var(--accent)">v${v}</div><div class="label">보정 버전</div></div>
+    <div class="metric-card"><div class="value" style="font-size:.875rem">${updated}</div><div class="label">최종 보정일</div></div>
+    <div class="metric-card"><div class="value">${lastAdj.adjusted?'<span style="color:var(--up)">적용됨</span>':'<span style="color:var(--muted)">변경 없음</span>'}</div><div class="label">최근 보정</div></div>
+    <div class="metric-card"><div class="value">${lastAdj.accuracy_pct||'-'}%</div><div class="label">보정 시 적중률</div></div>`;
+
+  // 가중치 시각화
+  const W_KR={'price_momentum':'주가 모멘텀','volume_signal':'거래량','poll_impact':'여론조사','cycle_premium':'선거 사이클'};
+  const DEFAULT_W={'price_momentum':0.30,'volume_signal':0.20,'poll_impact':0.30,'cycle_premium':0.20};
+  const wEl=document.getElementById('cal-weights');
+  wEl.innerHTML='';
+  for(const [k,val] of Object.entries(cal.weights)){
+    const pct=Math.round(val*100);
+    const def=Math.round((DEFAULT_W[k]||0.25)*100);
+    const diff=pct-def;
+    const diffStr=diff>0?`<span style="color:var(--up);font-size:.7rem">+${diff}%p</span>`:diff<0?`<span style="color:var(--down);font-size:.7rem">${diff}%p</span>`:'';
+    wEl.innerHTML+=`<div class="metric-card" style="padding:10px;">
+      <div style="font-size:.75rem;color:var(--muted);margin-bottom:4px;">${W_KR[k]||k}</div>
+      <div style="font-size:1.3rem;font-weight:700;color:var(--accent)">${pct}%</div>
+      <div style="height:4px;background:var(--border);border-radius:2px;margin-top:6px;">
+        <div style="width:${Math.min(pct*2.2,100)}%;height:100%;background:var(--accent);border-radius:2px;"></div>
+      </div>
+      <div style="margin-top:4px;">${diffStr}</div>
+    </div>`;
+  }
+
+  // 임계값 시각화
+  const TH_KR={'strong_buy':'적극 매수','buy':'매수','hold':'관망','sell':'매도'};
+  const TH_COLOR={'strong_buy':'var(--up)','buy':'#34b060cc','hold':'var(--warn)','sell':'var(--down)'};
+  const thEl=document.getElementById('cal-thresholds');
+  thEl.innerHTML='';
+  for(const [k,val] of Object.entries(cal.thresholds)){
+    thEl.innerHTML+=`<div class="metric-card" style="padding:10px;">
+      <div style="font-size:.75rem;color:var(--muted);margin-bottom:4px;">${TH_KR[k]||k}</div>
+      <div style="font-size:1.3rem;font-weight:700;color:${TH_COLOR[k]||'var(--text)'}">${val}</div>
+      <div style="font-size:.7rem;color:var(--muted);">점 이상</div>
+    </div>`;
+  }
+
+  // 보정 이력 테이블
+  const adj=cal.adjustments||[];
+  const tbody=document.getElementById('tb-cal-history');
+  tbody.innerHTML='';
+  if(!adj.length){
+    tbody.innerHTML='<tr><td colspan="3" style="text-align:center;color:var(--muted);">아직 보정 이력이 없습니다.</td></tr>';
+    return;
+  }
+  for(const a of [...adj].reverse()){
+    const dt=a.date?a.date.split('T')[0]:'';
+    const accColor=(a.accuracy_pct||0)>=50?'var(--up)':'var(--down)';
+    const changes=(a.changes||[]).join('<br>');
+    tbody.innerHTML+=`<tr>
+      <td style="font-size:.75rem;white-space:nowrap">${dt}</td>
+      <td style="color:${accColor};font-weight:700;white-space:nowrap">${a.accuracy_pct||'-'}%</td>
+      <td style="font-size:.8rem;line-height:1.4">${changes||'(없음)'}</td>
     </tr>`;
   }
 }
