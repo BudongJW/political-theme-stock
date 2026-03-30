@@ -36,147 +36,147 @@
   </script>
   <style>
     :root {
-      --bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;
-      --accent:#58a6ff;--up:#3fb950;--down:#f85149;--warn:#d29922;
-      --dem:#1c6dd0;--ppp:#e6394a;--reform:#f39c12;
+      --bg:#101520;--card:#181e2c;--border:#2a3148;--text:#dce2ed;--muted:#7e8a9f;
+      --accent:#4e96e6;--up:#34b060;--down:#e8534a;--warn:#c99420;
+      --dem:#2570c4;--ppp:#d44050;--reform:#e09218;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:-apple-system,'Pretendard',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
     .container{max-width:1280px;margin:0 auto;padding:20px;}
     header{text-align:center;padding:30px 0 10px;}
-    header h1{font-size:1.8rem;}
+    header h1{font-size:1.75rem;letter-spacing:-.02em;}
     header p{color:var(--muted);font-size:.9rem;}
     .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0;}
-    .metric-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+    .metric-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;text-align:center;}
     .metric-card .value{font-size:1.6rem;font-weight:700;}
-    .metric-card .label{font-size:.78rem;color:var(--muted);margin-top:2px;}
-    .phase-banner{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:12px 0;display:flex;align-items:center;gap:12px;}
+    .metric-card .label{font-size:.75rem;color:var(--muted);margin-top:2px;}
+    .phase-banner{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin:12px 0;display:flex;align-items:center;gap:12px;}
     .phase-banner .icon{font-size:2rem;}
-    .phase-banner .info h3{font-size:1rem;} .phase-banner .info p{color:var(--muted);font-size:.85rem;}
-    section{margin:24px 0;} section h2{font-size:1.15rem;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .phase-banner .info h3{font-size:1rem;} .phase-banner .info p{color:var(--muted);font-size:.875rem;}
+    section{margin:24px 0;} section h2{font-size:1.125rem;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);letter-spacing:-.01em;}
     .table-wrap{overflow-x:auto;}
-    table{width:100%;border-collapse:collapse;font-size:.83rem;}
+    table{width:100%;border-collapse:collapse;font-size:.875rem;}
     th{background:var(--card);color:var(--muted);text-align:left;padding:8px 10px;font-weight:600;position:sticky;top:0;}
     td{padding:8px 10px;border-bottom:1px solid var(--border);}
-    tr:hover{background:rgba(88,166,255,.05);}
+    tr:hover{background:rgba(78,150,230,.06);}
     .up{color:var(--up);} .down{color:var(--down);}
-    .tag{display:inline-block;padding:1px 7px;border-radius:12px;font-size:.7rem;font-weight:600;margin:1px 2px;white-space:nowrap;}
-    .tag-pol{background:rgba(88,166,255,.15);color:var(--accent);}
-    .tag-theme{background:rgba(210,153,34,.15);color:var(--warn);}
-    .tag-dem{background:rgba(28,109,208,.2);color:#5b9ee8;}
-    .tag-ppp{background:rgba(230,57,74,.2);color:#f08090;}
-    .tag-reform{background:rgba(243,156,18,.2);color:#f0c040;}
-    .badge-surge{display:inline-block;padding:2px 7px;border-radius:16px;font-size:.72rem;font-weight:600;background:rgba(248,81,73,.2);color:var(--down);}
+    .tag{display:inline-block;padding:2px 6px;border-radius:3px;font-size:.7rem;font-weight:600;margin:1px 2px;white-space:nowrap;}
+    .tag-pol{background:rgba(78,150,230,.12);color:var(--accent);}
+    .tag-theme{background:rgba(201,148,32,.12);color:var(--warn);}
+    .tag-dem{background:rgba(37,112,196,.18);color:#6da8e0;}
+    .tag-ppp{background:rgba(212,64,80,.18);color:#e88898;}
+    .tag-reform{background:rgba(224,146,24,.18);color:#e8c050;}
+    .badge-surge{display:inline-block;padding:2px 7px;border-radius:3px;font-size:.72rem;font-weight:600;background:rgba(232,83,74,.16);color:var(--down);}
     .btn-trade{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.72rem;text-decoration:none;border:1px solid var(--border);color:var(--accent);transition:all .15s;}
     .btn-trade:hover{background:var(--accent);color:#fff;}
-    .chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;}
+    .chart-container{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;}
     .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center;}
-    .filter-bar label{color:var(--muted);font-size:.82rem;}
-    .filter-bar select{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:.82rem;}
+    .filter-bar label{color:var(--muted);font-size:.875rem;}
+    .filter-bar select{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:5px 10px;font-size:.875rem;}
     .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
-    .tab-btn{padding:5px 14px;border-radius:18px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:.82rem;transition:all .2s;}
+    .tab-btn{padding:5px 14px;border-radius:4px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:.875rem;transition:all .2s;}
     .tab-btn:hover{border-color:var(--accent);} .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
     .tab-content{display:none;} .tab-content.active{display:block;}
-    .profile-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
-    .profile-card h4{margin-bottom:4px;} .profile-card .meta{color:var(--muted);font-size:.82rem;margin-bottom:6px;}
-    .profile-card .profile-text{font-size:.85rem;margin-bottom:4px;}
-    .profile-card .assets{font-size:.85rem;color:var(--warn);}
+    .profile-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;margin-bottom:12px;}
+    .profile-card h4{margin-bottom:4px;} .profile-card .meta{color:var(--muted);font-size:.875rem;margin-bottom:6px;}
+    .profile-card .profile-text{font-size:.875rem;margin-bottom:4px;}
+    .profile-card .assets{font-size:.875rem;color:var(--warn);}
     .consultant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
-    .cons-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;}
+    .cons-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;}
     .cons-card .name{font-weight:700;font-size:1rem;margin-bottom:4px;}
-    .cons-card .stat{font-size:.82rem;color:var(--muted);}
+    .cons-card .stat{font-size:.875rem;color:var(--muted);}
     .cons-card .change{font-size:1.3rem;font-weight:700;}
     .timeline{position:relative;padding-left:28px;}
     .timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:var(--border);}
     .timeline-item{position:relative;margin-bottom:18px;}
     .timeline-item::before{content:'';position:absolute;left:-22px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--border);}
     .timeline-item.current::before{background:var(--warn);box-shadow:0 0 8px var(--warn);}
-    .timeline-item h4{font-size:.9rem;} .timeline-item p{color:var(--muted);font-size:.82rem;}
-    footer{text-align:center;padding:28px 0;color:var(--muted);font-size:.78rem;}
+    .timeline-item h4{font-size:.9rem;} .timeline-item p{color:var(--muted);font-size:.875rem;}
+    footer{text-align:center;padding:28px 0;color:var(--muted);font-size:.75rem;}
     footer a{color:var(--accent);text-decoration:none;}
     #loading{text-align:center;padding:60px;color:var(--muted);}
     #app{display:none;}
     .tag{cursor:pointer;transition:opacity .15s;} .tag:hover{opacity:.8;}
-    .dropdown-reason{position:absolute;z-index:200;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;width:360px;max-height:320px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;}
+    .dropdown-reason{position:absolute;z-index:200;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;width:360px;max-height:320px;overflow-y:auto;box-shadow:0 6px 20px rgba(0,0,0,.35);display:none;}
     .dropdown-reason.show{display:block;}
     .dropdown-reason h4{font-size:.9rem;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
     .dropdown-reason .close-dd{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;line-height:1;} .dropdown-reason .close-dd:hover{color:var(--text);}
-    .reason-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem;line-height:1.5;}
+    .reason-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:.875rem;line-height:1.5;}
     .reason-item:last-child{border-bottom:none;}
     .reason-type{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:600;margin-right:6px;vertical-align:middle;}
-    .reason-type-pol{background:rgba(88,166,255,.15);color:var(--accent);}
-    .reason-type-local{background:rgba(63,185,80,.15);color:var(--up);}
-    .reason-type-theme{background:rgba(210,153,34,.15);color:var(--warn);}
+    .reason-type-pol{background:rgba(78,150,230,.12);color:var(--accent);}
+    .reason-type-local{background:rgba(52,176,96,.12);color:var(--up);}
+    .reason-type-theme{background:rgba(201,148,32,.12);color:var(--warn);}
     .reason-detail{margin-top:4px;padding-left:4px;}
     .reason-detail .label{color:var(--muted);font-size:.75rem;margin-right:4px;}
-    .reason-detail .value{font-size:.82rem;}
-    .signal-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:700;}
-    .signal-strong_bull{background:rgba(63,185,80,.25);color:var(--up);}
-    .signal-bull{background:rgba(63,185,80,.15);color:var(--up);}
-    .signal-bear{background:rgba(248,81,73,.15);color:var(--down);}
-    .signal-strong_bear{background:rgba(248,81,73,.25);color:var(--down);}
-    .signal-neutral{background:rgba(139,148,158,.15);color:var(--muted);}
+    .reason-detail .value{font-size:.875rem;}
+    .signal-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:.75rem;font-weight:700;}
+    .signal-strong_bull{background:rgba(52,176,96,.22);color:var(--up);}
+    .signal-bull{background:rgba(52,176,96,.12);color:var(--up);}
+    .signal-bear{background:rgba(232,83,74,.12);color:var(--down);}
+    .signal-strong_bear{background:rgba(232,83,74,.22);color:var(--down);}
+    .signal-neutral{background:rgba(126,138,159,.12);color:var(--muted);}
     .battle-bar{height:20px;border-radius:4px;display:flex;overflow:hidden;margin:6px 0;}
     .battle-bar .seg{height:100%;transition:width .3s;}
     .score-bar{display:inline-block;width:60px;height:8px;border-radius:4px;background:var(--border);overflow:hidden;vertical-align:middle;margin-left:6px;}
     .score-fill{height:100%;border-radius:4px;}
-    .signal-strong_buy{background:rgba(63,185,80,.3);color:var(--up);} .signal-buy{background:rgba(63,185,80,.15);color:var(--up);}
-    .signal-hold{background:rgba(139,148,158,.15);color:var(--muted);}
-    .signal-sell{background:rgba(248,81,73,.15);color:var(--down);} .signal-strong_sell{background:rgba(248,81,73,.3);color:var(--down);}
-    .pred-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;}
+    .signal-strong_buy{background:rgba(52,176,96,.26);color:var(--up);} .signal-buy{background:rgba(52,176,96,.12);color:var(--up);}
+    .signal-hold{background:rgba(126,138,159,.12);color:var(--muted);}
+    .signal-sell{background:rgba(232,83,74,.12);color:var(--down);} .signal-strong_sell{background:rgba(232,83,74,.26);color:var(--down);}
+    .pred-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;position:relative;}
     .pred-card .region-name{font-weight:700;font-size:1rem;margin-bottom:6px;}
     .pred-card .leader-prob{font-size:1.8rem;font-weight:800;}
-    .pred-card .comp-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.72rem;font-weight:700;}
+    .pred-card .comp-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:.72rem;font-weight:700;}
     .pred-card .prob-bar{height:8px;border-radius:4px;background:var(--border);overflow:hidden;margin:6px 0;}
     .pred-card .prob-fill{height:100%;border-radius:4px;transition:width .4s;}
-    .pred-card .cand-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;padding:3px 0;}
+    .pred-card .cand-row{display:flex;justify-content:space-between;align-items:center;font-size:.875rem;padding:3px 0;}
     /* 상단 네비게이션 */
-    .top-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .top-nav{position:sticky;top:0;z-index:100;background:rgba(16,21,32,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
     .top-nav::-webkit-scrollbar{height:0;}
-    .nav-btn{padding:10px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:.85rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;}
-    .nav-btn:hover{color:var(--text);background:rgba(88,166,255,.05);}
+    .nav-btn{padding:10px 16px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:.875rem;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:6px;}
+    .nav-btn:hover{color:var(--text);background:rgba(78,150,230,.06);}
     .nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
-    .nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;font-size:.65rem;font-weight:700;background:rgba(88,166,255,.15);color:var(--accent);line-height:1;}
+    .nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:3px;font-size:.65rem;font-weight:700;background:rgba(78,150,230,.12);color:var(--accent);line-height:1;}
     .nav-btn.active .nav-badge{background:var(--accent);color:#fff;}
     /* 통합 검색 */
     .search-wrap{position:relative;margin:12px 0;}
-    .search-wrap input{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 16px 10px 38px;font-size:.9rem;transition:border-color .2s;}
+    .search-wrap input{width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:10px 16px 10px 38px;font-size:.9rem;transition:border-color .2s;}
     .search-wrap input:focus{outline:none;border-color:var(--accent);}
     .search-wrap .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none;}
-    .search-results{position:absolute;top:100%;left:0;right:0;z-index:150;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-top:4px;max-height:320px;overflow-y:auto;display:none;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+    .search-results{position:absolute;top:100%;left:0;right:0;z-index:150;background:var(--card);border:1px solid var(--border);border-radius:4px;margin-top:4px;max-height:320px;overflow-y:auto;display:none;box-shadow:0 6px 20px rgba(0,0,0,.35);}
     .search-results.show{display:block;}
-    .sr-item{padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:background .1s;}
+    .sr-item{padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;font-size:.875rem;display:flex;align-items:center;gap:10px;transition:background .1s;}
     .sr-item:last-child{border-bottom:none;}
-    .sr-item:hover{background:rgba(88,166,255,.08);}
+    .sr-item:hover{background:rgba(78,150,230,.07);}
     .sr-type{display:inline-block;width:42px;text-align:center;padding:2px 0;border-radius:6px;font-size:.68rem;font-weight:700;flex-shrink:0;}
-    .sr-type-stock{background:rgba(63,185,80,.15);color:var(--up);}
-    .sr-type-cand{background:rgba(88,166,255,.15);color:var(--accent);}
-    .sr-name{font-weight:600;} .sr-detail{color:var(--muted);font-size:.78rem;}
+    .sr-type-stock{background:rgba(52,176,96,.12);color:var(--up);}
+    .sr-type-cand{background:rgba(78,150,230,.12);color:var(--accent);}
+    .sr-name{font-weight:600;} .sr-detail{color:var(--muted);font-size:.75rem;}
     .page{display:none;} .page.active{display:block;}
-    .data-quality{display:inline-block;padding:1px 6px;border-radius:8px;font-size:.65rem;font-weight:600;vertical-align:middle;margin-left:4px;}
-    .dq-high{background:rgba(63,185,80,.15);color:var(--up);}
-    .dq-medium{background:rgba(210,153,34,.15);color:var(--warn);}
-    .dq-low{background:rgba(139,148,158,.15);color:var(--muted);}
+    .data-quality{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.65rem;font-weight:600;vertical-align:middle;margin-left:4px;}
+    .dq-high{background:rgba(52,176,96,.12);color:var(--up);}
+    .dq-medium{background:rgba(201,148,32,.12);color:var(--warn);}
+    .dq-low{background:rgba(126,138,159,.1);color:var(--muted);}
     /* 테이블 정렬 + 페이지네이션 */
     th.sortable{cursor:pointer;user-select:none;position:relative;padding-right:18px;}
     th.sortable:hover{color:var(--accent);}
     th.sortable::after{content:'⇅';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:.65rem;opacity:.4;}
     th.sortable.asc::after{content:'↑';opacity:1;color:var(--accent);}
     th.sortable.desc::after{content:'↓';opacity:1;color:var(--accent);}
-    .pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.82rem;}
-    .pagination button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:.82rem;transition:all .15s;}
+    .pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.875rem;}
+    .pagination button{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;font-size:.875rem;transition:all .15s;}
     .pagination button:hover:not(:disabled){border-color:var(--accent);color:var(--accent);}
     .pagination button:disabled{opacity:.3;cursor:default;}
     .pagination .pg-info{color:var(--muted);}
     /* 스켈레톤 로딩 */
     @keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
-    .skeleton{background:linear-gradient(90deg,var(--card) 25%,#1e2530 50%,var(--card) 75%);background-size:800px 100%;animation:shimmer 1.5s infinite;border-radius:8px;}
-    .sk-card{height:80px;border-radius:12px;margin-bottom:10px;}
-    .sk-row{height:18px;margin-bottom:10px;border-radius:4px;}
+    .skeleton{background:linear-gradient(90deg,var(--card) 25%,#222a3a 50%,var(--card) 75%);background-size:800px 100%;animation:shimmer 1.5s infinite;border-radius:6px;}
+    .sk-card{height:80px;border-radius:6px;margin-bottom:10px;}
+    .sk-row{height:18px;margin-bottom:10px;border-radius:3px;}
     .sk-circle{width:40px;height:40px;border-radius:50%;}
-    .sk-banner{height:56px;border-radius:12px;margin:12px 0;}
-    .sk-table-row{height:36px;margin-bottom:6px;border-radius:6px;}
-    .sk-chart{height:300px;border-radius:12px;margin-top:12px;}
+    .sk-banner{height:56px;border-radius:6px;margin:12px 0;}
+    .sk-table-row{height:36px;margin-bottom:6px;border-radius:3px;}
+    .sk-chart{height:300px;border-radius:6px;margin-top:12px;}
     #loading{padding:0;}
     #loading .skeleton-wrap{max-width:1280px;margin:0 auto;padding:20px;}
     #loading .sk-header{text-align:center;padding:30px 0 16px;}
@@ -190,7 +190,7 @@
       .metrics{grid-template-columns:repeat(2,1fr);}
       .filter-bar{flex-direction:column;}
       .top-nav{gap:0;}
-      .nav-btn{padding:10px 12px;font-size:.78rem;min-height:44px;}
+      .nav-btn{padding:10px 12px;font-size:.75rem;min-height:44px;}
       .btn-trade{padding:6px 12px;min-height:36px;font-size:.75rem;}
       .tab-btn{padding:8px 14px;min-height:40px;}
       .pagination button{padding:8px 14px;min-height:40px;}
@@ -207,11 +207,11 @@
       .consultant-grid{grid-template-columns:repeat(2,1fr);}
       .container{padding:12px;}
       header h1{font-size:1.5rem;}
-      table{font-size:.78rem;}
+      table{font-size:.75rem;}
       th,td{padding:6px 8px;}
       .pred-card .leader-prob{font-size:1.4rem;}
-      .search-wrap input{font-size:.85rem;}
-      .nav-btn{padding:8px 14px;font-size:.82rem;}
+      .search-wrap input{font-size:.875rem;}
+      .nav-btn{padding:8px 14px;font-size:.875rem;}
     }
   </style>
 </head>
@@ -242,24 +242,24 @@
         <div class="skeleton sk-table-row"></div>
       </div>
       <div class="skeleton sk-chart"></div>
-      <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px;">데이터를 불러오는 중...</p>
+      <p style="text-align:center;color:var(--muted);font-size:.875rem;margin-top:18px;">데이터를 불러오는 중...</p>
     </div>
   </div>
   <nav class="top-nav" id="top-nav" role="tablist" aria-label="페이지 네비게이션">
-    <button class="nav-btn active" role="tab" aria-selected="true" data-page="page-dashboard"><span>📊</span> 대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
-    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-candidates"><span>👤</span> 후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
-    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-polls"><span>🗳️</span> 여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
-    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-ai"><span>🤖</span> AI 분석</button>
-    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-reference"><span>📚</span> 참고 데이터</button>
+    <button class="nav-btn active" role="tab" aria-selected="true" data-page="page-dashboard">대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
+    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-candidates">후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
+    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-polls">여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
+    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-ai">AI 분석</button>
+    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-reference">참고 데이터</button>
   </nav>
 
   <div id="app">
     <header>
-      <h1>📊 PollStock 폴스탁</h1>
+      <h1>PollStock 폴스탁</h1>
       <p style="font-size:1rem;margin-bottom:4px;">여론조사 × 주식 — 정치 테마주 AI 분석 대시보드</p>
-      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span> <span id="update-time" style="font-size:.78rem;color:var(--muted);margin-left:8px;"></span></p>
-      <p style="margin-top:8px;padding:6px 16px;background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.25);border-radius:8px;color:#f85149;font-size:.82rem;font-weight:600;display:inline-block;">
-        ⚠️ 본 서비스는 교육·연구 목적이며, 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.
+      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span> <span id="update-time" style="font-size:.75rem;color:var(--muted);margin-left:8px;"></span></p>
+      <p style="margin-top:8px;padding:6px 16px;background:rgba(232,83,74,.08);border:1px solid rgba(232,83,74,.22);border-radius:4px;color:var(--down);font-size:.875rem;font-weight:600;display:inline-block;">
+        본 서비스는 교육·연구 목적이며, 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.
       </p>
     </header>
 
@@ -270,30 +270,30 @@
     <div id="dash-summary" style="display:none;margin-bottom:16px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
         <div class="profile-card" id="dash-ai-preview" style="border-left:3px solid var(--accent);">
-          <div style="font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:6px;">🤖 AI 리포트 요약</div>
-          <div id="dash-ai-text" style="font-size:.84rem;line-height:1.6;color:var(--muted);max-height:80px;overflow:hidden;"></div>
-          <button onclick="document.querySelector('[data-page=page-ai]').click()" style="background:none;border:none;color:var(--accent);font-size:.78rem;cursor:pointer;padding:4px 0;margin-top:4px;">전체 보기 →</button>
+          <div style="font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:6px;">AI 리포트 요약</div>
+          <div id="dash-ai-text" style="font-size:.875rem;line-height:1.6;color:var(--muted);max-height:80px;overflow:hidden;"></div>
+          <button onclick="document.querySelector('[data-page=page-ai]').click()" style="background:none;border:none;color:var(--accent);font-size:.75rem;cursor:pointer;padding:4px 0;margin-top:4px;">전체 보기 →</button>
         </div>
         <div class="profile-card" id="dash-top-signals" style="border-left:3px solid var(--up);">
-          <div style="font-size:.75rem;color:var(--up);font-weight:700;margin-bottom:6px;">📊 주요 시그널</div>
-          <div id="dash-signals-body" style="font-size:.84rem;"></div>
+          <div style="font-size:.75rem;color:var(--up);font-weight:700;margin-bottom:6px;">주요 시그널</div>
+          <div id="dash-signals-body" style="font-size:.875rem;"></div>
         </div>
         <div class="profile-card" id="dash-top-stocks" style="border-left:3px solid var(--warn);">
-          <div style="font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:6px;">🔥 TOP 종목</div>
-          <div id="dash-stocks-body" style="font-size:.84rem;"></div>
+          <div style="font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:6px;">TOP 종목</div>
+          <div id="dash-stocks-body" style="font-size:.875rem;"></div>
         </div>
       </div>
     </div>
 
     <div class="search-wrap">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon" style="font-style:normal;">&#x2315;</span>
       <input type="text" id="global-search" placeholder="종목명, 후보명, 정당, 지역으로 검색..." autocomplete="off">
       <div class="search-results" id="search-results"></div>
     </div>
 
     <div class="metrics">
       <div class="metric-card"><div class="value" id="m-dday">-</div><div class="label">선거까지</div></div>
-      <div class="metric-card"><div class="value" id="m-phase" style="font-size:.85rem">-</div><div class="label">현재 단계</div></div>
+      <div class="metric-card"><div class="value" id="m-phase" style="font-size:.875rem">-</div><div class="label">현재 단계</div></div>
       <div class="metric-card"><div class="value" style="color:var(--up)" id="m-up">-</div><div class="label">상승</div></div>
       <div class="metric-card"><div class="value" style="color:var(--down)" id="m-down">-</div><div class="label">하락</div></div>
       <div class="metric-card"><div class="value" style="color:var(--warn)" id="m-surge">-</div><div class="label">거래량급등</div></div>
@@ -302,13 +302,13 @@
     </div>
 
     <div class="phase-banner" id="phase-banner">
-      <div class="icon" id="phase-icon">🟡</div>
+      <div class="icon" id="phase-icon" style="font-size:1.2rem;color:var(--warn);font-weight:700;">~</div>
       <div class="info"><h3 id="phase-title">-</h3><p id="phase-desc">-</p></div>
     </div>
 
     <!-- 스크리닝 테이블 -->
     <section>
-      <h2>📊 테마주 스크리닝 (<span id="data-date">-</span>)</h2>
+      <h2>테마주 스크리닝 (<span id="data-date">-</span>)</h2>
       <div class="filter-bar">
         <label>테마:</label><select id="filter-theme"><option value="all">전체</option></select>
         <label>정당:</label><select id="filter-party"><option value="all">전체</option></select>
@@ -324,7 +324,7 @@
 
     <!-- 등락률 차트 -->
     <section>
-      <h2>📈 등락률 차트</h2>
+      <h2>등락률 차트</h2>
       <div class="chart-container"><canvas id="chart-bar" height="500"></canvas></div>
     </section>
 
@@ -333,13 +333,13 @@
     <!-- ==================== 페이지 2: 후보 분석 ==================== -->
     <div class="page" id="page-candidates">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
-      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">👤 후보 분석</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">정치인별 테마주 활성도, 재산 비교, 지역별 관련주 현황</p>
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">후보 분석</h2>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">정치인별 테마주 활성도, 재산 비교, 지역별 관련주 현황</p>
     </div>
 
     <!-- 정치 컨설턴트 분석 -->
     <section>
-      <h2>🏛️ 정치 컨설턴트 분석 — 후보별 테마주 활성도</h2>
+      <h2>정치 컨설턴트 분석 — 후보별 테마주 활성도</h2>
       <div class="filter-bar">
         <label>정당 필터:</label>
         <select id="cons-party-filter"><option value="all">전체</option><option value="더불어민주당">더불어민주당</option><option value="국민의힘">국민의힘</option></select>
@@ -351,27 +351,27 @@
 
     <!-- 컨설턴트 차트 -->
     <section>
-      <h2>📊 후보별 평균 등락률 비교</h2>
+      <h2>후보별 평균 등락률 비교</h2>
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
     </section>
 
     <!-- 지역별 후보 & 테마주 -->
     <section>
-      <h2>🗺️ 지역별 후보 & 테마주</h2>
+      <h2>지역별 후보 & 테마주</h2>
       <div class="tabs" id="region-tabs"></div>
       <div id="region-contents"></div>
     </section>
 
     <!-- 후보별 재산 비교 차트 -->
     <section>
-      <h2>💰 후보별 재산 비교</h2>
+      <h2>후보별 재산 비교</h2>
       <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
       <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
     </section>
 
     <!-- 후보별 상세 -->
     <section>
-      <h2>👤 후보별 상세 (프로필 · 재산 · 관련주)</h2>
+      <h2>후보별 상세 (프로필 · 재산 · 관련주)</h2>
       <div class="tabs" id="candidate-tabs"></div>
       <div id="candidate-contents"></div>
     </section>
@@ -381,22 +381,22 @@
     <!-- ==================== 페이지 3: 여론·예측 ==================== -->
     <div class="page" id="page-polls">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
-      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">🗳️ 여론조사 · 선거예측</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">여론조사 시그널, 지역별 당선예측, 테마주 복합 스코어 분석</p>
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">여론조사 · 선거예측</h2>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">여론조사 시그널, 지역별 당선예측, 테마주 복합 스코어 분석</p>
     </div>
 
     <section id="polls-empty-msg">
       <div style="text-align:center;padding:60px 20px;color:var(--muted);">
-        <div style="font-size:3rem;margin-bottom:12px;opacity:.5;">🗳️</div>
+        <div style="font-size:1.5rem;margin-bottom:12px;opacity:.5;color:var(--muted);">--</div>
         <p style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:6px;">여론조사 데이터 준비 중</p>
-        <p style="font-size:.85rem;line-height:1.6;">스크리닝이 실행되면 여론조사 시그널, 당선예측,<br>주가 복합 스코어 분석 결과가 이곳에 표시됩니다.</p>
-        <p style="font-size:.78rem;margin-top:12px;color:var(--border);">매일 장중 3회 (10:00 / 13:00 / 15:40) 자동 업데이트</p>
+        <p style="font-size:.875rem;line-height:1.6;">스크리닝이 실행되면 여론조사 시그널, 당선예측,<br>주가 복합 스코어 분석 결과가 이곳에 표시됩니다.</p>
+        <p style="font-size:.75rem;margin-top:12px;color:var(--border);">매일 장중 3회 (10:00 / 13:00 / 15:40) 자동 업데이트</p>
       </div>
     </section>
 
     <!-- 여론조사 호재/악재 시그널 -->
     <section id="poll-signal-section" style="display:none">
-      <h2>📊 여론조사 호재/악재 시그널</h2>
+      <h2>여론조사 호재/악재 시그널</h2>
       <div class="metrics" id="poll-metrics" style="margin-bottom:12px;"></div>
       <div class="table-wrap">
         <table><thead><tr>
@@ -407,26 +407,26 @@
 
     <!-- AI 여론조사 분석 -->
     <section id="poll-ai-section" style="display:none">
-      <h2>🤖 AI 여론조사 분석 — 호재/악재 해석</h2>
-      <div class="profile-card" id="poll-ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
+      <h2>AI 여론조사 분석 — 호재/악재 해석</h2>
+      <div class="profile-card" id="poll-ai-report" style="white-space:pre-line;font-size:.875rem;line-height:1.7;"></div>
     </section>
 
     <!-- 지역별 경쟁 구도 -->
     <section id="battle-section" style="display:none">
-      <h2>🏆 지역별 경쟁 구도</h2>
+      <h2>지역별 경쟁 구도</h2>
       <div class="consultant-grid" id="battle-grid"></div>
     </section>
 
     <!-- 당선예측 모델 -->
     <section id="prediction-section" style="display:none">
-      <h2>🎯 당선예측 모델 — 지역별 당선확률</h2>
+      <h2>당선예측 모델 — 지역별 당선확률</h2>
       <div class="metrics" id="pred-metrics" style="margin-bottom:12px;"></div>
       <div class="consultant-grid" id="pred-grid"></div>
     </section>
 
     <!-- 주가 예측 모델 (복합 스코어) -->
     <section id="stock-pred-section" style="display:none">
-      <h2>📈 주가 예측 — 테마주 복합 스코어</h2>
+      <h2>주가 예측 — 테마주 복합 스코어</h2>
       <div class="metrics" id="spred-metrics" style="margin-bottom:12px;"></div>
       <div class="table-wrap">
         <table><thead><tr>
@@ -437,7 +437,7 @@
 
     <!-- 당선예측 → 테마주 영향 -->
     <section id="impact-section" style="display:none">
-      <h2>📊 당선예측 → 테마주 영향 분석</h2>
+      <h2>당선예측 → 테마주 영향 분석</h2>
       <div class="table-wrap">
         <table><thead><tr>
           <th>종목</th><th>후보</th><th>정당</th><th>지역</th><th>당선확률</th><th>시그널</th><th>관계</th><th>매매</th>
@@ -450,29 +450,29 @@
     <!-- ==================== 페이지 4: AI 분석 ==================== -->
     <div class="page" id="page-ai">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
-      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">🤖 AI 분석</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">Gemini AI 기반 일일 리포트 및 신규 테마주 자동 제안</p>
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">AI 분석</h2>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">Gemini AI 기반 일일 리포트 및 신규 테마주 자동 제안</p>
     </div>
 
     <!-- AI 일일 리포트 -->
     <section id="ai-report-section" style="display:none">
-      <h2>🤖 AI 일일 분석 리포트</h2>
-      <div class="profile-card" id="ai-report" style="white-space:pre-line;font-size:.88rem;line-height:1.7;"></div>
+      <h2>AI 일일 분석 리포트</h2>
+      <div class="profile-card" id="ai-report" style="white-space:pre-line;font-size:.875rem;line-height:1.7;"></div>
     </section>
 
     <!-- AI 테마주 제안 -->
     <section id="ai-suggest-section" style="display:none">
-      <h2>💡 AI 신규 테마주 제안 (본관·학연·지연·인맥 분석)</h2>
-      <p style="color:var(--muted);font-size:.78rem;margin-bottom:10px;">AI 자동 분석 기반. 투자 참고용이며 직접 검증 필요.</p>
+      <h2>AI 신규 테마주 제안 (본관·학연·지연·인맥 분석)</h2>
+      <p style="color:var(--muted);font-size:.75rem;margin-bottom:10px;">AI 자동 분석 기반. 투자 참고용이며 직접 검증 필요.</p>
       <div id="ai-suggestions"></div>
     </section>
 
     <section id="ai-empty-msg">
       <div style="text-align:center;padding:60px 20px;color:var(--muted);">
-        <div style="font-size:3rem;margin-bottom:12px;opacity:.5;">🤖</div>
+        <div style="font-size:1.5rem;margin-bottom:12px;opacity:.5;color:var(--muted);">--</div>
         <p style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:6px;">AI 분석 리포트 준비 중</p>
-        <p style="font-size:.85rem;line-height:1.6;">Gemini AI 기반 일일 분석 리포트와<br>신규 테마주 자동 제안이 이곳에 표시됩니다.</p>
-        <p style="font-size:.78rem;margin-top:12px;color:var(--border);">스크리닝 실행 시 자동 생성 (API 키 필요)</p>
+        <p style="font-size:.875rem;line-height:1.6;">Gemini AI 기반 일일 분석 리포트와<br>신규 테마주 자동 제안이 이곳에 표시됩니다.</p>
+        <p style="font-size:.75rem;margin-top:12px;color:var(--border);">스크리닝 실행 시 자동 생성 (API 키 필요)</p>
       </div>
     </section>
 
@@ -481,20 +481,20 @@
     <!-- ==================== 페이지 5: 참고 데이터 ==================== -->
     <div class="page" id="page-reference">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
-      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">📚 참고 데이터</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:4px;">국회의원 현황, 지방선거 후보, 테마주 시즌 타임라인</p>
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">참고 데이터</h2>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">국회의원 현황, 지방선거 후보, 테마주 시즌 타임라인</p>
     </div>
 
     <!-- 22대 국회의원 현황 -->
     <section id="assembly-section" style="display:none">
-      <h2>🏛️ 22대 국회의원 현황 (<span id="assembly-total">0</span>명)</h2>
+      <h2>22대 국회의원 현황 (<span id="assembly-total">0</span>명)</h2>
       <div class="filter-bar">
         <label>정당:</label><select id="asm-party-filter"><option value="all">전체</option></select>
         <label>지역:</label><select id="asm-region-filter"><option value="all">전체</option></select>
-        <label>검색:</label><input id="asm-search" placeholder="이름 검색 후 재산 조회" style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px 10px;font-size:.82rem;">
-        <button onclick="batchFetchVisibleAssets()" class="btn-trade" style="font-size:.78rem;padding:5px 12px;cursor:pointer;">현재 목록 재산 일괄 조회</button>
+        <label>검색:</label><input id="asm-search" placeholder="이름 검색 후 재산 조회" style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:5px 10px;font-size:.875rem;">
+        <button onclick="batchFetchVisibleAssets()" class="btn-trade" style="font-size:.75rem;padding:5px 12px;cursor:pointer;">현재 목록 재산 일괄 조회</button>
       </div>
-      <p style="color:var(--muted);font-size:.72rem;margin-bottom:8px;">💡 이름을 검색한 뒤 [조회] 클릭 또는 [현재 목록 재산 일괄 조회]로 필터된 의원만 일괄 조회. 결과는 브라우저에 캐싱됩니다.</p>
+      <p style="color:var(--muted);font-size:.72rem;margin-bottom:8px;">이름을 검색한 뒤 [조회] 클릭 또는 [현재 목록 재산 일괄 조회]로 필터된 의원만 일괄 조회. 결과는 브라우저에 캐싱됩니다.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
         <div id="asm-party-chips" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
       </div>
@@ -507,7 +507,7 @@
 
     <!-- 지방선거 후보 전체 현황 -->
     <section id="local-full-section" style="display:none">
-      <h2>🗳️ 2026 지방선거 후보 현황 (<span id="local-total">0</span>명)</h2>
+      <h2>2026 지방선거 후보 현황 (<span id="local-total">0</span>명)</h2>
       <div class="filter-bar">
         <label>정당:</label><select id="local-party-filter"><option value="all">전체</option></select>
         <label>지역:</label><select id="local-region-filter"><option value="all">전체</option></select>
@@ -521,16 +521,16 @@
 
     <!-- 타임라인 -->
     <section>
-      <h2>📅 테마주 시즌 타임라인</h2>
+      <h2>테마주 시즌 타임라인</h2>
       <div class="timeline" id="timeline"></div>
     </section>
 
     <!-- 안내 -->
     <section style="margin:32px 0;">
-      <div style="background:linear-gradient(135deg,#161b22,#1a2332);border:1px solid #30363d;border-radius:14px;padding:24px;text-align:center;">
-        <h2 style="margin:0 0 8px;font-size:1.2rem;">📊 PollStock 폴스탁</h2>
-        <p style="color:var(--muted);font-size:.88rem;margin-bottom:8px;">매일 장중 3회 (10:00 / 13:00 / 15:40) 자동 업데이트</p>
-        <p style="color:var(--muted);font-size:.82rem;">데이터: KRX(pykrx) · 뉴스타파(재산) · Gemini AI(분석) · 중앙선관위(여론조사)</p>
+      <div style="background:linear-gradient(135deg,#181e2c,#1c2438);border:1px solid var(--border);border-radius:8px;padding:24px;text-align:center;">
+        <h2 style="margin:0 0 8px;font-size:1.2rem;">PollStock 폴스탁</h2>
+        <p style="color:var(--muted);font-size:.875rem;margin-bottom:8px;">매일 장중 3회 (10:00 / 13:00 / 15:40) 자동 업데이트</p>
+        <p style="color:var(--muted);font-size:.875rem;">데이터: KRX(pykrx) · 뉴스타파(재산) · Gemini AI(분석) · 중앙선관위(여론조사)</p>
         <a href="https://github.com/BudongJW/political-theme-stock" target="_blank" class="btn-trade" style="margin-top:12px;display:inline-block;">GitHub</a>
       </div>
     </section>
@@ -545,7 +545,7 @@
     </div>
 
     <footer>
-      ⚠️ 교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
+      교육/연구 목적. 투자 권유 아님. 재산정보는 관보·선관위 재산신고 기준 (참고용).<br>
       <strong>PollStock 폴스탁</strong> — 여론조사 × 주식 정치 테마주 AI 분석<br>
       <a href="https://github.com/BudongJW/political-theme-stock" target="_blank">GitHub</a> | 데이터: KRX(pykrx), 뉴스타파, 중앙선거관리위원회
     </footer>
@@ -553,7 +553,7 @@
 </div>
 
 <script>
-const SIG_ICONS = {'매수 관심':'🟢','강한 매수 시그널':'🟢','고점 주의, 분할 매도 고려':'🟡','매도 시그널':'🔴','관망':'⚪'};
+const SIG_ICONS = {'매수 관심':'+','강한 매수 시그널':'++','고점 주의, 분할 매도 고려':'~','매도 시그널':'-','관망':'·'};
 const PARTY_COLORS = {'더불어민주당':'dem','국민의힘':'ppp','개혁신당':'reform'};
 const TIMELINE = [
   {phase:'선거 12~6개월 전',period:'2025-06 ~ 2025-12',pattern:'유력 후보 거론 → 관련주 1차 급등',signal:'매수 관심'},
@@ -622,7 +622,7 @@ function jumpToStock(ticker){
   for(const row of rows){
     if(row.cells[2]&&row.cells[2].textContent.trim()===ticker){
       row.scrollIntoView({behavior:'smooth',block:'center'});
-      row.style.background='rgba(88,166,255,.15)';
+      row.style.background='rgba(78,150,230,.12)';
       setTimeout(()=>row.style.background='',2000);
       return;
     }
@@ -648,7 +648,7 @@ async function init() {
     document.getElementById('app').style.display='block';
   } catch(e) {
     console.error('PollStock init error:', e);
-    document.getElementById('loading').innerHTML=`데이터 로드 실패: ${e.message} <br><a href="https://github.com/BudongJW/political-theme-stock" style="color:#58a6ff">GitHub에서 확인</a>`;
+    document.getElementById('loading').innerHTML=`데이터 로드 실패: ${e.message} <br><a href="https://github.com/BudongJW/political-theme-stock" style="color:var(--accent)">GitHub에서 확인</a>`;
   }
 }
 
@@ -672,7 +672,7 @@ function showReasonModal(ticker, tagName, evt) {
 
   let html = '';
   if(!reasons.length) {
-    html = '<p style="color:var(--muted);font-size:.82rem;">상세 이유 정보 없음</p>';
+    html = '<p style="color:var(--muted);font-size:.875rem;">상세 이유 정보 없음</p>';
   } else {
     for(const r of reasons) {
       let typeCls='reason-type-theme', typeLabel='정책테마';
@@ -683,11 +683,11 @@ function showReasonModal(ticker, tagName, evt) {
       if(r.type==='politician' || r.type==='local_candidate') {
         const partyColor = r.party==='더불어민주당'?'var(--dem)':r.party==='국민의힘'?'var(--ppp)':'var(--reform)';
         detail = `<div class="reason-detail">
-          <div><strong>${r.name}</strong> <span style="color:${partyColor};font-size:.78rem;font-weight:600;">${r.party||''}</span></div>
-          <div style="font-size:.8rem;color:var(--muted);margin-top:1px;">${r.role||''}</div>
-          <div style="margin-top:6px;padding:6px 8px;background:rgba(88,166,255,.06);border-radius:6px;border-left:3px solid var(--accent);">
+          <div><strong>${r.name}</strong> <span style="color:${partyColor};font-size:.75rem;font-weight:600;">${r.party||''}</span></div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:1px;">${r.role||''}</div>
+          <div style="margin-top:6px;padding:6px 8px;background:rgba(78,150,230,.06);border-radius:6px;border-left:3px solid var(--accent);">
             <div style="font-size:.72rem;color:var(--muted);margin-bottom:2px;">테마주 연관 이유</div>
-            <div style="font-size:.84rem;line-height:1.5;">${r.relation||'상세 정보 없음'}</div>
+            <div style="font-size:.875rem;line-height:1.5;">${r.relation||'상세 정보 없음'}</div>
           </div>
           <div style="font-size:.72rem;color:var(--muted);margin-top:4px;">
             ${r.election||''} ${r.region?'· '+r.region:''}
@@ -696,7 +696,7 @@ function showReasonModal(ticker, tagName, evt) {
       } else if(r.type==='policy_theme') {
         detail = `<div class="reason-detail">
           <div><strong>${r.theme}</strong> 테마</div>
-          ${r.description?`<div style="margin-top:4px;padding:6px 8px;background:rgba(210,153,34,.06);border-radius:6px;border-left:3px solid var(--warn);font-size:.84rem;line-height:1.5;">${r.description}</div>`:''}
+          ${r.description?`<div style="margin-top:4px;padding:6px 8px;background:rgba(201,148,32,.06);border-radius:6px;border-left:3px solid var(--warn);font-size:.875rem;line-height:1.5;">${r.description}</div>`:''}
         </div>`;
       }
       html += `<div class="reason-item"><span class="reason-type ${typeCls}">${typeLabel}</span>${detail}</div>`;
@@ -802,26 +802,26 @@ function render(data) {
   fillSelect('filter-region', allRegions);
   fillSelect('cons-region-filter', allRegions);
 
-  const safe = (fn, name) => { try { fn(); } catch(e) { console.error(`[${name}]`, e); } };
-  safe(()=>renderTable(results, candidate_stocks), 'Table');
+  const run = (fn, label) => { try { fn(); } catch(e) { console.error(`[${label}]`, e); } };
+  run(()=>renderTable(results, candidate_stocks), 'Table');
   // Chart.js lazy load — 대시보드 차트는 데이터 렌더 후 로드
-  loadChartJs().then(()=>{ safe(()=>renderChart(results), 'Chart'); });
-  safe(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
+  loadChartJs().then(()=>{ run(()=>renderChart(results), 'Chart'); });
+  run(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
   // 후보 분석 차트는 lazy 렌더링 (탭 진입 시)
   chartsRendered._consultantData=candidate_market_summary;
   chartsRendered._candidateStocks=candidate_stocks;
   chartsRendered._results=results;
-  safe(()=>renderPollSignals(data.poll_signals, candidate_stocks), 'PollSignals');
-  safe(()=>renderPredictions(data.election_predictions, data.stock_impacts), 'Predictions');
-  safe(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
-  safe(()=>renderRegionView(candidate_stocks, results), 'RegionView');
+  run(()=>renderPollSignals(data.poll_signals, candidate_stocks), 'PollSignals');
+  run(()=>renderPredictions(data.election_predictions, data.stock_impacts), 'Predictions');
+  run(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
+  run(()=>renderRegionView(candidate_stocks, results), 'RegionView');
   // renderAssetChart는 lazy (page-candidates 진입 시)
-  safe(()=>renderCandidates(candidate_stocks, results), 'Candidates');
-  safe(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
-  safe(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
-  safe(()=>renderAIReport(data.ai_report), 'AIReport');
-  safe(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
-  safe(()=>renderTimeline(phase.phase), 'Timeline');
+  run(()=>renderCandidates(candidate_stocks, results), 'Candidates');
+  run(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
+  run(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
+  run(()=>renderAIReport(data.ai_report), 'AIReport');
+  run(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
+  run(()=>renderTimeline(phase.phase), 'Timeline');
   // AI 페이지 빈 메시지 숨김
   if(data.ai_report || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
     const emptyMsg=document.getElementById('ai-empty-msg');
@@ -829,7 +829,7 @@ function render(data) {
   }
 
   // 대시보드 요약 카드 (AI 미리보기 + 시그널 + TOP 종목)
-  safe(()=>{
+  run(()=>{
     let hasContent=false;
     // AI 리포트 미리보기
     if(data.ai_report){
@@ -843,7 +843,7 @@ function render(data) {
     const signals=data.poll_signals?.signals||[];
     const topSig=signals.filter(s=>s.signal!=='neutral').slice(0,3);
     if(topSig.length){
-      const SIG_ICON={'strong_bull':'🟢','bull':'🟢','bear':'🔴','strong_bear':'🔴'};
+      const SIG_ICON={'strong_bull':'++','bull':'+','bear':'-','strong_bear':'--'};
       document.getElementById('dash-signals-body').innerHTML=topSig.map(s=>
         `<div style="padding:3px 0;">${SIG_ICON[s.signal]||'⚪'} <strong>${s.name}</strong> <span style="color:var(--muted)">${s.region||''}</span> <span style="font-weight:700;${s.signal.includes('bull')?'color:var(--up)':'color:var(--down)'}">${s.signal_kr||s.signal}</span></div>`
       ).join('');
@@ -853,7 +853,7 @@ function render(data) {
       const predRegions=Object.entries(data.election_predictions?.regions||{}).slice(0,3);
       if(predRegions.length){
         document.getElementById('dash-signals-body').innerHTML=predRegions.map(([region,r])=>
-          `<div style="padding:3px 0;"><strong>${region}</strong> ${r.leader} <span style="color:var(--accent);font-weight:700">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.78rem">${r.competitiveness}</span></div>`
+          `<div style="padding:3px 0;"><strong>${region}</strong> ${r.leader} <span style="color:var(--accent);font-weight:700">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.75rem">${r.competitiveness}</span></div>`
         ).join('');
         hasContent=true;
       } else {
@@ -1012,15 +1012,15 @@ function renderChart(results) {
     data:{
       labels:sorted.map(r=>`${r.name} (${(r.tags||[]).join(', ')})`),
       datasets:[{data:sorted.map(r=>r.change_pct),
-        backgroundColor:sorted.map(r=>r.change_pct>=0?'rgba(63,185,80,.7)':'rgba(248,81,73,.7)'),borderRadius:3}]
+        backgroundColor:sorted.map(r=>r.change_pct>=0?'rgba(52,176,96,.7)':'rgba(232,83,74,.7)'),borderRadius:3}]
     },
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false},tooltip:{callbacks:{
         label:ctx=>`${ctx.raw>0?'+':''}${ctx.raw.toFixed(2)}%`,
         afterLabel:ctx=>{const r=sorted[ctx.dataIndex];return(r.tags||[]).join(', ');}
       }}},
-      scales:{x:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}}}}
+      scales:{x:{grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f',callback:v=>v+'%'}},
+        y:{grid:{display:false},ticks:{color:'#dce2ed',font:{size:10}}}}
     }
   });
 }
@@ -1040,7 +1040,7 @@ function renderConsultant(candidateStocks, summary) {
       <div class="stat">${info.region} | ${info.stock_count}종목 | 총거래량 ${info.total_volume.toLocaleString()}</div>
       <div class="change" style="color:${changeColor}">${info.avg_change_pct>0?'+':''}${info.avg_change_pct.toFixed(2)}%</div>
       <div class="stat">평균 등락률</div>
-      ${fullInfo.assets?`<div class="stat" style="color:var(--warn);margin-top:4px">💰 ${fullInfo.assets}</div>`:''}
+      ${fullInfo.assets?`<div class="stat" style="color:var(--warn);margin-top:4px">${fullInfo.assets}</div>`:''}
     </div>`;
   }
 }
@@ -1049,14 +1049,14 @@ function renderConsultantChart(summary) {
   const names=Object.keys(summary||{});
   const values=names.map(n=>(summary[n]||{}).avg_change_pct||0);
   const parties=names.map(n=>(summary[n]||{}).party||'');
-  const colors=parties.map(p=>p==='더불어민주당'?'rgba(28,109,208,.7)':p==='국민의힘'?'rgba(230,57,74,.7)':'rgba(243,156,18,.7)');
+  const colors=parties.map(p=>p==='더불어민주당'?'rgba(37,112,196,.7)':p==='국민의힘'?'rgba(212,64,80,.7)':'rgba(224,146,24,.7)');
   new Chart(document.getElementById('chart-consultant'),{
     type:'bar',
     data:{labels:names,datasets:[{data:values,backgroundColor:colors,borderRadius:4}]},
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false}},
-      scales:{y:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        x:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}}}
+      scales:{y:{grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f',callback:v=>v+'%'}},
+        x:{grid:{display:false},ticks:{color:'#dce2ed',font:{size:11}}}}}
   });
 }
 
@@ -1093,13 +1093,13 @@ function renderRegionView(candidateStocks, allResults) {
       html+=`<div class="profile-card" style="margin-bottom:8px">
         <h4>${cand.name} ${makePartyTag(cand.party)}</h4>
         <div class="meta">${cand.role||''} ${cand.poll_status?'| '+cand.poll_status:''}</div>
-        ${cand.profile?`<div class="profile-text" style="font-size:.84rem">📋 ${cand.profile}</div>`:''}
-        ${cand.assets?`<div style="color:var(--warn);font-size:.85rem;margin-top:2px">💰 ${cand.assets}${assetLink}</div>`:''}`;
+        ${cand.profile?`<div class="profile-text" style="font-size:.875rem">${cand.profile}</div>`:''}
+        ${cand.assets?`<div style="color:var(--warn);font-size:.875rem;margin-top:2px">${cand.assets}${assetLink}</div>`:''}`;
       // 관련 종목 미니 테이블
       const screening=cand.screening||[];
       const stocks=cand.stocks||[];
       if(stocks.length) {
-        html+='<table style="margin-top:8px;font-size:.8rem"><thead><tr><th>종목</th><th>연관</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
+        html+='<table style="margin-top:8px;font-size:.75rem"><thead><tr><th>종목</th><th>연관</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
         for(const s of stocks) {
           const sr=screening.find(r=>r.ticker===s.ticker);
           const cls=sr&&sr.change_pct>0?'up':sr&&sr.change_pct<0?'down':'';
@@ -1145,8 +1145,8 @@ function renderPollSignals(pollData, candidateStocks) {
       <td>${s.current_rate!=null?s.current_rate+'%':'-'}</td>
       <td style="color:${changeColor};font-weight:700">${changeTxt}</td>
       <td><span class="signal-badge signal-${s.signal}">${s.signal_kr||SIGNAL_KR[s.signal]||s.signal}</span></td>
-      <td style="font-size:.8rem">${stockNames}</td>
-      <td style="font-size:.8rem;color:var(--muted)">${s.detail||''}</td>
+      <td style="font-size:.75rem">${stockNames}</td>
+      <td style="font-size:.75rem;color:var(--muted)">${s.detail||''}</td>
     </tr>`;
   }
 
@@ -1173,7 +1173,7 @@ function renderPollSignals(pollData, candidateStocks) {
       grid.innerHTML+=`<div class="cons-card">
         <div class="name">${region}</div>
         <div class="stat" style="color:${compColor};font-weight:700">${b.competitiveness||''} (격차 ${b.gap||0}%p)</div>
-        <div style="font-size:.85rem;margin-top:6px">
+        <div style="font-size:.875rem;margin-top:6px">
           <strong>${b.leader.name}</strong> ${b.leader.rate}%
           ${b.runner_up&&b.runner_up.name?` vs <strong>${b.runner_up.name}</strong> ${b.runner_up.rate}%`:''}
         </div>
@@ -1195,7 +1195,7 @@ function renderAssetChart(candidateStocks) {
   const names=entries.map(([n])=>n);
   const values=entries.map(([,info])=>info.assets_detail.total_억원);
   const parties=entries.map(([,info])=>info.party||'');
-  const colors=parties.map(p=>p==='더불어민주당'?'rgba(28,109,208,.7)':p==='국민의힘'?'rgba(230,57,74,.7)':'rgba(243,156,18,.7)');
+  const colors=parties.map(p=>p==='더불어민주당'?'rgba(37,112,196,.7)':p==='국민의힘'?'rgba(212,64,80,.7)':'rgba(224,146,24,.7)');
   new Chart(document.getElementById('chart-assets'),{
     type:'bar',
     data:{labels:names,datasets:[{label:'재산(억원)',data:values,backgroundColor:colors,borderRadius:4}]},
@@ -1204,8 +1204,8 @@ function renderAssetChart(candidateStocks) {
         label:ctx=>`${ctx.raw}억원`,
         afterLabel:ctx=>{const info=entries[ctx.dataIndex][1];return `${info.role||''} | ${info.party||''}`;}
       }}},
-      scales:{y:{grid:{color:'rgba(48,54,61,.5)'},ticks:{color:'#8b949e',callback:v=>v+'억원'}},
-        x:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}}}
+      scales:{y:{grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f',callback:v=>v+'억원'}},
+        x:{grid:{display:false},ticks:{color:'#dce2ed',font:{size:11}}}}}
   });
 }
 
@@ -1237,8 +1237,8 @@ function renderCandidates(candidateStocks, allResults) {
     html+=`<div class="profile-card">
       <h4>${name} ${makePartyTag(info.party)}</h4>
       <div class="meta">${info.role||''} | ${info.region||''} ${info.poll_status?'| '+info.poll_status:''}</div>
-      ${info.profile?`<div class="profile-text">📋 ${info.profile}</div>`:''}
-      ${info.assets?`<div class="assets">💰 재산: ${info.assets} ${assetSource} ${assetLink}</div>`:''}
+      ${info.profile?`<div class="profile-text">${info.profile}</div>`:''}
+      ${info.assets?`<div class="assets">재산: ${info.assets} ${assetSource} ${assetLink}</div>`:''}
     </div>`;
 
     // 관련주 테이블
@@ -1248,7 +1248,7 @@ function renderCandidates(candidateStocks, allResults) {
         const stockDef=(info.stocks||[]).find(st=>st.ticker===s.ticker);
         const relation=stockDef?stockDef.relation:'';
         const cls=s.change_pct>0?'up':s.change_pct<0?'down':'';
-        html+=`<tr><td><strong>${s.name}</strong></td><td>${s.ticker}</td><td style="font-size:.8rem">${relation}</td>
+        html+=`<tr><td><strong>${s.name}</strong></td><td>${s.ticker}</td><td style="font-size:.75rem">${relation}</td>
           <td>${s.close.toLocaleString()}</td><td class="${cls}">${s.change_pct>0?'+':''}${s.change_pct.toFixed(2)}%</td>
           <td>${tradeLinks(s.ticker)}</td></tr>`;
       }
@@ -1329,7 +1329,7 @@ function _renderAssetCell(cell, info) {
     return;
   }
   const color=info.total_억원>=100?'var(--warn)':info.total_억원>=10?'var(--text)':'var(--muted)';
-  cell.innerHTML=`<span style="color:${color};font-weight:700;font-size:.82rem;">${info.total_display}</span>
+  cell.innerHTML=`<span style="color:${color};font-weight:700;font-size:.875rem;">${info.total_display}</span>
     ${info.detail_url?` <a href="${info.detail_url}" target="_blank" class="btn-trade" style="font-size:.68rem;">상세</a>`:''}`;
 }
 
@@ -1368,7 +1368,7 @@ function renderAssemblyMembers(asm) {
       let assetHtml;
       if(cached && cached.total_억원!=null) {
         const color=cached.total_억원>=100?'var(--warn)':cached.total_억원>=10?'var(--text)':'var(--muted)';
-        assetHtml=`<span style="color:${color};font-weight:700;font-size:.82rem;">${cached.total_display}</span>${cached.detail_url?` <a href="${cached.detail_url}" target="_blank" class="btn-trade" style="font-size:.68rem;">상세</a>`:''}`;
+        assetHtml=`<span style="color:${color};font-weight:700;font-size:.875rem;">${cached.total_display}</span>${cached.detail_url?` <a href="${cached.detail_url}" target="_blank" class="btn-trade" style="font-size:.68rem;">상세</a>`:''}`;
       } else if(cached && cached.note) {
         assetHtml=`<a href="https://jaesan.newstapa.org/search?query=${encodeURIComponent(m.name)}" target="_blank" class="btn-trade" style="font-size:.72rem;">뉴스타파</a>`;
       } else {
@@ -1406,10 +1406,10 @@ function renderLocalCandidatesFull(candidates) {
       if(pF!=='all' && c.party!==pF) continue;
       if(rF!=='all' && c.region!==rF) continue;
       idx++;
-      const stockBadge=c.has_stocks?'<span class="tag tag-pol">관련주 있음</span>':'<span style="color:var(--muted);font-size:.78rem">미매핑</span>';
+      const stockBadge=c.has_stocks?'<span class="tag tag-pol">관련주 있음</span>':'<span style="color:var(--muted);font-size:.75rem">미매핑</span>';
       tbody.innerHTML+=`<tr>
         <td>${idx}</td><td><strong>${c.name}</strong></td><td>${makePartyTag(c.party)}</td>
-        <td>${c.region||''}</td><td style="font-size:.82rem">${c.role||''}</td><td>${stockBadge}</td></tr>`;
+        <td>${c.region||''}</td><td style="font-size:.875rem">${c.role||''}</td><td>${stockBadge}</td></tr>`;
     }
   }
   renderList();
@@ -1431,7 +1431,7 @@ function renderAISuggestions(suggestions, candidateStocks) {
   for(const [name, items] of Object.entries(suggestions)) {
     const info = candidateStocks[name]||{};
     html+=`<div class="profile-card" style="margin-bottom:10px">
-      <h4>${name} ${makePartyTag(info.party||'')} <span style="color:var(--muted);font-size:.8rem">${info.region||''}</span></h4>
+      <h4>${name} ${makePartyTag(info.party||'')} <span style="color:var(--muted);font-size:.75rem">${info.region||''}</span></h4>
       <table style="margin-top:6px"><thead><tr>
         <th>종목</th><th>코드</th><th>분류</th><th>신뢰도</th><th>관련 이유</th><th>매매</th>
       </tr></thead><tbody>`;
@@ -1443,7 +1443,7 @@ function renderAISuggestions(suggestions, candidateStocks) {
         <td style="color:var(--muted)">${s.ticker||''}</td>
         <td><span class="tag tag-theme">${catLabel}</span></td>
         <td style="color:${confColor};font-weight:600">${s.confidence||''}</td>
-        <td style="font-size:.8rem">${s.relation||''}</td>
+        <td style="font-size:.75rem">${s.relation||''}</td>
         <td>${tradeLinks(s.ticker||'')}</td>
       </tr>`;
     }
@@ -1479,7 +1479,7 @@ function renderStockPredictions(spData) {
       if(val==null) val=50;
       const c=val>=60?'var(--up)':val>=40?'var(--warn)':'var(--down)';
       const opacity=hasData===false?'opacity:.4':'';
-      return `<span style="font-size:.8rem;${opacity}">${val}</span><div class="score-bar" style="${opacity}"><div class="score-fill" style="width:${val}%;background:${c}"></div></div>`;
+      return `<span style="font-size:.75rem;${opacity}">${val}</span><div class="score-bar" style="${opacity}"><div class="score-fill" style="width:${val}%;background:${c}"></div></div>`;
     }
     const pick=picks.find(p=>p.ticker===a.ticker);
     const reason=pick?pick.reason||'':'';
@@ -1493,7 +1493,7 @@ function renderStockPredictions(spData) {
       <td>${miniBar(comp.volume_signal, cs.has_volume_data)}</td>
       <td>${miniBar(comp.poll_impact, cs.has_poll_data)}</td>
       <td>${miniBar(comp.cycle_premium, true)}</td>
-      <td style="font-size:.78rem;color:var(--muted)">${reason}</td>
+      <td style="font-size:.75rem;color:var(--muted)">${reason}</td>
     </tr>`;
   });
 }
@@ -1542,8 +1542,8 @@ function renderPredictions(predictions, impacts) {
     grid.innerHTML+=`<div class="pred-card">
       <div class="region-name">${region} <span class="comp-badge" style="background:${compColor}22;color:${compColor}">${r.competitiveness}</span></div>
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
-        <div><span class="leader-prob" style="color:${leaderPartyColor}">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.82rem">${r.leader}</span></div>
-        <span style="font-size:.78rem;color:var(--muted)">격차 ${r.gap}%p</span>
+        <div><span class="leader-prob" style="color:${leaderPartyColor}">${r.leader_prob}%</span> <span style="color:var(--muted);font-size:.875rem">${r.leader}</span></div>
+        <span style="font-size:.75rem;color:var(--muted)">격차 ${r.gap}%p</span>
       </div>
       ${candHtml}
       ${r.note?`<div style="font-size:.72rem;color:var(--warn);margin-top:4px;">${r.note}</div>`:''}
@@ -1569,7 +1569,7 @@ function renderPredictions(predictions, impacts) {
         <td>${s.region}</td>
         <td><strong>${s.win_probability}%</strong></td>
         <td><span class="signal-badge ${SIG_CLS[s.signal]||'signal-neutral'}">${s.signal_kr||SIG_KR[s.signal]||s.signal}</span></td>
-        <td style="font-size:.8rem;color:var(--muted)">${s.relation||''}</td>
+        <td style="font-size:.75rem;color:var(--muted)">${s.relation||''}</td>
         <td>${tradeLinks(s.ticker)}</td>
       </tr>`;
     }
@@ -1581,7 +1581,7 @@ function renderTimeline(currentPhase) {
   TIMELINE.forEach(t=>{
     const isCurrent=currentPhase && t.phase.includes(currentPhase.replace('선거 ',''));
     el.innerHTML+=`<div class="timeline-item${isCurrent?' current':''}">
-      <h4>${SIG_ICONS[t.signal]||''} ${t.phase} <span style="color:var(--muted);font-size:.78rem">(${t.period})</span></h4>
+      <h4>${SIG_ICONS[t.signal]||''} ${t.phase} <span style="color:var(--muted);font-size:.75rem">(${t.period})</span></h4>
       <p>${t.pattern} | 시그널: ${t.signal}</p></div>`;
   });
 }
