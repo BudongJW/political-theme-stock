@@ -26,6 +26,7 @@ from analyzers.auto_mapper import AutoMapper
 from analyzers.poll_signal import PollSignalEngine
 from analyzers.election_predictor import ElectionPredictor
 from analyzers.stock_predictor import StockPredictor
+from analyzers.accuracy_tracker import AccuracyTracker
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -281,6 +282,24 @@ def main():
     except Exception as e:
         print(f"주가 예측 분석 실패 (무시): {e}")
 
+    # 예측 적중률 분석 (과거 스냅샷 vs 실제 주가)
+    prediction_accuracy = {}
+    try:
+        at = AccuracyTracker(
+            sc,
+            processed_dir=str(ROOT / "data" / "processed"),
+            docs_data_dir=str(ROOT / "docs" / "data"),
+        )
+        prediction_accuracy = at.analyze_accuracy(max_snapshots=30)
+        status = prediction_accuracy.get("status", "")
+        if status == "ok":
+            overall = prediction_accuracy.get("overall", {})
+            print(f"예측 적중률: {overall.get('accuracy_pct', 0)}% ({overall.get('correct', 0)}/{overall.get('total_predictions', 0)})")
+        else:
+            print(f"예측 적중률: 데이터 부족 (스냅샷 {prediction_accuracy.get('snapshot_count', 0)}개)")
+    except Exception as e:
+        print(f"예측 적중률 분석 실패 (무시): {e}")
+
     output = {
         "date": today,
         "election_phase": phase,
@@ -302,6 +321,7 @@ def main():
         "election_predictions": election_predictions,
         "stock_impacts": stock_impacts,
         "stock_predictions": stock_predictions,
+        "prediction_accuracy": prediction_accuracy,
         "ai_report": daily_report,
         "ai_suggestions": suggestions,
         "summary": {

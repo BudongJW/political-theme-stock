@@ -446,6 +446,49 @@
       </div>
     </section>
 
+    <!-- 예측 적중률 분석 -->
+    <section id="accuracy-section" style="display:none">
+      <h2>예측 적중률 분석</h2>
+      <p style="color:var(--muted);font-size:.75rem;margin-bottom:12px;">과거 스냅샷의 시그널 예측과 실제 다음날 주가를 비교한 결과입니다.</p>
+      <div class="metrics" id="acc-metrics"></div>
+
+      <!-- 시그널별 성과 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">시그널별 성과</h3>
+        <div class="table-wrap">
+          <table><thead><tr>
+            <th>시그널</th><th>건수</th><th>평균 수익률</th><th>승률</th><th>최대</th><th>최소</th>
+          </tr></thead><tbody id="tb-signal-perf"></tbody></table>
+        </div>
+      </div>
+
+      <!-- 스코어 구간별 적중률 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">스코어 구간별 성과</h3>
+        <div class="table-wrap">
+          <table><thead><tr>
+            <th>스코어 구간</th><th>건수</th><th>평균 수익률</th><th>승률</th>
+          </tr></thead><tbody id="tb-score-bins"></tbody></table>
+        </div>
+      </div>
+
+      <!-- 스코어-수익률 상관계수 차트 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">스코어 vs 실제 수익률</h3>
+        <div class="chart-container"><canvas id="chart-accuracy" height="250"></canvas></div>
+      </div>
+
+      <!-- 최근 사례 -->
+      <div style="margin-top:16px;">
+        <h3 style="font-size:1rem;margin-bottom:8px;">최근 예측 사례</h3>
+        <div class="table-wrap">
+          <table><thead><tr>
+            <th>날짜</th><th>종목</th><th>시그널</th><th>스코어</th><th>다음날</th><th>주간</th><th>적중</th>
+          </tr></thead><tbody id="tb-recent-cases"></tbody></table>
+        </div>
+      </div>
+    </section>
+
     </div><!-- /page-polls -->
 
     <!-- ==================== 페이지 4: AI 분석 ==================== -->
@@ -913,6 +956,7 @@ function render(data) {
   run(()=>renderAIReport(data.ai_report), 'AIReport');
   run(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
   run(()=>renderTimeline(phase.phase), 'Timeline');
+  run(()=>renderAccuracy(data.prediction_accuracy), 'Accuracy');
   // AI 페이지 빈 메시지 숨김
   if(data.ai_report || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
     const emptyMsg=document.getElementById('ai-empty-msg');
@@ -1680,6 +1724,108 @@ function renderTimeline(currentPhase) {
       <h4>${SIG_ICONS[t.signal]||''} ${t.phase} <span style="color:var(--muted);font-size:.75rem">(${t.period})</span></h4>
       <p>${t.pattern} | 시그널: ${t.signal}</p></div>`;
   });
+}
+
+function renderAccuracy(acc) {
+  if(!acc || acc.status !== 'ok') return;
+  document.getElementById('accuracy-section').style.display='block';
+  // 빈 메시지 숨기기
+  const emptyMsg=document.getElementById('polls-empty-msg');
+  if(emptyMsg) emptyMsg.style.display='none';
+
+  const o=acc.overall||{};
+  const period=acc.analysis_period||{};
+  const corr=acc.score_correlation;
+
+  // 메트릭 카드
+  document.getElementById('acc-metrics').innerHTML=`
+    <div class="metric-card"><div class="value" style="color:${o.accuracy_pct>=50?'var(--up)':'var(--down)'}">${o.accuracy_pct||0}%</div><div class="label">전체 적중률</div></div>
+    <div class="metric-card"><div class="value">${o.total_predictions||0}</div><div class="label">분석 건수</div></div>
+    <div class="metric-card"><div class="value" style="color:var(--up)">${o.correct||0}</div><div class="label">적중</div></div>
+    <div class="metric-card"><div class="value">${acc.snapshot_count||0}</div><div class="label">분석 일수</div></div>
+    <div class="metric-card"><div class="value" style="color:${corr>0.2?'var(--up)':corr<-0.1?'var(--down)':'var(--muted)'}">${corr!=null?corr:'-'}</div><div class="label">스코어 상관계수</div></div>
+    <div class="metric-card"><div class="value" style="font-size:.875rem">${period.from||'-'}<br>~ ${period.to||'-'}</div><div class="label">분석 기간</div></div>`;
+
+  // 시그널별 성과
+  const SIG_KR_MAP={'strong_buy':'적극 매수','buy':'매수','hold':'관망','sell':'매도','strong_sell':'적극 매도'};
+  const sigPerf=acc.signal_performance||{};
+  const tbody1=document.getElementById('tb-signal-perf');
+  tbody1.innerHTML='';
+  for(const sig of ['strong_buy','buy','hold','sell','strong_sell']){
+    const s=sigPerf[sig];
+    if(!s) continue;
+    const avgColor=s.avg_return_pct>0?'var(--up)':s.avg_return_pct<0?'var(--down)':'var(--muted)';
+    const wrColor=s.win_rate_pct>=50?'var(--up)':'var(--down)';
+    tbody1.innerHTML+=`<tr>
+      <td><span class="signal-badge signal-${sig}">${SIG_KR_MAP[sig]||sig}</span></td>
+      <td>${s.count}</td>
+      <td style="color:${avgColor};font-weight:700">${s.avg_return_pct>0?'+':''}${s.avg_return_pct}%</td>
+      <td style="color:${wrColor};font-weight:700">${s.win_rate_pct}%</td>
+      <td style="color:var(--up)">${s.max_return_pct>0?'+':''}${s.max_return_pct}%</td>
+      <td style="color:var(--down)">${s.min_return_pct}%</td>
+    </tr>`;
+  }
+
+  // 스코어 구간별 성과
+  const bins=acc.score_bins||{};
+  const tbody2=document.getElementById('tb-score-bins');
+  tbody2.innerHTML='';
+  for(const [label,b] of Object.entries(bins)){
+    const avgColor=b.avg_return_pct>0?'var(--up)':b.avg_return_pct<0?'var(--down)':'var(--muted)';
+    const wrColor=b.win_rate_pct>=50?'var(--up)':'var(--down)';
+    tbody2.innerHTML+=`<tr>
+      <td><strong>${label}</strong></td>
+      <td>${b.count}</td>
+      <td style="color:${avgColor};font-weight:700">${b.avg_return_pct>0?'+':''}${b.avg_return_pct}%</td>
+      <td style="color:${wrColor};font-weight:700">${b.win_rate_pct}%</td>
+    </tr>`;
+  }
+
+  // 스코어 vs 수익률 산점도
+  const cases=acc.recent_cases||[];
+  if(cases.length>=3){
+    loadChartJs().then(()=>{
+      try{
+        const allCases=cases;
+        new Chart(document.getElementById('chart-accuracy'),{
+          type:'scatter',
+          data:{datasets:[{
+            data:allCases.map(c=>({x:c.score,y:c.next_change_pct})),
+            backgroundColor:allCases.map(c=>c.direction_correct?'rgba(52,176,96,.6)':'rgba(232,83,74,.6)'),
+            pointRadius:5,
+          }]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{display:false},tooltip:{callbacks:{
+              label:ctx=>{const c=allCases[ctx.dataIndex];return `${c.name} | 스코어 ${c.score} → ${c.next_change_pct>0?'+':''}${c.next_change_pct}% ${c.direction_correct?'(적중)':'(미적중)'}`;}
+            }}},
+            scales:{
+              x:{title:{display:true,text:'예측 스코어',color:'#7e8a9f'},grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f'}},
+              y:{title:{display:true,text:'실제 수익률 (%)',color:'#7e8a9f'},grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f',callback:v=>v+'%'}}
+            }
+          }
+        });
+      }catch(e){console.error('[AccuracyChart]',e);}
+    });
+  }
+
+  // 최근 사례
+  const tbody3=document.getElementById('tb-recent-cases');
+  tbody3.innerHTML='';
+  for(const c of cases){
+    const sigCls=c.signal?'signal-'+c.signal:'signal-hold';
+    const nColor=c.next_change_pct>0?'var(--up)':c.next_change_pct<0?'var(--down)':'var(--muted)';
+    const wColor=c.week_change_pct!=null?(c.week_change_pct>0?'var(--up)':c.week_change_pct<0?'var(--down)':'var(--muted)'):'';
+    const okMark=c.direction_correct?'<span style="color:var(--up);font-weight:700;">O</span>':'<span style="color:var(--down);font-weight:700;">X</span>';
+    tbody3.innerHTML+=`<tr>
+      <td style="font-size:.75rem">${c.date||''}</td>
+      <td><strong>${c.name||c.ticker}</strong></td>
+      <td><span class="signal-badge ${sigCls}">${c.signal_kr||c.signal}</span></td>
+      <td>${c.score}</td>
+      <td style="color:${nColor};font-weight:700">${c.next_change_pct>0?'+':''}${c.next_change_pct}%</td>
+      <td style="color:${wColor};font-weight:700">${c.week_change_pct!=null?(c.week_change_pct>0?'+':'')+c.week_change_pct+'%':'-'}</td>
+      <td>${okMark}</td>
+    </tr>`;
+  }
 }
 
 // 테이블 스크롤 힌트 (overflow 시 우측 그라데이션 표시)
