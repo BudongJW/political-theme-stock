@@ -103,7 +103,7 @@ def main():
             ad = asset_data.get(pol_name, {})
             candidate_stocks[pol_name] = {
                 "party": pol.get("party", ""),
-                "region": "전국(대선)",
+                "region": pol.get("region", "전국"),
                 "role": pol.get("role", ""),
                 "profile": pol.get("profile", ""),
                 "assets": ad.get("total_display") or pol.get("assets", ""),

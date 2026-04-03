@@ -248,7 +248,7 @@
   </div>
   <nav class="top-nav" id="top-nav" role="tablist" aria-label="페이지 네비게이션">
     <button class="nav-btn active" role="tab" aria-selected="true" data-page="page-dashboard">대시보드 <span class="nav-badge" id="nav-b-dash">-</span></button>
-    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-candidates">후보 분석 <span class="nav-badge" id="nav-b-cand">-</span></button>
+    <button class="nav-btn" role="tab" aria-selected="false" data-page="page-candidates">정치인별 관련주 <span class="nav-badge" id="nav-b-cand">-</span></button>
     <button class="nav-btn" role="tab" aria-selected="false" data-page="page-polls">여론·예측 <span class="nav-badge" id="nav-b-poll">-</span></button>
     <button class="nav-btn" role="tab" aria-selected="false" data-page="page-ai">AI 분석</button>
     <button class="nav-btn" role="tab" aria-selected="false" data-page="page-reference">참고 데이터</button>
@@ -334,13 +334,13 @@
     <!-- ==================== 페이지 2: 후보 분석 ==================== -->
     <div class="page" id="page-candidates">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
-      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">후보 분석</h2>
-      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">정치인별 테마주 활성도, 재산 비교, 지역별 관련주 현황</p>
+      <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">정치인별 관련주</h2>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">현직 정치인·지방선거 후보의 뉴스·정책 이슈에 따른 관련주 등락 현황</p>
     </div>
 
     <!-- 정치 컨설턴트 분석 -->
     <section>
-      <h2>정치 컨설턴트 분석 — 후보별 테마주 활성도</h2>
+      <h2>정치인별 테마주 활성도</h2>
       <div class="filter-bar">
         <label>정당 필터:</label>
         <select id="cons-party-filter"><option value="all">전체</option><option value="더불어민주당">더불어민주당</option><option value="국민의힘">국민의힘</option></select>
@@ -352,27 +352,27 @@
 
     <!-- 컨설턴트 차트 -->
     <section>
-      <h2>후보별 평균 등락률 비교</h2>
+      <h2>정치인별 평균 등락률 비교</h2>
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
     </section>
 
     <!-- 지역별 후보 & 테마주 -->
     <section>
-      <h2>지역별 후보 & 테마주</h2>
+      <h2>지역별 정치인 & 관련주</h2>
       <div class="tabs" id="region-tabs"></div>
       <div id="region-contents"></div>
     </section>
 
     <!-- 후보별 재산 비교 차트 -->
     <section>
-      <h2>후보별 재산 비교</h2>
+      <h2>정치인별 재산 비교</h2>
       <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
       <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
     </section>
 
     <!-- 후보별 상세 -->
     <section>
-      <h2>후보별 상세 (프로필 · 재산 · 관련주)</h2>
+      <h2>정치인별 상세 (프로필 · 재산 · 관련주)</h2>
       <div class="tabs" id="candidate-tabs"></div>
       <div id="candidate-contents"></div>
     </section>
@@ -711,7 +711,7 @@ function jumpToStock(ticker){
 function jumpToCandidate(name){
   document.getElementById('search-results').classList.remove('show');
   document.getElementById('global-search').value='';
-  // 후보 분석 페이지로 이동
+  // 정치인별 관련주 페이지로 이동
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelector('[data-page="page-candidates"]').classList.add('active');
@@ -970,7 +970,7 @@ function render(data) {
   // Chart.js lazy load — 대시보드 차트는 데이터 렌더 후 로드
   loadChartJs().then(()=>{ run(()=>renderChart(results), 'Chart'); });
   run(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
-  // 후보 분석 차트는 lazy 렌더링 (탭 진입 시)
+  // 정치인별 관련주 차트는 lazy 렌더링 (탭 진입 시)
   chartsRendered._consultantData=candidate_market_summary;
   chartsRendered._candidateStocks=candidate_stocks;
   chartsRendered._results=results;
