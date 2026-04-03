@@ -1,10 +1,15 @@
 """
-예측 적중률 분석 모듈
+예측 적중률 분석 모듈 (v2)
 - 과거 일별 스냅샷의 예측(시그널·스코어)과 실제 주가 변동 비교
 - 적중률, 방향성 정확도, 시그널별 수익률 분석
+- Brier 스코어 (확률 예측 정확도)
+- 시간 가중치 (최근 예측에 가중치 부여)
+- 시그널별 Sharpe ratio
+- 캘리브레이션 커브 (예측 확률 vs 실제 확률)
 """
 import json
 import logging
+import math
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -12,6 +17,14 @@ import numpy as np
 import pandas as pd
 
 logger = logging.getLogger(__name__)
+
+# 시간 가중치 반감기 (일)
+HALF_LIFE_DAYS = 7
+
+
+def _time_weight(days_ago: int, half_life: int = HALF_LIFE_DAYS) -> float:
+    """최근 데이터에 높은 가중치를 부여하는 지수 감쇠 함수"""
+    return math.exp(-0.693 * days_ago / half_life)
 
 
 class AccuracyTracker:
@@ -84,7 +97,7 @@ class AccuracyTracker:
         return results
 
     def analyze_accuracy(self, max_snapshots: int = 30) -> dict:
-        """전체 예측 적중률 분석"""
+        """전체 예측 적중률 분석 (v2: Brier 스코어, 시간 가중치, Sharpe ratio)"""
         snapshots = self._load_snapshots()
         if len(snapshots) < 2:
             logger.info(f"스냅샷 {len(snapshots)}개 — 분석에 최소 2개 필요")
@@ -92,12 +105,13 @@ class AccuracyTracker:
 
         # 최신 스냅샷은 비교 대상에서 제외 (미래 데이터 없음)
         past_snapshots = snapshots[:-1][-max_snapshots:]
-        latest = snapshots[-1]
 
+        today_str = datetime.now().strftime("%Y-%m-%d")
         stock_results = []
         signal_performance = {"strong_buy": [], "buy": [], "hold": [], "sell": [], "strong_sell": []}
         score_vs_actual = []
         daily_accuracy = []
+        brier_samples = []  # (predicted_prob, actual_outcome) for Brier score
 
         for snap in past_snapshots:
             snap_date = snap["_file_date"]
@@ -106,15 +120,18 @@ class AccuracyTracker:
             if not analyses:
                 continue
 
-            # 이 날의 예측 종목 티커 수집
             pred_tickers = [a["ticker"] for a in analyses if a.get("ticker")]
             if not pred_tickers:
                 continue
 
-            # 실제 다음날~5일 후 주가 조회
             actual = self._get_actual_prices(pred_tickers, snap_date, forward_days=5)
             if not actual:
                 continue
+
+            # 시간 가중치: 오래된 스냅샷일수록 낮은 가중치
+            days_ago = (datetime.strptime(today_str, "%Y-%m-%d") -
+                        datetime.strptime(snap_date, "%Y-%m-%d")).days
+            tw = _time_weight(days_ago)
 
             day_correct = 0
             day_total = 0
@@ -151,10 +168,22 @@ class AccuracyTracker:
                     day_correct += 1
                 day_total += 1
 
-                # 시그널별 수익률
-                signal_performance[signal].append(next_chg)
+                # Brier score 샘플: 스코어를 상승 확률로 변환
+                predicted_up_prob = score / 100.0
+                actual_up_outcome = 1.0 if next_chg > 0 else 0.0
+                brier_samples.append({
+                    "prob": predicted_up_prob,
+                    "outcome": actual_up_outcome,
+                    "weight": tw,
+                })
 
-                # 스코어 vs 실제 변동
+                # 시그널별 수익률 (가중치 포함)
+                signal_performance[signal].append({
+                    "return_pct": next_chg,
+                    "weight": tw,
+                    "date": snap_date,
+                })
+
                 score_vs_actual.append({
                     "date": snap_date,
                     "ticker": ticker,
@@ -166,6 +195,7 @@ class AccuracyTracker:
                     "next_change_pct": next_chg,
                     "week_change_pct": week_chg,
                     "direction_correct": direction_correct,
+                    "time_weight": round(tw, 3),
                 })
 
                 stock_results.append({
@@ -177,6 +207,7 @@ class AccuracyTracker:
                     "next_change_pct": next_chg,
                     "week_change_pct": week_chg,
                     "correct": direction_correct,
+                    "time_weight": round(tw, 3),
                 })
 
             if day_total > 0:
@@ -185,26 +216,65 @@ class AccuracyTracker:
                     "correct": day_correct,
                     "total": day_total,
                     "accuracy_pct": round(day_correct / day_total * 100, 1),
+                    "time_weight": round(tw, 3),
                 })
 
-        # 종합 통계 계산
+        # === 종합 통계 계산 ===
         total_predictions = len(stock_results)
         total_correct = sum(1 for r in stock_results if r["correct"])
 
-        # 시그널별 평균 수익률
-        signal_stats = {}
-        for sig, returns in signal_performance.items():
-            if returns:
-                signal_stats[sig] = {
-                    "count": len(returns),
-                    "avg_return_pct": round(float(np.nanmean(returns)), 2),
-                    "median_return_pct": round(float(np.nanmedian(returns)), 2),
-                    "win_rate_pct": round(sum(1 for r in returns if r > 0) / len(returns) * 100, 1),
-                    "max_return_pct": round(float(max(returns)), 2),
-                    "min_return_pct": round(float(min(returns)), 2),
-                }
+        # 시간 가중 적중률
+        weighted_correct = sum(r["time_weight"] for r in stock_results if r["correct"])
+        weighted_total = sum(r["time_weight"] for r in stock_results)
+        weighted_accuracy = round(weighted_correct / weighted_total * 100, 1) if weighted_total else 0
 
-        # 스코어 구간별 적중률
+        # === Brier 스코어 (0=완벽, 1=최악, 0.25=랜덤) ===
+        brier_score = None
+        weighted_brier = None
+        if brier_samples:
+            bs_vals = [(s["prob"] - s["outcome"]) ** 2 for s in brier_samples]
+            brier_score = round(float(np.nanmean(bs_vals)), 4)
+            # 가중 Brier
+            w_sum = sum(s["weight"] for s in brier_samples)
+            if w_sum > 0:
+                weighted_brier = round(
+                    sum((s["prob"] - s["outcome"]) ** 2 * s["weight"] for s in brier_samples) / w_sum, 4
+                )
+
+        # === 시그널별 통계 (Sharpe ratio 포함) ===
+        signal_stats = {}
+        for sig, entries in signal_performance.items():
+            if not entries:
+                continue
+            returns = [e["return_pct"] for e in entries]
+            weights = [e["weight"] for e in entries]
+            w_sum = sum(weights)
+
+            # 가중 평균 수익률
+            w_avg = sum(r * w for r, w in zip(returns, weights)) / w_sum if w_sum else 0
+            # 가중 표준편차
+            w_var = sum(w * (r - w_avg) ** 2 for r, w in zip(returns, weights)) / w_sum if w_sum else 0
+            w_std = math.sqrt(w_var) if w_var > 0 else 0
+
+            # Sharpe ratio (무위험수익률 0 가정, 일간 기준)
+            sharpe = round(w_avg / w_std, 2) if w_std > 0.01 else 0
+
+            signal_stats[sig] = {
+                "count": len(returns),
+                "avg_return_pct": round(float(np.nanmean(returns)), 2),
+                "weighted_avg_return_pct": round(w_avg, 2),
+                "median_return_pct": round(float(np.nanmedian(returns)), 2),
+                "std_return_pct": round(float(np.nanstd(returns)), 2),
+                "sharpe_ratio": sharpe,
+                "win_rate_pct": round(sum(1 for r in returns if r > 0) / len(returns) * 100, 1),
+                "max_return_pct": round(float(max(returns)), 2),
+                "min_return_pct": round(float(min(returns)), 2),
+                "profit_factor": round(
+                    sum(r for r in returns if r > 0) / abs(sum(r for r in returns if r < 0)), 2
+                ) if any(r < 0 for r in returns) and any(r > 0 for r in returns) else None,
+            }
+
+        # === 스코어 구간별 적중률 ===
         score_bins = {"0-25": [], "25-40": [], "40-60": [], "60-75": [], "75-100": []}
         for r in stock_results:
             s = r["score"]
@@ -229,15 +299,24 @@ class AccuracyTracker:
                     "win_rate_pct": round(sum(1 for r in returns if r > 0) / len(returns) * 100, 1),
                 }
 
-        # 스코어-수익률 상관계수
+        # === 캘리브레이션 커브 (10분위) ===
+        calibration_curve = self._build_calibration_curve(brier_samples)
+
+        # === 스코어-수익률 상관계수 (일반 + 시간 가중) ===
         correlation = None
+        weighted_correlation = None
         if len(score_vs_actual) >= 5:
-            scores = [r["score"] for r in score_vs_actual]
-            actuals = [r["next_change_pct"] for r in score_vs_actual]
+            scores = np.array([r["score"] for r in score_vs_actual])
+            actuals = np.array([r["next_change_pct"] for r in score_vs_actual])
+            tw_arr = np.array([r["time_weight"] for r in score_vs_actual])
             try:
                 corr = float(np.corrcoef(scores, actuals)[0, 1])
                 if not np.isnan(corr):
                     correlation = round(corr, 3)
+                # 가중 상관계수
+                wcorr = self._weighted_corr(scores, actuals, tw_arr)
+                if wcorr is not None:
+                    weighted_correlation = round(wcorr, 3)
             except Exception:
                 pass
 
@@ -255,11 +334,59 @@ class AccuracyTracker:
                 "total_predictions": total_predictions,
                 "correct": total_correct,
                 "accuracy_pct": round(total_correct / total_predictions * 100, 1) if total_predictions else 0,
+                "weighted_accuracy_pct": weighted_accuracy,
             },
+            "brier_score": brier_score,
+            "weighted_brier_score": weighted_brier,
+            "calibration_curve": calibration_curve,
             "daily_accuracy": daily_accuracy,
             "signal_performance": signal_stats,
             "score_bins": score_bin_stats,
             "score_correlation": correlation,
+            "weighted_score_correlation": weighted_correlation,
             "recent_cases": recent_cases,
             "generated_at": datetime.now().isoformat(),
         }
+
+    @staticmethod
+    def _build_calibration_curve(brier_samples: list, n_bins: int = 10) -> list[dict]:
+        """예측 확률 vs 실제 상승 비율 — 캘리브레이션 커브 데이터"""
+        if len(brier_samples) < n_bins:
+            return []
+        sorted_s = sorted(brier_samples, key=lambda x: x["prob"])
+        bin_size = len(sorted_s) // n_bins
+        curve = []
+        for i in range(n_bins):
+            start = i * bin_size
+            end = start + bin_size if i < n_bins - 1 else len(sorted_s)
+            chunk = sorted_s[start:end]
+            if not chunk:
+                continue
+            avg_pred = sum(s["prob"] for s in chunk) / len(chunk)
+            avg_actual = sum(s["outcome"] for s in chunk) / len(chunk)
+            curve.append({
+                "bin": i + 1,
+                "predicted_prob": round(avg_pred, 3),
+                "actual_prob": round(avg_actual, 3),
+                "count": len(chunk),
+                "gap": round(avg_pred - avg_actual, 3),
+            })
+        return curve
+
+    @staticmethod
+    def _weighted_corr(x: np.ndarray, y: np.ndarray, w: np.ndarray) -> float | None:
+        """가중 피어슨 상관계수"""
+        try:
+            w_sum = w.sum()
+            if w_sum == 0:
+                return None
+            mx = np.average(x, weights=w)
+            my = np.average(y, weights=w)
+            cov = np.sum(w * (x - mx) * (y - my)) / w_sum
+            sx = math.sqrt(np.sum(w * (x - mx) ** 2) / w_sum)
+            sy = math.sqrt(np.sum(w * (y - my) ** 2) / w_sum)
+            if sx * sy == 0:
+                return None
+            return cov / (sx * sy)
+        except Exception:
+            return None

@@ -1,8 +1,13 @@
 """
-당선예측 모델
+당선예측 모델 (v2)
 - 여론조사 트렌드 + 선거이력 + 지역성향 기반 당선확률 산출
 - 과거 지방선거 데이터(7~8회) 기반 보정 계수 적용
 - 테마주 영향도 연동 (당선확률 ↑ → 관련주 호재)
+- v2 신규:
+  - 조사기관별 편향(house effect) 보정
+  - 다중 여론조사 가중 집계 (recency × sample reliability)
+  - EMA 기반 모멘텀 (단순 2회 비교 → 지수이동평균)
+  - 현직 프리미엄 (incumbency advantage)
 """
 import json
 import logging
@@ -15,13 +20,11 @@ import numpy as np
 logger = logging.getLogger(__name__)
 
 # 과거 지방선거 여론조사→실제 결과 보정 데이터
-# (여론조사 1위 후보의 실제 당선 확률, 격차별)
 HISTORICAL_ACCURACY = {
-    # 격차(pp): [당선확률, 사례 수]
-    "gap_0_3": {"win_rate": 0.55, "label": "초접전"},       # 3%p 이내: 55% 당선
-    "gap_3_7": {"win_rate": 0.72, "label": "경합"},         # 3~7%p: 72% 당선
-    "gap_7_15": {"win_rate": 0.88, "label": "우세"},        # 7~15%p: 88% 당선
-    "gap_15_plus": {"win_rate": 0.96, "label": "압도적"},   # 15%p+: 96% 당선
+    "gap_0_3": {"win_rate": 0.55, "label": "초접전"},
+    "gap_3_7": {"win_rate": 0.72, "label": "경합"},
+    "gap_7_15": {"win_rate": 0.88, "label": "우세"},
+    "gap_15_plus": {"win_rate": 0.96, "label": "압도적"},
 }
 
 # 지역 성향 기본값 (정당별 기본 지지율)
@@ -45,15 +48,36 @@ REGIONAL_BASE = {
 }
 
 # D-day 기준 여론조사 정확도 가중치
-# 선거가 가까울수록 여론조사가 정확
 DDAY_WEIGHT = {
-    "d_90_plus": 0.6,   # 90일 이상 전: 여론조사 신뢰도 낮음
+    "d_90_plus": 0.6,
     "d_60_90": 0.7,
     "d_30_60": 0.8,
     "d_14_30": 0.9,
     "d_7_14": 0.95,
-    "d_0_7": 0.98,      # 7일 이내: 거의 정확
+    "d_0_7": 0.98,
 }
+
+# 조사기관별 편향 보정 (양수 = 민주당 과대 추정, 음수 = 국민의힘 과대 추정)
+# 과거 선거 결과 대비 여론조사 오차 기반 (경험치)
+HOUSE_EFFECT = {
+    "한국갤럽": {"bias": 0.0, "reliability": 0.95},   # 기준 조사기관
+    "갤럽": {"bias": 0.0, "reliability": 0.95},
+    "리얼미터": {"bias": 1.5, "reliability": 0.85},    # 민주당 과대 추정 경향
+    "NBS": {"bias": -0.5, "reliability": 0.80},
+    "한길리서치": {"bias": 0.5, "reliability": 0.75},
+    "한국리서치": {"bias": 0.0, "reliability": 0.90},
+    "엠브레인": {"bias": 0.0, "reliability": 0.88},
+    "케이스탯리서치": {"bias": 0.3, "reliability": 0.78},
+    "입소스": {"bias": -0.3, "reliability": 0.80},
+    "메타보이스": {"bias": 0.0, "reliability": 0.70},
+    "여론조사꽃": {"bias": 0.0, "reliability": 0.65},
+}
+
+# 현직 프리미엄 (incumbency advantage)
+INCUMBENCY_BONUS = 3.0  # 현직 후보에게 +3%p 가산
+
+# 여론조사 recency 반감기 (일)
+POLL_HALF_LIFE_DAYS = 5
 
 
 class ElectionPredictor:
@@ -87,8 +111,109 @@ class ElectionPredictor:
         else:
             return HISTORICAL_ACCURACY["gap_15_plus"]
 
+    def _is_incumbent(self, name: str) -> bool:
+        """현직 여부 확인 (역할에 '현직' 포함)"""
+        for cand in self.tm.data.get("local_candidates_2026", []):
+            if cand.get("name") == name and "현직" in (cand.get("role") or ""):
+                return True
+        for pol in self.tm.data.get("politicians", []):
+            if pol.get("name") == name and "현직" in (pol.get("role") or ""):
+                return True
+        return False
+
+    def _aggregate_polls(self, name: str, region: str) -> dict:
+        """다중 여론조사 가중 집계: recency × pollster reliability"""
+        history = self.pc.get_candidate_history(name, region)
+        if not history:
+            return {"rate": None, "polls_used": 0, "confidence": 0}
+
+        today = datetime.now()
+        weighted_sum = 0
+        weight_total = 0
+
+        for poll in history[-10:]:  # 최근 10건
+            rate = poll.get("rate", 0)
+            institution = poll.get("institution", "")
+            poll_date = poll.get("date", "")
+
+            # recency 가중치 (지수 감쇠)
+            try:
+                days_ago = (today - datetime.strptime(poll_date, "%Y-%m-%d")).days
+            except (ValueError, TypeError):
+                days_ago = 30
+            recency_w = math.exp(-0.693 * days_ago / POLL_HALF_LIFE_DAYS)
+
+            # 조사기관 신뢰도 가중치
+            house = HOUSE_EFFECT.get(institution, {"bias": 0, "reliability": 0.70})
+            reliability_w = house["reliability"]
+
+            # 편향 보정
+            party = self._get_party(name)
+            bias = house["bias"]
+            if party == "더불어민주당":
+                rate -= bias
+            elif party == "국민의힘":
+                rate += bias
+
+            w = recency_w * reliability_w
+            weighted_sum += rate * w
+            weight_total += w
+
+        if weight_total == 0:
+            return {"rate": None, "polls_used": 0, "confidence": 0}
+
+        aggregated_rate = weighted_sum / weight_total
+        return {
+            "rate": round(aggregated_rate, 1),
+            "polls_used": len(history[-10:]),
+            "confidence": round(min(100, len(history[-10:]) * 15), 0),
+        }
+
+    def _calculate_ema_momentum(self, name: str, region: str,
+                                 span: int = 4) -> dict:
+        """EMA 기반 모멘텀 (단순 2회 비교 대신 지수이동평균 추세)"""
+        history = self.pc.get_candidate_history(name, region)
+        if len(history) < 2:
+            return {
+                "name": name, "trend": "데이터 부족",
+                "ema_change": 0, "raw_change": 0,
+                "current": history[-1]["rate"] if history else None,
+            }
+
+        rates = [h["rate"] for h in history]
+
+        # EMA 계산
+        alpha = 2 / (span + 1)
+        ema = rates[0]
+        prev_ema = rates[0]
+        for i, r in enumerate(rates[1:], 1):
+            if i < len(rates) - 1:
+                prev_ema = ema
+            ema = alpha * r + (1 - alpha) * ema
+
+        current = rates[-1]
+        ema_change = round(ema - prev_ema, 1)
+        raw_change = round(current - rates[-2], 1)
+
+        if ema_change >= 3:
+            trend = "급등"
+        elif ema_change >= 1:
+            trend = "상승"
+        elif ema_change <= -3:
+            trend = "급락"
+        elif ema_change <= -1:
+            trend = "하락"
+        else:
+            trend = "보합"
+
+        return {
+            "name": name, "trend": trend,
+            "ema_change": ema_change, "raw_change": raw_change,
+            "current": current, "ema": round(ema, 1),
+        }
+
     def predict_region(self, region: str) -> dict:
-        """지역별 당선 예측"""
+        """지역별 당선 예측 (v2: 다중 여론조사 집계 + 기관 편향 보정 + 현직 프리미엄)"""
         latest = self.pc.get_latest_polls_by_region().get(region)
         if not latest or not latest.get("rates"):
             return self._predict_from_base(region)
@@ -98,7 +223,6 @@ class ElectionPredictor:
         if not sorted_cands:
             return self._predict_from_base(region)
 
-        # 단독 후보 처리 (후보 1명만 등록된 경우)
         if len(sorted_cands) == 1:
             return self._predict_single_candidate(region, sorted_cands[0], latest)
 
@@ -106,47 +230,61 @@ class ElectionPredictor:
         regional_base = REGIONAL_BASE.get(region, {})
 
         predictions = []
-        total_rate = sum(r for _, r in sorted_cands)
-        leader_rate = sorted_cands[0][1]
 
-        for i, (name, rate) in enumerate(sorted_cands):
+        # 다중 여론조사 가중 집계
+        aggregated_rates = {}
+        for name, rate in sorted_cands:
+            agg = self._aggregate_polls(name, region)
+            aggregated_rates[name] = agg["rate"] if agg["rate"] is not None else rate
+
+        total_rate = sum(aggregated_rates.values())
+        if total_rate == 0:
+            total_rate = sum(r for _, r in sorted_cands)
+
+        for i, (name, raw_rate) in enumerate(sorted_cands):
+            rate = aggregated_rates.get(name, raw_rate)
+
             # 1) 여론조사 기반 기초 확률
-            if total_rate > 0:
-                poll_prob = rate / total_rate
-            else:
-                poll_prob = 1.0 / len(sorted_cands)
+            poll_prob = rate / total_rate if total_rate > 0 else 1.0 / len(sorted_cands)
 
             # 2) 지역 성향 보정
             cand_party = self._get_party(name)
             base_rate = regional_base.get(cand_party, 30) / 100
-            regional_factor = 1.0 + (base_rate - 0.5) * 0.15  # 약한 보정
 
-            # 3) D-day 가중치 (여론조사 신뢰도)
+            # 3) D-day 가중치
             adjusted_prob = poll_prob * dday_weight + (1 - dday_weight) * base_rate
 
             # 4) 격차 기반 역사적 보정 (1위만)
             if i == 0 and len(sorted_cands) > 1:
-                gap = rate - sorted_cands[1][1]
+                second_rate = aggregated_rates.get(sorted_cands[1][0], sorted_cands[1][1])
+                gap = rate - second_rate
                 gap_info = self._get_gap_category(gap)
                 historical_win = gap_info["win_rate"]
                 adjusted_prob = adjusted_prob * 0.6 + historical_win * 0.4
 
-            # 5) 모멘텀 보정
-            momentum = self.pc.calculate_momentum(name, region)
-            momentum_change = momentum.get("change") or 0
-            momentum_factor = 1.0 + momentum_change * 0.01  # 1%p 변동 → 1% 보정
+            # 5) EMA 모멘텀 보정
+            momentum = self._calculate_ema_momentum(name, region)
+            ema_change = momentum.get("ema_change", 0)
+            momentum_factor = 1.0 + ema_change * 0.012
             adjusted_prob *= momentum_factor
 
-            # 확률 클리핑
+            # 6) 현직 프리미엄
+            is_incumbent = self._is_incumbent(name)
+            if is_incumbent:
+                adjusted_prob += INCUMBENCY_BONUS / 100
+
             adjusted_prob = max(0.01, min(0.99, adjusted_prob))
 
             predictions.append({
                 "name": name,
                 "party": cand_party,
-                "poll_rate": rate,
+                "poll_rate": raw_rate,
+                "aggregated_rate": round(rate, 1),
                 "win_probability": round(adjusted_prob * 100, 1),
                 "momentum": momentum.get("trend", ""),
-                "momentum_change": momentum_change,
+                "momentum_change": ema_change,
+                "ema": momentum.get("ema"),
+                "is_incumbent": is_incumbent,
             })
 
         # 정규화 (합계 100%)
@@ -157,7 +295,7 @@ class ElectionPredictor:
 
         predictions.sort(key=lambda x: x["win_probability"], reverse=True)
 
-        gap = (predictions[0]["poll_rate"] - predictions[1]["poll_rate"]) if len(predictions) > 1 else 0
+        gap = (predictions[0]["aggregated_rate"] - predictions[1]["aggregated_rate"]) if len(predictions) > 1 else 0
         gap_info = self._get_gap_category(abs(gap))
 
         return {
@@ -184,7 +322,11 @@ class ElectionPredictor:
         max_prob = 75.0
         prob = min(max_prob, 50 + base_rate * 25)
 
-        momentum = self.pc.calculate_momentum(name, region)
+        momentum = self._calculate_ema_momentum(name, region)
+
+        # 현직 프리미엄
+        if self._is_incumbent(name):
+            prob = min(max_prob, prob + INCUMBENCY_BONUS)
 
         predictions = [{
             "name": name,
@@ -192,7 +334,9 @@ class ElectionPredictor:
             "poll_rate": rate,
             "win_probability": round(prob, 1),
             "momentum": momentum.get("trend", ""),
-            "momentum_change": momentum.get("change") or 0,
+            "momentum_change": momentum.get("ema_change", 0),
+            "ema": momentum.get("ema"),
+            "is_incumbent": self._is_incumbent(name),
         }, {
             "name": "미정 (상대 후보 미등록)",
             "party": "",
