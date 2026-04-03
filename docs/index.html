@@ -280,7 +280,7 @@
           <div id="dash-signals-body" style="font-size:.875rem;"></div>
         </div>
         <div class="profile-card" id="dash-top-stocks" style="border-left:3px solid var(--warn);">
-          <div style="font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:6px;">TOP 종목</div>
+          <div style="font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:8px;">🏆 TOP 종목 <span style="color:var(--muted);font-weight:400;">AI 스코어 상위</span></div>
           <div id="dash-stocks-body" style="font-size:.875rem;"></div>
         </div>
       </div>
@@ -1028,10 +1028,28 @@ function render(data) {
     const topStocks=topPicks.length?topPicks.slice(0,3):results.filter(r=>r.close>0).slice(0,3);
     if(topStocks.length){
       document.getElementById('dash-stocks-body').innerHTML=topStocks.map(s=>{
-        const chg=s.change_pct!=null?s.change_pct:0;
-        const cls=chg>0?'color:var(--up)':chg<0?'color:var(--down)':'';
-        const score=s.score!=null?` <span style="color:var(--accent)">${s.score}점</span>`:'';
-        return `<div style="padding:3px 0;"><strong>${s.name}</strong> <span style="${cls};font-weight:700">${chg>0?'+':''}${chg.toFixed?chg.toFixed(2):chg}%</span>${score}</div>`;
+        const sr=results.find(r=>r.ticker===s.ticker);
+        const chg=sr?.change_pct!=null?sr.change_pct:(s.change_pct!=null?s.change_pct:null);
+        const close=sr?.close||s.close||0;
+        const name=sr?.name||s.name||s.ticker;
+        const chgTxt=chg!=null?`${chg>0?'+':''}${chg.toFixed(2)}%`:'';
+        const chgCls=chg>0?'color:var(--up)':chg<0?'color:var(--down)':'color:var(--muted)';
+        const signal=s.signal||'';
+        const sigColor=signal.includes('매수')?'var(--up)':signal.includes('매도')?'var(--down)':'var(--warn)';
+        const score=s.score!=null?s.score.toFixed?s.score.toFixed(1):s.score:'';
+        return `<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong>${name}</strong>
+            <span style="font-size:.7rem;color:${sigColor};border:1px solid ${sigColor};border-radius:3px;padding:1px 5px;">${signal}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px;font-size:.8rem;">
+            <span style="color:var(--muted)">${close?close.toLocaleString()+'원':''}</span>
+            <span style="${chgCls};font-weight:700">${chgTxt}</span>
+            ${score?`<span style="color:var(--accent);font-weight:600">${score}점</span>`:''}
+          </div>
+          ${s.reason?`<div style="font-size:.7rem;color:var(--muted);margin-top:2px;line-height:1.3;">${s.reason}</div>`:''}
+          <div style="margin-top:3px;">${tradeLinks(s.ticker)}</div>
+        </div>`;
       }).join('');
       hasContent=true;
     } else {
