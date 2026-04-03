@@ -331,50 +331,51 @@
 
     </div><!-- /page-dashboard -->
 
-    <!-- ==================== 페이지 2: 후보 분석 ==================== -->
+    <!-- ==================== 페이지 2: 정치인별 관련주 ==================== -->
     <div class="page" id="page-candidates">
     <div style="margin-bottom:18px;padding:16px 0 12px;border-bottom:1px solid var(--border);">
       <h2 style="font-size:1.3rem;margin:0;border:none;padding:0;">정치인별 관련주</h2>
-      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">현직 정치인·지방선거 후보의 뉴스·정책 이슈에 따른 관련주 등락 현황</p>
+      <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">현직 정치인의 뉴스·정책 이슈에 따른 관련주 등락 현황</p>
     </div>
 
-    <!-- 정치 컨설턴트 분석 -->
+    <!-- 오늘 주목: 관련주 급등/급락 정치인 -->
     <section>
-      <h2>정치인별 테마주 활성도</h2>
-      <div class="filter-bar">
-        <label>정당 필터:</label>
-        <select id="cons-party-filter"><option value="all">전체</option><option value="더불어민주당">더불어민주당</option><option value="국민의힘">국민의힘</option></select>
-        <label>지역 필터:</label>
-        <select id="cons-region-filter"><option value="all">전체</option></select>
+      <h2>오늘 주목 — 관련주가 움직이는 정치인</h2>
+      <p style="color:var(--muted);font-size:.8rem;margin:-6px 0 12px;">관련주 평균 등락률 기준 자동 정렬 (매일 장중 3회 업데이트)</p>
+      <div class="consultant-grid" id="hot-politicians-grid"></div>
+    </section>
+
+    <!-- 정치인 검색 -->
+    <section>
+      <h2>정치인 검색 <span style="color:var(--muted);font-weight:400;font-size:.8rem;" id="pol-search-total"></span></h2>
+      <div style="position:relative;margin-bottom:14px;">
+        <input type="text" id="pol-search-input" placeholder="이름, 정당, 지역으로 검색 (예: 정원오, 민주당, 서울)" style="width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:10px 16px;font-size:.9rem;">
+        <div id="pol-search-results" style="position:absolute;top:100%;left:0;right:0;z-index:150;background:var(--card);border:1px solid var(--border);border-radius:4px;margin-top:4px;max-height:400px;overflow-y:auto;display:none;box-shadow:0 6px 20px rgba(0,0,0,.35);"></div>
       </div>
-      <div class="consultant-grid" id="consultant-grid"></div>
+      <div class="filter-bar" style="margin-bottom:12px;">
+        <label>정당:</label>
+        <select id="cons-party-filter"><option value="all">전체</option><option value="더불어민주당">더불어민주당</option><option value="국민의힘">국민의힘</option><option value="개혁신당">개혁신당</option><option value="조국혁신당">조국혁신당</option></select>
+        <label>지역:</label>
+        <select id="cons-region-filter"><option value="all">전체</option></select>
+        <label>구분:</label>
+        <select id="cons-type-filter"><option value="all">전체</option><option value="has_stocks">관련주 있음</option><option value="assembly">국회의원</option><option value="local">지방선거 후보</option></select>
+      </div>
+      <div id="pol-search-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;max-height:600px;overflow-y:auto;"></div>
+      <div id="pol-search-more" style="text-align:center;padding:12px;display:none;">
+        <button onclick="polSearchShowMore()" style="background:var(--card);color:var(--accent);border:1px solid var(--border);border-radius:4px;padding:8px 24px;cursor:pointer;font-size:.85rem;">더 보기</button>
+      </div>
     </section>
 
-    <!-- 컨설턴트 차트 -->
+    <!-- 정치인 상세 (검색 선택 시 표시) -->
+    <section id="pol-detail-section" style="display:none;">
+      <h2 id="pol-detail-title">정치인 상세</h2>
+      <div id="pol-detail-content"></div>
+    </section>
+
+    <!-- 정치인별 평균 등락률 차트 -->
     <section>
-      <h2>정치인별 평균 등락률 비교</h2>
+      <h2>관련주 보유 정치인 등락률 비교</h2>
       <div class="chart-container"><canvas id="chart-consultant" height="300"></canvas></div>
-    </section>
-
-    <!-- 지역별 후보 & 테마주 -->
-    <section>
-      <h2>지역별 정치인 & 관련주</h2>
-      <div class="tabs" id="region-tabs"></div>
-      <div id="region-contents"></div>
-    </section>
-
-    <!-- 후보별 재산 비교 차트 -->
-    <section>
-      <h2>정치인별 재산 비교</h2>
-      <div class="chart-container"><canvas id="chart-assets" height="300"></canvas></div>
-      <p style="color:var(--muted);font-size:.75rem;margin-top:6px;">출처: 뉴스타파 공직자 재산공개 (jaesan.newstapa.org) | 관보 재산신고 기준</p>
-    </section>
-
-    <!-- 후보별 상세 -->
-    <section>
-      <h2>정치인별 상세 (프로필 · 재산 · 관련주)</h2>
-      <div class="tabs" id="candidate-tabs"></div>
-      <div id="candidate-contents"></div>
     </section>
 
     </div><!-- /page-candidates -->
@@ -659,7 +660,6 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     if(pageId==='page-candidates' && !chartsRendered.consultant && DATA) {
       loadChartJs().then(()=>{
         try{renderConsultantChart(chartsRendered._consultantData);chartsRendered.consultant=true;}catch(e){console.error('[LazyChart]',e);}
-        try{renderAssetChart(chartsRendered._candidateStocks);chartsRendered.asset=true;}catch(e){console.error('[LazyChart]',e);}
       });
     }
     setTimeout(()=>window.dispatchEvent(new Event('resize')),100);
@@ -969,17 +969,14 @@ function render(data) {
   run(()=>renderTable(results, candidate_stocks), 'Table');
   // Chart.js lazy load — 대시보드 차트는 데이터 렌더 후 로드
   loadChartJs().then(()=>{ run(()=>renderChart(results), 'Chart'); });
-  run(()=>renderConsultant(candidate_stocks, candidate_market_summary), 'Consultant');
-  // 정치인별 관련주 차트는 lazy 렌더링 (탭 진입 시)
+  run(()=>renderHotPoliticians(candidate_stocks, candidate_market_summary), 'HotPoliticians');
+  run(()=>initPolSearch(data, candidate_stocks, candidate_market_summary, results), 'PolSearch');
   chartsRendered._consultantData=candidate_market_summary;
   chartsRendered._candidateStocks=candidate_stocks;
   chartsRendered._results=results;
   run(()=>renderPollSignals(data.poll_signals, candidate_stocks), 'PollSignals');
   run(()=>renderPredictions(data.election_predictions, data.stock_impacts), 'Predictions');
   run(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
-  run(()=>renderRegionView(candidate_stocks, results), 'RegionView');
-  // renderAssetChart는 lazy (page-candidates 진입 시)
-  run(()=>renderCandidates(candidate_stocks, results), 'Candidates');
   run(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
   run(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
   run(()=>renderAIReport(data.ai_report), 'AIReport');
@@ -1047,8 +1044,8 @@ function render(data) {
   const nb=id=>document.getElementById(id);
   const screenCount=results.filter(r=>r.close>0).length;
   if(nb('nav-b-dash')) nb('nav-b-dash').textContent=screenCount+'종목';
-  const candCount=Object.keys(candidate_stocks||{}).length;
-  if(nb('nav-b-cand')) nb('nav-b-cand').textContent=candCount+'명';
+  const totalPol=(data.assembly_members?.total||0)+(data.local_candidates?.length||0)+Object.keys(candidate_stocks||{}).length;
+  if(nb('nav-b-cand')) nb('nav-b-cand').textContent=totalPol+'명';
   const pollCount=(data.poll_signals?.signals||[]).length;
   const predCount=Object.keys((data.election_predictions?.regions)||{}).length;
   if(nb('nav-b-poll')) nb('nav-b-poll').textContent=pollCount?pollCount+'시그널':predCount?predCount+'지역':'';
@@ -1058,8 +1055,9 @@ function render(data) {
   document.getElementById('filter-theme').onchange=()=>renderTable(results, candidate_stocks);
   document.getElementById('filter-party').onchange=()=>renderTable(results, candidate_stocks);
   document.getElementById('filter-region').onchange=()=>renderTable(results, candidate_stocks);
-  document.getElementById('cons-party-filter').onchange=()=>renderConsultant(candidate_stocks, candidate_market_summary);
-  document.getElementById('cons-region-filter').onchange=()=>renderConsultant(candidate_stocks, candidate_market_summary);
+  document.getElementById('cons-party-filter').onchange=()=>polSearchApplyFilter();
+  document.getElementById('cons-region-filter').onchange=()=>polSearchApplyFilter();
+  document.getElementById('cons-type-filter').onchange=()=>polSearchApplyFilter();
 
   // 모바일 테이블 스크롤 힌트 초기화
   setTimeout(checkTableScroll, 300);
@@ -1191,30 +1189,184 @@ function renderChart(results) {
   });
 }
 
-function renderConsultant(candidateStocks, summary) {
-  const partyF=document.getElementById('cons-party-filter').value;
-  const regionF=document.getElementById('cons-region-filter').value;
-  const grid=document.getElementById('consultant-grid');
+// ── 오늘 주목: 관련주가 움직이는 정치인 ──
+function renderHotPoliticians(candidateStocks, summary) {
+  const grid=document.getElementById('hot-politicians-grid');
   grid.innerHTML='';
-  for(const [name,info] of Object.entries(summary||{})) {
-    if(partyF!=='all' && info.party!==partyF) continue;
-    if(regionF!=='all' && info.region!==regionF) continue;
-    const changeColor=info.avg_change_pct>0?'var(--up)':info.avg_change_pct<0?'var(--down)':'var(--text)';
+  const entries=Object.entries(summary||{})
+    .filter(([,info])=>info.stock_count>0)
+    .sort((a,b)=>Math.abs(b[1].avg_change_pct)-Math.abs(a[1].avg_change_pct));
+  if(!entries.length){grid.innerHTML='<p style="color:var(--muted)">관련주 데이터 로딩 중...</p>';return;}
+  for(const [name,info] of entries) {
     const fullInfo=candidateStocks[name]||{};
-    grid.innerHTML+=`<div class="cons-card">
+    const changeColor=info.avg_change_pct>0?'var(--up)':info.avg_change_pct<0?'var(--down)':'var(--text)';
+    const surgeStocks=(fullInfo.screening||[]).filter(s=>s.surge);
+    const surgeHtml=surgeStocks.length?`<div style="font-size:.72rem;color:var(--down);margin-top:4px">급등: ${surgeStocks.map(s=>s.name).join(', ')}</div>`:'';
+    grid.innerHTML+=`<div class="cons-card" style="cursor:pointer" onclick="showPolDetail('${name}')">
       <div class="name">${name} ${makePartyTag(info.party)}</div>
-      <div class="stat">${info.region} | ${info.stock_count}종목 | 총거래량 ${info.total_volume.toLocaleString()}</div>
+      <div class="stat">${info.region} | ${info.stock_count}종목</div>
       <div class="change" style="color:${changeColor}">${info.avg_change_pct>0?'+':''}${info.avg_change_pct.toFixed(2)}%</div>
-      <div class="stat">평균 등락률</div>
-      ${fullInfo.assets?`<div class="stat" style="color:var(--warn);margin-top:4px">${fullInfo.assets}</div>`:''}
+      <div class="stat">관련주 평균 등락률</div>
+      ${surgeHtml}
     </div>`;
   }
 }
 
+// ── 전체 정치인 검색 시스템 ──
+let _allPoliticians=[];
+let _polSearchPage=0;
+const POL_PAGE_SIZE=30;
+
+function initPolSearch(data, candidateStocks, summary, results) {
+  // 전체 정치인 목록 통합 (중복 제거)
+  const seen=new Set();
+  _allPoliticians=[];
+  // 1) 관련주 보유 정치인 (우선)
+  for(const [name,info] of Object.entries(candidateStocks||{})) {
+    if(seen.has(name)) continue; seen.add(name);
+    _allPoliticians.push({name, party:info.party||'', region:info.region||'', role:info.role||'',
+      type:'has_stocks', stocks:info.stocks||[], screening:info.screening||[], profile:info.profile||'',
+      assets:info.assets||'', assets_detail:info.assets_detail||{}, summary:summary[name]||null,
+      ai_suggestions:(data.ai_suggestions||{})[name]||[]});
+  }
+  // 2) 지방선거 후보
+  for(const c of data.local_candidates||[]) {
+    if(seen.has(c.name)) continue; seen.add(c.name);
+    _allPoliticians.push({name:c.name, party:c.party||'', region:c.region||'', role:c.role||'',
+      type:'local', stocks:[], screening:[], profile:'', has_stocks:c.has_stocks,
+      ai_suggestions:(data.ai_suggestions||{})[c.name]||[]});
+  }
+  // 3) 국회의원
+  for(const m of (data.assembly_members?.members||[])) {
+    if(seen.has(m.name)) continue; seen.add(m.name);
+    _allPoliticians.push({name:m.name, party:m.party||'', region:m.region||'', role:m.district||m.position||'',
+      type:'assembly', stocks:[], screening:[], profile:'',
+      election_type:m.election_type||'', committee:m.committee||'',
+      ai_suggestions:(data.ai_suggestions||{})[m.name]||[]});
+  }
+  document.getElementById('pol-search-total').textContent=`(총 ${_allPoliticians.length}명)`;
+
+  // 검색 입력 이벤트
+  const input=document.getElementById('pol-search-input');
+  input.oninput=()=>{
+    const q=input.value.trim();
+    if(q.length<1){document.getElementById('pol-search-results').style.display='none';polSearchApplyFilter();return;}
+    const matches=_allPoliticians.filter(p=>p.name.includes(q)||p.party.includes(q)||p.region.includes(q)||p.role.includes(q)).slice(0,15);
+    const el=document.getElementById('pol-search-results');
+    if(!matches.length){el.style.display='none';return;}
+    el.innerHTML=matches.map(p=>`<div style="padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;font-size:.875rem;display:flex;align-items:center;gap:10px;transition:background .1s;" onmouseenter="this.style.background='rgba(78,150,230,.06)'" onmouseleave="this.style.background=''" onclick="showPolDetail('${p.name}');document.getElementById('pol-search-results').style.display='none';document.getElementById('pol-search-input').value='';">
+      <strong>${p.name}</strong> ${makePartyTag(p.party)} <span style="color:var(--muted);font-size:.75rem">${p.region} ${p.role}</span>
+      ${p.stocks.length?`<span style="color:var(--accent);font-size:.72rem">${p.stocks.length}종목</span>`:''}
+    </div>`).join('');
+    el.style.display='block';
+  };
+  input.onblur=()=>setTimeout(()=>{document.getElementById('pol-search-results').style.display='none'},200);
+
+  // 초기 목록 렌더
+  polSearchApplyFilter();
+}
+
+function polSearchApplyFilter() {
+  _polSearchPage=0;
+  const partyF=document.getElementById('cons-party-filter').value;
+  const regionF=document.getElementById('cons-region-filter').value;
+  const typeF=document.getElementById('cons-type-filter').value;
+  let filtered=_allPoliticians.filter(p=>{
+    if(partyF!=='all' && p.party!==partyF) return false;
+    if(regionF!=='all' && p.region!==regionF) return false;
+    if(typeF==='has_stocks' && !p.stocks.length && !p.has_stocks) return false;
+    if(typeF==='assembly' && p.type!=='assembly') return false;
+    if(typeF==='local' && p.type!=='local') return false;
+    return true;
+  });
+  // 관련주 보유 정치인 우선 정렬
+  filtered.sort((a,b)=>(b.stocks.length||0)-(a.stocks.length||0));
+  window._polFiltered=filtered;
+  polSearchRender();
+}
+
+function polSearchRender() {
+  const list=document.getElementById('pol-search-list');
+  const filtered=window._polFiltered||[];
+  const end=(_polSearchPage+1)*POL_PAGE_SIZE;
+  const visible=filtered.slice(0,end);
+  list.innerHTML=visible.map(p=>{
+    const stockBadge=p.stocks.length?`<span style="color:var(--accent);font-size:.72rem;font-weight:600">${p.stocks.length}종목</span>`:'';
+    const typeBadge=p.type==='assembly'?'<span style="color:var(--muted);font-size:.68rem">국회의원</span>':
+      p.type==='local'?'<span style="color:var(--warn);font-size:.68rem">지방선거</span>':'';
+    const chg=p.summary?`<span style="color:${p.summary.avg_change_pct>0?'var(--up)':'var(--down)'};font-weight:700;font-size:.85rem">${p.summary.avg_change_pct>0?'+':''}${p.summary.avg_change_pct.toFixed(2)}%</span>`:'';
+    return `<div style="background:var(--card);border:1px solid var(--border);border-radius:6px;padding:10px 14px;cursor:pointer;transition:border-color .2s;" onmouseenter="this.style.borderColor='var(--accent)'" onmouseleave="this.style.borderColor='var(--border)'" onclick="showPolDetail('${p.name}')">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div><strong>${p.name}</strong> ${makePartyTag(p.party)}</div>
+        <div>${chg} ${stockBadge}</div>
+      </div>
+      <div style="color:var(--muted);font-size:.78rem;margin-top:2px">${p.region} ${p.role} ${typeBadge}</div>
+    </div>`;
+  }).join('');
+  const moreBtn=document.getElementById('pol-search-more');
+  moreBtn.style.display=end<filtered.length?'block':'none';
+}
+
+function polSearchShowMore(){_polSearchPage++;polSearchRender();}
+
+// ── 정치인 상세 보기 ──
+function showPolDetail(name) {
+  const p=_allPoliticians.find(x=>x.name===name);
+  if(!p) return;
+  const section=document.getElementById('pol-detail-section');
+  const title=document.getElementById('pol-detail-title');
+  const content=document.getElementById('pol-detail-content');
+  section.style.display='block';
+  title.innerHTML=`${name} ${makePartyTag(p.party)}`;
+
+  let html=`<div class="profile-card">
+    <div class="meta">${p.role||''} ${p.region?'| '+p.region:''} ${p.committee?'| 소속: '+p.committee:''}</div>
+    ${p.profile?`<div class="profile-text">${p.profile}</div>`:''}
+    ${p.assets?`<div class="assets" style="color:var(--warn)">${p.assets}</div>`:''}
+  </div>`;
+
+  // 관련주 테이블
+  if(p.stocks.length) {
+    html+=`<h3 style="font-size:.95rem;margin:16px 0 8px;">관련주 (${p.stocks.length}종목)</h3>`;
+    html+='<div class="table-wrap"><table><thead><tr><th>종목</th><th>코드</th><th>연관 이유</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
+    for(const s of p.stocks) {
+      const sr=(p.screening||[]).find(r=>r.ticker===s.ticker);
+      const cls=sr&&sr.change_pct>0?'up':sr&&sr.change_pct<0?'down':'';
+      const close=sr&&sr.close?sr.close.toLocaleString():'-';
+      const chg=sr&&sr.change_pct!=null?`${sr.change_pct>0?'+':''}${sr.change_pct.toFixed(2)}%`:'-';
+      const surge=sr&&sr.surge?` <span class="badge-surge">급등 ${sr.ratio}x</span>`:'';
+      html+=`<tr><td><strong>${s.name}</strong>${surge}</td><td>${s.ticker}</td><td style="font-size:.75rem">${s.relation||''}</td>
+        <td>${close}</td><td class="${cls}">${chg}</td><td>${tradeLinks(s.ticker)}</td></tr>`;
+    }
+    html+='</tbody></table></div>';
+  }
+
+  // AI 제안 종목
+  if(p.ai_suggestions&&p.ai_suggestions.length) {
+    html+=`<h3 style="font-size:.95rem;margin:16px 0 8px;color:var(--accent)">AI 제안 관련주 (${p.ai_suggestions.length}종목)</h3>`;
+    html+='<div class="table-wrap"><table><thead><tr><th>종목</th><th>코드</th><th>연관 이유</th><th>신뢰도</th><th>분류</th></tr></thead><tbody>';
+    const CONF={'high':'<span style="color:var(--up)">높음</span>','medium':'<span style="color:var(--warn)">보통</span>','low':'<span style="color:var(--muted)">낮음</span>'};
+    const CAT={'policy':'정책','region':'지역','career':'경력','network':'인맥','clan':'종친','school':'학연','family':'혈연'};
+    for(const s of p.ai_suggestions) {
+      html+=`<tr><td><strong>${s.name||''}</strong></td><td>${s.ticker||''}</td><td style="font-size:.75rem">${s.relation||''}</td>
+        <td>${CONF[s.confidence]||s.confidence||''}</td><td>${CAT[s.category]||s.category||''}</td></tr>`;
+    }
+    html+='</tbody></table></div>';
+  }
+
+  if(!p.stocks.length && !(p.ai_suggestions&&p.ai_suggestions.length)) {
+    html+='<p style="color:var(--muted);padding:20px 0;text-align:center">등록된 관련주가 없습니다. 매일 스크리닝 시 AI가 자동으로 관련주를 제안합니다.</p>';
+  }
+
+  content.innerHTML=html;
+  section.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 function renderConsultantChart(summary) {
-  const names=Object.keys(summary||{});
-  const values=names.map(n=>(summary[n]||{}).avg_change_pct||0);
-  const parties=names.map(n=>(summary[n]||{}).party||'');
+  const entries=Object.entries(summary||{}).filter(([,s])=>s.stock_count>0).sort((a,b)=>b[1].avg_change_pct-a[1].avg_change_pct);
+  const names=entries.map(([n])=>n);
+  const values=entries.map(([,s])=>s.avg_change_pct||0);
+  const parties=entries.map(([,s])=>s.party||'');
   const colors=parties.map(p=>p==='더불어민주당'?'rgba(37,112,196,.7)':p==='국민의힘'?'rgba(212,64,80,.7)':'rgba(224,146,24,.7)');
   new Chart(document.getElementById('chart-consultant'),{
     type:'bar',
@@ -1223,62 +1375,6 @@ function renderConsultantChart(summary) {
       plugins:{legend:{display:false}},
       scales:{y:{grid:{color:'rgba(42,49,72,.5)'},ticks:{color:'#7e8a9f',callback:v=>v+'%'}},
         x:{grid:{display:false},ticks:{color:'#dce2ed',font:{size:11}}}}}
-  });
-}
-
-function renderRegionView(candidateStocks, allResults) {
-  const tabsEl=document.getElementById('region-tabs');
-  const contentsEl=document.getElementById('region-contents');
-  // 지역별 그룹핑
-  const regionMap={};
-  for(const [name,info] of Object.entries(candidateStocks||{})) {
-    const region = info.region||'전국(대선)';
-    if(!regionMap[region]) regionMap[region]=[];
-    regionMap[region].push({name, ...info});
-  }
-  const regions=Object.keys(regionMap).sort();
-  if(!regions.length) return;
-
-  regions.forEach((region,i)=>{
-    const btn=document.createElement('button');
-    btn.className='tab-btn'+(i===0?' active':'');
-    btn.textContent=region;
-    btn.onclick=()=>{
-      document.querySelectorAll('#region-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
-      document.querySelectorAll('.region-tab-content').forEach(c=>c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(`region-${i}`).classList.add('active');
-    };
-    tabsEl.appendChild(btn);
-
-    const cands=regionMap[region];
-    let html=`<div class="region-tab-content tab-content${i===0?' active':''}" id="region-${i}">`;
-    for(const cand of cands) {
-      const ad=cand.assets_detail||{};
-      const assetLink=ad.detail_url?` <a href="${ad.detail_url}" target="_blank" class="btn-trade">재산상세</a>`:'';
-      html+=`<div class="profile-card" style="margin-bottom:8px">
-        <h4>${cand.name} ${makePartyTag(cand.party)}</h4>
-        <div class="meta">${cand.role||''} ${cand.poll_status?'| '+cand.poll_status:''}</div>
-        ${cand.profile?`<div class="profile-text" style="font-size:.875rem">${cand.profile}</div>`:''}
-        ${cand.assets?`<div style="color:var(--warn);font-size:.875rem;margin-top:2px">${cand.assets}${assetLink}</div>`:''}`;
-      // 관련 종목 미니 테이블
-      const screening=cand.screening||[];
-      const stocks=cand.stocks||[];
-      if(stocks.length) {
-        html+='<table style="margin-top:8px;font-size:.75rem"><thead><tr><th>종목</th><th>연관</th><th>종가</th><th>등락률</th><th>매매</th></tr></thead><tbody>';
-        for(const s of stocks) {
-          const sr=screening.find(r=>r.ticker===s.ticker);
-          const cls=sr&&sr.change_pct>0?'up':sr&&sr.change_pct<0?'down':'';
-          const close=sr?sr.close.toLocaleString():'-';
-          const chg=sr?`${sr.change_pct>0?'+':''}${sr.change_pct.toFixed(2)}%`:'-';
-          html+=`<tr><td><strong>${s.name}</strong></td><td>${s.relation||''}</td><td>${close}</td><td class="${cls}">${chg}</td><td>${tradeLinks(s.ticker)}</td></tr>`;
-        }
-        html+='</tbody></table>';
-      }
-      html+='</div>';
-    }
-    html+='</div>';
-    contentsEl.innerHTML+=html;
   });
 }
 
