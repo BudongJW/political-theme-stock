@@ -56,7 +56,11 @@ class NewsCollector:
                 headers=headers, params=params, timeout=10
             )
             resp.raise_for_status()
-            items = resp.json().get("items", [])
+            data = resp.json()
+            if "items" not in data:
+                logger.warning(f"네이버 API 예상치 못한 응답: {list(data.keys())}")
+                return []
+            items = data["items"]
             return [
                 {
                     "title": BeautifulSoup(i["title"], "lxml").get_text(),

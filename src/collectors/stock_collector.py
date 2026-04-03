@@ -61,15 +61,23 @@ class StockCollector:
         avg_volume = df["거래량"].iloc[:-1].mean()
         today_volume = df["거래량"].iloc[-1]
         ratio = today_volume / avg_volume if avg_volume > 0 else 0
+        close_price = int(df["종가"].iloc[-1])
+        if close_price <= 0:
+            logger.warning(f"유효하지 않은 종가 ({ticker}): {close_price}")
+            return {"surge": False, "close": 0}
+
+        prev_close = df["종가"].iloc[-2] if len(df) >= 2 else 0
+        change_pct = round(
+            (close_price - prev_close) / prev_close * 100, 2
+        ) if prev_close > 0 else 0.0
+
         return {
             "surge": ratio >= surge_ratio,
             "ratio": round(ratio, 2),
             "today_volume": int(today_volume),
             "avg_volume": int(avg_volume),
-            "close": int(df["종가"].iloc[-1]),
-            "change_pct": round(
-                (df["종가"].iloc[-1] - df["종가"].iloc[-2]) / df["종가"].iloc[-2] * 100, 2
-            ) if len(df) >= 2 else 0,
+            "close": close_price,
+            "change_pct": change_pct,
         }
 
     def screen_theme_stocks(self, tickers: list[str], surge_ratio: float = 3.0) -> list[dict]:

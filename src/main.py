@@ -1,6 +1,8 @@
 """
 정치 테마주 분석 시스템 — 메인 스케줄러
 """
+import signal
+import sys
 import yaml
 import logging
 import os
@@ -113,13 +115,27 @@ if __name__ == "__main__":
         hour="9-15",
         day_of_week="mon-fri",
         id="stock_analysis",
+        coalesce=True,
+        max_instances=1,
+        misfire_grace_time=60,
     )
     scheduler.add_job(
         run_poll_check,
         "interval",
         hours=sched_config.get("poll_interval_hours", 6),
         id="poll_check",
+        coalesce=True,
+        max_instances=1,
+        misfire_grace_time=60,
     )
+
+    def _shutdown(signum, _frame):
+        logger.info(f"시그널 {signum} 수신 — 스케줄러 종료 중...")
+        scheduler.shutdown(wait=True)
+        sys.exit(0)
+
+    signal.signal(signal.SIGTERM, _shutdown)
+    signal.signal(signal.SIGINT, _shutdown)
 
     logger.info("스케줄러 실행 중 (Ctrl+C로 종료)")
     scheduler.start()

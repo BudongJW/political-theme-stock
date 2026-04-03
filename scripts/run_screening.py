@@ -46,6 +46,8 @@ def main():
 
     tickers = tm.get_all_tickers()
     results = sc.screen_theme_stocks(tickers, surge_ratio=2.0)
+    if not results:
+        print("경고: 스크리닝 결과 없음 — pykrx API 장애 가능성")
     for r in results:
         r["surge"] = bool(r.get("surge", False))
 
@@ -268,6 +270,24 @@ def main():
     except Exception as e:
         print(f"당선예측 분석 실패 (무시): {e}")
 
+    # 예측 적중률 분석 (과거 스냅샷 vs 실제 주가) — 캘리브레이션보다 먼저 실행
+    prediction_accuracy = {}
+    try:
+        at = AccuracyTracker(
+            sc,
+            processed_dir=str(ROOT / "data" / "processed"),
+            docs_data_dir=str(ROOT / "docs" / "data"),
+        )
+        prediction_accuracy = at.analyze_accuracy(max_snapshots=30)
+        status = prediction_accuracy.get("status", "")
+        if status == "ok":
+            overall = prediction_accuracy.get("overall", {})
+            print(f"예측 적중률: {overall.get('accuracy_pct', 0)}% ({overall.get('correct', 0)}/{overall.get('total_predictions', 0)})")
+        else:
+            print(f"예측 적중률: 데이터 부족 (스냅샷 {prediction_accuracy.get('snapshot_count', 0)}개)")
+    except Exception as e:
+        print(f"예측 적중률 분석 실패 (무시): {e}")
+
     # 자동 캘리브레이션 (적중률 기반 가중치·임계값 보정)
     calibration_data = {}
     calibration_result = {}
@@ -301,24 +321,6 @@ def main():
             print(f"  TOP: {top['name']} ({top['ticker']}) 스코어 {top['score']} [{top['signal']}]")
     except Exception as e:
         print(f"주가 예측 분석 실패 (무시): {e}")
-
-    # 예측 적중률 분석 (과거 스냅샷 vs 실제 주가)
-    prediction_accuracy = {}
-    try:
-        at = AccuracyTracker(
-            sc,
-            processed_dir=str(ROOT / "data" / "processed"),
-            docs_data_dir=str(ROOT / "docs" / "data"),
-        )
-        prediction_accuracy = at.analyze_accuracy(max_snapshots=30)
-        status = prediction_accuracy.get("status", "")
-        if status == "ok":
-            overall = prediction_accuracy.get("overall", {})
-            print(f"예측 적중률: {overall.get('accuracy_pct', 0)}% ({overall.get('correct', 0)}/{overall.get('total_predictions', 0)})")
-        else:
-            print(f"예측 적중률: 데이터 부족 (스냅샷 {prediction_accuracy.get('snapshot_count', 0)}개)")
-    except Exception as e:
-        print(f"예측 적중률 분석 실패 (무시): {e}")
 
     output = {
         "date": today,

@@ -65,10 +65,15 @@ class GeminiAnalyzer:
         today = datetime.now().strftime("%Y-%m-%d")
         return f"{prefix}_{today}_{h}"
 
-    def _get_cache(self, key: str):
+    def _get_cache(self, key: str, ttl_hours: int = 24):
         path = self._cache_dir / f"{key}.json"
         if path.exists():
             try:
+                age_hours = (datetime.now().timestamp() - path.stat().st_mtime) / 3600
+                if age_hours > ttl_hours:
+                    path.unlink()
+                    logger.info(f"Gemini 캐시 만료 삭제: {key} ({age_hours:.1f}h)")
+                    return None
                 with open(path, encoding="utf-8") as f:
                     cached = json.load(f)
                 logger.info(f"Gemini 캐시 히트: {key}")
@@ -102,7 +107,8 @@ class GeminiAnalyzer:
                         self._rotate_key()
                         continue
                     else:
-                        logger.error(f"Gemini API 모든 키 할당량 초과 — 건너뜀")
+                        logger.error(f"Gemini API 모든 키({len(self._keys)}개) 할당량 초과 — 비활성화")
+                        self._disabled = True
                         return ""
                 logger.error(f"Gemini API 호출 실패: {e}")
                 return ""

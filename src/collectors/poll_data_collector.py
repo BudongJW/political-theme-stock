@@ -21,6 +21,9 @@ logger = logging.getLogger(__name__)
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?hl=ko&gl=KR&ceid=KR:ko&q="
 
 
+MAX_POLL_RECORDS = 1000
+
+
 class PollDataCollector:
     def __init__(self, data_dir: str = "data/polls"):
         self.data_dir = Path(data_dir)
@@ -42,6 +45,9 @@ class PollDataCollector:
         return {"polls": [], "last_updated": None}
 
     def _save_db(self):
+        # 보관 정책: 최근 MAX_POLL_RECORDS건만 유지
+        if len(self._db["polls"]) > MAX_POLL_RECORDS:
+            self._db["polls"] = self._db["polls"][-MAX_POLL_RECORDS:]
         self._db["last_updated"] = datetime.now().isoformat()
         with open(self.db_file, "w", encoding="utf-8") as f:
             json.dump(self._db, f, ensure_ascii=False, indent=2)
