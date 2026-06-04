@@ -51,38 +51,90 @@ class PollCollector:
         upcoming.sort(key=lambda x: x["days_until"])
         return upcoming[0]
 
+    def get_last_election_info(self) -> dict:
+        """가장 최근에 완료된 선거 정보 반환 (결과 포함)"""
+        elections = self._calendar.get("elections", {})
+        today = datetime.now().date()
+        completed = []
+        for key, info in elections.items():
+            if info.get("status") != "completed":
+                continue
+            try:
+                election_date = datetime.strptime(info["date"], "%Y-%m-%d").date()
+            except (ValueError, KeyError):
+                continue
+            if election_date > today:
+                continue
+            days_since = (today - election_date).days
+            completed.append({**info, "key": key, "days_since": days_since})
+        if not completed:
+            return {}
+        completed.sort(key=lambda x: x["days_since"])
+        return completed[0]
+
     def get_election_phase(self) -> dict:
-        """현재 선거 타임라인 단계 반환"""
+        """
+        현재 선거 타임라인 단계 반환.
+        선거 직후(최근 완료 선거가 차기 선거보다 가까움)에는 post-election 컨텍스트를 포함한다.
+        """
         next_election = self.get_next_election_info()
-        if not next_election:
-            return {"phase": "선거 없음", "signal": "관망"}
-        days_until = next_election.get("days_until", 999)
+        last_election = self.get_last_election_info()
+
+        days_until = next_election.get("days_until", 999) if next_election else None
+        days_since = last_election.get("days_since") if last_election else None
+
+        # 선거 직후 여부: 최근 완료 선거가 120일 이내이고, 차기 선거가 그보다 멀 때
+        is_post_election = bool(
+            days_since is not None
+            and days_since <= 120
+            and (days_until is None or days_since < days_until)
+        )
+
+        # 최근 완료 선거 요약 (결과)
+        last_summary = {}
+        if last_election:
+            res = last_election.get("result", {}) or {}
+            last_summary = {
+                "last_election_name": last_election.get("name", ""),
+                "last_election_date": last_election.get("date", ""),
+                "days_since_last": days_since,
+                "last_verdict": res.get("verdict", ""),
+                "last_turnout_pct": res.get("turnout_pct"),
+            }
+
+        # 타임라인에서 오늘 날짜가 속한 단계 탐색
+        today = datetime.now().date()
         timeline = self._calendar.get("theme_stock_timeline", [])
+        matched = None
         for phase_info in reversed(timeline):
             period = phase_info.get("period", "")
-            if not period:
-                continue
             parts = period.split(" ~ ")
-            if len(parts) == 2:
-                try:
-                    start = datetime.strptime(parts[0].strip(), "%Y-%m").date()
-                    end = datetime.strptime(parts[1].strip(), "%Y-%m").date()
-                    today = datetime.now().date()
-                    if start <= today <= end:
-                        return {
-                            "phase": phase_info["phase"],
-                            "pattern": phase_info["pattern"],
-                            "signal": phase_info["signal"],
-                            "days_until_election": days_until,
-                            "election_name": next_election.get("name", ""),
-                        }
-                except ValueError:
-                    continue
+            if len(parts) != 2:
+                continue
+            try:
+                start = datetime.strptime(parts[0].strip(), "%Y-%m").date()
+                end = datetime.strptime(parts[1].strip(), "%Y-%m").date()
+            except ValueError:
+                continue
+            if start <= today <= end:
+                matched = phase_info
+                break
+
+        if matched:
+            base = {
+                "phase": matched["phase"],
+                "pattern": matched["pattern"],
+                "signal": matched["signal"],
+            }
+        else:
+            base = {"phase": "선거 준비 단계", "signal": "모니터링", "pattern": ""}
+
         return {
-            "phase": "선거 준비 단계",
-            "signal": "모니터링",
+            **base,
             "days_until_election": days_until,
-            "election_name": next_election.get("name", ""),
+            "election_name": next_election.get("name", "") if next_election else "",
+            "is_post_election": is_post_election,
+            **last_summary,
         }
 
     def get_tracking_candidates(self, election_type: str = None) -> list[dict]:
@@ -184,9 +236,33 @@ class PollCollector:
         matches = re.findall(pattern, text)
         return {name: float(pct) for name, pct in matches}
 
+    def get_last_election_result(self) -> dict:
+        """가장 최근 완료 선거의 결과 블록 반환 (대시보드용)"""
+        last = self.get_last_election_info()
+        if not last:
+            return {}
+        return {
+            "name": last.get("name", ""),
+            "date": last.get("date", ""),
+            "days_since": last.get("days_since"),
+            "significance": last.get("significance", ""),
+            "result": last.get("result", {}) or {},
+            "theme_stock_outlook": last.get("theme_stock_outlook", ""),
+        }
+
     def summarize_election_status(self) -> str:
         """현재 선거 상황 요약 텍스트 (Slack 알림용)"""
         phase = self.get_election_phase()
+        if phase.get("is_post_election"):
+            res = self.get_last_election_result().get("result", {})
+            d_since = phase.get("days_since_last", "?")
+            return (
+                f"*[선거 종료 — 청산 국면]*\n"
+                f"  선거: {phase.get('last_election_name', '')} (D+{d_since})\n"
+                f"  결과: {res.get('verdict', '-')}\n"
+                f"  현재 단계: {phase.get('phase', '')} | 시그널: {phase.get('signal', '')}\n"
+                f"  차기: {phase.get('election_name', '')} (D-{phase.get('days_until_election', '?')})"
+            )
         next_election = self.get_next_election_info()
         if not next_election:
             return "추적 중인 선거 없음"

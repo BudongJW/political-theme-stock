@@ -53,7 +53,11 @@ def main():
 
     phase = pc.get_election_phase()
     candidates = pc.get_tracking_candidates()
+    election_result = pc.get_last_election_result()
+    is_post_election = phase.get("is_post_election", False)
     today = datetime.date.today().isoformat()
+    if is_post_election:
+        print(f"선거 종료 모드: {phase.get('last_election_name','')} D+{phase.get('days_since_last','?')} | {phase.get('last_verdict','')}")
 
     # 후보별 관련주 매핑 (프로필·재산·정당·지역 포함)
     # 뉴스타파 API로 실시간 재산 데이터 수집
@@ -322,9 +326,25 @@ def main():
     except Exception as e:
         print(f"주가 예측 분석 실패 (무시): {e}")
 
+    # 선거 종료 후 종합 리뷰 (결과 vs 예측 회고 + 차기 전망)
+    post_election_review = ""
+    if is_post_election and election_result:
+        try:
+            post_election_review = ga.generate_post_election_review(
+                election_result,
+                prediction_accuracy=prediction_accuracy,
+                candidate_market_summary=candidate_market_summary,
+            )
+            if post_election_review:
+                print("선거 종료 후 AI 종합 리뷰 생성 완료")
+        except Exception as e:
+            print(f"선거 종료 리뷰 생성 실패 (무시): {e}")
+
     output = {
         "date": today,
         "election_phase": phase,
+        "election_result": election_result,
+        "ai_post_election_review": post_election_review,
         "total_tracked": len(tickers),
         "total_politicians": len(assembly_members) + len(all_local_candidates),
         "candidates": candidates,

@@ -53,28 +53,84 @@ with st.sidebar:
 sc, tm, pc = get_components()
 
 st.title("🗳️ 정치 테마주 분석 대시보드")
-st.caption("제9회 전국동시지방선거 (2026.06.03) 기반 테마주 실시간 모니터링")
 
 # ── 선거 현황 배너 ─────────────────────────────────────
 phase = pc.get_election_phase()
 next_el = pc.get_next_election_info()
 days = phase.get("days_until_election", "?")
-
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("선거까지", f"D-{days}", next_el.get("name", ""))
-col2.metric("현재 단계", phase.get("phase", "-"))
-col3.metric("시그널", phase.get("signal", "-"))
-col4.metric("추적 종목", f"{len(tm.get_all_tickers())}개")
+is_post = phase.get("is_post_election", False)
 
 signal_color = {
     "매수 관심": "🟢",
     "강한 매수 시그널": "🟢",
+    "선별 관심": "🟢",
     "고점 주의, 분할 매도 고려": "🟡",
     "매도 시그널": "🔴",
     "관망": "⚪",
 }.get(phase.get("signal", ""), "⚪")
 
-st.info(f"{signal_color} **{phase.get('phase', '')}**: {phase.get('pattern', '')}")
+if is_post:
+    # ── 선거 종료 모드 ──
+    st.caption(
+        f"{phase.get('last_election_name','제9회 전국동시지방선거')} (2026.06.03) 종료 "
+        f"· D+{phase.get('days_since_last','?')} 청산 국면 모니터링"
+    )
+    last = pc.get_last_election_result()
+    res = last.get("result", {})
+    by_party = res.get("metro_by_party", {})
+    dem = by_party.get("더불어민주당", "-")
+    ppp = by_party.get("국민의힘", "-")
+
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("선거 종료", f"D+{phase.get('days_since_last','?')}",
+                phase.get("last_election_name", ""))
+    col2.metric("광역단체장", f"민주 {dem} : 국힘 {ppp}", res.get("verdict", ""))
+    col3.metric("투표율", f"{res.get('turnout_pct','-')}%")
+    col4.metric("차기 선거", f"D-{days}", next_el.get("name", "") if next_el else "")
+
+    st.warning(
+        f"{signal_color} **{phase.get('phase','')}** ({phase.get('signal','')}): "
+        f"{phase.get('pattern','')}"
+    )
+else:
+    st.caption("제9회 전국동시지방선거 (2026.06.03) 기반 테마주 실시간 모니터링")
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("선거까지", f"D-{days}", next_el.get("name", "") if next_el else "")
+    col2.metric("현재 단계", phase.get("phase", "-"))
+    col3.metric("시그널", phase.get("signal", "-"))
+    col4.metric("추적 종목", f"{len(tm.get_all_tickers())}개")
+    st.info(f"{signal_color} **{phase.get('phase', '')}**: {phase.get('pattern', '')}")
+
+# ── 선거 결과 + 차기 전망 (선거 종료 시) ─────────────────
+if is_post:
+    last = pc.get_last_election_result()
+    res = last.get("result", {})
+    with st.expander("🏆 제9회 지방선거 결과 & 차기 전망", expanded=True):
+        st.markdown(f"**중간평가 결과:** {res.get('assessment','').strip()}")
+
+        key_races = res.get("key_races", [])
+        if key_races:
+            df_races = pd.DataFrame([
+                {
+                    "지역": r.get("region", ""),
+                    "당선자": r.get("winner", ""),
+                    "정당": r.get("party", ""),
+                    "득표율": f"{r['vote_pct']:.2f}%" if r.get("vote_pct") else "-",
+                    "비고": r.get("note", ""),
+                    "추적": "✅" if r.get("tracked_candidate") else "",
+                }
+                for r in key_races
+            ])
+            st.markdown("**주요 광역단체장 (추적 후보 중심)**")
+            st.dataframe(df_races, use_container_width=True, hide_index=True)
+
+        outlook = last.get("theme_stock_outlook", "").strip()
+        if outlook:
+            st.markdown(f"**📉 테마주 전망 (선거 이후 국면):** {outlook}")
+        st.caption(
+            "⚠️ 군소 지역 득표율은 중앙선관위 공식 최종집계로 재확인 권장 · "
+            f"차기 사이클: {next_el.get('name','') if next_el else ''} D-{days}"
+        )
 
 st.divider()
 
@@ -118,7 +174,9 @@ colors = ["#e74c3c" if x > 0 else "#3498db" for x in df["change_pct"]]
 bars = ax.barh(df["name"], df["change_pct"], color=colors)
 ax.axvline(0, color="black", linewidth=0.8)
 ax.set_xlabel("등락률 (%)")
-ax.set_title(f"정치 테마주 등락률 | {datetime.now().strftime('%Y-%m-%d')} | D-{days} 지방선거")
+_title_phase = (f"D+{phase.get('days_since_last','?')} 지선 종료" if is_post
+                else f"D-{days} 지방선거")
+ax.set_title(f"정치 테마주 등락률 | {datetime.now().strftime('%Y-%m-%d')} | {_title_phase}")
 ax.grid(axis="x", alpha=0.3)
 
 for bar, val in zip(bars, df["change_pct"]):
@@ -139,8 +197,27 @@ st.subheader("🏛️ 후보별 관련주")
 politicians = ["이재명", "정원오", "박찬대", "김동연", "박형준", "오세훈"]
 tabs = st.tabs(politicians)
 
+# 선거 결과 기반 후보별 당락 상태 맵 (이력 보존용 candidates 블록에서 추출)
+def _build_status_map():
+    smap = {}
+    last = pc.get_last_election_info()
+    for region_data in (last.get("candidates", {}) or {}).values():
+        for party, cands in region_data.items():
+            if not isinstance(cands, list):
+                continue
+            for c in cands:
+                if isinstance(c, dict) and c.get("name"):
+                    smap[c["name"]] = (c.get("status", ""), region_data.get("region", ""), party)
+    return smap
+
+status_map = _build_status_map() if is_post else {}
+
 for i, pol in enumerate(politicians):
     with tabs[i]:
+        if pol in status_map:
+            stt, region, party = status_map[pol]
+            badge = "🏆" if "당선" in stt and "낙선" not in stt else ("❌" if "낙선" in stt else "•")
+            st.caption(f"{badge} {region} · {party} · **{stt}**")
         stocks = tm.get_tickers_for_politician(pol)
         if not stocks:
             # local_candidates_2026에서도 검색
@@ -174,7 +251,7 @@ st.subheader("📅 테마주 시즌 타임라인")
 
 timeline = pc._calendar.get("theme_stock_timeline", [])
 for t in timeline:
-    icon = {"매수 관심": "🟢", "강한 매수 시그널": "🟢",
+    icon = {"매수 관심": "🟢", "강한 매수 시그널": "🟢", "선별 관심": "🟢",
             "고점 주의, 분할 매도 고려": "🟡", "매도 시그널": "🔴", "관망": "⚪"}.get(t["signal"], "⚪")
     is_current = t["phase"] == phase.get("phase", "")
     prefix = "**▶ [현재]**" if is_current else ""

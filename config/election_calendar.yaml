@@ -1,5 +1,5 @@
 # 선거 일정 및 결과 데이터베이스
-# 마지막 업데이트: 2026-03-27
+# 마지막 업데이트: 2026-06-04 (제9회 지방선거 결과 반영)
 
 elections:
 
@@ -26,109 +26,136 @@ elections:
     notes: "윤석열 전 대통령 탄핵 이후 치러진 보궐 성격 대선"
 
   # =============================================
-  # 제9회 전국동시지방선거 (2026.06.03) - 예정
+  # 제9회 전국동시지방선거 (2026.06.03) - 완료
   # =============================================
   local_9th:
     name: "제9회 전국동시지방선거"
     date: "2026-06-03"
-    early_voting: "2026-05-29 ~ 2026-05-30"  # 예상
+    early_voting: "2026-05-29 ~ 2026-05-30"
     type: "지방선거"
-    status: "upcoming"
-    significance: "이재명 정부 출범 1년, 사실상 중간평가 선거"
+    status: "completed"
+    significance: "이재명 정부 출범 1년 중간평가 — 여당 더불어민주당 압승으로 국정 신임"
     seats:
-      - "광역단체장 17명 (시·도지사)"
+      - "광역단체장 16명 (시·도지사, 광주·전남 통합특별시 출범으로 17→16)"
       - "기초단체장 226명 (시장·군수·구청장)"
-      - "광역의회의원"
-      - "기초의회의원"
-      - "교육감"
+      - "광역의회의원 / 기초의회의원 / 교육감"
 
-    # 주요 광역단체장 후보 현황 (2026년 3월 기준)
+    # ----- 개표 결과 (2026.06.03, 출처: 위키백과·나무위키·언론 종합) -----
+    # 주의: 군소 지역 득표율은 선관위 공식 최종집계로 재확인 권장
+    result:
+      turnout_pct: 61.0          # 전국 투표율 (전회 대비 +10.1%p)
+      metro_total: 16            # 광역단체장 총수
+      metro_by_party:
+        더불어민주당: 12
+        국민의힘: 4              # 서울·대구·경북·경남
+      verdict: "여당 압승 (민주 12 : 국힘 4)"
+      assessment: >
+        이재명 정부 출범 1년 중간평가 성격의 선거에서 여당 더불어민주당이
+        광역단체장 16곳 중 12곳을 차지하며 국정 운영에 대한 신임을 확인했다.
+        국민의힘은 서울(오세훈 수성)과 전통 텃밭(대구·경북·경남)만 방어.
+      key_races:
+        - region: "서울시장"
+          winner: "오세훈"
+          party: "국민의힘"
+          vote_pct: 49.08
+          note: "현직 수성 — 막판 역전승 (개표율 98.86%)"
+          tracked_candidate: true
+        - region: "경기지사"
+          winner: "추미애"
+          party: "더불어민주당"
+          vote_pct: 55.04
+          note: "헌정사상 첫 여성 광역단체장 (김동연 경선 승리 후 본선)"
+          tracked_candidate: true
+        - region: "인천시장"
+          winner: "박찬대"
+          party: "더불어민주당"
+          vote_pct: null
+          note: "단수공천 → 본선 당선"
+          tracked_candidate: true
+        - region: "부산시장"
+          winner: "전재수"
+          party: "더불어민주당"
+          vote_pct: null
+          note: "현직 박형준(국힘) 낙선 — 부산 민주당 탈환"
+          tracked_candidate: true
+        - region: "대구시장"
+          winner: "추경호"
+          party: "국민의힘"
+          vote_pct: null
+          note: "보수 텃밭 방어"
+          tracked_candidate: false
+
+    # ----- 결과 → 테마주 전망 (선거 이후 국면) -----
+    theme_stock_outlook: >
+      선거 종료로 정치 테마주는 당락과 무관하게 거품 청산(급락) 국면 진입.
+      과거 패턴상 D+1~D+60 사이 모멘텀 소멸. 다만 여당(민주) 압승으로
+      이재명 정부 국정과제(재생에너지·AI·방산·SOC·지역개발) 정책 수혜주는
+      '인물 테마'에서 '정책 모멘텀'으로 성격 전환되며 차별화 가능.
+      낙선 인물주(특히 국민의힘 패배 지역)는 추가 약세 위험.
+
+    # (이력 보존용) 선거 전 주요 후보 현황 — 2026년 3월 기준
     candidates:
       seoul:
         region: "서울시장"
-        민주당:
+        더불어민주당:
           - name: "정원오"
-            status: "경선 진행"
+            status: "경선 낙선"
             background: "성동구청장"
-            poll_rank: 1
-          - name: "박주민"
-            status: "경선 진행"
-            background: "국회의원"
-          - name: "김영배"
-            status: "경선 진행"
-            background: "국회의원"
-          - name: "전현희"
-            status: "경선 진행"
-            background: "전 국민권익위원장"
         국민의힘:
-          - name: "윤희숙"
-            status: "출마 공식화"
-            background: "전 혁신위원장"
           - name: "오세훈"
-            status: "현직 시장 (재선 도전 검토)"
+            status: "당선 (현직 수성)"
             background: "현 서울시장"
-
       gyeonggi:
         region: "경기지사"
-        민주당:
+        더불어민주당:
           - name: "김동연"
-            status: "경선 진행"
-            background: "현 경기지사"
+            status: "경선 단계 (본선 후보: 추미애)"
+            background: "전 경기지사"
           - name: "추미애"
-            status: "경선 진행"
+            status: "당선"
             background: "전 법무부장관"
-          - name: "권칠승"
-            status: "경선 진행"
-            background: "국회의원"
-          - name: "양기대"
-            status: "경선 진행"
-            background: "국회의원"
-          - name: "한준호"
-            status: "경선 진행"
-            background: "국회의원"
         국민의힘:
           - name: "양향자"
-            status: "출마 시사"
+            status: "낙선"
             background: "최고위원"
-
       incheon:
         region: "인천시장"
-        민주당:
+        더불어민주당:
           - name: "박찬대"
-            status: "단수 공천 확정 (2026.03.04)"
+            status: "당선"
             background: "국회의원 (원내대표)"
-        국민의힘:
-          - name: "미정"
-            status: "후보 미확정"
-
       busan:
         region: "부산시장"
         국민의힘:
           - name: "박형준"
-            status: "3선 도전 유력"
+            status: "낙선 (현직)"
             background: "현 부산시장"
-          - name: "주진우"
-            status: "출마 검토"
-            background: "국회의원"
-        민주당:
+        더불어민주당:
           - name: "전재수"
-            status: "출마 공식화"
+            status: "당선"
             background: "국회의원"
-
       daegu:
         region: "대구시장"
         국민의힘:
-          - name: "주호영"
-            status: "거론"
-            background: "국회의원"
-          - name: "윤재옥"
-            status: "거론"
-            background: "국회의원"
           - name: "추경호"
-            status: "거론"
+            status: "당선"
             background: "국회의원"
 
-# 정치 테마주 시즌 분석 타임라인
+  # =============================================
+  # 제23대 국회의원선거 (2028.04.12) - 예정 (차기 사이클)
+  # =============================================
+  general_23rd:
+    name: "제23대 국회의원선거"
+    date: "2028-04-12"          # 4월 둘째 수요일
+    type: "총선"
+    status: "upcoming"
+    significance: "이재명 정부 중후반기 평가 — 차기 정치 테마주 사이클의 기준점"
+    notes: >
+      2026 지방선거 종료 후 다음 전국단위 선거. 테마주 관점에서는
+      2027년 하반기부터 공천·인물 거론과 함께 신규 사이클 형성 예상.
+      참고: 차기 대통령선거는 2030년 예정.
+
+# 정치 테마주 시즌 분석 타임라인 (지방선거 사이클 → 차기 총선 사이클)
 theme_stock_timeline:
   - phase: "선거 12~6개월 전"
     period: "2025-06 ~ 2025-12"
@@ -150,13 +177,25 @@ theme_stock_timeline:
     pattern: "최고점 도달 후 급락 시작"
     signal: "매도 시그널"
 
-  - phase: "선거 이후"
-    period: "2026-06 ~"
-    pattern: "당락 무관 대부분 급락 마무리"
+  - phase: "선거 직후 청산 국면"
+    period: "2026-06 ~ 2026-09"
+    pattern: "당락 무관 인물 테마주 거품 소멸·급락 마무리"
     signal: "관망"
+
+  - phase: "정책 테마 선별 국면"
+    period: "2026-09 ~ 2027-06"
+    pattern: "여당 압승 → 인물주 소멸, 국정과제 정책 수혜주로 차별화"
+    signal: "선별 관심"
+
+  - phase: "차기 총선 사이클 진입"
+    period: "2027-06 ~ 2028-04"
+    pattern: "제23대 총선 공천·인물 거론 → 신규 테마주 사이클 형성"
+    signal: "매수 관심"
 
 # 현재 선거 사이클 (자동 계산용)
 current_cycle:
-  next_election: "2026-06-03"
-  election_name: "제9회 전국동시지방선거"
+  next_election: "2028-04-12"
+  election_name: "제23대 국회의원선거"
   days_until: null  # 런타임에 계산
+  last_election: "2026-06-03"
+  last_election_name: "제9회 전국동시지방선거"

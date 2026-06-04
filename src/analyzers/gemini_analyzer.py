@@ -301,7 +301,49 @@ JSON만 응답."""
             :top_n
         ]
 
-        prompt = f"""정치 테마주 스크리닝 결과로 일일 분석 리포트를 작성해줘.
+        is_post = phase.get("is_post_election", False)
+        gainers_text = chr(10).join(
+            f"- {r.get('name','')} ({r.get('ticker','')}) +{r.get('change_pct',0):.2f}% | 태그: {', '.join(r.get('tags',[]))}"
+            for r in top_gainers
+        )
+        losers_text = chr(10).join(
+            f"- {r.get('name','')} ({r.get('ticker','')}) {r.get('change_pct',0):.2f}% | 태그: {', '.join(r.get('tags',[]))}"
+            for r in top_losers
+        )
+        cand_text = chr(10).join(
+            f"- {n}: {info.get('avg_change_pct',0):.2f}% ({info.get('party','')}, {info.get('stock_count',0)}종목)"
+            for n, info in candidates.items()
+        )
+
+        if is_post:
+            # 선거 종료(청산 국면) — 결과·청산·차기 사이클 관점으로 프레이밍 전환
+            prompt = f"""정치 테마주 스크리닝 결과로 '선거 종료 후' 일일 분석 리포트를 작성해줘.
+
+상황: {phase.get('last_election_name','제9회 지방선거')} 종료 D+{phase.get('days_since_last','?')} | 단계: {phase.get('phase','선거 직후 청산 국면')}
+선거 결과: {phase.get('last_verdict','')} (투표율 {phase.get('last_turnout_pct','-')}%)
+차기 선거: {phase.get('election_name','제23대 총선')} D-{phase.get('days_until_election','?')}
+
+오늘 요약:
+- 상승 {summary.get('up', 0)}개 / 하락 {summary.get('down', 0)}개 / 급등 {summary.get('surge_count', 0)}개
+
+상승 TOP:
+{gainers_text}
+
+하락 TOP:
+{losers_text}
+
+후보별 평균 등락률:
+{cand_text}
+
+다음 형식으로 작성 (선거 이후 국면에 맞게):
+1. 오늘의 핵심 포인트 (청산 국면 진행도 — 인물 테마주 급락/잔존 여부)
+2. 당선/낙선이 갈린 후보 관련주 명암 (당선=단기 차익실현, 낙선=추가 약세 위험)
+3. 인물 테마 → 정책 모멘텀 전환 관점 (여당 압승 → 국정과제 수혜주 차별화)
+4. 차기 총선 사이클까지 관망/대응 전략
+
+한국어로 깔끔하게, 650자 이내. 선거가 '이미 끝났다'는 전제로 작성."""
+        else:
+            prompt = f"""정치 테마주 스크리닝 결과로 일일 분석 리포트를 작성해줘.
 
 선거 D-{phase.get('days_until_election', '?')} | 단계: {phase.get('phase', '')}
 
@@ -309,13 +351,13 @@ JSON만 응답."""
 - 상승 {summary.get('up', 0)}개 / 하락 {summary.get('down', 0)}개 / 급등 {summary.get('surge_count', 0)}개
 
 상승 TOP:
-{chr(10).join(f"- {r.get('name','')} ({r.get('ticker','')}) +{r.get('change_pct',0):.2f}% | 태그: {', '.join(r.get('tags',[]))}" for r in top_gainers)}
+{gainers_text}
 
 하락 TOP:
-{chr(10).join(f"- {r.get('name','')} ({r.get('ticker','')}) {r.get('change_pct',0):.2f}% | 태그: {', '.join(r.get('tags',[]))}" for r in top_losers)}
+{losers_text}
 
 후보별 평균 등락률:
-{chr(10).join(f"- {n}: {info.get('avg_change_pct',0):.2f}% ({info.get('party','')}, {info.get('stock_count',0)}종목)" for n, info in candidates.items())}
+{cand_text}
 
 다음 형식으로 작성:
 1. 오늘의 핵심 포인트 (2-3줄)
@@ -329,6 +371,74 @@ JSON만 응답."""
         if report:
             self._set_cache(ck, report)
         return report
+
+    def generate_post_election_review(
+        self, election_result: dict, prediction_accuracy: dict = None,
+        candidate_market_summary: dict = None,
+    ) -> str:
+        """
+        선거 종료 후 종합 리뷰 리포트.
+        - 선거 결과 vs 예측 모델 적중 회고
+        - 테마주 청산 국면 진단 + 향후(차기 사이클) 시나리오
+        하루 1회 캐싱.
+        """
+        result = (election_result or {}).get("result", {})
+        if not result:
+            return ""
+
+        ck = self._cache_key("post_election_review", result.get("verdict", ""))
+        cached = self._get_cache(ck)
+        if cached is not None:
+            return cached
+
+        races = result.get("key_races", [])
+        races_text = chr(10).join(
+            f"- {r.get('region','')}: {r.get('winner','')} ({r.get('party','')}) "
+            f"{('%.2f%%' % r['vote_pct']) if r.get('vote_pct') else ''} — {r.get('note','')}"
+            for r in races
+        )
+
+        acc_text = ""
+        if prediction_accuracy and prediction_accuracy.get("status") == "ok":
+            ov = prediction_accuracy.get("overall", {})
+            acc_text = (
+                f"\n참고 — 주가 시그널 예측 적중률: {ov.get('accuracy_pct',0)}% "
+                f"({ov.get('correct',0)}/{ov.get('total_predictions',0)})"
+            )
+
+        cand_text = ""
+        if candidate_market_summary:
+            top = sorted(
+                candidate_market_summary.items(),
+                key=lambda kv: kv[1].get("avg_change_pct", 0),
+            )
+            cand_text = "\n선거 직후 관련주 평균 등락(하위→상위):\n" + chr(10).join(
+                f"- {n}: {info.get('avg_change_pct',0):.2f}% ({info.get('party','')})"
+                for n, info in top[:8]
+            )
+
+        prompt = f"""{election_result.get('name','제9회 전국동시지방선거')} 종료 후 종합 리뷰를 작성해줘.
+
+선거 결과: {result.get('verdict','')}
+중간평가 의미: {(election_result.get('significance','') or result.get('assessment','')).strip()}
+투표율: {result.get('turnout_pct','-')}% | 광역단체장: 민주 {result.get('metro_by_party',{}).get('더불어민주당','-')} : 국힘 {result.get('metro_by_party',{}).get('국민의힘','-')}
+
+주요 광역단체장:
+{races_text}
+{acc_text}{cand_text}
+
+다음 형식으로 작성:
+1. 선거 결과 요약과 시장 함의 (2-3줄)
+2. 당선/낙선별 관련주 명암 — 청산 국면 대응
+3. 인물 테마 소멸 → 정책 테마(여당 국정과제) 전환 시나리오
+4. 차기 총선(2028) 사이클까지 모니터링 포인트
+
+한국어, 700자 이내. 투자 권유가 아닌 분석 관점으로."""
+
+        review = self._call(prompt)
+        if review:
+            self._set_cache(ck, review)
+        return review
 
     def analyze_poll_impact(self, poll_signals: list[dict], news_titles: list[str] = None) -> str:
         """여론조사 + 뉴스 복합 분석 — 지지율 변동 원인과 테마주 영향 해석"""

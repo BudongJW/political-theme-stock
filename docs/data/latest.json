@@ -1,10 +1,17 @@
 {
   "date": "2026-06-02",
   "election_phase": {
-    "phase": "선거 준비 단계",
-    "signal": "모니터링",
-    "days_until_election": 1,
-    "election_name": "제9회 전국동시지방선거"
+    "phase": "선거 직후 청산 국면",
+    "pattern": "당락 무관 인물 테마주 거품 소멸·급락 마무리",
+    "signal": "관망",
+    "days_until_election": 678,
+    "election_name": "제23대 국회의원선거",
+    "is_post_election": true,
+    "last_election_name": "제9회 전국동시지방선거",
+    "last_election_date": "2026-06-03",
+    "days_since_last": 1,
+    "last_verdict": "여당 압승 (민주 12 : 국힘 4)",
+    "last_turnout_pct": 61.0
   },
   "total_tracked": 41,
   "total_politicians": 380,
@@ -14052,5 +14059,65 @@
     "surge_count": 2,
     "top_gainer": "BGF리테일",
     "top_loser": "대한전선"
-  }
+  },
+  "election_result": {
+    "name": "제9회 전국동시지방선거",
+    "date": "2026-06-03",
+    "days_since": 1,
+    "significance": "이재명 정부 출범 1년 중간평가 — 여당 더불어민주당 압승으로 국정 신임",
+    "result": {
+      "turnout_pct": 61.0,
+      "metro_total": 16,
+      "metro_by_party": {
+        "더불어민주당": 12,
+        "국민의힘": 4
+      },
+      "verdict": "여당 압승 (민주 12 : 국힘 4)",
+      "assessment": "이재명 정부 출범 1년 중간평가 성격의 선거에서 여당 더불어민주당이 광역단체장 16곳 중 12곳을 차지하며 국정 운영에 대한 신임을 확인했다. 국민의힘은 서울(오세훈 수성)과 전통 텃밭(대구·경북·경남)만 방어.\n",
+      "key_races": [
+        {
+          "region": "서울시장",
+          "winner": "오세훈",
+          "party": "국민의힘",
+          "vote_pct": 49.08,
+          "note": "현직 수성 — 막판 역전승 (개표율 98.86%)",
+          "tracked_candidate": true
+        },
+        {
+          "region": "경기지사",
+          "winner": "추미애",
+          "party": "더불어민주당",
+          "vote_pct": 55.04,
+          "note": "헌정사상 첫 여성 광역단체장 (김동연 경선 승리 후 본선)",
+          "tracked_candidate": true
+        },
+        {
+          "region": "인천시장",
+          "winner": "박찬대",
+          "party": "더불어민주당",
+          "vote_pct": null,
+          "note": "단수공천 → 본선 당선",
+          "tracked_candidate": true
+        },
+        {
+          "region": "부산시장",
+          "winner": "전재수",
+          "party": "더불어민주당",
+          "vote_pct": null,
+          "note": "현직 박형준(국힘) 낙선 — 부산 민주당 탈환",
+          "tracked_candidate": true
+        },
+        {
+          "region": "대구시장",
+          "winner": "추경호",
+          "party": "국민의힘",
+          "vote_pct": null,
+          "note": "보수 텃밭 방어",
+          "tracked_candidate": false
+        }
+      ]
+    },
+    "theme_stock_outlook": "선거 종료로 정치 테마주는 당락과 무관하게 거품 청산(급락) 국면 진입. 과거 패턴상 D+1~D+60 사이 모멘텀 소멸. 다만 여당(민주) 압승으로 이재명 정부 국정과제(재생에너지·AI·방산·SOC·지역개발) 정책 수혜주는 '인물 테마'에서 '정책 모멘텀'으로 성격 전환되며 차별화 가능. 낙선 인물주(특히 국민의힘 패배 지역)는 추가 약세 위험.\n"
+  },
+  "ai_post_election_review": ""
 }
