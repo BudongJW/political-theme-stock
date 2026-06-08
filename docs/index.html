@@ -287,7 +287,7 @@
     <header>
       <h1>PollStock 폴스탁</h1>
       <p style="font-size:1rem;margin-bottom:4px;">여론조사 × 주식 — 정치 테마주 AI 분석 대시보드</p>
-      <p>제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span> <span id="update-time" style="font-size:.75rem;color:var(--muted);margin-left:8px;"></span></p>
+      <p><span id="header-election-line">제9회 전국동시지방선거 (2026.06.03) D-<span id="header-dday">?</span></span> <span id="update-time" style="font-size:.75rem;color:var(--muted);margin-left:8px;"></span></p>
       <p style="margin-top:8px;padding:6px 16px;background:rgba(232,83,74,.08);border:1px solid rgba(232,83,74,.22);border-radius:var(--radius-sm);color:var(--down);font-size:.875rem;font-weight:600;display:inline-block;">
         본 서비스는 교육·연구 목적이며, 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.
       </p>
@@ -335,6 +335,12 @@
       <div class="icon" id="phase-icon" style="font-size:1.2rem;color:var(--warn);font-weight:700;">~</div>
       <div class="info"><h3 id="phase-title">-</h3><p id="phase-desc">-</p></div>
     </div>
+
+    <!-- 선거 결과 패널 (선거 종료 시에만 표시) -->
+    <section id="election-result-section" style="display:none">
+      <h2 id="election-result-title">선거 결과 &amp; 차기 전망</h2>
+      <div id="election-result-body"></div>
+    </section>
 
     <!-- 스크리닝 테이블 -->
     <section>
@@ -557,6 +563,12 @@
       <p style="color:var(--muted);font-size:.875rem;margin-top:4px;">Gemini AI 기반 일일 리포트 및 신규 테마주 자동 제안</p>
     </div>
 
+    <!-- 선거 종료 후 AI 종합 리뷰 (선거 종료 시에만) -->
+    <section id="post-election-section" style="display:none">
+      <h2>선거 종료 후 AI 종합 리뷰 — 결과 회고 &amp; 차기 전망</h2>
+      <div class="profile-card" id="post-election-review" style="white-space:pre-line;font-size:.875rem;line-height:1.7;border-left:3px solid var(--accent);"></div>
+    </section>
+
     <!-- AI 일일 리포트 -->
     <section id="ai-report-section" style="display:none">
       <h2>AI 일일 분석 리포트</h2>
@@ -663,14 +675,16 @@
 </div>
 
 <script>
-const SIG_ICONS = {'매수 관심':'+','강한 매수 시그널':'++','고점 주의, 분할 매도 고려':'~','매도 시그널':'-','관망':'·'};
+const SIG_ICONS = {'매수 관심':'+','강한 매수 시그널':'++','선별 관심':'+','고점 주의, 분할 매도 고려':'~','매도 시그널':'-','관망':'·'};
 const PARTY_COLORS = {'더불어민주당':'dem','국민의힘':'ppp','개혁신당':'reform'};
 const TIMELINE = [
   {phase:'선거 12~6개월 전',period:'2025-06 ~ 2025-12',pattern:'유력 후보 거론 → 관련주 1차 급등',signal:'매수 관심'},
   {phase:'선거 6~3개월 전',period:'2025-12 ~ 2026-03',pattern:'경선/여론조사 결과 → 관련주 2차 급등',signal:'강한 매수 시그널'},
   {phase:'선거 3~1개월 전',period:'2026-03 ~ 2026-05',pattern:'공천 확정 → 최고 과열 구간',signal:'고점 주의, 분할 매도 고려'},
   {phase:'선거 당일 전후',period:'2026-06-03 전후',pattern:'최고점 도달 후 급락 시작',signal:'매도 시그널'},
-  {phase:'선거 이후',period:'2026-06 ~',pattern:'당락 무관 대부분 급락 마무리',signal:'관망'},
+  {phase:'선거 직후 청산 국면',period:'2026-06 ~ 2026-09',pattern:'당락 무관 인물 테마주 거품 소멸·급락 마무리',signal:'관망'},
+  {phase:'정책 테마 선별 국면',period:'2026-09 ~ 2027-06',pattern:'여당 압승 → 인물주 소멸, 국정과제 정책 수혜주로 차별화',signal:'선별 관심'},
+  {phase:'차기 총선 사이클 진입',period:'2027-06 ~ 2028-04',pattern:'제23대 총선 공천·인물 거론 → 신규 테마주 사이클 형성',signal:'매수 관심'},
 ];
 
 let DATA = null;
@@ -943,8 +957,17 @@ function tradeLinks(ticker) {
 function render(data) {
   const {election_phase:phase, screening_results:results, summary, date, candidate_stocks, candidate_market_summary, stock_contexts} = data;
 
-  document.getElementById('m-dday').textContent=`D-${phase.days_until_election||'?'}`;
-  document.getElementById('header-dday').textContent=phase.days_until_election||'?';
+  const isPost = !!phase.is_post_election;
+  if(isPost){
+    document.getElementById('m-dday').textContent=`D+${phase.days_since_last??'?'}`;
+    const dl=document.querySelector('#m-dday')?.closest('.metric-card')?.querySelector('.label');
+    if(dl) dl.textContent='선거 종료';
+    const hl=document.getElementById('header-election-line');
+    if(hl) hl.textContent=`제9회 전국동시지방선거 (2026.06.03) 종료 · D+${phase.days_since_last??'?'} 청산 국면  |  차기 ${phase.election_name||'제23대 총선'} D-${phase.days_until_election||'?'}`;
+  } else {
+    document.getElementById('m-dday').textContent=`D-${phase.days_until_election||'?'}`;
+    document.getElementById('header-dday').textContent=phase.days_until_election||'?';
+  }
   document.getElementById('m-phase').textContent=phase.phase||'-';
   document.getElementById('m-up').textContent=summary.up;
   document.getElementById('m-down').textContent=summary.down;
@@ -1008,13 +1031,15 @@ function render(data) {
   run(()=>renderStockPredictions(data.stock_predictions), 'StockPredictions');
   run(()=>renderAssemblyMembers(data.assembly_members), 'Assembly');
   run(()=>renderLocalCandidatesFull(data.local_candidates), 'LocalCandidates');
+  run(()=>renderElectionResult(data), 'ElectionResult');
+  run(()=>renderPostElectionReview(data.ai_post_election_review), 'PostElectionReview');
   run(()=>renderAIReport(data.ai_report), 'AIReport');
   run(()=>renderAISuggestions(data.ai_suggestions, candidate_stocks), 'AISuggestions');
   run(()=>renderTimeline(phase.phase), 'Timeline');
   run(()=>renderAccuracy(data.prediction_accuracy), 'Accuracy');
   run(()=>renderCalibration(data.calibration), 'Calibration');
   // AI 페이지 빈 메시지 숨김
-  if(data.ai_report || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
+  if(data.ai_report || data.ai_post_election_review || (data.ai_suggestions && Object.keys(data.ai_suggestions).length)) {
     const emptyMsg=document.getElementById('ai-empty-msg');
     if(emptyMsg) emptyMsg.style.display='none';
   }
@@ -1734,6 +1759,66 @@ function renderAIReport(report) {
   if(!report) return;
   document.getElementById('ai-report-section').style.display='block';
   document.getElementById('ai-report').textContent=report;
+}
+
+function renderPostElectionReview(review) {
+  if(!review) return;
+  document.getElementById('post-election-section').style.display='block';
+  document.getElementById('post-election-review').textContent=review;
+}
+
+function renderElectionResult(data) {
+  const er = data.election_result;
+  const phase = data.election_phase || {};
+  if(!er || !er.result || !phase.is_post_election) return;
+  const res = er.result;
+  const sec = document.getElementById('election-result-section');
+  const titleEl = document.getElementById('election-result-title');
+  if(titleEl) titleEl.textContent = `${er.name||'지방선거'} 결과 & 차기 전망 (D+${er.days_since??'?'})`;
+
+  const byParty = res.metro_by_party || {};
+  const dem = byParty['더불어민주당'] ?? '-';
+  const ppp = byParty['국민의힘'] ?? '-';
+
+  // 정당별 광역단체장 막대
+  const total = (typeof dem==='number'?dem:0) + (typeof ppp==='number'?ppp:0) || 1;
+  const demW = Math.round((dem/total)*100), pppW = 100-demW;
+
+  let racesRows = (res.key_races||[]).map(r=>{
+    const pc = r.party==='더불어민주당'?'var(--dem)':r.party==='국민의힘'?'var(--ppp)':'var(--reform)';
+    const tracked = r.tracked_candidate ? '<span class="tag tag-pol">추적</span>' : '';
+    const vp = r.vote_pct ? `${r.vote_pct.toFixed(2)}%` : '-';
+    return `<tr><td>${r.region||''}</td><td><strong>${r.winner||''}</strong> ${tracked}</td>
+      <td><span style="color:${pc};font-weight:600">${r.party||''}</span></td>
+      <td>${vp}</td><td style="color:var(--muted);font-size:.8rem">${r.note||''}</td></tr>`;
+  }).join('');
+
+  sec.innerHTML = `
+    <h2 id="election-result-title">${er.name||'지방선거'} 결과 & 차기 전망 (D+${er.days_since??'?'})</h2>
+    <div class="metrics" style="margin-bottom:12px">
+      <div class="metric-card"><div class="value" style="font-size:1.1rem">${res.verdict||'-'}</div><div class="label">중간평가 결과</div></div>
+      <div class="metric-card"><div class="value">${res.turnout_pct??'-'}%</div><div class="label">투표율</div></div>
+      <div class="metric-card"><div class="value"><span style="color:var(--dem)">${dem}</span> : <span style="color:var(--ppp)">${ppp}</span></div><div class="label">광역단체장 (민주:국힘)</div></div>
+      <div class="metric-card"><div class="value" style="color:var(--accent)">D-${phase.days_until_election||'?'}</div><div class="label">차기 ${phase.election_name||'총선'}</div></div>
+    </div>
+    <div class="battle-bar" style="margin-bottom:14px">
+      <div class="seg" style="width:${demW}%;background:var(--dem)" title="더불어민주당 ${dem}"></div>
+      <div class="seg" style="width:${pppW}%;background:var(--ppp)" title="국민의힘 ${ppp}"></div>
+    </div>
+    <div class="profile-card" style="margin-bottom:12px">
+      <div style="font-size:.875rem;line-height:1.7">${(res.assessment||'').trim()}</div>
+    </div>
+    <div class="table-wrap" style="margin-bottom:12px">
+      <table><thead><tr><th>지역</th><th>당선자</th><th>정당</th><th>득표율</th><th>비고</th></tr></thead>
+      <tbody>${racesRows}</tbody></table>
+    </div>
+    <div class="profile-card" style="border-left:3px solid var(--warn)">
+      <div class="dash-card__label" style="color:var(--warn);margin-bottom:6px">📉 테마주 전망 (선거 이후 국면)</div>
+      <div style="font-size:.875rem;line-height:1.7;color:var(--muted)">${(er.theme_stock_outlook||'').trim()}</div>
+    </div>
+    <p style="color:var(--muted);font-size:.72rem;margin-top:8px">⚠️ 군소 지역 득표율은 중앙선관위 공식 최종집계로 재확인 권장.</p>
+  `;
+  sec.style.display='block';
 }
 
 function renderAISuggestions(suggestions, candidateStocks) {
