@@ -296,6 +296,25 @@
     <!-- ==================== 페이지 1: 대시보드 ==================== -->
     <div class="page active" id="page-dashboard">
 
+    <!-- 오늘 주목 (맨 상단 하이라이트) -->
+    <section id="today-highlights" style="display:none;margin-top:8px;">
+      <h2 style="display:flex;align-items:center;gap:8px;">🔥 오늘 주목
+        <span id="today-highlights-sub" style="color:var(--muted);font-weight:400;font-size:.78rem;"></span>
+      </h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;">
+        <div class="profile-card" style="border-top:2px solid var(--accent);">
+          <div class="dash-card__label" style="color:var(--accent);margin-bottom:8px;">주목 정치인
+            <span class="dash-card__sub">관련주 평균 등락 기준</span></div>
+          <div id="today-politicians"></div>
+        </div>
+        <div class="profile-card" style="border-top:2px solid var(--warn);">
+          <div class="dash-card__label" style="color:var(--warn);margin-bottom:8px;">주목 종목
+            <span class="dash-card__sub">등락·거래량 급등 기준</span></div>
+          <div id="today-stocks"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 대시보드 요약 카드 (AI·시그널·TOP종목) -->
     <div id="dash-summary" style="display:none;margin-bottom:16px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
@@ -1018,6 +1037,7 @@ function render(data) {
   fillSelect('cons-region-filter', allRegions);
 
   const run = (fn, label) => { try { fn(); } catch(e) { console.error(`[${label}]`, e); } };
+  run(()=>renderTodayHighlights(data), 'TodayHighlights');
   run(()=>renderTable(results, candidate_stocks), 'Table');
   // Chart.js lazy load — 대시보드 차트는 데이터 렌더 후 로드
   loadChartJs().then(()=>{ run(()=>renderChart(results), 'Chart'); });
@@ -1282,6 +1302,69 @@ function renderHotPoliticians(candidateStocks, summary) {
       ${surgeHtml}
     </div>`;
   }
+}
+
+// ── 오늘 주목 (대시보드 최상단 하이라이트) ──
+function renderTodayHighlights(data) {
+  const sec=document.getElementById('today-highlights');
+  if(!sec) return;
+  const results=(data.screening_results||[]).filter(r=>r.close>0 && typeof r.change_pct==='number');
+  const cms=data.candidate_market_summary||{};
+  const isPost=!!(data.election_phase||{}).is_post_election;
+
+  // 당선자 집합 (선거 종료 시 🏆 배지)
+  const winners=new Set();
+  const races=((data.election_result||{}).result||{}).key_races||[];
+  races.forEach(r=>{ if(r.winner) winners.add(r.winner); });
+
+  // 주목 정치인: 관련주 평균 |등락| 큰 순 (상위 5)
+  const pols=Object.entries(cms)
+    .filter(([,i])=>i.stock_count>0 && typeof i.avg_change_pct==='number')
+    .sort((a,b)=>Math.abs(b[1].avg_change_pct)-Math.abs(a[1].avg_change_pct))
+    .slice(0,5);
+
+  // 주목 종목: |등락| 큰 순 + 거래량 급등 가산 (상위 5)
+  const stocks=results.slice().sort((a,b)=>{
+    const sa=Math.abs(a.change_pct)+(a.surge?5:0), sb=Math.abs(b.change_pct)+(b.surge?5:0);
+    return sb-sa;
+  }).slice(0,5);
+
+  if(!pols.length && !stocks.length){ sec.style.display='none'; return; }
+
+  const polEl=document.getElementById('today-politicians');
+  polEl.innerHTML = pols.length ? pols.map(([name,info])=>{
+    const c=info.avg_change_pct>0?'var(--up)':info.avg_change_pct<0?'var(--down)':'var(--muted)';
+    const win=winners.has(name)?' <span title="당선">🏆</span>':'';
+    const tv=info.total_trade_value_억?` · 거래대금 ${info.total_trade_value_억}억`:'';
+    return `<div class="top-stock-item hoverable" style="cursor:pointer;border-radius:var(--radius-sm)" onclick="jumpToCandidate('${name}')">
+      <div class="top-stock-item__head">
+        <span><strong>${name}</strong>${win} ${makePartyTag(info.party)}</span>
+        <span style="color:${c};font-weight:700">${info.avg_change_pct>0?'+':''}${info.avg_change_pct.toFixed(2)}%</span>
+      </div>
+      <div class="top-stock-item__reason">${info.region||''} · ${info.stock_count}종목${tv}</div>
+    </div>`;
+  }).join('') : '<p style="color:var(--muted);font-size:.8rem">관련주 데이터 로딩 중...</p>';
+
+  const stkEl=document.getElementById('today-stocks');
+  stkEl.innerHTML = stocks.length ? stocks.map(r=>{
+    const c=r.change_pct>0?'var(--up)':r.change_pct<0?'var(--down)':'var(--muted)';
+    const surge=r.surge?' <span class="badge-surge">급등</span>':'';
+    const tag=(r.tags&&r.tags.length)?`<span class="tag ${r.tags[0].includes('관련주')?'tag-pol':'tag-theme'}">${r.tags[0]}</span>`:'';
+    return `<div class="top-stock-item">
+      <div class="top-stock-item__head">
+        <span style="cursor:pointer" onclick="jumpToStock('${r.ticker}')"><strong>${r.name}</strong> <span style="color:var(--muted);font-size:.72rem">${r.ticker}</span>${surge}</span>
+        <span style="color:${c};font-weight:700">${r.change_pct>0?'+':''}${r.change_pct.toFixed(2)}%</span>
+      </div>
+      <div class="top-stock-item__body">
+        <span>${tag}</span>
+        <span style="color:var(--muted)">${(r.close||0).toLocaleString()}원 · ${(r.ratio||0).toFixed(1)}x</span>
+      </div>
+    </div>`;
+  }).join('') : '<p style="color:var(--muted);font-size:.8rem">종목 데이터 로딩 중...</p>';
+
+  const sub=document.getElementById('today-highlights-sub');
+  if(sub) sub.textContent = isPost ? '· 선거 종료 후 청산 국면 움직임' : '';
+  sec.style.display='block';
 }
 
 // ── 전체 정치인 검색 시스템 ──
