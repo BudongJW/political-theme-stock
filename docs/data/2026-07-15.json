@@ -185,13 +185,13 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.11,
-          "today_volume": 183925,
-          "avg_volume": 1647112,
-          "close": 4605,
-          "change_pct": 2.91,
-          "ticker": "058430",
-          "name": "포스코스틸리온",
+          "ratio": 1.13,
+          "today_volume": 86657,
+          "avg_volume": 76492,
+          "close": 13860,
+          "change_pct": 2.9,
+          "ticker": "030190",
+          "name": "NICE평가정보",
           "tags": [
             "정원오 관련주"
           ],
@@ -202,7 +202,7 @@
               "party": "더불어민주당",
               "role": "서울시장 후보 (경선 중)",
               "region": "서울",
-              "relation": "지역구(성수동) 내 부지 보유",
+              "relation": "성동구청장 시절 협력",
               "election": "2026지방선거"
             }
           ]
@@ -232,14 +232,14 @@
           ]
         },
         {
-          "surge": false,
-          "ratio": 1.13,
-          "today_volume": 86657,
-          "avg_volume": 76492,
-          "close": 13860,
-          "change_pct": 2.9,
-          "ticker": "030190",
-          "name": "NICE평가정보",
+          "surge": true,
+          "ratio": 24.34,
+          "today_volume": 272706,
+          "avg_volume": 11202,
+          "close": 1270,
+          "change_pct": -12.77,
+          "ticker": "007720",
+          "name": "소노스퀘어",
           "tags": [
             "정원오 관련주"
           ],
@@ -250,7 +250,31 @@
               "party": "더불어민주당",
               "role": "서울시장 후보 (경선 중)",
               "region": "서울",
-              "relation": "성동구청장 시절 협력",
+              "relation": "출신지(여수) 내 공장",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.11,
+          "today_volume": 183925,
+          "avg_volume": 1647112,
+          "close": 4605,
+          "change_pct": 2.91,
+          "ticker": "058430",
+          "name": "포스코스틸리온",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "서울시장 후보 (경선 중)",
+              "region": "서울",
+              "relation": "지역구(성수동) 내 부지 보유",
               "election": "2026지방선거"
             }
           ]
@@ -275,30 +299,6 @@
               "role": "서울시장 후보 (경선 중)",
               "region": "서울",
               "relation": "종친(경주 정씨) 연결",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": true,
-          "ratio": 24.34,
-          "today_volume": 272706,
-          "avg_volume": 11202,
-          "close": 1270,
-          "change_pct": -12.77,
-          "ticker": "007720",
-          "name": "소노스퀘어",
-          "tags": [
-            "정원오 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "정원오",
-              "party": "더불어민주당",
-              "role": "서울시장 후보 (경선 중)",
-              "region": "서울",
-              "relation": "출신지(여수) 내 공장",
               "election": "2026지방선거"
             }
           ]
@@ -334,30 +334,6 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.9,
-          "today_volume": 1044834,
-          "avg_volume": 1155570,
-          "close": 145000,
-          "change_pct": 3.87,
-          "ticker": "000270",
-          "name": "기아",
-          "tags": [
-            "오세훈 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "오세훈",
-              "party": "국민의힘",
-              "role": "서울시장 (현직, 재선 도전 검토)",
-              "region": "서울",
-              "relation": "서울시 UAM(도심항공) 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
           "ratio": 0.56,
           "today_volume": 46088,
           "avg_volume": 82659,
@@ -376,6 +352,30 @@
               "role": "서울시장 (현직, 재선 도전 검토)",
               "region": "서울",
               "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 재선 시 골목상권 규제 완화 수혜",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.9,
+          "today_volume": 1044834,
+          "avg_volume": 1155570,
+          "close": 145000,
+          "change_pct": 3.87,
+          "ticker": "000270",
+          "name": "기아",
+          "tags": [
+            "오세훈 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "오세훈",
+              "party": "국민의힘",
+              "role": "서울시장 (현직, 재선 도전 검토)",
+              "region": "서울",
+              "relation": "서울시 UAM(도심항공) 정책",
               "election": "2026지방선거"
             }
           ]
@@ -411,30 +411,6 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.95,
-          "today_volume": 3159886,
-          "avg_volume": 3325119,
-          "close": 26650,
-          "change_pct": 0.57,
-          "ticker": "003490",
-          "name": "대한항공",
-          "tags": [
-            "김동연 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "김동연",
-              "party": "더불어민주당",
-              "role": "경기지사 후보 (현직, 경선 중)",
-              "region": "경기",
-              "relation": "경기도 항공 물류 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
           "ratio": 0.7,
           "today_volume": 275807,
           "avg_volume": 392579,
@@ -453,6 +429,30 @@
               "role": "경기지사 후보 (현직, 경선 중)",
               "region": "경기",
               "relation": "경기도 반도체 클러스터 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.95,
+          "today_volume": 3159886,
+          "avg_volume": 3325119,
+          "close": 26650,
+          "change_pct": 0.57,
+          "ticker": "003490",
+          "name": "대한항공",
+          "tags": [
+            "김동연 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "김동연",
+              "party": "더불어민주당",
+              "role": "경기지사 후보 (현직, 경선 중)",
+              "region": "경기",
+              "relation": "경기도 항공 물류 정책",
               "election": "2026지방선거"
             }
           ]
@@ -541,30 +541,6 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 0.99,
-          "today_volume": 280265,
-          "avg_volume": 283433,
-          "close": 22600,
-          "change_pct": 7.62,
-          "ticker": "003160",
-          "name": "디아이",
-          "tags": [
-            "박찬대 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "박찬대",
-              "party": "더불어민주당",
-              "role": "인천시장 후보 (단수 공천 확정)",
-              "region": "인천",
-              "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
           "ratio": 0.54,
           "today_volume": 117911,
           "avg_volume": 218717,
@@ -583,6 +559,30 @@
               "role": "인천시장 후보 (단수 공천 확정)",
               "region": "인천",
               "relation": "인천 기반 기업",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.99,
+          "today_volume": 280265,
+          "avg_volume": 283433,
+          "close": 22600,
+          "change_pct": 7.62,
+          "ticker": "003160",
+          "name": "디아이",
+          "tags": [
+            "박찬대 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 후보 (단수 공천 확정)",
+              "region": "인천",
+              "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
               "election": "2026지방선거"
             }
           ]
@@ -657,11 +657,6 @@
       "screening": [
         {
           "surge": false,
-          "ticker": "010620",
-          "name": "HD현대미포"
-        },
-        {
-          "surge": false,
           "ratio": 0.87,
           "today_volume": 279742,
           "avg_volume": 320521,
@@ -683,6 +678,11 @@
               "election": "2026지방선거"
             }
           ]
+        },
+        {
+          "surge": false,
+          "ticker": "010620",
+          "name": "HD현대미포"
         },
         {
           "surge": false,
@@ -797,6 +797,35 @@
       "screening": [
         {
           "surge": false,
+          "ratio": 0.72,
+          "today_volume": 24247831,
+          "avg_volume": 33526235,
+          "close": 279500,
+          "change_pct": 6.27,
+          "ticker": "005930",
+          "name": "삼성전자",
+          "tags": [
+            "이재명 관련주",
+            "반도체 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (현직)",
+              "relation": "정책(반도체 클러스터 지원)",
+              "election": ""
+            },
+            {
+              "type": "policy_theme",
+              "theme": "반도체",
+              "description": "경기도 반도체 클러스터(용인·평택)"
+            }
+          ]
+        },
+        {
+          "surge": false,
           "ratio": 0.65,
           "today_volume": 107764,
           "avg_volume": 164998,
@@ -832,16 +861,16 @@
         },
         {
           "surge": false,
-          "ratio": 0.72,
-          "today_volume": 24247831,
-          "avg_volume": 33526235,
-          "close": 279500,
-          "change_pct": 6.27,
-          "ticker": "005930",
-          "name": "삼성전자",
+          "ratio": 1.06,
+          "today_volume": 1882433,
+          "avg_volume": 1777445,
+          "close": 34900,
+          "change_pct": 3.1,
+          "ticker": "035720",
+          "name": "카카오",
           "tags": [
             "이재명 관련주",
-            "반도체 테마"
+            "기본소득 테마"
           ],
           "reasons": [
             {
@@ -849,65 +878,13 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (현직)",
-              "relation": "정책(반도체 클러스터 지원)",
+              "relation": "기본소득 플랫폼 활용 가능성, 학연(서울대)",
               "election": ""
             },
             {
               "type": "policy_theme",
-              "theme": "반도체",
-              "description": "경기도 반도체 클러스터(용인·평택)"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.84,
-          "today_volume": 470200,
-          "avg_volume": 560898,
-          "close": 167700,
-          "change_pct": 1.39,
-          "ticker": "064350",
-          "name": "현대로템",
-          "tags": [
-            "이재명 관련주",
-            "방산 테마"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "이재명",
-              "party": "더불어민주당",
-              "role": "대통령 (현직)",
-              "relation": "정책(방산 수출 지원)",
-              "election": ""
-            },
-            {
-              "type": "policy_theme",
-              "theme": "방산",
+              "theme": "기본소득",
               "description": ""
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.69,
-          "today_volume": 43119,
-          "avg_volume": 62370,
-          "close": 1531,
-          "change_pct": -1.42,
-          "ticker": "010040",
-          "name": "한국내화",
-          "tags": [
-            "이재명 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "이재명",
-              "party": "더불어민주당",
-              "role": "대통령 (현직)",
-              "relation": "측근 인사 연관",
-              "election": ""
             }
           ]
         },
@@ -936,16 +913,15 @@
         },
         {
           "surge": false,
-          "ratio": 1.06,
-          "today_volume": 1882433,
-          "avg_volume": 1777445,
-          "close": 34900,
-          "change_pct": 3.1,
-          "ticker": "035720",
-          "name": "카카오",
+          "ratio": 0.69,
+          "today_volume": 43119,
+          "avg_volume": 62370,
+          "close": 1531,
+          "change_pct": -1.42,
+          "ticker": "010040",
+          "name": "한국내화",
           "tags": [
-            "이재명 관련주",
-            "기본소득 테마"
+            "이재명 관련주"
           ],
           "reasons": [
             {
@@ -953,12 +929,36 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (현직)",
-              "relation": "기본소득 플랫폼 활용 가능성, 학연(서울대)",
+              "relation": "측근 인사 연관",
+              "election": ""
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 0.84,
+          "today_volume": 470200,
+          "avg_volume": 560898,
+          "close": 167700,
+          "change_pct": 1.39,
+          "ticker": "064350",
+          "name": "현대로템",
+          "tags": [
+            "이재명 관련주",
+            "방산 테마"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (현직)",
+              "relation": "정책(방산 수출 지원)",
               "election": ""
             },
             {
               "type": "policy_theme",
-              "theme": "기본소득",
+              "theme": "방산",
               "description": ""
             }
           ]
@@ -5416,7 +5416,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759777"
+        "analyzed_at": "2026-07-15T08:58:15.324689"
       },
       {
         "name": "추경호",
@@ -5498,7 +5498,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760076"
+        "analyzed_at": "2026-07-15T08:58:15.325009"
       },
       {
         "name": "이장우",
@@ -5580,7 +5580,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760456"
+        "analyzed_at": "2026-07-15T08:58:15.325419"
       },
       {
         "name": "김상욱",
@@ -5662,7 +5662,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761130"
+        "analyzed_at": "2026-07-15T08:58:15.326335"
       },
       {
         "name": "김태흠",
@@ -5744,7 +5744,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762290"
+        "analyzed_at": "2026-07-15T08:58:15.327695"
       },
       {
         "name": "김경수",
@@ -5826,7 +5826,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763075"
+        "analyzed_at": "2026-07-15T08:58:15.328792"
       },
       {
         "name": "위성곤",
@@ -5908,7 +5908,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763293"
+        "analyzed_at": "2026-07-15T08:58:15.329051"
       },
       {
         "name": "문성유",
@@ -5990,7 +5990,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763365"
+        "analyzed_at": "2026-07-15T08:58:15.329169"
       },
       {
         "name": "정원오",
@@ -6098,7 +6098,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.758842"
+        "analyzed_at": "2026-07-15T08:58:15.323724"
       },
       {
         "name": "추미애",
@@ -6186,7 +6186,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759125"
+        "analyzed_at": "2026-07-15T08:58:15.324036"
       },
       {
         "name": "박찬대",
@@ -6284,7 +6284,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759208"
+        "analyzed_at": "2026-07-15T08:58:15.324123"
       },
       {
         "name": "전재수",
@@ -6372,7 +6372,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759375"
+        "analyzed_at": "2026-07-15T08:58:15.324296"
       },
       {
         "name": "양향자",
@@ -6454,7 +6454,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759698"
+        "analyzed_at": "2026-07-15T08:58:15.324606"
       },
       {
         "name": "김부겸",
@@ -6536,7 +6536,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760382"
+        "analyzed_at": "2026-07-15T08:58:15.325322"
       },
       {
         "name": "김두겸",
@@ -6618,7 +6618,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761054"
+        "analyzed_at": "2026-07-15T08:58:15.326252"
       },
       {
         "name": "신용한",
@@ -6700,7 +6700,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761964"
+        "analyzed_at": "2026-07-15T08:58:15.327291"
       },
       {
         "name": "박수현",
@@ -6782,7 +6782,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762418"
+        "analyzed_at": "2026-07-15T08:58:15.327903"
       },
       {
         "name": "이철우",
@@ -6864,7 +6864,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762740"
+        "analyzed_at": "2026-07-15T08:58:15.328456"
       },
       {
         "name": "오중기",
@@ -6946,7 +6946,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762928"
+        "analyzed_at": "2026-07-15T08:58:15.328647"
       },
       {
         "name": "문대림",
@@ -7028,7 +7028,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763145"
+        "analyzed_at": "2026-07-15T08:58:15.328865"
       },
       {
         "name": "오영훈",
@@ -7110,7 +7110,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763215"
+        "analyzed_at": "2026-07-15T08:58:15.328941"
       },
       {
         "name": "이재명",
@@ -7219,7 +7219,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.758930"
+        "analyzed_at": "2026-07-15T08:58:15.323814"
       },
       {
         "name": "윤희숙",
@@ -7349,7 +7349,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759295"
+        "analyzed_at": "2026-07-15T08:58:15.324214"
       },
       {
         "name": "박수민",
@@ -7655,7 +7655,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760646"
+        "analyzed_at": "2026-07-15T08:58:15.325688"
       },
       {
         "name": "민형배",
@@ -7913,7 +7913,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761358"
+        "analyzed_at": "2026-07-15T08:58:15.326573"
       },
       {
         "name": "고준일",
@@ -8043,7 +8043,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761591"
+        "analyzed_at": "2026-07-15T08:58:15.326878"
       },
       {
         "name": "홍순식",
@@ -8141,7 +8141,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761722"
+        "analyzed_at": "2026-07-15T08:58:15.327035"
       },
       {
         "name": "우상호",
@@ -8223,7 +8223,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761793"
+        "analyzed_at": "2026-07-15T08:58:15.327110"
       },
       {
         "name": "노영민",
@@ -8449,7 +8449,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762550"
+        "analyzed_at": "2026-07-15T08:58:15.328135"
       },
       {
         "name": "안호영",
@@ -8547,7 +8547,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762671"
+        "analyzed_at": "2026-07-15T08:58:15.328335"
       },
       {
         "name": "김재원",
@@ -8581,7 +8581,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762799"
+        "analyzed_at": "2026-07-15T08:58:15.328523"
       },
       {
         "name": "임미애",
@@ -8679,7 +8679,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762996"
+        "analyzed_at": "2026-07-15T08:58:15.328721"
       }
     ],
     "top_bulls": [
@@ -8763,7 +8763,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759777"
+        "analyzed_at": "2026-07-15T08:58:15.324689"
       },
       {
         "name": "이장우",
@@ -8845,7 +8845,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760456"
+        "analyzed_at": "2026-07-15T08:58:15.325419"
       },
       {
         "name": "김상욱",
@@ -8927,7 +8927,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.761130"
+        "analyzed_at": "2026-07-15T08:58:15.326335"
       },
       {
         "name": "김태흠",
@@ -9009,7 +9009,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.762290"
+        "analyzed_at": "2026-07-15T08:58:15.327695"
       },
       {
         "name": "문성유",
@@ -9091,7 +9091,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763365"
+        "analyzed_at": "2026-07-15T08:58:15.329169"
       }
     ],
     "top_bears": [
@@ -9175,7 +9175,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.760076"
+        "analyzed_at": "2026-07-15T08:58:15.325009"
       },
       {
         "name": "김경수",
@@ -9257,7 +9257,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763075"
+        "analyzed_at": "2026-07-15T08:58:15.328792"
       },
       {
         "name": "위성곤",
@@ -9339,7 +9339,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.763293"
+        "analyzed_at": "2026-07-15T08:58:15.329051"
       },
       {
         "name": "정원오",
@@ -9447,7 +9447,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.758842"
+        "analyzed_at": "2026-07-15T08:58:15.323724"
       },
       {
         "name": "양향자",
@@ -9529,7 +9529,7 @@
             }
           ]
         },
-        "analyzed_at": "2026-07-15T07:07:11.759698"
+        "analyzed_at": "2026-07-15T08:58:15.324606"
       }
     ],
     "regional_battles": {
@@ -9552,42 +9552,23 @@
         "source": "[여론조사] 제주지사 선거 사실상 독주체제…'위성곤 63% vs 문성유 20%' - 헤드라인제주",
         "date": "2026-07-15"
       },
-      "경북": {
-        "region": "경북",
+      "경기": {
+        "region": "경기",
         "leader": {
-          "name": "이철우",
-          "rate": 54.7
+          "name": "추미애",
+          "rate": 47.6
         },
         "runner_up": {
-          "name": "오중기",
-          "rate": 31.6
+          "name": "양향자",
+          "rate": 34.0
         },
-        "gap": 23.1,
-        "competitiveness": "압도적 우세",
+        "gap": 13.6,
+        "competitiveness": "우세",
         "all_rates": {
-          "이철우": 54.7,
-          "오중기": 31.6
+          "추미애": 47.6,
+          "양향자": 34.0
         },
-        "source": "[여론조사-경북도지사] 이철우 54.7%·오중기 31.6%...오차범위 밖 이 후보 우세 - 경북신문",
-        "date": "2026-07-15"
-      },
-      "세종": {
-        "region": "세종",
-        "leader": {
-          "name": "조상호",
-          "rate": 45.0
-        },
-        "runner_up": {
-          "name": "최민호",
-          "rate": 18.0
-        },
-        "gap": 27.0,
-        "competitiveness": "압도적 우세",
-        "all_rates": {
-          "조상호": 45.0,
-          "최민호": 18.0
-        },
-        "source": "[KBS여론조사 세종시장] 조상호 45% 최민호 18%…최우선 과제는 ‘행정수도 완성’ - KBS 뉴스",
+        "source": "[주간조선 여론조사] 경기지사 선거, 추미애 47.6%, 양향자 34.0% - 주간조선",
         "date": "2026-07-15"
       },
       "전북": {
@@ -9610,6 +9591,25 @@
         "source": "김관영 51.9% vs 이원택 35.3%…전북도지사 16.6%p 격차 - 전라일보",
         "date": "2026-07-15"
       },
+      "부산": {
+        "region": "부산",
+        "leader": {
+          "name": "전재수",
+          "rate": 46.9
+        },
+        "runner_up": {
+          "name": "박형준",
+          "rate": 41.0
+        },
+        "gap": 5.9,
+        "competitiveness": "경합",
+        "all_rates": {
+          "전재수": 46.9,
+          "박형준": 41.0
+        },
+        "source": "‘부산시장’ 전재수 46.9%·박형준 41%…투표예상층 田 52.4%·朴 41.3% [쿠키뉴스 여론조사] - 쿠키뉴스",
+        "date": "2026-07-15"
+      },
       "경남": {
         "region": "경남",
         "leader": {
@@ -9627,6 +9627,25 @@
           "박완수": 34.0
         },
         "source": "[KBS창원 3차 여론조사]③ 경남지사, 김경수 45% vs 박완수 34%…오차범위 벗어나 - KBS 뉴스",
+        "date": "2026-07-15"
+      },
+      "세종": {
+        "region": "세종",
+        "leader": {
+          "name": "조상호",
+          "rate": 45.0
+        },
+        "runner_up": {
+          "name": "최민호",
+          "rate": 18.0
+        },
+        "gap": 27.0,
+        "competitiveness": "압도적 우세",
+        "all_rates": {
+          "조상호": 45.0,
+          "최민호": 18.0
+        },
+        "source": "[KBS여론조사 세종시장] 조상호 45% 최민호 18%…최우선 과제는 ‘행정수도 완성’ - KBS 뉴스",
         "date": "2026-07-15"
       },
       "강원": {
@@ -9648,61 +9667,24 @@
         "source": "[2차 여론조사]① 강원도지사 지지도…우상호 44.8%·김진태 32.7% - KBS 뉴스",
         "date": "2026-07-15"
       },
-      "서울": {
-        "region": "서울",
+      "전국": {
+        "region": "전국",
         "leader": {
-          "name": "정원오",
-          "rate": 43.0
+          "name": "지지율",
+          "rate": 48.9
         },
         "runner_up": {
-          "name": "오세훈",
-          "rate": 38.0
+          "name": "민주",
+          "rate": 44.8
         },
-        "gap": 5.0,
+        "gap": 4.1,
         "competitiveness": "경합",
         "all_rates": {
-          "정원오": 43.0,
-          "오세훈": 38.0
+          "지지율": 48.9,
+          "민주": 44.8,
+          "국힘": 38.1
         },
-        "source": "[JTBC 여론조사] 서울시장 ‘판세’ 달라졌다…정원오 43% 오세훈 38% - JTBC",
-        "date": "2026-07-15"
-      },
-      "충남": {
-        "region": "충남",
-        "leader": {
-          "name": "박수현",
-          "rate": 44.0
-        },
-        "runner_up": {
-          "name": "김태흠",
-          "rate": 23.0
-        },
-        "gap": 21.0,
-        "competitiveness": "압도적 우세",
-        "all_rates": {
-          "박수현": 44.0,
-          "김태흠": 23.0
-        },
-        "source": "[KBS여론조사 충남지사] 박수현 44%, 김태흠 23%…“모든 권역서 앞서” - KBS 뉴스",
-        "date": "2026-07-15"
-      },
-      "충북": {
-        "region": "충북",
-        "leader": {
-          "name": "신용한",
-          "rate": 47.5
-        },
-        "runner_up": {
-          "name": "김영환",
-          "rate": 28.3
-        },
-        "gap": 19.2,
-        "competitiveness": "압도적 우세",
-        "all_rates": {
-          "신용한": 47.5,
-          "김영환": 28.3
-        },
-        "source": "[여론조사 꽃] 충북지사, 신용한 47.5% vs 김영환 28.3% - 굿모닝충청",
+        "source": "李대통령 지지율 48.9%·1.9%p↑…민주 44.8%·국힘 38.1%[리얼미터] - 연합인포맥스",
         "date": "2026-07-15"
       },
       "대전": {
@@ -9724,61 +9706,60 @@
         "source": "[여론조사①]차기 대전시장 적합도 허태정 46.3%, 이장우 22.9% - 티제이비",
         "date": "2026-07-15"
       },
-      "인천": {
-        "region": "인천",
+      "광주": {
+        "region": "광주",
         "leader": {
-          "name": "박찬대",
-          "rate": 48.6
+          "name": "민형배",
+          "rate": 71.0
         },
         "runner_up": {
-          "name": "유정복",
-          "rate": 38.5
+          "name": "",
+          "rate": 0
         },
-        "gap": 10.1,
-        "competitiveness": "우세",
+        "gap": 71.0,
+        "competitiveness": "압도적 우세",
         "all_rates": {
-          "박찬대": 48.6,
-          "유정복": 38.5
+          "민형배": 71.0
         },
-        "source": "민주 박찬대 48.6%·국힘 유정복 38.5%…인천시장 선거 여론조사 - 경기일보",
+        "source": "[KBS여론조사]① 전남광주통합특별시장 지지도 민형배 71% 1위 - KBS 뉴스",
         "date": "2026-07-15"
       },
-      "부산": {
-        "region": "부산",
+      "충남": {
+        "region": "충남",
         "leader": {
-          "name": "전재수",
-          "rate": 46.9
+          "name": "박수현",
+          "rate": 44.0
         },
         "runner_up": {
-          "name": "박형준",
-          "rate": 41.0
+          "name": "김태흠",
+          "rate": 23.0
         },
-        "gap": 5.9,
-        "competitiveness": "경합",
+        "gap": 21.0,
+        "competitiveness": "압도적 우세",
         "all_rates": {
-          "전재수": 46.9,
-          "박형준": 41.0
+          "박수현": 44.0,
+          "김태흠": 23.0
         },
-        "source": "‘부산시장’ 전재수 46.9%·박형준 41%…투표예상층 田 52.4%·朴 41.3% [쿠키뉴스 여론조사] - 쿠키뉴스",
+        "source": "[KBS여론조사 충남지사] 박수현 44%, 김태흠 23%…“모든 권역서 앞서” - KBS 뉴스",
         "date": "2026-07-15"
       },
-      "경기": {
-        "region": "경기",
+      "대구": {
+        "region": "대구",
         "leader": {
-          "name": "추미애",
-          "rate": 47.6
+          "name": "김부겸",
+          "rate": 40.0
         },
         "runner_up": {
-          "name": "양향자",
-          "rate": 34.0
+          "name": "추경호",
+          "rate": 39.0
         },
-        "gap": 13.6,
-        "competitiveness": "우세",
+        "gap": 1.0,
+        "competitiveness": "초접전",
         "all_rates": {
-          "추미애": 47.6,
-          "양향자": 34.0
+          "김부겸": 40.0,
+          "추경호": 39.0
         },
-        "source": "[주간조선 여론조사] 경기지사 선거, 추미애 47.6%, 양향자 34.0% - 주간조선",
+        "source": "[대구시장 여론조사] 김부겸 40% vs 추경호 39% - KBS 뉴스",
         "date": "2026-07-15"
       },
       "울산": {
@@ -9802,65 +9783,84 @@
         "source": "[울산 여론조사]김상욱 35.8%·김두겸 35.5%·김종훈 19%·박맹우 5.2% - v.daum.net",
         "date": "2026-07-15"
       },
-      "광주": {
-        "region": "광주",
+      "충북": {
+        "region": "충북",
         "leader": {
-          "name": "민형배",
-          "rate": 71.0
+          "name": "신용한",
+          "rate": 47.5
         },
         "runner_up": {
-          "name": "",
-          "rate": 0
+          "name": "김영환",
+          "rate": 28.3
         },
-        "gap": 71.0,
+        "gap": 19.2,
         "competitiveness": "압도적 우세",
         "all_rates": {
-          "민형배": 71.0
+          "신용한": 47.5,
+          "김영환": 28.3
         },
-        "source": "[KBS여론조사]① 전남광주통합특별시장 지지도 민형배 71% 1위 - KBS 뉴스",
+        "source": "[여론조사 꽃] 충북지사, 신용한 47.5% vs 김영환 28.3% - 굿모닝충청",
         "date": "2026-07-15"
       },
-      "대구": {
-        "region": "대구",
+      "인천": {
+        "region": "인천",
         "leader": {
-          "name": "김부겸",
-          "rate": 40.0
+          "name": "박찬대",
+          "rate": 48.6
         },
         "runner_up": {
-          "name": "추경호",
-          "rate": 39.0
+          "name": "유정복",
+          "rate": 38.5
         },
-        "gap": 1.0,
-        "competitiveness": "초접전",
+        "gap": 10.1,
+        "competitiveness": "우세",
         "all_rates": {
-          "김부겸": 40.0,
-          "추경호": 39.0
+          "박찬대": 48.6,
+          "유정복": 38.5
         },
-        "source": "[대구시장 여론조사] 김부겸 40% vs 추경호 39% - KBS 뉴스",
+        "source": "민주 박찬대 48.6%·국힘 유정복 38.5%…인천시장 선거 여론조사 - 경기일보",
         "date": "2026-07-15"
       },
-      "전국": {
-        "region": "전국",
+      "경북": {
+        "region": "경북",
         "leader": {
-          "name": "지지율",
-          "rate": 48.9
+          "name": "이철우",
+          "rate": 54.7
         },
         "runner_up": {
-          "name": "민주",
-          "rate": 44.8
+          "name": "오중기",
+          "rate": 31.6
         },
-        "gap": 4.1,
+        "gap": 23.1,
+        "competitiveness": "압도적 우세",
+        "all_rates": {
+          "이철우": 54.7,
+          "오중기": 31.6
+        },
+        "source": "[여론조사-경북도지사] 이철우 54.7%·오중기 31.6%...오차범위 밖 이 후보 우세 - 경북신문",
+        "date": "2026-07-15"
+      },
+      "서울": {
+        "region": "서울",
+        "leader": {
+          "name": "정원오",
+          "rate": 43.0
+        },
+        "runner_up": {
+          "name": "오세훈",
+          "rate": 38.0
+        },
+        "gap": 5.0,
         "competitiveness": "경합",
         "all_rates": {
-          "지지율": 48.9,
-          "민주": 44.8,
-          "국힘": 38.1
+          "정원오": 43.0,
+          "오세훈": 38.0
         },
-        "source": "李대통령 지지율 48.9%·1.9%p↑…민주 44.8%·국힘 38.1%[리얼미터] - 연합인포맥스",
+        "source": "[JTBC 여론조사] 서울시장 ‘판세’ 달라졌다…정원오 43% 오세훈 38% - JTBC",
         "date": "2026-07-15"
       }
     },
-    "generated_at": "2026-07-15T07:07:11.766072",
+    "generated_at": "2026-07-15T08:58:15.331954",
     "ai_analysis": "## 여론조사 지지율 변동 분석 및 정치 테마주 영향 해석\n\n### 1. 핵심 변동 (지지율 변동이 큰 후보 + 원인 추정)\n\n*   **강력 상승:** 이장우 (+16.0%p), 김태흠 (+14.7%p) 후보는 충청권 내에서 압도적인 지지율 상승을 보이며 지역 민심의 결집이나 긍정적 이슈가 부각된 것으로 추정됩니다. 김상욱 (+9.2%p), 문성유 (+8.1%p) 후보 역시 강한 상승세로 새로운 지지 기반을 확보했음을 시사합니다.\n*   **강력 하락:** 위성곤 (-38.4%p) 후보는 압도적인 지지율 하락을 기록, 심각한 악재 발생 또는 대규모 지지층 이탈이 있었을 것으로 판단됩니다. 추경호 (-6.0%p), 김경수 (-5.0%p) 후보도 상당한 하락폭을 보이며 모멘텀 상실 또는 부정적 이슈에 직면했을 가능성이 큽니다.\n\n### 2. 테마주 호재 분석 (지지율 상승 → 관련주 긍정 영향)\n\n이장우, 김태흠, 김상욱, 문성유, 유정복 후보 등 지지율이 급등한 인물들의 관련 테마주(인맥, 지역, 정책 등)는 단기적인 투자 심리 개선과 함께 매수세가 유입될 가능성이 높습니다. 특히 대폭 상승한 후보들의 경우 정책 관련 기업이나 지역 연고 기업들이 주목받을 수 있습니다. 추미애, 박찬대, 김부겸 등 거물급 인사들의 견고한 상승도 관련주에 긍정적 영향을 미칠 수 있습니다.\n\n### 3. 테마주 악재 분석 (지지율 하락 → 관련주 부정 영향)\n\n위성곤 후보의 급격한 지지율 하락은 관련 테마주에 매우 강력한 매도 압력으로 작용할 것입니다. 해당 테마주는 심각한 하방 리스크에 노출될 수 있으므로 투자에 극심한 주의가 필요합니다. 추경호, 김경수, 양향자, 이철우 등 지지율이 하락한 후보들의 관련 테마주 또한 투자심리 위축으로 인해 하락세를 보일 수 있습니다.\n\n### 4. 지역별 경합 변화와 투자 전략\n\n*   **충청권 (이장우, 김태흠):** 강력한 상승세로 경합 양상이 뜨거워지며, 이들 후보의 정책 및 지역 발전 관련 테마주에 대한 관심이 집중될 수 있습니다.\n*   **제주권 (위성곤 급락, 문대림 상승, 오영훈 하락):** 극심한 변동성으로 제주 지역 정치 지형이 재편될 가능성이 크며, 관련 테마주 투자 시 높은 리스크 관리가 요구됩니다.\n*   **기타 지역:** 오세훈, 박형준 등 현직 프리미엄 후보들은 보합세를 보이며 기존 추세를 유지하는 경향이 있어, 관련 테마주에 미치는 영향은 제한적일 수 있습니다.\n\n**투자 전략:** 지지율이 급등한 후보의 테마주는 단기적 관점에서 선별적 접근이 유효합니다. 반면, 지지율이 급락한 후보의 테마주는 손절매 등 철저한 리스크 관리가 필수입니다. 보합세 후보들은 기존 투자 관점을 유지하되, 향후 미미한 변동성에도 주목해야 합니다. 지역별 유력 후보의 정책 공약과 연관된 섹터(건설, 환경, 신산업 등)에 대한 장기적 관점의 관심도 필요합니다."
   },
   "election_predictions": {
@@ -10519,7 +10519,7 @@
         "source": "[여론조사 꽃] 충북지사, 신용한 47.5% vs 김영환 28.3% - 굿모닝충청"
       }
     },
-    "generated_at": "2026-07-15T07:07:24.832150"
+    "generated_at": "2026-07-15T08:58:15.344063"
   },
   "stock_impacts": [
     {
@@ -11361,50 +11361,6 @@
         }
       },
       {
-        "ticker": "047810",
-        "name": "047810",
-        "price": {
-          "current": 147500,
-          "ma5": 145280,
-          "ma20": 148295,
-          "ma_signal": "dead_cross",
-          "volatility": 4.12,
-          "trend_pct": 0.04,
-          "trend": "횡보",
-          "rsi": 53.8,
-          "rsi_signal": "중립",
-          "change_5d": 3.87,
-          "change_20d": -5.21
-        },
-        "volume": {
-          "today": 317822,
-          "avg_5d": 488736,
-          "avg_20d": 454337,
-          "ratio_5d": 0.65,
-          "ratio_20d": 0.7,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.08
-        },
-        "related_politicians": [],
-        "cycle_phase": "초기 관심",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 45.0,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 40.2,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "010040",
         "name": "010040",
         "price": {
@@ -11451,6 +11407,50 @@
           "has_poll_data": false,
           "components": {
             "price_momentum": 40.0,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "047810",
+        "name": "047810",
+        "price": {
+          "current": 147500,
+          "ma5": 145280,
+          "ma20": 148295,
+          "ma_signal": "dead_cross",
+          "volatility": 4.12,
+          "trend_pct": 0.04,
+          "trend": "횡보",
+          "rsi": 53.8,
+          "rsi_signal": "중립",
+          "change_5d": 3.87,
+          "change_20d": -5.21
+        },
+        "volume": {
+          "today": 317822,
+          "avg_5d": 488736,
+          "avg_20d": 454337,
+          "ratio_5d": 0.65,
+          "ratio_20d": 0.7,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.08
+        },
+        "related_politicians": [],
+        "cycle_phase": "초기 관심",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 45.0,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 40.2,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -11555,50 +11555,6 @@
         }
       },
       {
-        "ticker": "000660",
-        "name": "000660",
-        "price": {
-          "current": 2082000,
-          "ma5": 2041200,
-          "ma20": 2418450,
-          "ma_signal": "dead_cross",
-          "volatility": 7.02,
-          "trend_pct": -2.33,
-          "trend": "하락",
-          "rsi": 29.6,
-          "rsi_signal": "과매도",
-          "change_5d": 0.29,
-          "change_20d": -17.41
-        },
-        "volume": {
-          "today": 5947608,
-          "avg_5d": 7104681,
-          "avg_20d": 6581202,
-          "ratio_5d": 0.84,
-          "ratio_20d": 0.9,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.08
-        },
-        "related_politicians": [],
-        "cycle_phase": "초기 관심",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 44.6,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 38.4,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "035720",
         "name": "035720",
         "price": {
@@ -11634,6 +11590,50 @@
             "current_rate": null
           }
         ],
+        "cycle_phase": "초기 관심",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 44.6,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 38.4,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "000660",
+        "name": "000660",
+        "price": {
+          "current": 2082000,
+          "ma5": 2041200,
+          "ma20": 2418450,
+          "ma_signal": "dead_cross",
+          "volatility": 7.02,
+          "trend_pct": -2.33,
+          "trend": "하락",
+          "rsi": 29.6,
+          "rsi_signal": "과매도",
+          "change_5d": 0.29,
+          "change_20d": -17.41
+        },
+        "volume": {
+          "today": 5947608,
+          "avg_5d": 7104681,
+          "avg_20d": 6581202,
+          "ratio_5d": 0.84,
+          "ratio_20d": 0.9,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.08
+        },
+        "related_politicians": [],
         "cycle_phase": "초기 관심",
         "cycle_premium": 0,
         "composite_score": {
@@ -11749,6 +11749,50 @@
         }
       },
       {
+        "ticker": "012450",
+        "name": "012450",
+        "price": {
+          "current": 929000,
+          "ma5": 931400,
+          "ma20": 1052950,
+          "ma_signal": "dead_cross",
+          "volatility": 4.13,
+          "trend_pct": -1.07,
+          "trend": "하락",
+          "rsi": 39.4,
+          "rsi_signal": "중립",
+          "change_5d": -10.76,
+          "change_20d": -24.1
+        },
+        "volume": {
+          "today": 205219,
+          "avg_5d": 243912,
+          "avg_20d": 237766,
+          "ratio_5d": 0.84,
+          "ratio_20d": 0.86,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.03
+        },
+        "related_politicians": [],
+        "cycle_phase": "초기 관심",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 43.7,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 34.6,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
         "ticker": "000270",
         "name": "000270",
         "price": {
@@ -11802,43 +11846,43 @@
         }
       },
       {
-        "ticker": "012450",
-        "name": "012450",
+        "ticker": "009540",
+        "name": "009540",
         "price": {
-          "current": 929000,
-          "ma5": 931400,
-          "ma20": 1052950,
+          "current": 335000,
+          "ma5": 334300,
+          "ma20": 360625,
           "ma_signal": "dead_cross",
-          "volatility": 4.13,
-          "trend_pct": -1.07,
+          "volatility": 3.74,
+          "trend_pct": -1.1,
           "trend": "하락",
-          "rsi": 39.4,
+          "rsi": 39.5,
           "rsi_signal": "중립",
-          "change_5d": -10.76,
-          "change_20d": -24.1
+          "change_5d": -1.47,
+          "change_20d": -22.81
         },
         "volume": {
-          "today": 205219,
-          "avg_5d": 243912,
-          "avg_20d": 237766,
-          "ratio_5d": 0.84,
-          "ratio_20d": 0.86,
+          "today": 229440,
+          "avg_5d": 255724,
+          "avg_20d": 229927,
+          "ratio_5d": 0.9,
+          "ratio_20d": 1.0,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.03
+          "vol_trend_ratio": 1.11
         },
         "related_politicians": [],
         "cycle_phase": "초기 관심",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 43.7,
+          "total": 43.6,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 34.6,
+            "price_momentum": 34.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -11899,50 +11943,6 @@
         }
       },
       {
-        "ticker": "009540",
-        "name": "009540",
-        "price": {
-          "current": 335000,
-          "ma5": 334300,
-          "ma20": 360625,
-          "ma_signal": "dead_cross",
-          "volatility": 3.74,
-          "trend_pct": -1.1,
-          "trend": "하락",
-          "rsi": 39.5,
-          "rsi_signal": "중립",
-          "change_5d": -1.47,
-          "change_20d": -22.81
-        },
-        "volume": {
-          "today": 229440,
-          "avg_5d": 255724,
-          "avg_20d": 229927,
-          "ratio_5d": 0.9,
-          "ratio_20d": 1.0,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.11
-        },
-        "related_politicians": [],
-        "cycle_phase": "초기 관심",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 43.6,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 34.5,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "006400",
         "name": "006400",
         "price": {
@@ -11987,50 +11987,6 @@
         }
       },
       {
-        "ticker": "000720",
-        "name": "000720",
-        "price": {
-          "current": 101400,
-          "ma5": 101400,
-          "ma20": 112365,
-          "ma_signal": "dead_cross",
-          "volatility": 6.62,
-          "trend_pct": -1.38,
-          "trend": "하락",
-          "rsi": 42.0,
-          "rsi_signal": "중립",
-          "change_5d": 0.7,
-          "change_20d": -27.21
-        },
-        "volume": {
-          "today": 440956,
-          "avg_5d": 564265,
-          "avg_20d": 708769,
-          "ratio_5d": 0.78,
-          "ratio_20d": 0.62,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 0.8
-        },
-        "related_politicians": [],
-        "cycle_phase": "초기 관심",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 43.3,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 33.1,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "017550",
         "name": "017550",
         "price": {
@@ -12068,6 +12024,50 @@
           "has_poll_data": false,
           "components": {
             "price_momentum": 33.3,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "000720",
+        "name": "000720",
+        "price": {
+          "current": 101400,
+          "ma5": 101400,
+          "ma20": 112365,
+          "ma_signal": "dead_cross",
+          "volatility": 6.62,
+          "trend_pct": -1.38,
+          "trend": "하락",
+          "rsi": 42.0,
+          "rsi_signal": "중립",
+          "change_5d": 0.7,
+          "change_20d": -27.21
+        },
+        "volume": {
+          "today": 440956,
+          "avg_5d": 564265,
+          "avg_20d": 708769,
+          "ratio_5d": 0.78,
+          "ratio_20d": 0.62,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 0.8
+        },
+        "related_politicians": [],
+        "cycle_phase": "초기 관심",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 43.3,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 33.1,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -13182,7 +13182,7 @@
         "time_weight": 0.906
       }
     ],
-    "generated_at": "2026-07-15T07:15:18.021348"
+    "generated_at": "2026-07-15T09:05:12.853941"
   },
   "calibration": {
     "weights": {
@@ -13198,7 +13198,7 @@
       "sell": 25
     },
     "version": 1,
-    "last_updated": "2026-07-15T07:15:18.043704",
+    "last_updated": "2026-07-15T09:05:12.881061",
     "last_adjustment": {
       "adjusted": true,
       "version": 1,
@@ -13241,7 +13241,7 @@
     },
     "adjustments": [
       {
-        "date": "2026-07-15T07:15:18.043645",
+        "date": "2026-07-15T09:05:12.880949",
         "accuracy_pct": 40.1,
         "weighted_accuracy_pct": 36.7,
         "brier_score": 0.2494,
