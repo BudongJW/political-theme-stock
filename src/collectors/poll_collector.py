@@ -83,10 +83,10 @@ class PollCollector:
         days_until = next_election.get("days_until", 999) if next_election else None
         days_since = last_election.get("days_since") if last_election else None
 
-        # 선거 직후 여부: 최근 완료 선거가 120일 이내이고, 차기 선거가 그보다 멀 때
+        # 선거 이후 국면 여부: 차기 선거보다 최근 완료 선거에 더 가까울 때
+        # (고정 120일 창을 쓰면 D+121부터 종료된 선거의 D-day로 오표시됨)
         is_post_election = bool(
             days_since is not None
-            and days_since <= 120
             and (days_until is None or days_since < days_until)
         )
 
@@ -131,11 +131,37 @@ class PollCollector:
 
         return {
             **base,
+            "period": matched.get("period", "") if matched else "",
             "days_until_election": days_until,
             "election_name": next_election.get("name", "") if next_election else "",
+            "election_date": next_election.get("date", "") if next_election else "",
+            "election_type": next_election.get("type", "") if next_election else "",
             "is_post_election": is_post_election,
             **last_summary,
         }
+
+    def get_candidate_outcomes(self) -> dict[str, str]:
+        """완료된 선거의 후보별 결과 {이름: 당선/낙선/경선 낙선} (calendar 기준)"""
+        outcomes: dict[str, str] = {}
+        for info in self._calendar.get("elections", {}).values():
+            if info.get("status") != "completed":
+                continue
+            for region_data in (info.get("candidates") or {}).values():
+                for party_candidates in region_data.values():
+                    if not isinstance(party_candidates, list):
+                        continue
+                    for c in party_candidates:
+                        status = (c.get("status") or "") if isinstance(c, dict) else ""
+                        if "경선 낙선" in status:
+                            outcomes[c["name"]] = "경선 낙선"
+                        elif "낙선" in status:
+                            outcomes[c["name"]] = "낙선"
+                        elif "당선" in status:
+                            outcomes[c["name"]] = "당선"
+            for race in ((info.get("result") or {}).get("key_races") or []):
+                if race.get("winner"):
+                    outcomes[race["winner"]] = "당선"
+        return outcomes
 
     def get_tracking_candidates(self, election_type: str = None) -> list[dict]:
         """추적 대상 후보 목록 반환 (election_calendar 기반)"""
@@ -257,7 +283,7 @@ class PollCollector:
             res = self.get_last_election_result().get("result", {})
             d_since = phase.get("days_since_last", "?")
             return (
-                f"*[선거 종료 — 청산 국면]*\n"
+                f"*[선거 이후 — {phase.get('phase', '')}]*\n"
                 f"  선거: {phase.get('last_election_name', '')} (D+{d_since})\n"
                 f"  결과: {res.get('verdict', '-')}\n"
                 f"  현재 단계: {phase.get('phase', '')} | 시그널: {phase.get('signal', '')}\n"

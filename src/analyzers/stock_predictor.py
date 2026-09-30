@@ -37,11 +37,16 @@ SIGNAL_IMPACT = {
 
 class StockPredictor:
     def __init__(self, stock_collector, poll_data_collector, theme_mapper,
-                 days_until_election: int = 68, calibration: dict = None):
+                 days_until_election: int = 68, calibration: dict = None,
+                 poll_enabled: bool = True, cycle_label: str = None):
         self.sc = stock_collector
         self.pdc = poll_data_collector
         self.tm = theme_mapper
         self.days_until = days_until_election
+        # 후보 여론조사가 의미 없는 구간(선거 종료 후 등)에는 여론조사 요소를 중립(50) 처리
+        self.poll_enabled = poll_enabled
+        # 선거 이후 국면: D-day 구간 대신 타임라인 단계명 사용 (프리미엄 0)
+        self.cycle_label = cycle_label
 
         # 캘리브레이션 적용 (없으면 기본값)
         cal = calibration or {}
@@ -59,6 +64,8 @@ class StockPredictor:
         })
 
     def _get_cycle_phase(self) -> dict:
+        if self.cycle_label:
+            return {"label": self.cycle_label, "avg_premium": 0, "volatility": "medium"}
         d = self.days_until
         if d < 0:
             return ELECTION_CYCLE_PATTERN["d_after"]
@@ -88,7 +95,7 @@ class StockPredictor:
         volume_stats = self._calc_volume_stats(ohlcv)
 
         # 2) 관련 정치인 + 지지율 변동
-        related = self._get_related_politicians(ticker)
+        related = self._get_related_politicians(ticker) if self.poll_enabled else []
         poll_impacts = []
         for pol in related:
             momentum = self.pdc.calculate_momentum(pol["name"], pol.get("region"))
@@ -110,9 +117,10 @@ class StockPredictor:
             price_stats, volume_stats, poll_impacts, cycle
         )
 
+        name = price_stats.get("name") or self.sc.get_ticker_name(ticker) or ticker
         return {
             "ticker": ticker,
-            "name": price_stats.get("name", ticker),
+            "name": name,
             "price": price_stats,
             "volume": volume_stats,
             "related_politicians": poll_impacts,
