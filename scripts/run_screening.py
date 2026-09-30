@@ -5,6 +5,7 @@ PollStock 스크리닝 스크립트
 """
 import sys, json, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT / "src"))
@@ -28,6 +29,66 @@ from analyzers.election_predictor import ElectionPredictor
 from analyzers.stock_predictor import StockPredictor
 from analyzers.accuracy_tracker import AccuracyTracker
 from analyzers.calibrator import Calibrator
+
+
+KST = ZoneInfo("Asia/Seoul")
+
+
+def build_election_outcomes(election_result: dict, candidate_stocks: dict) -> tuple[dict, list]:
+    """
+    종료된 선거의 실제 결과 → 관련주 영향 (당선예측 모델 대체)
+    선거가 끝나면 '당선확률'은 의미가 없으므로 확정 결과 기준으로 관련주를 분류한다.
+    """
+    candidates = []
+    impacts = []
+    for name, info in candidate_stocks.items():
+        outcome = info.get("outcome", "")
+        if not outcome:
+            continue
+        screening = {s["ticker"]: s for s in info.get("screening", [])}
+        stocks = []
+        for st in info.get("stocks", []):
+            sr = screening.get(st["ticker"], {})
+            stocks.append({
+                "ticker": st["ticker"],
+                "name": sr.get("name") or st.get("name", ""),
+                "relation": st.get("relation", ""),
+                "close": sr.get("close"),
+                "change_pct": sr.get("change_pct"),
+            })
+            if outcome == "당선":
+                signal, signal_kr = "winner", "당선 확정 — 정책 실행 여부 관찰"
+            else:
+                signal, signal_kr = "loser", f"{outcome} — 인물 테마 소멸 위험"
+            impacts.append({
+                "ticker": st["ticker"],
+                "stock_name": sr.get("name") or st.get("name", ""),
+                "candidate": name,
+                "party": info.get("party", ""),
+                "region": info.get("region", ""),
+                "outcome": outcome,
+                "signal": signal,
+                "signal_kr": signal_kr,
+                "relation": st.get("relation", ""),
+                "change_pct": sr.get("change_pct"),
+            })
+        candidates.append({
+            "name": name,
+            "party": info.get("party", ""),
+            "region": info.get("region", ""),
+            "role": info.get("role", ""),
+            "outcome": outcome,
+            "stocks": stocks,
+        })
+    order = {"당선": 0, "낙선": 1, "경선 낙선": 2}
+    candidates.sort(key=lambda c: order.get(c["outcome"], 9))
+    impacts.sort(key=lambda s: (order.get(s["outcome"], 9), s["candidate"]))
+    return {
+        "status": "final",
+        "election": election_result.get("name", ""),
+        "date": election_result.get("date", ""),
+        "candidates": candidates,
+    }, impacts
 
 
 class SafeEncoder(json.JSONEncoder):
@@ -54,8 +115,12 @@ def main():
     phase = pc.get_election_phase()
     candidates = pc.get_tracking_candidates()
     election_result = pc.get_last_election_result()
+    outcomes = pc.get_candidate_outcomes()
     is_post_election = phase.get("is_post_election", False)
-    today = datetime.date.today().isoformat()
+    # 여론조사·당선예측 엔진은 지방선거 후보 기준 → 차기 선거가 지방선거가 아니면 비활성화
+    candidate_polls_active = phase.get("election_type") == "지방선거"
+    now_kst = datetime.datetime.now(KST)
+    today = now_kst.date().isoformat()
     if is_post_election:
         print(f"선거 종료 모드: {phase.get('last_election_name','')} D+{phase.get('days_since_last','?')} | {phase.get('last_verdict','')}")
 
@@ -94,6 +159,7 @@ def main():
                     "position": ad.get("position", ""),
                 },
                 "election": cand.get("election", ""),
+                "outcome": cand.get("outcome") or outcomes.get(name, ""),
                 "poll_status": cand.get("poll_status", ""),
                 "stocks": stocks,
                 "screening": matched,
@@ -124,6 +190,20 @@ def main():
 
     # 종목별 테마 맥락 (왜 테마주인지)
     stock_contexts = tm.get_all_stock_contexts()
+
+    # 데이터 품질 점검: 매핑 DB 종목명 vs KRX 종목명, 시세 없는 종목 (상장폐지·거래정지 등)
+    krx_names = {r["ticker"]: r.get("name", "") for r in results if r.get("close")}
+    name_mismatch = []
+    for t, ctx in stock_contexts.items():
+        krx_name = krx_names.get(t)
+        if krx_name and ctx.get("name") and krx_name.replace(" ", "") != ctx["name"].replace(" ", ""):
+            name_mismatch.append({"ticker": t, "config_name": ctx["name"], "krx_name": krx_name})
+            ctx["name"] = krx_name
+    missing_tickers = sorted(t for t in tickers if t not in krx_names)
+    for m in name_mismatch:
+        print(f"경고: 종목명 불일치 {m['ticker']} 매핑DB='{m['config_name']}' KRX='{m['krx_name']}'")
+    if missing_tickers:
+        print(f"경고: 시세 없는 종목 {len(missing_tickers)}개 (상장폐지·거래정지 확인 필요): {', '.join(missing_tickers)}")
 
     # screening_results에 테마 태그 병합 (close=0 필터링)
     enriched = []
@@ -163,6 +243,7 @@ def main():
             "avg_change_pct": avg_change,
             "party": info.get("party", ""),
             "region": info.get("region", ""),
+            "outcome": info.get("outcome", ""),
         }
 
     # Gemini AI 분석 (캐싱 — 같은 날 재실행 시 API 미호출)
@@ -208,6 +289,17 @@ def main():
     except Exception as e:
         print(f"Gemini 테마주 제안 실패 (무시): {e}")
 
+    # AI 제안 종목코드 검증 (LLM이 종목코드를 잘못 매칭하는 경우 표시)
+    unverified = 0
+    for items in suggestions.values():
+        for it in items:
+            krx_name = sc.get_ticker_name(it.get("ticker", ""))
+            it["krx_name"] = krx_name
+            it["verified"] = bool(krx_name) and krx_name.replace(" ", "") == (it.get("name") or "").replace(" ", "")
+            unverified += 0 if it["verified"] else 1
+    if unverified:
+        print(f"AI 제안 종목 중 {unverified}개 종목코드·종목명 불일치 (대시보드에 '확인 필요' 표시)")
+
     # 국회의원 요약 (지역별·정당별)
     assembly_members = tm.get_assembly_members()
     assembly_by_region = {}
@@ -231,48 +323,63 @@ def main():
             "role": c.get("role", ""),
             "region": c.get("region", ""),
             "has_stocks": len(c.get("related_stocks", [])) > 0,
+            "outcome": c.get("outcome") or outcomes.get(c.get("name", ""), ""),
         })
     print(f"지방선거 후보: {len(all_local_candidates)}명")
 
     # 여론조사 수집 + 호재/악재 시그널 분석
     pdc = PollDataCollector(data_dir=str(ROOT / "data" / "polls"))
     poll_signal_summary = {}
-    try:
-        new_polls = pdc.collect_and_parse()
-        print(f"여론조사 수집: {len(new_polls)}건 신규 (총 {len(pdc.get_all_polls())}건)")
-        pse = PollSignalEngine(pdc, tm)
-        poll_signal_summary = pse.generate_signal_summary()
-        bull_cnt = poll_signal_summary.get("bull_count", 0)
-        bear_cnt = poll_signal_summary.get("bear_count", 0)
-        print(f"여론조사 시그널: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
-        # Gemini 여론조사 복합 분석
-        if poll_signal_summary.get("signals"):
-            try:
-                poll_ai = ga.analyze_poll_impact(poll_signal_summary["signals"])
-                if poll_ai:
-                    poll_signal_summary["ai_analysis"] = poll_ai
-                    print("여론조사 AI 분석 완료")
-            except Exception as e2:
-                print(f"여론조사 AI 분석 실패 (무시): {e2}")
-    except Exception as e:
-        print(f"여론조사 분석 실패 (무시): {e}")
+    if not candidate_polls_active:
+        poll_signal_summary = {
+            "status": "inactive",
+            "reason": f"{phase.get('last_election_name', '지난 선거')} 종료 — 차기 {phase.get('election_name', '선거')} 후보 확정 전까지 후보별 여론조사 시그널 비활성",
+        }
+        print("여론조사 시그널: 비활성 (추적 중인 지방선거 종료)")
+    else:
+        try:
+            new_polls = pdc.collect_and_parse()
+            print(f"여론조사 수집: {len(new_polls)}건 신규 (총 {len(pdc.get_all_polls())}건)")
+            pse = PollSignalEngine(pdc, tm)
+            poll_signal_summary = pse.generate_signal_summary()
+            bull_cnt = poll_signal_summary.get("bull_count", 0)
+            bear_cnt = poll_signal_summary.get("bear_count", 0)
+            print(f"여론조사 시그널: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
+            # Gemini 여론조사 복합 분석
+            if poll_signal_summary.get("signals"):
+                try:
+                    poll_ai = ga.analyze_poll_impact(poll_signal_summary["signals"])
+                    if poll_ai:
+                        poll_signal_summary["ai_analysis"] = poll_ai
+                        print("여론조사 AI 분석 완료")
+                except Exception as e2:
+                    print(f"여론조사 AI 분석 실패 (무시): {e2}")
+        except Exception as e:
+            print(f"여론조사 분석 실패 (무시): {e}")
 
-    # 당선예측 모델
+    # 당선예측 모델 (선거 종료 후에는 확정 결과 기반 관련주 영향으로 대체)
     election_predictions = {}
+    election_outcomes = {}
     stock_impacts = []
-    try:
-        days_until = phase.get("days_until_election", 68)
-        ep = ElectionPredictor(pdc, tm, days_until_election=days_until)
-        election_predictions = ep.predict_all_regions()
-        stock_impacts = ep.get_stock_impact(election_predictions)
-        region_count = len(election_predictions.get("regions", {}))
-        print(f"당선예측: {region_count}개 지역 분석 완료 (D-{days_until})")
-        if stock_impacts:
-            bull_cnt = sum(1 for s in stock_impacts if s["signal"] == "bull")
-            bear_cnt = sum(1 for s in stock_impacts if s["signal"] == "bear")
-            print(f"당선예측 → 테마주 영향: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
-    except Exception as e:
-        print(f"당선예측 분석 실패 (무시): {e}")
+    if not candidate_polls_active:
+        election_predictions = {"status": "inactive"}
+        if election_result:
+            election_outcomes, stock_impacts = build_election_outcomes(election_result, candidate_stocks)
+            print(f"선거 결과 → 관련주 영향: {len(election_outcomes.get('candidates', []))}명 / {len(stock_impacts)}건")
+    else:
+        try:
+            days_until = phase.get("days_until_election", 68)
+            ep = ElectionPredictor(pdc, tm, days_until_election=days_until)
+            election_predictions = ep.predict_all_regions()
+            stock_impacts = ep.get_stock_impact(election_predictions)
+            region_count = len(election_predictions.get("regions", {}))
+            print(f"당선예측: {region_count}개 지역 분석 완료 (D-{days_until})")
+            if stock_impacts:
+                bull_cnt = sum(1 for s in stock_impacts if s["signal"] == "bull")
+                bear_cnt = sum(1 for s in stock_impacts if s["signal"] == "bear")
+                print(f"당선예측 → 테마주 영향: 호재 {bull_cnt}건 / 악재 {bear_cnt}건")
+        except Exception as e:
+            print(f"당선예측 분석 실패 (무시): {e}")
 
     # 예측 적중률 분석 (과거 스냅샷 vs 실제 주가) — 캘리브레이션보다 먼저 실행
     prediction_accuracy = {}
@@ -315,8 +422,10 @@ def main():
     try:
         days_until = phase.get("days_until_election", 68)
         sp = StockPredictor(sc, pdc, tm, days_until_election=days_until,
-                            calibration=calibration_data)
-        stock_predictions = sp.analyze_all_theme_stocks(max_tickers=50)
+                            calibration=calibration_data,
+                            poll_enabled=candidate_polls_active,
+                            cycle_label=phase.get("phase") if is_post_election else None)
+        stock_predictions = sp.analyze_all_theme_stocks(max_tickers=100)
         summary = stock_predictions.get("summary", {})
         print(f"주가 예측: {stock_predictions.get('total_analyzed', 0)}개 종목 분석 완료")
         print(f"  매수 {summary.get('buy_signals', 0)} / 관망 {summary.get('hold_signals', 0)} / 매도 {summary.get('sell_signals', 0)}")
@@ -342,6 +451,7 @@ def main():
 
     output = {
         "date": today,
+        "generated_at": now_kst.isoformat(timespec="seconds"),
         "election_phase": phase,
         "election_result": election_result,
         "ai_post_election_review": post_election_review,
@@ -361,6 +471,7 @@ def main():
         "local_candidates": all_local_candidates,
         "poll_signals": poll_signal_summary,
         "election_predictions": election_predictions,
+        "election_outcomes": election_outcomes,
         "stock_impacts": stock_impacts,
         "stock_predictions": stock_predictions,
         "prediction_accuracy": prediction_accuracy,
@@ -371,6 +482,10 @@ def main():
             "last_updated": calibration_data.get("last_updated", ""),
             "last_adjustment": calibration_result if calibration_result else {},
             "adjustments": calibration_data.get("adjustments", [])[-5:],
+        },
+        "data_quality": {
+            "ticker_name_mismatch": name_mismatch,
+            "missing_tickers": missing_tickers,
         },
         "ai_report": daily_report,
         "ai_suggestions": suggestions,

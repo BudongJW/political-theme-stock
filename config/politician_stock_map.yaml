@@ -1,6 +1,8 @@
 # 정치인-테마주 매핑 DB
 # 출처: 언론 보도, 금감원 공시 기반 수동 정리
-# 업데이트: 2026-04-03
+# 업데이트: 2026-09-30 (지방선거 결과 반영 · 종목코드 KRX 대조 검증)
+#
+# ⚠️ 종목코드는 반드시 KRX 종목명과 대조 후 등록 (2026-09-30 전수 검증 완료)
 #
 # 정치 테마주 = 현직 정치인의 뉴스·정책·이슈에 의해 관련주가 등락하는 현상
 # → 낙선/은퇴 정치인은 제외, 현직 권력자 + 지방선거 후보만 추적
@@ -15,7 +17,7 @@ politicians:
     region: "전국"
     profile: "제21대 대통령 (2025.06~). 반도체·전기차 산업 육성, 기본소득 정책 추진"
     related_stocks:
-      - ticker: "001500"
+      - ticker: "005380"
         name: "현대차"
         relation: "정책(전기차 보조금 확대)"
       - ticker: "005930"
@@ -27,10 +29,10 @@ politicians:
       - ticker: "064350"
         name: "현대로템"
         relation: "정책(방산 수출 지원)"
-      - ticker: "001440"
+      - ticker: "013360"
         name: "일성건설"
         relation: "측근 인사 연관"
-      - ticker: "010040"
+      - ticker: "042940"
         name: "상지건설"
         relation: "측근 인사 연관"
     keywords:
@@ -40,29 +42,31 @@ politicians:
       - "기본소득"
 
 # ============================================================
-# 2026 지방선거 후보 (제9회 전국동시지방선거 2026.06.03 - 예정)
+# 2026 지방선거 후보 (제9회 전국동시지방선거 2026.06.03 - 종료)
+#   outcome: 당선 / 낙선 / 경선 낙선 — 선거 결과 (election_calendar.yaml key_races 기준)
 # ============================================================
 local_candidates_2026:
 
   - name: "정원오"
     party: "더불어민주당"
-    role: "서울시장 후보 (경선 중)"
+    role: "전 성동구청장 (2026 서울시장 민주당 경선 낙선)"
     region: "서울"
     election: "2026지방선거"
-    poll_status: "선두권 (2026년 3월 기준)"
+    outcome: "경선 낙선"
+    poll_status: "경선 전 선두권 (2026년 3월 기준)"
     profile: "성동구청장 3선. 성수동 도시재생·소셜벤처 육성으로 전국적 주목. 여수 출신"
     assets: "약 12억원 (2025년 재산신고 기준, 성동구청장 시절)"
     related_stocks:
-      - ticker: "058430"
+      - ticker: "306040"
         name: "에스제이그룹"
         relation: "지역구(성수동) 내 부지 보유"
-      - ticker: "007720"
+      - ticker: "003310"
         name: "대주산업"
         relation: "출신지(여수) 내 공장"
-      - ticker: "038540"
+      - ticker: "038500"
         name: "삼표시멘트"
         relation: "성수동 삼표레미콘 부지 재개발 이슈, 정원오 성동구청장 시절 이전 협의 주도"
-      - ticker: "045340"
+      - ticker: "293580"
         name: "나우IB"
         relation: "종친(경주 정씨) 연결"
       - ticker: "030190"
@@ -76,10 +80,11 @@ local_candidates_2026:
 
   - name: "오세훈"
     party: "국민의힘"
-    role: "서울시장 (현직, 재선 도전 검토)"
+    role: "서울시장 (2026 당선 · 현직 수성)"
     region: "서울"
     election: "2026지방선거"
-    profile: "서울시장 3선. 디자인서울·UAM(도심항공교통)·재건축 규제 완화 추진"
+    outcome: "당선"
+    profile: "서울시장 역임 후 2026 지방선거 수성 (49.08%). 디자인서울·UAM(도심항공교통)·재건축 규제 완화 추진"
     assets: "약 56억원 (2024년 재산신고 기준)"
     related_stocks:
       - ticker: "000270"
@@ -87,7 +92,7 @@ local_candidates_2026:
         relation: "서울시 UAM(도심항공) 정책"
       - ticker: "282330"
         name: "BGF리테일"
-        relation: "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 재선 시 골목상권 규제 완화 수혜"
+        relation: "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책"
     keywords:
       - "오세훈"
       - "서울시장"
@@ -95,9 +100,10 @@ local_candidates_2026:
 
   - name: "윤희숙"
     party: "국민의힘"
-    role: "서울시장 후보 (출마 공식화)"
+    role: "전 국회의원 (2026 서울시장 경선 참여)"
     region: "서울"
     election: "2026지방선거"
+    outcome: "경선 낙선"
     profile: "전 국회의원. KDI 연구위원 출신, 경제·부동산 정책 전문가"
     related_stocks: []
     keywords:
@@ -107,10 +113,11 @@ local_candidates_2026:
 
   - name: "김동연"
     party: "더불어민주당"
-    role: "경기지사 후보 (현직, 경선 중)"
+    role: "전 경기지사 (2026 민주당 경선 낙선)"
     region: "경기"
     election: "2026지방선거"
-    profile: "기획재정부 차관·경기지사 역임. 반도체 클러스터·GTX 추진"
+    outcome: "경선 낙선"
+    profile: "경제부총리·경기지사 역임. 반도체 클러스터·GTX 추진"
     assets: "약 23억원 (2024년 재산신고 기준)"
     related_stocks:
       - ticker: "003490"
@@ -126,10 +133,11 @@ local_candidates_2026:
 
   - name: "추미애"
     party: "더불어민주당"
-    role: "경기지사 후보 (경선 중)"
+    role: "경기지사 (2026 당선 · 2026.07 취임)"
     region: "경기"
     election: "2026지방선거"
-    profile: "법무부장관·국회의원 6선. 사법개혁 추진, 여성 정치인 대표격"
+    outcome: "당선"
+    profile: "법무부장관·국회의원 6선. 헌정사상 첫 여성 광역단체장 (55.04%). 사법개혁 추진, 여성 정치인 대표격"
     assets: "약 18억원 (2024년 재산신고 기준)"
     related_stocks:
       - ticker: "006800"
@@ -141,10 +149,11 @@ local_candidates_2026:
 
   - name: "박찬대"
     party: "더불어민주당"
-    role: "인천시장 후보 (단수 공천 확정)"
+    role: "인천시장 (2026 당선 · 2026.07 취임)"
     region: "인천"
     election: "2026지방선거"
-    poll_status: "단수 공천 확정 (2026.03.04)"
+    outcome: "당선"
+    poll_status: "단수 공천 → 본선 당선"
     profile: "국회 원내대표 역임. 인천 연수구 지역구, 인천항 물류·경제자유구역 공약"
     assets: "약 32억원 (2024년 재산신고 기준)"
     related_stocks:
@@ -154,7 +163,7 @@ local_candidates_2026:
       - ticker: "011200"
         name: "HMM"
         relation: "인천항 물류 정책"
-      - ticker: "003160"
+      - ticker: "092200"
         name: "디아이씨"
         relation: "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대"
     keywords:
@@ -165,10 +174,11 @@ local_candidates_2026:
 
   - name: "박형준"
     party: "국민의힘"
-    role: "부산시장 후보 (현직, 3선 도전 유력)"
+    role: "전 부산시장 (2026 낙선)"
     region: "부산"
     election: "2026지방선거"
-    profile: "부산시장 현직. 북항 재개발·부산엑스포·가덕도 신공항 추진"
+    outcome: "낙선"
+    profile: "부산시장 역임 (2021~2026). 북항 재개발·부산엑스포·가덕도 신공항 추진"
     assets: "약 15억원 (2024년 재산신고 기준)"
     related_stocks:
       - ticker: "000100"
@@ -177,9 +187,9 @@ local_candidates_2026:
       - ticker: "011200"
         name: "HMM"
         relation: "부산항 물류 정책"
-      - ticker: "010620"
-        name: "현대미포조선"
-        relation: "부산 조선업 지원"
+      - ticker: "329180"
+        name: "HD현대중공업"
+        relation: "부산 조선업 지원 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)"
     keywords:
       - "박형준"
       - "부산시장"
@@ -187,30 +197,36 @@ local_candidates_2026:
 
   - name: "전재수"
     party: "더불어민주당"
-    role: "부산시장 후보 (출마 공식화)"
+    role: "부산시장 (2026 당선 · 2026.07 취임)"
     region: "부산"
     election: "2026지방선거"
-    profile: "국회의원 3선. 중소기업·조선업 육성 공약, 부산 북·사상구 지역구"
+    outcome: "당선"
+    profile: "국회의원 3선. 현직 박형준 꺾고 부산시장 당선 (민주당 부산 탈환). 중소기업·조선업 육성 공약, 부산 북·사상구 지역구"
     assets: "약 8억원 (2024년 재산신고 기준)"
     related_stocks:
-      - ticker: "010620"
-        name: "현대미포조선"
-        relation: "부산 조선업"
+      - ticker: "329180"
+        name: "HD현대중공업"
+        relation: "조선업 육성 공약 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)"
     keywords:
       - "전재수"
       - "부산시장"
 
 # ============================================================
 # 정책 테마별 종목 (정치인 무관)
+#   note: 테마 설명 (대시보드 표시용)
+#   국정과제 테마(AI·재생에너지·조선·자본시장)는 2026 하반기 '정책 테마 선별 국면' 대응
 # ============================================================
 policy_themes:
   원전:
     - ticker: "034020"
       name: "두산에너빌리티"
-    - ticker: "017550"
-      name: "한국전력기술"
-    - ticker: "009540"
-      name: "한국조선해양"
+      description: "원전 주기기·SMR"
+    - ticker: "052690"
+      name: "한전기술"
+      description: "원전 설계"
+    - ticker: "051600"
+      name: "한전KPS"
+      description: "원전 정비"
     - ticker: "298040"
       name: "효성중공업"
 
@@ -221,11 +237,12 @@ policy_themes:
       name: "현대로템"
     - ticker: "012450"
       name: "한화에어로스페이스"
-    - ticker: "000760"
-      name: "이화공영"
+    - ticker: "079550"
+      name: "LIG디펜스앤에어로스페이스"
+      description: "구 LIG넥스원"
 
   전기차:
-    - ticker: "001500"
+    - ticker: "005380"
       name: "현대차"
     - ticker: "051910"
       name: "LG화학"
@@ -243,24 +260,22 @@ policy_themes:
   SOC건설:
     - ticker: "000720"
       name: "현대건설"
-      description: "2026 지방선거 SOC예산 수혜"
-    - ticker: "000210"
+      description: "지역 SOC 예산 수혜"
+    - ticker: "375500"
       name: "DL이앤씨"
     - ticker: "047040"
       name: "대우건설"
     - ticker: "006360"
       name: "GS건설"
-    - ticker: "023000"
-      name: "삼성엔지니어링"
+    - ticker: "028050"
+      name: "삼성E&A"
 
   지방개발:
-    - ticker: "001500"
+    - ticker: "005380"
       name: "현대차"
       description: "공공기관 2차 이전·GTX 역세권 개발"
     - ticker: "097950"
       name: "CJ제일제당"
-    - ticker: "003410"
-      name: "쌍용C&E"
 
   반도체:
     - ticker: "005930"
@@ -270,3 +285,62 @@ policy_themes:
       name: "SK하이닉스"
     - ticker: "009150"
       name: "삼성전기"
+
+  # ---------- 이재명 정부 국정과제 (2026 하반기 정책 테마 선별 국면) ----------
+  AI:
+    - ticker: "035420"
+      name: "NAVER"
+      description: "소버린 AI·AI 3대 강국 국정과제"
+    - ticker: "018260"
+      name: "삼성에스디에스"
+      description: "공공 AI·클라우드"
+    - ticker: "064400"
+      name: "LG씨엔에스"
+      description: "공공 AI 전환(AX)"
+    - ticker: "304100"
+      name: "솔트룩스"
+      description: "AI 소프트웨어"
+
+  재생에너지:
+    - ticker: "112610"
+      name: "씨에스윈드"
+      description: "해상풍력 확대"
+    - ticker: "009830"
+      name: "한화솔루션"
+      description: "태양광"
+    - ticker: "010120"
+      name: "LS ELECTRIC"
+      description: "전력망(에너지 고속도로)"
+    - ticker: "267260"
+      name: "HD현대일렉트릭"
+      description: "전력망(에너지 고속도로)"
+    - ticker: "001440"
+      name: "대한전선"
+      description: "전력망(에너지 고속도로)"
+
+  조선:
+    - ticker: "009540"
+      name: "HD한국조선해양"
+      description: "한미 조선 협력"
+    - ticker: "329180"
+      name: "HD현대중공업"
+      description: "한미 조선 협력"
+    - ticker: "042660"
+      name: "한화오션"
+      description: "한미 조선 협력"
+    - ticker: "010140"
+      name: "삼성중공업"
+      description: "한미 조선 협력"
+
+  자본시장:
+    - ticker: "006800"
+      name: "미래에셋증권"
+      description: "코스피 5000·상법 개정 등 자본시장 활성화"
+    - ticker: "039490"
+      name: "키움증권"
+      description: "개인 거래대금 증가 수혜"
+    - ticker: "071050"
+      name: "한국금융지주"
+    - ticker: "105560"
+      name: "KB금융"
+      description: "밸류업·주주환원"

@@ -72,8 +72,8 @@ signal_color = {
 if is_post:
     # ── 선거 종료 모드 ──
     st.caption(
-        f"{phase.get('last_election_name','제9회 전국동시지방선거')} (2026.06.03) 종료 "
-        f"· D+{phase.get('days_since_last','?')} 청산 국면 모니터링"
+        f"{phase.get('last_election_name','지난 선거')} ({phase.get('last_election_date','')}) 종료 "
+        f"· D+{phase.get('days_since_last','?')} {phase.get('phase','')} 모니터링"
     )
     last = pc.get_last_election_result()
     res = last.get("result", {})
@@ -93,7 +93,7 @@ if is_post:
         f"{phase.get('pattern','')}"
     )
 else:
-    st.caption("제9회 전국동시지방선거 (2026.06.03) 기반 테마주 실시간 모니터링")
+    st.caption(f"{phase.get('election_name','')} ({phase.get('election_date','')}) 기반 테마주 실시간 모니터링")
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("선거까지", f"D-{days}", next_el.get("name", "") if next_el else "")
     col2.metric("현재 단계", phase.get("phase", "-"))

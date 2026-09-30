@@ -311,9 +311,19 @@ JSON만 응답."""
             for r in top_losers
         )
         cand_text = chr(10).join(
-            f"- {n}: {info.get('avg_change_pct',0):.2f}% ({info.get('party','')}, {info.get('stock_count',0)}종목)"
+            f"- {n}{' [' + info['outcome'] + ']' if info.get('outcome') else ''}: {info.get('avg_change_pct',0):.2f}% ({info.get('party','')}, {info.get('stock_count',0)}종목)"
             for n, info in candidates.items()
         )
+        # 정책 테마별 평균 등락 (정책 테마 선별 국면 해석용)
+        theme_moves: dict[str, list[float]] = {}
+        for r in results:
+            for t in r.get("tags", []):
+                if t.endswith("테마"):
+                    theme_moves.setdefault(t, []).append(r.get("change_pct", 0) or 0)
+        theme_text = chr(10).join(
+            f"- {t}: {sum(v) / len(v):+.2f}% ({len(v)}종목)"
+            for t, v in sorted(theme_moves.items(), key=lambda x: -sum(x[1]) / len(x[1]))
+        ) or "- (없음)"
 
         if is_post:
             # 선거 종료(청산 국면) — 결과·청산·차기 사이클 관점으로 프레이밍 전환
@@ -332,14 +342,17 @@ JSON만 응답."""
 하락 TOP:
 {losers_text}
 
-후보별 평균 등락률:
+정책 테마별 평균 등락률:
+{theme_text}
+
+정치인별 관련주 평균 등락률 ([당선]/[낙선] = 지난 선거 결과):
 {cand_text}
 
-다음 형식으로 작성 (선거 이후 국면에 맞게):
-1. 오늘의 핵심 포인트 (청산 국면 진행도 — 인물 테마주 급락/잔존 여부)
-2. 당선/낙선이 갈린 후보 관련주 명암 (당선=단기 차익실현, 낙선=추가 약세 위험)
-3. 인물 테마 → 정책 모멘텀 전환 관점 (여당 압승 → 국정과제 수혜주 차별화)
-4. 차기 총선 사이클까지 관망/대응 전략
+다음 형식으로 작성 (현재 단계 '{phase.get('phase','')}'에 맞게):
+1. 오늘의 핵심 포인트 (현재 단계 관점에서 가장 중요한 움직임)
+2. 정책 테마 흐름 (국정과제 테마 중 강세/약세 테마와 이유 추정)
+3. 당선/낙선 인물 관련주 명암 (당선=공약의 예산·사업화 여부, 낙선=재료 소멸)
+4. 차기 총선 사이클까지 관망/대응 포인트
 
 한국어로 깔끔하게, 650자 이내. 선거가 '이미 끝났다'는 전제로 작성."""
         else:

@@ -80,6 +80,16 @@ class StockCollector:
             "change_pct": change_pct,
         }
 
+    def get_ticker_name(self, ticker: str) -> str:
+        """KRX 종목명 조회 (존재하지 않는 코드면 빈 문자열)"""
+        if not ticker or len(ticker) != 6 or not ticker.isalnum():
+            return ""
+        try:
+            name = stock.get_market_ticker_name(ticker)
+        except Exception:
+            return ""
+        return name if isinstance(name, str) else ""
+
     def screen_theme_stocks(self, tickers: list[str], surge_ratio: float = 3.0) -> list[dict]:
         """테마 종목 리스트 일괄 스크리닝"""
         results = []
