@@ -284,15 +284,19 @@ JSON만 응답."""
         """
         스크리닝 결과 기반 일일 리포트 자동 생성
         """
-        ck = self._cache_key("report", screening_data.get("date", ""))
-        cached = self._get_cache(ck)
-        if cached is not None:
-            return cached
-
         results = screening_data.get("screening_results", [])
         summary = screening_data.get("summary", {})
         phase = screening_data.get("election_phase", {})
         candidates = screening_data.get("candidate_market_summary", {})
+
+        # 캐시 키에 국면·추적 종목 목록 포함 → 같은 날이라도 매핑 DB·국면이 바뀌면 재생성
+        tickers = ",".join(sorted(r.get("ticker", "") for r in results))
+        ck = self._cache_key(
+            "report", f"{screening_data.get('date', '')}|{phase.get('phase', '')}|{tickers}"
+        )
+        cached = self._get_cache(ck)
+        if cached is not None:
+            return cached
 
         top_gainers = sorted(
             results, key=lambda x: x.get("change_pct", 0), reverse=True

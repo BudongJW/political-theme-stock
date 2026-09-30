@@ -290,15 +290,22 @@ def main():
         print(f"Gemini 테마주 제안 실패 (무시): {e}")
 
     # AI 제안 종목코드 검증 (LLM이 종목코드를 잘못 매칭하는 경우 표시)
-    unverified = 0
+    #   verified=True: 종목명 일치 / krx_name만 있음: 종목명 상이(사명 변경·약칭 또는 잘못된 코드) / krx_name 없음: KRX에 없는 코드
+    def _norm(name: str) -> str:
+        return (name or "").replace("(주)", "").replace("주식회사", "").replace(" ", "").upper()
+
+    name_differs = not_found = 0
     for items in suggestions.values():
         for it in items:
             krx_name = sc.get_ticker_name(it.get("ticker", ""))
             it["krx_name"] = krx_name
-            it["verified"] = bool(krx_name) and krx_name.replace(" ", "") == (it.get("name") or "").replace(" ", "")
-            unverified += 0 if it["verified"] else 1
-    if unverified:
-        print(f"AI 제안 종목 중 {unverified}개 종목코드·종목명 불일치 (대시보드에 '확인 필요' 표시)")
+            it["verified"] = bool(krx_name) and _norm(krx_name) == _norm(it.get("name"))
+            if not krx_name:
+                not_found += 1
+            elif not it["verified"]:
+                name_differs += 1
+    if name_differs or not_found:
+        print(f"AI 제안 종목 검증: 종목명 상이 {name_differs}개 / KRX에 없는 코드 {not_found}개")
 
     # 국회의원 요약 (지역별·정당별)
     assembly_members = tm.get_assembly_members()
