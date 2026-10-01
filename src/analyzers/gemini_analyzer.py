@@ -289,10 +289,12 @@ JSON만 응답."""
         phase = screening_data.get("election_phase", {})
         candidates = screening_data.get("candidate_market_summary", {})
 
-        # 캐시 키에 국면·추적 종목 목록 포함 → 같은 날이라도 매핑 DB·국면이 바뀌면 재생성
+        # 캐시 키에 국면·추적 종목 목록·시세 요약 포함 → 같은 날이라도 매핑 DB·국면이 바뀌거나
+        # 장중→장 마감처럼 시세가 바뀌면 재생성 (리포트 수치가 대시보드 데이터와 어긋나지 않도록)
         tickers = ",".join(sorted(r.get("ticker", "") for r in results))
+        market = f"{summary.get('up', 0)}/{summary.get('down', 0)}/{summary.get('surge_count', 0)}"
         ck = self._cache_key(
-            "report", f"{screening_data.get('date', '')}|{phase.get('phase', '')}|{tickers}"
+            "report", f"{screening_data.get('date', '')}|{phase.get('phase', '')}|{tickers}|{market}"
         )
         cached = self._get_cache(ck)
         if cached is not None:
