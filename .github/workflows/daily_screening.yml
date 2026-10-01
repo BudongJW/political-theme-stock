@@ -7,7 +7,20 @@ on:
     - cron: '0 3 * * 1-5'   # KST 12:00 - 오전 마감
     - cron: '0 5 * * 1-5'   # KST 14:00 - 오후 장중
     - cron: '40 6 * * 1-5'  # KST 15:40 - 장 마감 후 (메인)
-  workflow_dispatch:  # 수동 실행 가능
+  push:
+    # 코드·설정 변경이 main에 머지되면 즉시 재스크리닝 (봇의 데이터 커밋은 경로가 달라 재트리거되지 않음)
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'config/**'
+      - '.github/workflows/daily_screening.yml'
+  workflow_dispatch:  # 수동 실행 가능 (휴장일에도 강제 실행)
+
+# 예약 실행과 머지 트리거 실행이 겹치면 순서대로 실행 (동시 커밋 충돌 방지)
+concurrency:
+  group: pollstock-screening
+  cancel-in-progress: false
 
 jobs:
   screening:
@@ -41,6 +54,11 @@ jobs:
           name = holidays.KR(years=today.year).get(today)
           if (today.month, today.day) == (12, 31):
               name = "KRX 연말 휴장일"
+          if not name and today.weekday() >= 5:
+              name = "주말"
+          if name and os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
+              print(f"📅 {today} {name} — 수동 실행이므로 강제 진행")
+              name = None
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"is_holiday={'true' if name else 'false'}\n")
               f.write(f"today={today.isoformat()}\n")
@@ -63,6 +81,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/data/ data/gemini_cache/ data/suggestions/ data/assets/ data/polls/
           git diff --staged --quiet || git commit -m "chore: PollStock 스크리닝 $(date -u +'%Y-%m-%d %H:%M')"
+          # 실행 중 main에 다른 커밋(코드 머지 등)이 들어온 경우 대비
+          git pull --rebase origin main
           git push
 
       - name: 실패 시 GitHub Issue 생성
