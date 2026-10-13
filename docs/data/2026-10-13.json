@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "generated_at": "2026-10-13T16:12:54+09:00",
+  "generated_at": "2026-10-13T18:55:18+09:00",
   "election_phase": {
     "phase": "정책 테마 선별 국면",
     "pattern": "여당 압승 → 인물주 소멸, 국정과제 정책 수혜주로 차별화",
@@ -190,6 +190,54 @@
       "screening": [
         {
           "surge": false,
+          "ratio": 0.42,
+          "today_volume": 278244,
+          "avg_volume": 664339,
+          "close": 1217,
+          "change_pct": -3.64,
+          "ticker": "293580",
+          "name": "나우IB",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
+              "region": "서울",
+              "relation": "종친(경주 정씨) 연결",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 1.38,
+          "today_volume": 80881,
+          "avg_volume": 58587,
+          "close": 16490,
+          "change_pct": 0.67,
+          "ticker": "030190",
+          "name": "NICE평가정보",
+          "tags": [
+            "정원오 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "정원오",
+              "party": "더불어민주당",
+              "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
+              "region": "서울",
+              "relation": "성동구청장 시절 협력",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
           "ratio": 0.79,
           "today_volume": 102650,
           "avg_volume": 130248,
@@ -214,11 +262,11 @@
         },
         {
           "surge": true,
-          "ratio": 3.06,
-          "today_volume": 9773848,
+          "ratio": 3.11,
+          "today_volume": 9941300,
           "avg_volume": 3197560,
-          "close": 6660,
-          "change_pct": -9.88,
+          "close": 6630,
+          "change_pct": -10.28,
           "ticker": "038500",
           "name": "삼표시멘트",
           "tags": [
@@ -238,11 +286,11 @@
         },
         {
           "surge": false,
-          "ratio": 1.29,
-          "today_volume": 212529,
+          "ratio": 1.34,
+          "today_volume": 220679,
           "avg_volume": 164737,
-          "close": 1674,
-          "change_pct": 1.45,
+          "close": 1635,
+          "change_pct": -0.91,
           "ticker": "003310",
           "name": "대주산업",
           "tags": [
@@ -256,54 +304,6 @@
               "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
               "region": "서울",
               "relation": "출신지(여수) 내 공장",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 1.37,
-          "today_volume": 79980,
-          "avg_volume": 58587,
-          "close": 16610,
-          "change_pct": 1.4,
-          "ticker": "030190",
-          "name": "NICE평가정보",
-          "tags": [
-            "정원오 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "정원오",
-              "party": "더불어민주당",
-              "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
-              "region": "서울",
-              "relation": "성동구청장 시절 협력",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 0.42,
-          "today_volume": 277881,
-          "avg_volume": 664339,
-          "close": 1221,
-          "change_pct": -3.33,
-          "ticker": "293580",
-          "name": "나우IB",
-          "tags": [
-            "정원오 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "정원오",
-              "party": "더불어민주당",
-              "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
-              "region": "서울",
-              "relation": "종친(경주 정씨) 연결",
               "election": "2026지방선거"
             }
           ]
@@ -340,35 +340,11 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 1.13,
-          "today_volume": 916968,
-          "avg_volume": 812643,
-          "close": 108000,
-          "change_pct": 0.47,
-          "ticker": "000270",
-          "name": "기아",
-          "tags": [
-            "오세훈 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "오세훈",
-              "party": "국민의힘",
-              "role": "서울시장 (2026 당선 · 현직 수성)",
-              "region": "서울",
-              "relation": "서울시 UAM(도심항공) 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
           "ratio": 1.38,
-          "today_volume": 61815,
+          "today_volume": 61924,
           "avg_volume": 44782,
-          "close": 130600,
-          "change_pct": 1.24,
+          "close": 126900,
+          "change_pct": -1.63,
           "ticker": "282330",
           "name": "BGF리테일",
           "tags": [
@@ -382,6 +358,30 @@
               "role": "서울시장 (2026 당선 · 현직 수성)",
               "region": "서울",
               "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 1.14,
+          "today_volume": 923092,
+          "avg_volume": 812643,
+          "close": 106900,
+          "change_pct": -0.56,
+          "ticker": "000270",
+          "name": "기아",
+          "tags": [
+            "오세훈 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "오세훈",
+              "party": "국민의힘",
+              "role": "서울시장 (2026 당선 · 현직 수성)",
+              "region": "서울",
+              "relation": "서울시 UAM(도심항공) 정책",
               "election": "2026지방선거"
             }
           ]
@@ -417,36 +417,12 @@
       ],
       "screening": [
         {
-          "surge": true,
-          "ratio": 2.42,
-          "today_volume": 304738,
-          "avg_volume": 126120,
-          "close": 503000,
-          "change_pct": -6.16,
-          "ticker": "034730",
-          "name": "SK",
-          "tags": [
-            "김동연 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "김동연",
-              "party": "더불어민주당",
-              "role": "전 경기지사 (2026 민주당 경선 낙선)",
-              "region": "경기",
-              "relation": "경기도 반도체 클러스터 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
           "surge": false,
-          "ratio": 0.94,
-          "today_volume": 2235407,
+          "ratio": 0.96,
+          "today_volume": 2287881,
           "avg_volume": 2384865,
-          "close": 30450,
-          "change_pct": -1.46,
+          "close": 30500,
+          "change_pct": -1.29,
           "ticker": "003490",
           "name": "대한항공",
           "tags": [
@@ -460,6 +436,30 @@
               "role": "전 경기지사 (2026 민주당 경선 낙선)",
               "region": "경기",
               "relation": "경기도 항공 물류 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": true,
+          "ratio": 2.43,
+          "today_volume": 306470,
+          "avg_volume": 126120,
+          "close": 501000,
+          "change_pct": -6.53,
+          "ticker": "034730",
+          "name": "SK",
+          "tags": [
+            "김동연 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "김동연",
+              "party": "더불어민주당",
+              "role": "전 경기지사 (2026 민주당 경선 낙선)",
+              "region": "경기",
+              "relation": "경기도 반도체 클러스터 정책",
               "election": "2026지방선거"
             }
           ]
@@ -490,12 +490,12 @@
       ],
       "screening": [
         {
-          "surge": false,
-          "ratio": 1.98,
-          "today_volume": 1847816,
+          "surge": true,
+          "ratio": 2.04,
+          "today_volume": 1900947,
           "avg_volume": 932191,
-          "close": 27150,
-          "change_pct": -3.72,
+          "close": 27100,
+          "change_pct": -3.9,
           "ticker": "006800",
           "name": "미래에셋증권",
           "tags": [
@@ -555,12 +555,36 @@
       ],
       "screening": [
         {
+          "surge": false,
+          "ratio": 1.16,
+          "today_volume": 244233,
+          "avg_volume": 210263,
+          "close": 5190,
+          "change_pct": -4.07,
+          "ticker": "092200",
+          "name": "디아이씨",
+          "tags": [
+            "박찬대 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 (2026 당선 · 2026.07 취임)",
+              "region": "인천",
+              "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
           "surge": true,
-          "ratio": 2.39,
-          "today_volume": 2143168,
+          "ratio": 2.41,
+          "today_volume": 2153072,
           "avg_volume": 895133,
-          "close": 21950,
-          "change_pct": 0.46,
+          "close": 21900,
+          "change_pct": 0.23,
           "ticker": "011200",
           "name": "HMM",
           "tags": [
@@ -590,11 +614,11 @@
         },
         {
           "surge": false,
-          "ratio": 0.79,
-          "today_volume": 195618,
+          "ratio": 0.81,
+          "today_volume": 199331,
           "avg_volume": 247610,
-          "close": 221000,
-          "change_pct": -1.34,
+          "close": 222000,
+          "change_pct": -0.89,
           "ticker": "010060",
           "name": "OCI홀딩스",
           "tags": [
@@ -608,30 +632,6 @@
               "role": "인천시장 (2026 당선 · 2026.07 취임)",
               "region": "인천",
               "relation": "인천 기반 기업",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": false,
-          "ratio": 1.09,
-          "today_volume": 229949,
-          "avg_volume": 210263,
-          "close": 5130,
-          "change_pct": -5.18,
-          "ticker": "092200",
-          "name": "디아이씨",
-          "tags": [
-            "박찬대 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "박찬대",
-              "party": "더불어민주당",
-              "role": "인천시장 (2026 당선 · 2026.07 취임)",
-              "region": "인천",
-              "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
               "election": "2026지방선거"
             }
           ]
@@ -673,45 +673,11 @@
       "screening": [
         {
           "surge": true,
-          "ratio": 2.39,
-          "today_volume": 2143168,
-          "avg_volume": 895133,
-          "close": 21950,
-          "change_pct": 0.46,
-          "ticker": "011200",
-          "name": "HMM",
-          "tags": [
-            "박찬대 관련주",
-            "박형준 관련주"
-          ],
-          "reasons": [
-            {
-              "type": "local_candidate",
-              "name": "박찬대",
-              "party": "더불어민주당",
-              "role": "인천시장 (2026 당선 · 2026.07 취임)",
-              "region": "인천",
-              "relation": "인천항 물류 정책",
-              "election": "2026지방선거"
-            },
-            {
-              "type": "local_candidate",
-              "name": "박형준",
-              "party": "국민의힘",
-              "role": "전 부산시장 (2026 낙선)",
-              "region": "부산",
-              "relation": "부산항 물류 정책",
-              "election": "2026지방선거"
-            }
-          ]
-        },
-        {
-          "surge": true,
-          "ratio": 2.06,
-          "today_volume": 458113,
+          "ratio": 2.08,
+          "today_volume": 462585,
           "avg_volume": 222537,
-          "close": 366000,
-          "change_pct": 1.67,
+          "close": 366500,
+          "change_pct": 1.81,
           "ticker": "329180",
           "name": "HD현대중공업",
           "tags": [
@@ -747,11 +713,11 @@
         },
         {
           "surge": false,
-          "ratio": 0.86,
-          "today_volume": 170062,
+          "ratio": 0.87,
+          "today_volume": 171942,
           "avg_volume": 197614,
-          "close": 72100,
-          "change_pct": 0.84,
+          "close": 71700,
+          "change_pct": 0.28,
           "ticker": "000100",
           "name": "유한양행",
           "tags": [
@@ -765,6 +731,40 @@
               "role": "전 부산시장 (2026 낙선)",
               "region": "부산",
               "relation": "부산 바이오 클러스터 정책",
+              "election": "2026지방선거"
+            }
+          ]
+        },
+        {
+          "surge": true,
+          "ratio": 2.41,
+          "today_volume": 2153072,
+          "avg_volume": 895133,
+          "close": 21900,
+          "change_pct": 0.23,
+          "ticker": "011200",
+          "name": "HMM",
+          "tags": [
+            "박찬대 관련주",
+            "박형준 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "local_candidate",
+              "name": "박찬대",
+              "party": "더불어민주당",
+              "role": "인천시장 (2026 당선 · 2026.07 취임)",
+              "region": "인천",
+              "relation": "인천항 물류 정책",
+              "election": "2026지방선거"
+            },
+            {
+              "type": "local_candidate",
+              "name": "박형준",
+              "party": "국민의힘",
+              "role": "전 부산시장 (2026 낙선)",
+              "region": "부산",
+              "relation": "부산항 물류 정책",
               "election": "2026지방선거"
             }
           ]
@@ -796,11 +796,11 @@
       "screening": [
         {
           "surge": true,
-          "ratio": 2.06,
-          "today_volume": 458113,
+          "ratio": 2.08,
+          "today_volume": 462585,
           "avg_volume": 222537,
-          "close": 366000,
-          "change_pct": 1.67,
+          "close": 366500,
+          "change_pct": 1.81,
           "ticker": "329180",
           "name": "HD현대중공업",
           "tags": [
@@ -884,16 +884,15 @@
       "screening": [
         {
           "surge": false,
-          "ratio": 1.65,
-          "today_volume": 2035265,
-          "avg_volume": 1236646,
-          "close": 31200,
-          "change_pct": -2.19,
-          "ticker": "035720",
-          "name": "카카오",
+          "ratio": 0.94,
+          "today_volume": 25169,
+          "avg_volume": 26670,
+          "close": 5070,
+          "change_pct": -2.5,
+          "ticker": "042940",
+          "name": "상지건설",
           "tags": [
-            "이재명 관련주",
-            "기본소득 테마"
+            "이재명 관련주"
           ],
           "reasons": [
             {
@@ -901,23 +900,41 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (현직)",
-              "relation": "기본소득 플랫폼 활용 가능성, 학연(서울대)",
+              "relation": "측근 인사 연관",
               "election": ""
-            },
-            {
-              "type": "policy_theme",
-              "theme": "기본소득",
-              "description": ""
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 1.66,
-          "today_volume": 597937,
+          "ratio": 1.08,
+          "today_volume": 153447,
+          "avg_volume": 142252,
+          "close": 1289,
+          "change_pct": -1.75,
+          "ticker": "013360",
+          "name": "일성건설",
+          "tags": [
+            "이재명 관련주"
+          ],
+          "reasons": [
+            {
+              "type": "politician",
+              "name": "이재명",
+              "party": "더불어민주당",
+              "role": "대통령 (현직)",
+              "relation": "측근 인사 연관",
+              "election": ""
+            }
+          ]
+        },
+        {
+          "surge": false,
+          "ratio": 1.67,
+          "today_volume": 603072,
           "avg_volume": 360937,
-          "close": 96700,
-          "change_pct": -3.11,
+          "close": 97000,
+          "change_pct": -2.81,
           "ticker": "064350",
           "name": "현대로템",
           "tags": [
@@ -942,15 +959,16 @@
         },
         {
           "surge": false,
-          "ratio": 0.93,
-          "today_volume": 24673,
-          "avg_volume": 26670,
-          "close": 5010,
-          "change_pct": -3.65,
-          "ticker": "042940",
-          "name": "상지건설",
+          "ratio": 1.52,
+          "today_volume": 25055001,
+          "avg_volume": 16525841,
+          "close": 235500,
+          "change_pct": -6.18,
+          "ticker": "005930",
+          "name": "삼성전자",
           "tags": [
-            "이재명 관련주"
+            "이재명 관련주",
+            "반도체 테마"
           ],
           "reasons": [
             {
@@ -958,22 +976,28 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (현직)",
-              "relation": "측근 인사 연관",
+              "relation": "정책(반도체 클러스터 지원)",
               "election": ""
+            },
+            {
+              "type": "policy_theme",
+              "theme": "반도체",
+              "description": "경기도 반도체 클러스터(용인·평택)"
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 0.89,
-          "today_volume": 126054,
-          "avg_volume": 142252,
-          "close": 1294,
-          "change_pct": -1.37,
-          "ticker": "013360",
-          "name": "일성건설",
+          "ratio": 1.69,
+          "today_volume": 2090990,
+          "avg_volume": 1236646,
+          "close": 31050,
+          "change_pct": -2.66,
+          "ticker": "035720",
+          "name": "카카오",
           "tags": [
-            "이재명 관련주"
+            "이재명 관련주",
+            "기본소득 테마"
           ],
           "reasons": [
             {
@@ -981,18 +1005,23 @@
               "name": "이재명",
               "party": "더불어민주당",
               "role": "대통령 (현직)",
-              "relation": "측근 인사 연관",
+              "relation": "기본소득 플랫폼 활용 가능성, 학연(서울대)",
               "election": ""
+            },
+            {
+              "type": "policy_theme",
+              "theme": "기본소득",
+              "description": ""
             }
           ]
         },
         {
           "surge": false,
-          "ratio": 1.77,
-          "today_volume": 855540,
+          "ratio": 1.79,
+          "today_volume": 865391,
           "avg_volume": 484627,
-          "close": 312000,
-          "change_pct": -2.04,
+          "close": 311500,
+          "change_pct": -2.2,
           "ticker": "005380",
           "name": "현대차",
           "tags": [
@@ -1020,35 +1049,6 @@
               "description": "공공기관 2차 이전·GTX 역세권 개발"
             }
           ]
-        },
-        {
-          "surge": false,
-          "ratio": 1.46,
-          "today_volume": 24193363,
-          "avg_volume": 16525841,
-          "close": 232500,
-          "change_pct": -7.37,
-          "ticker": "005930",
-          "name": "삼성전자",
-          "tags": [
-            "이재명 관련주",
-            "반도체 테마"
-          ],
-          "reasons": [
-            {
-              "type": "politician",
-              "name": "이재명",
-              "party": "더불어민주당",
-              "role": "대통령 (현직)",
-              "relation": "정책(반도체 클러스터 지원)",
-              "election": ""
-            },
-            {
-              "type": "policy_theme",
-              "theme": "반도체",
-              "description": "경기도 반도체 클러스터(용인·평택)"
-            }
-          ]
         }
       ]
     }
@@ -1056,72 +1056,72 @@
   "candidate_market_summary": {
     "정원오": {
       "stock_count": 5,
-      "total_volume": 10446888,
-      "total_trade_value_억": 673.1,
-      "avg_change_pct": -2.66,
+      "total_volume": 10623754,
+      "total_trade_value_억": 681.4,
+      "avg_change_pct": -3.42,
       "party": "더불어민주당",
       "region": "서울",
       "outcome": "경선 낙선"
     },
     "오세훈": {
       "stock_count": 2,
-      "total_volume": 978783,
-      "total_trade_value_억": 1071.1,
-      "avg_change_pct": 0.86,
+      "total_volume": 985016,
+      "total_trade_value_억": 1065.4,
+      "avg_change_pct": -1.1,
       "party": "국민의힘",
       "region": "서울",
       "outcome": "당선"
     },
     "김동연": {
       "stock_count": 2,
-      "total_volume": 2540145,
-      "total_trade_value_억": 2213.5,
-      "avg_change_pct": -3.81,
+      "total_volume": 2594351,
+      "total_trade_value_억": 2233.2,
+      "avg_change_pct": -3.91,
       "party": "더불어민주당",
       "region": "경기",
       "outcome": "경선 낙선"
     },
     "추미애": {
       "stock_count": 1,
-      "total_volume": 1847816,
-      "total_trade_value_억": 501.7,
-      "avg_change_pct": -3.72,
+      "total_volume": 1900947,
+      "total_trade_value_억": 515.2,
+      "avg_change_pct": -3.9,
       "party": "더불어민주당",
       "region": "경기",
       "outcome": "당선"
     },
     "박찬대": {
       "stock_count": 3,
-      "total_volume": 2568735,
-      "total_trade_value_억": 914.5,
-      "avg_change_pct": -2.02,
+      "total_volume": 2596636,
+      "total_trade_value_억": 926.7,
+      "avg_change_pct": -1.58,
       "party": "더불어민주당",
       "region": "인천",
       "outcome": "당선"
     },
     "박형준": {
       "stock_count": 3,
-      "total_volume": 2771343,
-      "total_trade_value_억": 2269.7,
-      "avg_change_pct": 0.99,
+      "total_volume": 2787599,
+      "total_trade_value_억": 2290.2,
+      "avg_change_pct": 0.77,
       "party": "국민의힘",
       "region": "부산",
       "outcome": "낙선"
     },
     "전재수": {
       "stock_count": 1,
-      "total_volume": 458113,
-      "total_trade_value_억": 1676.7,
-      "avg_change_pct": 1.67,
+      "total_volume": 462585,
+      "total_trade_value_억": 1695.4,
+      "avg_change_pct": 1.81,
       "party": "더불어민주당",
       "region": "부산",
       "outcome": "당선"
     },
     "이재명": {
       "stock_count": 6,
-      "total_volume": 27832832,
-      "total_trade_value_억": 60134.9,
-      "avg_change_pct": -3.29,
+      "total_volume": 28793070,
+      "total_trade_value_억": 62937.7,
+      "avg_change_pct": -3.02,
       "party": "더불어민주당",
       "region": "전국",
       "outcome": ""
@@ -2034,31 +2034,11 @@
   "screening_results": [
     {
       "surge": false,
-      "ratio": 1.41,
-      "today_volume": 188228,
-      "avg_volume": 133447,
-      "close": 197300,
-      "change_pct": 2.18,
-      "ticker": "018260",
-      "name": "삼성에스디에스",
-      "tags": [
-        "AI 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "AI",
-          "description": "공공 AI·클라우드"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.55,
-      "today_volume": 4845436,
+      "ratio": 1.59,
+      "today_volume": 4971515,
       "avg_volume": 3118788,
-      "close": 18270,
-      "change_pct": 2.18,
+      "close": 18340,
+      "change_pct": 2.57,
       "ticker": "010140",
       "name": "삼성중공업",
       "tags": [
@@ -2074,11 +2054,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.97,
-      "today_volume": 823659,
+      "ratio": 0.98,
+      "today_volume": 836049,
       "avg_volume": 850195,
-      "close": 155500,
-      "change_pct": 1.83,
+      "close": 155700,
+      "change_pct": 1.96,
       "ticker": "096770",
       "name": "SK이노베이션",
       "tags": [
@@ -2094,11 +2074,11 @@
     },
     {
       "surge": true,
-      "ratio": 2.06,
-      "today_volume": 458113,
+      "ratio": 2.08,
+      "today_volume": 462585,
       "avg_volume": 222537,
-      "close": 366000,
-      "change_pct": 1.67,
+      "close": 366500,
+      "change_pct": 1.81,
       "ticker": "329180",
       "name": "HD현대중공업",
       "tags": [
@@ -2134,35 +2114,31 @@
     },
     {
       "surge": false,
-      "ratio": 1.29,
-      "today_volume": 212529,
-      "avg_volume": 164737,
-      "close": 1674,
-      "change_pct": 1.45,
-      "ticker": "003310",
-      "name": "대주산업",
+      "ratio": 1.43,
+      "today_volume": 190689,
+      "avg_volume": 133447,
+      "close": 196200,
+      "change_pct": 1.61,
+      "ticker": "018260",
+      "name": "삼성에스디에스",
       "tags": [
-        "정원오 관련주"
+        "AI 테마"
       ],
       "reasons": [
         {
-          "type": "local_candidate",
-          "name": "정원오",
-          "party": "더불어민주당",
-          "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
-          "region": "서울",
-          "relation": "출신지(여수) 내 공장",
-          "election": "2026지방선거"
+          "type": "policy_theme",
+          "theme": "AI",
+          "description": "공공 AI·클라우드"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 1.37,
-      "today_volume": 79980,
+      "ratio": 1.38,
+      "today_volume": 80881,
       "avg_volume": 58587,
-      "close": 16610,
-      "change_pct": 1.4,
+      "close": 16490,
+      "change_pct": 0.67,
       "ticker": "030190",
       "name": "NICE평가정보",
       "tags": [
@@ -2182,35 +2158,51 @@
     },
     {
       "surge": false,
-      "ratio": 1.38,
-      "today_volume": 61815,
-      "avg_volume": 44782,
-      "close": 130600,
-      "change_pct": 1.24,
-      "ticker": "282330",
-      "name": "BGF리테일",
+      "ratio": 1.87,
+      "today_volume": 1285225,
+      "avg_volume": 685849,
+      "close": 67000,
+      "change_pct": 0.45,
+      "ticker": "042660",
+      "name": "한화오션",
       "tags": [
-        "오세훈 관련주"
+        "조선 테마"
       ],
       "reasons": [
         {
-          "type": "local_candidate",
-          "name": "오세훈",
-          "party": "국민의힘",
-          "role": "서울시장 (2026 당선 · 현직 수성)",
-          "region": "서울",
-          "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책",
-          "election": "2026지방선거"
+          "type": "policy_theme",
+          "theme": "조선",
+          "description": "한미 조선 협력"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.86,
-      "today_volume": 170062,
+      "ratio": 0.78,
+      "today_volume": 4652910,
+      "avg_volume": 5964802,
+      "close": 15980,
+      "change_pct": 0.38,
+      "ticker": "047040",
+      "name": "대우건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.87,
+      "today_volume": 171942,
       "avg_volume": 197614,
-      "close": 72100,
-      "change_pct": 0.84,
+      "close": 71700,
+      "change_pct": 0.28,
       "ticker": "000100",
       "name": "유한양행",
       "tags": [
@@ -2230,55 +2222,31 @@
     },
     {
       "surge": false,
-      "ratio": 0.92,
-      "today_volume": 119169,
-      "avg_volume": 129701,
-      "close": 43100,
-      "change_pct": 0.82,
-      "ticker": "051600",
-      "name": "한전KPS",
+      "ratio": 0.94,
+      "today_volume": 47240,
+      "avg_volume": 50052,
+      "close": 181900,
+      "change_pct": 0.28,
+      "ticker": "097950",
+      "name": "CJ제일제당",
       "tags": [
-        "원전 테마"
+        "지방개발 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "원전",
-          "description": "원전 정비"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.13,
-      "today_volume": 916968,
-      "avg_volume": 812643,
-      "close": 108000,
-      "change_pct": 0.47,
-      "ticker": "000270",
-      "name": "기아",
-      "tags": [
-        "오세훈 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "오세훈",
-          "party": "국민의힘",
-          "role": "서울시장 (2026 당선 · 현직 수성)",
-          "region": "서울",
-          "relation": "서울시 UAM(도심항공) 정책",
-          "election": "2026지방선거"
+          "theme": "지방개발",
+          "description": ""
         }
       ]
     },
     {
       "surge": true,
-      "ratio": 2.39,
-      "today_volume": 2143168,
+      "ratio": 2.41,
+      "today_volume": 2153072,
       "avg_volume": 895133,
-      "close": 21950,
-      "change_pct": 0.46,
+      "close": 21900,
+      "change_pct": 0.23,
       "ticker": "011200",
       "name": "HMM",
       "tags": [
@@ -2308,71 +2276,71 @@
     },
     {
       "surge": false,
-      "ratio": 1.84,
-      "today_volume": 1262457,
-      "avg_volume": 685849,
-      "close": 66800,
-      "change_pct": 0.15,
-      "ticker": "042660",
-      "name": "한화오션",
+      "ratio": 0.93,
+      "today_volume": 120764,
+      "avg_volume": 129701,
+      "close": 42800,
+      "change_pct": 0.12,
+      "ticker": "051600",
+      "name": "한전KPS",
       "tags": [
-        "조선 테마"
+        "원전 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "조선",
-          "description": "한미 조선 협력"
+          "theme": "원전",
+          "description": "원전 정비"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.94,
-      "today_volume": 47059,
-      "avg_volume": 50052,
-      "close": 181500,
-      "change_pct": 0.06,
-      "ticker": "097950",
-      "name": "CJ제일제당",
+      "ratio": 1.78,
+      "today_volume": 363493,
+      "avg_volume": 204339,
+      "close": 260500,
+      "change_pct": 0.0,
+      "ticker": "051910",
+      "name": "LG화학",
       "tags": [
-        "지방개발 테마"
+        "전기차 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "지방개발",
+          "theme": "전기차",
           "description": ""
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.75,
-      "today_volume": 4471050,
-      "avg_volume": 5964802,
-      "close": 15900,
-      "change_pct": -0.13,
-      "ticker": "047040",
-      "name": "대우건설",
+      "ratio": 1.91,
+      "today_volume": 678641,
+      "avg_volume": 354878,
+      "close": 559000,
+      "change_pct": -0.36,
+      "ticker": "006400",
+      "name": "삼성SDI",
       "tags": [
-        "SOC건설 테마"
+        "전기차 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "SOC건설",
+          "theme": "전기차",
           "description": ""
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 1.09,
-      "today_volume": 71683,
+      "ratio": 1.16,
+      "today_volume": 75825,
       "avg_volume": 65575,
-      "close": 12880,
-      "change_pct": -0.23,
+      "close": 12860,
+      "change_pct": -0.39,
       "ticker": "304100",
       "name": "솔트룩스",
       "tags": [
@@ -2389,10 +2357,10 @@
     {
       "surge": false,
       "ratio": 1.06,
-      "today_volume": 932385,
+      "today_volume": 935768,
       "avg_volume": 880599,
-      "close": 161800,
-      "change_pct": -0.25,
+      "close": 161500,
+      "change_pct": -0.43,
       "ticker": "105560",
       "name": "KB금융",
       "tags": [
@@ -2408,91 +2376,103 @@
     },
     {
       "surge": false,
+      "ratio": 1.14,
+      "today_volume": 923092,
+      "avg_volume": 812643,
+      "close": 106900,
+      "change_pct": -0.56,
+      "ticker": "000270",
+      "name": "기아",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (2026 당선 · 현직 수성)",
+          "region": "서울",
+          "relation": "서울시 UAM(도심항공) 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.81,
+      "today_volume": 199331,
+      "avg_volume": 247610,
+      "close": 222000,
+      "change_pct": -0.89,
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "tags": [
+        "박찬대 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "박찬대",
+          "party": "더불어민주당",
+          "role": "인천시장 (2026 당선 · 2026.07 취임)",
+          "region": "인천",
+          "relation": "인천 기반 기업",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.34,
+      "today_volume": 220679,
+      "avg_volume": 164737,
+      "close": 1635,
+      "change_pct": -0.91,
+      "ticker": "003310",
+      "name": "대주산업",
+      "tags": [
+        "정원오 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "정원오",
+          "party": "더불어민주당",
+          "role": "전 성동구청장 (2026 서울시장 민주당 경선 낙선)",
+          "region": "서울",
+          "relation": "출신지(여수) 내 공장",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
       "ratio": 1.77,
-      "today_volume": 361559,
-      "avg_volume": 204339,
-      "close": 259500,
-      "change_pct": -0.38,
-      "ticker": "051910",
-      "name": "LG화학",
+      "today_volume": 771089,
+      "avg_volume": 435062,
+      "close": 179900,
+      "change_pct": -1.1,
+      "ticker": "010120",
+      "name": "LS ELECTRIC",
       "tags": [
-        "전기차 테마"
+        "재생에너지 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
+          "theme": "재생에너지",
+          "description": "전력망(에너지 고속도로)"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 1.89,
-      "today_volume": 669905,
-      "avg_volume": 354878,
-      "close": 558000,
-      "change_pct": -0.53,
-      "ticker": "006400",
-      "name": "삼성SDI",
-      "tags": [
-        "전기차 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "전기차",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.55,
-      "today_volume": 269975,
-      "avg_volume": 173958,
-      "close": 276500,
-      "change_pct": -0.9,
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "tags": [
-        "조선 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "조선",
-          "description": "한미 조선 협력"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.49,
-      "today_volume": 283638,
-      "avg_volume": 574311,
-      "close": 108200,
-      "change_pct": -0.92,
-      "ticker": "052690",
-      "name": "한전기술",
-      "tags": [
-        "원전 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "원전",
-          "description": "원전 설계"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.31,
-      "today_volume": 851112,
+      "ratio": 1.32,
+      "today_volume": 862684,
       "avg_volume": 651203,
-      "close": 97800,
-      "change_pct": -1.11,
+      "close": 97700,
+      "change_pct": -1.21,
       "ticker": "000720",
       "name": "현대건설",
       "tags": [
@@ -2508,31 +2488,11 @@
     },
     {
       "surge": false,
-      "ratio": 0.99,
-      "today_volume": 1735698,
-      "avg_volume": 1752189,
-      "close": 45250,
-      "change_pct": -1.31,
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "tags": [
-        "SOC건설 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "SOC건설",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.17,
-      "today_volume": 742721,
+      "ratio": 1.2,
+      "today_volume": 757584,
       "avg_volume": 633474,
-      "close": 177300,
-      "change_pct": -1.34,
+      "close": 177500,
+      "change_pct": -1.22,
       "ticker": "035420",
       "name": "NAVER",
       "tags": [
@@ -2554,78 +2514,31 @@
     },
     {
       "surge": false,
-      "ratio": 0.79,
-      "today_volume": 195618,
-      "avg_volume": 247610,
-      "close": 221000,
-      "change_pct": -1.34,
-      "ticker": "010060",
-      "name": "OCI홀딩스",
+      "ratio": 0.51,
+      "today_volume": 293595,
+      "avg_volume": 574311,
+      "close": 107800,
+      "change_pct": -1.28,
+      "ticker": "052690",
+      "name": "한전기술",
       "tags": [
-        "박찬대 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "박찬대",
-          "party": "더불어민주당",
-          "role": "인천시장 (2026 당선 · 2026.07 취임)",
-          "region": "인천",
-          "relation": "인천 기반 기업",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.89,
-      "today_volume": 126054,
-      "avg_volume": 142252,
-      "close": 1294,
-      "change_pct": -1.37,
-      "ticker": "013360",
-      "name": "일성건설",
-      "tags": [
-        "이재명 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (현직)",
-          "relation": "측근 인사 연관",
-          "election": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.72,
-      "today_volume": 288730,
-      "avg_volume": 167957,
-      "close": 161500,
-      "change_pct": -1.4,
-      "ticker": "071050",
-      "name": "한국금융지주",
-      "tags": [
-        "자본시장 테마"
+        "원전 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "자본시장",
-          "description": ""
+          "theme": "원전",
+          "description": "원전 설계"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 0.94,
-      "today_volume": 2235407,
+      "ratio": 0.96,
+      "today_volume": 2287881,
       "avg_volume": 2384865,
-      "close": 30450,
-      "change_pct": -1.46,
+      "close": 30500,
+      "change_pct": -1.29,
       "ticker": "003490",
       "name": "대한항공",
       "tags": [
@@ -2645,8 +2558,48 @@
     },
     {
       "surge": false,
-      "ratio": 1.19,
-      "today_volume": 2954430,
+      "ratio": 1.01,
+      "today_volume": 1767578,
+      "avg_volume": 1752189,
+      "close": 45250,
+      "change_pct": -1.31,
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.56,
+      "today_volume": 271223,
+      "avg_volume": 173958,
+      "close": 275000,
+      "change_pct": -1.43,
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "tags": [
+        "조선 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "조선",
+          "description": "한미 조선 협력"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.22,
+      "today_volume": 3033632,
       "avg_volume": 2481793,
       "close": 70000,
       "change_pct": -1.55,
@@ -2664,12 +2617,99 @@
       ]
     },
     {
+      "surge": false,
+      "ratio": 1.38,
+      "today_volume": 61924,
+      "avg_volume": 44782,
+      "close": 126900,
+      "change_pct": -1.63,
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "tags": [
+        "오세훈 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "오세훈",
+          "party": "국민의힘",
+          "role": "서울시장 (2026 당선 · 현직 수성)",
+          "region": "서울",
+          "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.08,
+      "today_volume": 153447,
+      "avg_volume": 142252,
+      "close": 1289,
+      "change_pct": -1.75,
+      "ticker": "013360",
+      "name": "일성건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (현직)",
+          "relation": "측근 인사 연관",
+          "election": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.73,
+      "today_volume": 289736,
+      "avg_volume": 167957,
+      "close": 160800,
+      "change_pct": -1.83,
+      "ticker": "071050",
+      "name": "한국금융지주",
+      "tags": [
+        "자본시장 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "자본시장",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.8,
+      "today_volume": 1078461,
+      "avg_volume": 1351725,
+      "close": 29450,
+      "change_pct": -1.83,
+      "ticker": "006360",
+      "name": "GS건설",
+      "tags": [
+        "SOC건설 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "SOC건설",
+          "description": ""
+        }
+      ]
+    },
+    {
       "surge": true,
-      "ratio": 2.64,
-      "today_volume": 189199,
+      "ratio": 2.66,
+      "today_volume": 190577,
       "avg_volume": 71535,
-      "close": 230000,
-      "change_pct": -1.71,
+      "close": 229000,
+      "change_pct": -2.14,
       "ticker": "039490",
       "name": "키움증권",
       "tags": [
@@ -2685,13 +2725,13 @@
     },
     {
       "surge": false,
-      "ratio": 1.73,
-      "today_volume": 753800,
-      "avg_volume": 435062,
-      "close": 178700,
-      "change_pct": -1.76,
-      "ticker": "010120",
-      "name": "LS ELECTRIC",
+      "ratio": 1.59,
+      "today_volume": 565466,
+      "avg_volume": 356609,
+      "close": 54000,
+      "change_pct": -2.17,
+      "ticker": "112610",
+      "name": "씨에스윈드",
       "tags": [
         "재생에너지 테마"
       ],
@@ -2699,17 +2739,17 @@
         {
           "type": "policy_theme",
           "theme": "재생에너지",
-          "description": "전력망(에너지 고속도로)"
+          "description": "해상풍력 확대"
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 1.77,
-      "today_volume": 855540,
+      "ratio": 1.79,
+      "today_volume": 865391,
       "avg_volume": 484627,
-      "close": 312000,
-      "change_pct": -2.04,
+      "close": 311500,
+      "change_pct": -2.2,
       "ticker": "005380",
       "name": "현대차",
       "tags": [
@@ -2740,31 +2780,94 @@
     },
     {
       "surge": false,
-      "ratio": 0.78,
-      "today_volume": 1050244,
-      "avg_volume": 1351725,
-      "close": 29350,
-      "change_pct": -2.17,
-      "ticker": "006360",
-      "name": "GS건설",
+      "ratio": 1.1,
+      "today_volume": 168018,
+      "avg_volume": 152642,
+      "close": 838000,
+      "change_pct": -2.33,
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
       "tags": [
-        "SOC건설 테마"
+        "방산 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "SOC건설",
+          "theme": "방산",
           "description": ""
         }
       ]
     },
     {
       "surge": false,
-      "ratio": 1.65,
-      "today_volume": 2035265,
+      "ratio": 1.43,
+      "today_volume": 658472,
+      "avg_volume": 459000,
+      "close": 64600,
+      "change_pct": -2.42,
+      "ticker": "064400",
+      "name": "LG씨엔에스",
+      "tags": [
+        "AI 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "AI",
+          "description": "공공 AI 전환(AX)"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.94,
+      "today_volume": 25169,
+      "avg_volume": 26670,
+      "close": 5070,
+      "change_pct": -2.5,
+      "ticker": "042940",
+      "name": "상지건설",
+      "tags": [
+        "이재명 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (현직)",
+          "relation": "측근 인사 연관",
+          "election": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.25,
+      "today_volume": 166003,
+      "avg_volume": 132551,
+      "close": 559000,
+      "change_pct": -2.61,
+      "ticker": "267260",
+      "name": "HD현대일렉트릭",
+      "tags": [
+        "재생에너지 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "재생에너지",
+          "description": "전력망(에너지 고속도로)"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.69,
+      "today_volume": 2090990,
       "avg_volume": 1236646,
-      "close": 31200,
-      "change_pct": -2.19,
+      "close": 31050,
+      "change_pct": -2.66,
       "ticker": "035720",
       "name": "카카오",
       "tags": [
@@ -2789,11 +2892,11 @@
     },
     {
       "surge": false,
-      "ratio": 1.6,
-      "today_volume": 442227,
+      "ratio": 1.61,
+      "today_volume": 446206,
       "avg_volume": 276829,
-      "close": 111200,
-      "change_pct": -2.88,
+      "close": 111400,
+      "change_pct": -2.71,
       "ticker": "047810",
       "name": "한국항공우주",
       "tags": [
@@ -2804,6 +2907,55 @@
           "type": "policy_theme",
           "theme": "방산",
           "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.67,
+      "today_volume": 603072,
+      "avg_volume": 360937,
+      "close": 97000,
+      "change_pct": -2.81,
+      "ticker": "064350",
+      "name": "현대로템",
+      "tags": [
+        "이재명 관련주",
+        "방산 테마"
+      ],
+      "reasons": [
+        {
+          "type": "politician",
+          "name": "이재명",
+          "party": "더불어민주당",
+          "role": "대통령 (현직)",
+          "relation": "정책(방산 수출 지원)",
+          "election": ""
+        },
+        {
+          "type": "policy_theme",
+          "theme": "방산",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 0.73,
+      "today_volume": 2274901,
+      "avg_volume": 3095260,
+      "close": 25100,
+      "change_pct": -2.9,
+      "ticker": "001440",
+      "name": "대한전선",
+      "tags": [
+        "재생에너지 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "재생에너지",
+          "description": "전력망(에너지 고속도로)"
         }
       ]
     },
@@ -2833,28 +2985,8 @@
     },
     {
       "surge": false,
-      "ratio": 1.24,
-      "today_volume": 163710,
-      "avg_volume": 132551,
-      "close": 557000,
-      "change_pct": -2.96,
-      "ticker": "267260",
-      "name": "HD현대일렉트릭",
-      "tags": [
-        "재생에너지 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "재생에너지",
-          "description": "전력망(에너지 고속도로)"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.76,
-      "today_volume": 276083,
+      "ratio": 0.77,
+      "today_volume": 280216,
       "avg_volume": 364689,
       "close": 62300,
       "change_pct": -2.96,
@@ -2873,89 +3005,20 @@
     },
     {
       "surge": false,
-      "ratio": 1.39,
-      "today_volume": 638060,
-      "avg_volume": 459000,
-      "close": 64200,
-      "change_pct": -3.02,
-      "ticker": "064400",
-      "name": "LG씨엔에스",
+      "ratio": 1.31,
+      "today_volume": 59799,
+      "avg_volume": 45697,
+      "close": 2173000,
+      "change_pct": -2.99,
+      "ticker": "298040",
+      "name": "효성중공업",
       "tags": [
-        "AI 테마"
+        "원전 테마"
       ],
       "reasons": [
         {
           "type": "policy_theme",
-          "theme": "AI",
-          "description": "공공 AI 전환(AX)"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.09,
-      "today_volume": 166637,
-      "avg_volume": 152642,
-      "close": 832000,
-      "change_pct": -3.03,
-      "ticker": "012450",
-      "name": "한화에어로스페이스",
-      "tags": [
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "방산",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.57,
-      "today_volume": 558954,
-      "avg_volume": 356609,
-      "close": 53500,
-      "change_pct": -3.08,
-      "ticker": "112610",
-      "name": "씨에스윈드",
-      "tags": [
-        "재생에너지 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "재생에너지",
-          "description": "해상풍력 확대"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.66,
-      "today_volume": 597937,
-      "avg_volume": 360937,
-      "close": 96700,
-      "change_pct": -3.11,
-      "ticker": "064350",
-      "name": "현대로템",
-      "tags": [
-        "이재명 관련주",
-        "방산 테마"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (현직)",
-          "relation": "정책(방산 수출 지원)",
-          "election": ""
-        },
-        {
-          "type": "policy_theme",
-          "theme": "방산",
+          "theme": "원전",
           "description": ""
         }
       ]
@@ -2963,10 +3026,10 @@
     {
       "surge": false,
       "ratio": 0.42,
-      "today_volume": 277881,
+      "today_volume": 278244,
       "avg_volume": 664339,
-      "close": 1221,
-      "change_pct": -3.33,
+      "close": 1217,
+      "change_pct": -3.64,
       "ticker": "293580",
       "name": "나우IB",
       "tags": [
@@ -2985,35 +3048,12 @@
       ]
     },
     {
-      "surge": false,
-      "ratio": 0.93,
-      "today_volume": 24673,
-      "avg_volume": 26670,
-      "close": 5010,
-      "change_pct": -3.65,
-      "ticker": "042940",
-      "name": "상지건설",
-      "tags": [
-        "이재명 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "politician",
-          "name": "이재명",
-          "party": "더불어민주당",
-          "role": "대통령 (현직)",
-          "relation": "측근 인사 연관",
-          "election": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.98,
-      "today_volume": 1847816,
+      "surge": true,
+      "ratio": 2.04,
+      "today_volume": 1900947,
       "avg_volume": 932191,
-      "close": 27150,
-      "change_pct": -3.72,
+      "close": 27100,
+      "change_pct": -3.9,
       "ticker": "006800",
       "name": "미래에셋증권",
       "tags": [
@@ -3039,71 +3079,11 @@
     },
     {
       "surge": false,
-      "ratio": 1.27,
-      "today_volume": 57981,
-      "avg_volume": 45697,
-      "close": 2152000,
-      "change_pct": -3.93,
-      "ticker": "298040",
-      "name": "효성중공업",
-      "tags": [
-        "원전 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "원전",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 0.7,
-      "today_volume": 2178023,
-      "avg_volume": 3095260,
-      "close": 24800,
-      "change_pct": -4.06,
-      "ticker": "001440",
-      "name": "대한전선",
-      "tags": [
-        "재생에너지 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "재생에너지",
-          "description": "전력망(에너지 고속도로)"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.04,
-      "today_volume": 3444283,
-      "avg_volume": 3327470,
-      "close": 32700,
-      "change_pct": -4.53,
-      "ticker": "009830",
-      "name": "한화솔루션",
-      "tags": [
-        "재생에너지 테마"
-      ],
-      "reasons": [
-        {
-          "type": "policy_theme",
-          "theme": "재생에너지",
-          "description": "태양광"
-        }
-      ]
-    },
-    {
-      "surge": false,
-      "ratio": 1.09,
-      "today_volume": 229949,
+      "ratio": 1.16,
+      "today_volume": 244233,
       "avg_volume": 210263,
-      "close": 5130,
-      "change_pct": -5.18,
+      "close": 5190,
+      "change_pct": -4.07,
       "ticker": "092200",
       "name": "디아이씨",
       "tags": [
@@ -3123,11 +3103,31 @@
     },
     {
       "surge": false,
-      "ratio": 1.69,
-      "today_volume": 173435,
+      "ratio": 1.07,
+      "today_volume": 3550027,
+      "avg_volume": 3327470,
+      "close": 32850,
+      "change_pct": -4.09,
+      "ticker": "009830",
+      "name": "한화솔루션",
+      "tags": [
+        "재생에너지 테마"
+      ],
+      "reasons": [
+        {
+          "type": "policy_theme",
+          "theme": "재생에너지",
+          "description": "태양광"
+        }
+      ]
+    },
+    {
+      "surge": false,
+      "ratio": 1.72,
+      "today_volume": 176549,
       "avg_volume": 102665,
-      "close": 557000,
-      "change_pct": -5.27,
+      "close": 563000,
+      "change_pct": -4.25,
       "ticker": "079550",
       "name": "LIG디펜스앤에어로스페이스",
       "tags": [
@@ -3142,36 +3142,12 @@
       ]
     },
     {
-      "surge": true,
-      "ratio": 2.42,
-      "today_volume": 304738,
-      "avg_volume": 126120,
-      "close": 503000,
-      "change_pct": -6.16,
-      "ticker": "034730",
-      "name": "SK",
-      "tags": [
-        "김동연 관련주"
-      ],
-      "reasons": [
-        {
-          "type": "local_candidate",
-          "name": "김동연",
-          "party": "더불어민주당",
-          "role": "전 경기지사 (2026 민주당 경선 낙선)",
-          "region": "경기",
-          "relation": "경기도 반도체 클러스터 정책",
-          "election": "2026지방선거"
-        }
-      ]
-    },
-    {
       "surge": false,
-      "ratio": 1.46,
-      "today_volume": 24193363,
+      "ratio": 1.52,
+      "today_volume": 25055001,
       "avg_volume": 16525841,
-      "close": 232500,
-      "change_pct": -7.37,
+      "close": 235500,
+      "change_pct": -6.18,
       "ticker": "005930",
       "name": "삼성전자",
       "tags": [
@@ -3195,12 +3171,36 @@
       ]
     },
     {
+      "surge": true,
+      "ratio": 2.43,
+      "today_volume": 306470,
+      "avg_volume": 126120,
+      "close": 501000,
+      "change_pct": -6.53,
+      "ticker": "034730",
+      "name": "SK",
+      "tags": [
+        "김동연 관련주"
+      ],
+      "reasons": [
+        {
+          "type": "local_candidate",
+          "name": "김동연",
+          "party": "더불어민주당",
+          "role": "전 경기지사 (2026 민주당 경선 낙선)",
+          "region": "경기",
+          "relation": "경기도 반도체 클러스터 정책",
+          "election": "2026지방선거"
+        }
+      ]
+    },
+    {
       "surge": false,
-      "ratio": 1.52,
-      "today_volume": 893879,
+      "ratio": 1.56,
+      "today_volume": 917220,
       "avg_volume": 586915,
-      "close": 1370000,
-      "change_pct": -8.24,
+      "close": 1381000,
+      "change_pct": -7.5,
       "ticker": "009150",
       "name": "삼성전기",
       "tags": [
@@ -3216,11 +3216,11 @@
     },
     {
       "surge": false,
-      "ratio": 1.71,
-      "today_volume": 5203774,
+      "ratio": 1.77,
+      "today_volume": 5370193,
       "avg_volume": 3037671,
-      "close": 1451000,
-      "change_pct": -9.6,
+      "close": 1464000,
+      "change_pct": -8.79,
       "ticker": "000660",
       "name": "SK하이닉스",
       "tags": [
@@ -3236,11 +3236,11 @@
     },
     {
       "surge": true,
-      "ratio": 3.06,
-      "today_volume": 9773848,
+      "ratio": 3.11,
+      "today_volume": 9941300,
       "avg_volume": 3197560,
-      "close": 6660,
-      "change_pct": -9.88,
+      "close": 6630,
+      "change_pct": -10.28,
       "ticker": "038500",
       "name": "삼표시멘트",
       "tags": [
@@ -6053,15 +6053,15 @@
             "ticker": "000270",
             "name": "기아",
             "relation": "서울시 UAM(도심항공) 정책",
-            "close": 108000,
-            "change_pct": 0.47
+            "close": 106900,
+            "change_pct": -0.56
           },
           {
             "ticker": "282330",
             "name": "BGF리테일",
             "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책",
-            "close": 130600,
-            "change_pct": 1.24
+            "close": 126900,
+            "change_pct": -1.63
           }
         ]
       },
@@ -6076,8 +6076,8 @@
             "ticker": "006800",
             "name": "미래에셋증권",
             "relation": "남편 미래에셋 계열사 재직 이력, 가족 자산관리 연관설 (언론 보도 기반)",
-            "close": 27150,
-            "change_pct": -3.72
+            "close": 27100,
+            "change_pct": -3.9
           }
         ]
       },
@@ -6092,22 +6092,22 @@
             "ticker": "010060",
             "name": "OCI홀딩스",
             "relation": "인천 기반 기업",
-            "close": 221000,
-            "change_pct": -1.34
+            "close": 222000,
+            "change_pct": -0.89
           },
           {
             "ticker": "011200",
             "name": "HMM",
             "relation": "인천항 물류 정책",
-            "close": 21950,
-            "change_pct": 0.46
+            "close": 21900,
+            "change_pct": 0.23
           },
           {
             "ticker": "092200",
             "name": "디아이씨",
             "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
-            "close": 5130,
-            "change_pct": -5.18
+            "close": 5190,
+            "change_pct": -4.07
           }
         ]
       },
@@ -6122,8 +6122,8 @@
             "ticker": "329180",
             "name": "HD현대중공업",
             "relation": "조선업 육성 공약 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)",
-            "close": 366000,
-            "change_pct": 1.67
+            "close": 366500,
+            "change_pct": 1.81
           }
         ]
       },
@@ -6138,22 +6138,22 @@
             "ticker": "000100",
             "name": "유한양행",
             "relation": "부산 바이오 클러스터 정책",
-            "close": 72100,
-            "change_pct": 0.84
+            "close": 71700,
+            "change_pct": 0.28
           },
           {
             "ticker": "011200",
             "name": "HMM",
             "relation": "부산항 물류 정책",
-            "close": 21950,
-            "change_pct": 0.46
+            "close": 21900,
+            "change_pct": 0.23
           },
           {
             "ticker": "329180",
             "name": "HD현대중공업",
             "relation": "부산 조선업 지원 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)",
-            "close": 366000,
-            "change_pct": 1.67
+            "close": 366500,
+            "change_pct": 1.81
           }
         ]
       },
@@ -6175,29 +6175,29 @@
             "ticker": "003310",
             "name": "대주산업",
             "relation": "출신지(여수) 내 공장",
-            "close": 1674,
-            "change_pct": 1.45
+            "close": 1635,
+            "change_pct": -0.91
           },
           {
             "ticker": "038500",
             "name": "삼표시멘트",
             "relation": "성수동 삼표레미콘 부지 재개발 이슈, 정원오 성동구청장 시절 이전 협의 주도",
-            "close": 6660,
-            "change_pct": -9.88
+            "close": 6630,
+            "change_pct": -10.28
           },
           {
             "ticker": "293580",
             "name": "나우IB",
             "relation": "종친(경주 정씨) 연결",
-            "close": 1221,
-            "change_pct": -3.33
+            "close": 1217,
+            "change_pct": -3.64
           },
           {
             "ticker": "030190",
             "name": "NICE평가정보",
             "relation": "성동구청장 시절 협력",
-            "close": 16610,
-            "change_pct": 1.4
+            "close": 16490,
+            "change_pct": 0.67
           }
         ]
       },
@@ -6212,15 +6212,15 @@
             "ticker": "003490",
             "name": "대한항공",
             "relation": "경기도 항공 물류 정책",
-            "close": 30450,
-            "change_pct": -1.46
+            "close": 30500,
+            "change_pct": -1.29
           },
           {
             "ticker": "034730",
             "name": "SK",
             "relation": "경기도 반도체 클러스터 정책",
-            "close": 503000,
-            "change_pct": -6.16
+            "close": 501000,
+            "change_pct": -6.53
           }
         ]
       }
@@ -6237,7 +6237,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "인천 기반 기업",
-      "change_pct": -1.34
+      "change_pct": -0.89
     },
     {
       "ticker": "011200",
@@ -6249,7 +6249,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "인천항 물류 정책",
-      "change_pct": 0.46
+      "change_pct": 0.23
     },
     {
       "ticker": "092200",
@@ -6261,7 +6261,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "인천 남동공단 소재 기업, 인천시장 공약(산업단지 현대화) 수혜 기대",
-      "change_pct": -5.18
+      "change_pct": -4.07
     },
     {
       "ticker": "000270",
@@ -6273,7 +6273,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "서울시 UAM(도심항공) 정책",
-      "change_pct": 0.47
+      "change_pct": -0.56
     },
     {
       "ticker": "282330",
@@ -6285,7 +6285,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "서울시 소상공인 지원정책 수혜 기대 (CU편의점 서울 최다 매장), 골목상권 규제 완화 정책",
-      "change_pct": 1.24
+      "change_pct": -1.63
     },
     {
       "ticker": "329180",
@@ -6297,7 +6297,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "조선업 육성 공약 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)",
-      "change_pct": 1.67
+      "change_pct": 1.81
     },
     {
       "ticker": "006800",
@@ -6309,7 +6309,7 @@
       "signal": "winner",
       "signal_kr": "당선 확정 — 정책 실행 여부 관찰",
       "relation": "남편 미래에셋 계열사 재직 이력, 가족 자산관리 연관설 (언론 보도 기반)",
-      "change_pct": -3.72
+      "change_pct": -3.9
     },
     {
       "ticker": "000100",
@@ -6321,7 +6321,7 @@
       "signal": "loser",
       "signal_kr": "낙선 — 인물 테마 소멸 위험",
       "relation": "부산 바이오 클러스터 정책",
-      "change_pct": 0.84
+      "change_pct": 0.28
     },
     {
       "ticker": "011200",
@@ -6333,7 +6333,7 @@
       "signal": "loser",
       "signal_kr": "낙선 — 인물 테마 소멸 위험",
       "relation": "부산항 물류 정책",
-      "change_pct": 0.46
+      "change_pct": 0.23
     },
     {
       "ticker": "329180",
@@ -6345,7 +6345,7 @@
       "signal": "loser",
       "signal_kr": "낙선 — 인물 테마 소멸 위험",
       "relation": "부산 조선업 지원 (구 현대미포조선 — 2025.12 HD현대중공업에 흡수합병)",
-      "change_pct": 1.67
+      "change_pct": 1.81
     },
     {
       "ticker": "003490",
@@ -6357,7 +6357,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "경기도 항공 물류 정책",
-      "change_pct": -1.46
+      "change_pct": -1.29
     },
     {
       "ticker": "034730",
@@ -6369,7 +6369,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "경기도 반도체 클러스터 정책",
-      "change_pct": -6.16
+      "change_pct": -6.53
     },
     {
       "ticker": "306040",
@@ -6393,7 +6393,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "출신지(여수) 내 공장",
-      "change_pct": 1.45
+      "change_pct": -0.91
     },
     {
       "ticker": "038500",
@@ -6405,7 +6405,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "성수동 삼표레미콘 부지 재개발 이슈, 정원오 성동구청장 시절 이전 협의 주도",
-      "change_pct": -9.88
+      "change_pct": -10.28
     },
     {
       "ticker": "293580",
@@ -6417,7 +6417,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "종친(경주 정씨) 연결",
-      "change_pct": -3.33
+      "change_pct": -3.64
     },
     {
       "ticker": "030190",
@@ -6429,7 +6429,7 @@
       "signal": "loser",
       "signal_kr": "경선 낙선 — 인물 테마 소멸 위험",
       "relation": "성동구청장 시절 협력",
-      "change_pct": 1.4
+      "change_pct": 0.67
     }
   ],
   "stock_predictions": {
@@ -6469,11 +6469,11 @@
           "change_20d": -7.01
         },
         "volume": {
-          "today": 9785355,
-          "avg_5d": 12153036,
-          "avg_20d": 3241916,
-          "ratio_5d": 0.81,
-          "ratio_20d": 3.02,
+          "today": 9944562,
+          "avg_5d": 12184877,
+          "avg_20d": 3249877,
+          "ratio_5d": 0.82,
+          "ratio_20d": 3.06,
           "surge": true,
           "vol_trend": "증가",
           "vol_trend_ratio": 3.75
@@ -6513,11 +6513,11 @@
           "change_20d": 5.04
         },
         "volume": {
-          "today": 2143545,
-          "avg_5d": 1561672,
-          "avg_20d": 962006,
-          "ratio_5d": 1.37,
-          "ratio_20d": 2.23,
+          "today": 2154413,
+          "avg_5d": 1563846,
+          "avg_20d": 962549,
+          "ratio_5d": 1.38,
+          "ratio_20d": 2.24,
           "surge": false,
           "vol_trend": "증가",
           "vol_trend_ratio": 1.62
@@ -6544,27 +6544,27 @@
         "ticker": "006400",
         "name": "삼성SDI",
         "price": {
-          "current": 556000,
-          "ma5": 563600,
-          "ma20": 541550,
+          "current": 560000,
+          "ma5": 564400,
+          "ma20": 541750,
           "ma_signal": "golden_cross",
           "volatility": 3.76,
-          "trend_pct": 0.09,
+          "trend_pct": 0.1,
           "trend": "횡보",
-          "rsi": 53.6,
+          "rsi": 55.1,
           "rsi_signal": "중립",
-          "change_5d": 5.1,
-          "change_20d": -3.14
+          "change_5d": 5.86,
+          "change_20d": -2.44
         },
         "volume": {
-          "today": 670397,
-          "avg_5d": 582812,
-          "avg_20d": 375362,
-          "ratio_5d": 1.15,
-          "ratio_20d": 1.79,
+          "today": 679145,
+          "avg_5d": 584562,
+          "avg_20d": 375799,
+          "ratio_5d": 1.16,
+          "ratio_20d": 1.81,
           "surge": false,
           "vol_trend": "증가",
-          "vol_trend_ratio": 1.55
+          "vol_trend_ratio": 1.56
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -6577,8 +6577,52 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 60.4,
+            "price_momentum": 60.5,
             "volume_signal": 65,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "009150",
+        "name": "삼성전기",
+        "price": {
+          "current": 1386000,
+          "ma5": 1545800,
+          "ma20": 1470000,
+          "ma_signal": "golden_cross",
+          "volatility": 4.73,
+          "trend_pct": 0.85,
+          "trend": "상승",
+          "rsi": 52.4,
+          "rsi_signal": "중립",
+          "change_5d": -12.11,
+          "change_20d": -1.28
+        },
+        "volume": {
+          "today": 917810,
+          "avg_5d": 696989,
+          "avg_20d": 603327,
+          "ratio_5d": 1.32,
+          "ratio_20d": 1.52,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.16
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 55.9,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 64.2,
+            "volume_signal": 55,
             "poll_impact": 50.0,
             "cycle_premium": 50
           }
@@ -6588,24 +6632,24 @@
         "ticker": "051910",
         "name": "LG화학",
         "price": {
-          "current": 259000,
-          "ma5": 270700,
-          "ma20": 265400,
+          "current": 260500,
+          "ma5": 271000,
+          "ma20": 265475,
           "ma_signal": "golden_cross",
           "volatility": 3.18,
-          "trend_pct": -0.15,
+          "trend_pct": -0.14,
           "trend": "횡보",
-          "rsi": 44.3,
+          "rsi": 45.0,
           "rsi_signal": "중립",
-          "change_5d": -1.15,
-          "change_20d": -9.12
+          "change_5d": -0.57,
+          "change_20d": -8.6
         },
         "volume": {
-          "today": 361693,
-          "avg_5d": 325366,
-          "avg_20d": 223154,
-          "ratio_5d": 1.11,
-          "ratio_20d": 1.62,
+          "today": 363513,
+          "avg_5d": 325730,
+          "avg_20d": 223245,
+          "ratio_5d": 1.12,
+          "ratio_20d": 1.63,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.46
@@ -6621,7 +6665,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 59.2,
+            "price_momentum": 59.3,
             "volume_signal": 55,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -6676,24 +6720,24 @@
         "ticker": "009830",
         "name": "한화솔루션",
         "price": {
-          "current": 32650,
-          "ma5": 35180,
-          "ma20": 31712,
+          "current": 32900,
+          "ma5": 35230,
+          "ma20": 31725,
           "ma_signal": "golden_cross",
-          "volatility": 4.76,
+          "volatility": 4.74,
           "trend_pct": 1.31,
           "trend": "상승",
-          "rsi": 60.6,
+          "rsi": 61.5,
           "rsi_signal": "중립",
-          "change_5d": -9.56,
-          "change_20d": 6.01
+          "change_5d": -8.86,
+          "change_20d": 6.82
         },
         "volume": {
-          "today": 3451028,
-          "avg_5d": 2905519,
-          "avg_20d": 3205065,
-          "ratio_5d": 1.19,
-          "ratio_20d": 1.08,
+          "today": 3552768,
+          "avg_5d": 2925867,
+          "avg_20d": 3210152,
+          "ratio_5d": 1.21,
+          "ratio_20d": 1.11,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.91
@@ -6720,24 +6764,24 @@
         "ticker": "079550",
         "name": "LIG디펜스앤에어로스페이스",
         "price": {
-          "current": 559000,
-          "ma5": 628400,
-          "ma20": 682950,
+          "current": 564000,
+          "ma5": 629400,
+          "ma20": 683200,
           "ma_signal": "dead_cross",
-          "volatility": 4.66,
-          "trend_pct": -0.62,
+          "volatility": 4.65,
+          "trend_pct": -0.6,
           "trend": "하락",
-          "rsi": 28.9,
+          "rsi": 29.3,
           "rsi_signal": "과매도",
-          "change_5d": -26.35,
-          "change_20d": -16.57
+          "change_5d": -25.69,
+          "change_20d": -15.82
         },
         "volume": {
-          "today": 173754,
-          "avg_5d": 167340,
-          "avg_20d": 104796,
-          "ratio_5d": 1.04,
-          "ratio_20d": 1.66,
+          "today": 176638,
+          "avg_5d": 167917,
+          "avg_20d": 104940,
+          "ratio_5d": 1.05,
+          "ratio_20d": 1.68,
           "surge": false,
           "vol_trend": "증가",
           "vol_trend_ratio": 1.6
@@ -6746,59 +6790,15 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 52.4,
+          "total": 52.5,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 46.9,
+            "price_momentum": 47.0,
             "volume_signal": 65,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
-        "ticker": "009150",
-        "name": "삼성전기",
-        "price": {
-          "current": 1370000,
-          "ma5": 1542600,
-          "ma20": 1469200,
-          "ma_signal": "golden_cross",
-          "volatility": 4.77,
-          "trend_pct": 0.84,
-          "trend": "상승",
-          "rsi": 51.3,
-          "rsi_signal": "중립",
-          "change_5d": -13.13,
-          "change_20d": -2.42
-        },
-        "volume": {
-          "today": 894257,
-          "avg_5d": 692279,
-          "avg_20d": 602149,
-          "ratio_5d": 1.29,
-          "ratio_20d": 1.49,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.15
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 52.4,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 64.2,
-            "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
           }
@@ -6808,24 +6808,24 @@
         "ticker": "010060",
         "name": "OCI홀딩스",
         "price": {
-          "current": 220500,
-          "ma5": 232200,
-          "ma20": 216710,
+          "current": 221500,
+          "ma5": 232400,
+          "ma20": 216760,
           "ma_signal": "golden_cross",
-          "volatility": 4.98,
+          "volatility": 4.97,
           "trend_pct": 0.73,
           "trend": "상승",
-          "rsi": 57.1,
+          "rsi": 57.6,
           "rsi_signal": "중립",
-          "change_5d": -6.57,
-          "change_20d": -2.65
+          "change_5d": -6.14,
+          "change_20d": -2.21
         },
         "volume": {
-          "today": 195949,
-          "avg_5d": 190440,
-          "avg_20d": 237319,
-          "ratio_5d": 1.03,
-          "ratio_20d": 0.83,
+          "today": 199590,
+          "avg_5d": 191168,
+          "avg_20d": 237501,
+          "ratio_5d": 1.04,
+          "ratio_20d": 0.84,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.8
@@ -6849,71 +6849,27 @@
         }
       },
       {
-        "ticker": "039490",
-        "name": "키움증권",
-        "price": {
-          "current": 229000,
-          "ma5": 241000,
-          "ma20": 258375,
-          "ma_signal": "dead_cross",
-          "volatility": 2.44,
-          "trend_pct": -0.88,
-          "trend": "하락",
-          "rsi": 23.1,
-          "rsi_signal": "과매도",
-          "change_5d": -11.58,
-          "change_20d": -16.27
-        },
-        "volume": {
-          "today": 189233,
-          "avg_5d": 111124,
-          "avg_20d": 79395,
-          "ratio_5d": 1.7,
-          "ratio_20d": 2.38,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.4
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 52.0,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 45.6,
-            "volume_signal": 65,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "096770",
         "name": "SK이노베이션",
         "price": {
-          "current": 155000,
-          "ma5": 157080,
-          "ma20": 147500,
+          "current": 156300,
+          "ma5": 157340,
+          "ma20": 147565,
           "ma_signal": "golden_cross",
           "volatility": 4.75,
-          "trend_pct": 0.6,
+          "trend_pct": 0.61,
           "trend": "상승",
-          "rsi": 60.4,
+          "rsi": 61.0,
           "rsi_signal": "중립",
-          "change_5d": 2.45,
-          "change_20d": 0.98
+          "change_5d": 3.3,
+          "change_20d": 1.82
         },
         "volume": {
-          "today": 824418,
-          "avg_5d": 926866,
-          "avg_20d": 964707,
-          "ratio_5d": 0.89,
-          "ratio_20d": 0.85,
+          "today": 836691,
+          "avg_5d": 929321,
+          "avg_20d": 965320,
+          "ratio_5d": 0.9,
+          "ratio_20d": 0.87,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.96
@@ -6937,43 +6893,87 @@
         }
       },
       {
-        "ticker": "112610",
-        "name": "씨에스윈드",
+        "ticker": "039490",
+        "name": "키움증권",
         "price": {
-          "current": 53400,
-          "ma5": 55740,
-          "ma20": 52860,
-          "ma_signal": "golden_cross",
-          "volatility": 3.04,
-          "trend_pct": 0.45,
-          "trend": "상승",
-          "rsi": 55.4,
-          "rsi_signal": "중립",
-          "change_5d": -3.44,
-          "change_20d": 5.12
+          "current": 228500,
+          "ma5": 240900,
+          "ma20": 258350,
+          "ma_signal": "dead_cross",
+          "volatility": 2.44,
+          "trend_pct": -0.89,
+          "trend": "하락",
+          "rsi": 23.0,
+          "rsi_signal": "과매도",
+          "change_5d": -11.78,
+          "change_20d": -16.45
         },
         "volume": {
-          "today": 559239,
-          "avg_5d": 430623,
-          "avg_20d": 379638,
-          "ratio_5d": 1.3,
-          "ratio_20d": 1.47,
+          "today": 190602,
+          "avg_5d": 111398,
+          "avg_20d": 79463,
+          "ratio_5d": 1.71,
+          "ratio_20d": 2.4,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.13
+          "vol_trend_ratio": 1.4
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 51.7,
+          "total": 52.0,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 62.2,
+            "price_momentum": 45.6,
+            "volume_signal": 65,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "112610",
+        "name": "씨에스윈드",
+        "price": {
+          "current": 54200,
+          "ma5": 55900,
+          "ma20": 52900,
+          "ma_signal": "golden_cross",
+          "volatility": 3.01,
+          "trend_pct": 0.46,
+          "trend": "상승",
+          "rsi": 58.0,
+          "rsi_signal": "중립",
+          "change_5d": -1.99,
+          "change_20d": 6.69
+        },
+        "volume": {
+          "today": 565579,
+          "avg_5d": 431891,
+          "avg_20d": 379955,
+          "ratio_5d": 1.31,
+          "ratio_20d": 1.49,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.14
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 51.8,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 62.3,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -6984,24 +6984,24 @@
         "ticker": "003490",
         "name": "대한항공",
         "price": {
-          "current": 30400,
-          "ma5": 30740,
-          "ma20": 30415,
+          "current": 30550,
+          "ma5": 30770,
+          "ma20": 30422,
           "ma_signal": "golden_cross",
-          "volatility": 2.3,
+          "volatility": 2.29,
           "trend_pct": 0.35,
           "trend": "상승",
-          "rsi": 55.9,
+          "rsi": 57.1,
           "rsi_signal": "중립",
-          "change_5d": -1.46,
-          "change_20d": 2.01
+          "change_5d": -0.97,
+          "change_20d": 2.52
         },
         "volume": {
-          "today": 2236496,
-          "avg_5d": 2120986,
-          "avg_20d": 2461858,
-          "ratio_5d": 1.05,
-          "ratio_20d": 0.91,
+          "today": 2288340,
+          "avg_5d": 2131355,
+          "avg_20d": 2464450,
+          "ratio_5d": 1.07,
+          "ratio_20d": 0.93,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.86
@@ -7028,24 +7028,24 @@
         "ticker": "030190",
         "name": "NICE평가정보",
         "price": {
-          "current": 16340,
-          "ma5": 16442,
-          "ma20": 16052,
+          "current": 16490,
+          "ma5": 16472,
+          "ma20": 16059,
           "ma_signal": "golden_cross",
           "volatility": 1.83,
-          "trend_pct": 0.2,
+          "trend_pct": 0.22,
           "trend": "횡보",
-          "rsi": 58.8,
+          "rsi": 61.0,
           "rsi_signal": "중립",
-          "change_5d": -0.79,
-          "change_20d": 3.16
+          "change_5d": 0.12,
+          "change_20d": 4.1
         },
         "volume": {
-          "today": 80102,
-          "avg_5d": 65715,
-          "avg_20d": 59679,
-          "ratio_5d": 1.22,
-          "ratio_20d": 1.34,
+          "today": 80881,
+          "avg_5d": 65871,
+          "avg_20d": 59718,
+          "ratio_5d": 1.23,
+          "ratio_20d": 1.35,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.1
@@ -7054,14 +7054,14 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 51.3,
+          "total": 51.4,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 61.0,
+            "price_momentum": 61.1,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7072,24 +7072,24 @@
         "ticker": "097950",
         "name": "CJ제일제당",
         "price": {
-          "current": 181500,
-          "ma5": 181360,
-          "ma20": 178815,
+          "current": 181800,
+          "ma5": 181420,
+          "ma20": 178830,
           "ma_signal": "golden_cross",
           "volatility": 1.77,
-          "trend_pct": 0.09,
+          "trend_pct": 0.1,
           "trend": "횡보",
-          "rsi": 63.6,
+          "rsi": 64.3,
           "rsi_signal": "중립",
-          "change_5d": 1.06,
-          "change_20d": 0.06
+          "change_5d": 1.22,
+          "change_20d": 0.22
         },
         "volume": {
-          "today": 47061,
-          "avg_5d": 51576,
-          "avg_20d": 49392,
-          "ratio_5d": 0.91,
-          "ratio_20d": 0.95,
+          "today": 47242,
+          "avg_5d": 51612,
+          "avg_20d": 49401,
+          "ratio_5d": 0.92,
+          "ratio_20d": 0.96,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.04
@@ -7098,14 +7098,14 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 51.1,
+          "total": 51.2,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 60.4,
+            "price_momentum": 60.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7113,30 +7113,30 @@
         }
       },
       {
-        "ticker": "003310",
-        "name": "대주산업",
+        "ticker": "092200",
+        "name": "디아이씨",
         "price": {
-          "current": 1662,
-          "ma5": 1683,
-          "ma20": 1661,
+          "current": 5200,
+          "ma5": 5588,
+          "ma20": 5583,
           "ma_signal": "golden_cross",
-          "volatility": 1.79,
+          "volatility": 4.92,
           "trend_pct": 0.04,
           "trend": "횡보",
-          "rsi": 53.2,
+          "rsi": 42.1,
           "rsi_signal": "중립",
-          "change_5d": -2.24,
-          "change_20d": -1.66
+          "change_5d": -9.88,
+          "change_20d": -8.61
         },
         "volume": {
-          "today": 212667,
-          "avg_5d": 181761,
-          "avg_20d": 215791,
-          "ratio_5d": 1.17,
-          "ratio_20d": 0.99,
+          "today": 244675,
+          "avg_5d": 218549,
+          "avg_20d": 209822,
+          "ratio_5d": 1.12,
+          "ratio_20d": 1.17,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 0.84
+          "vol_trend_ratio": 1.04
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7157,30 +7157,30 @@
         }
       },
       {
-        "ticker": "092200",
-        "name": "디아이씨",
+        "ticker": "003310",
+        "name": "대주산업",
         "price": {
-          "current": 5170,
-          "ma5": 5582,
-          "ma20": 5581,
+          "current": 1653,
+          "ma5": 1681,
+          "ma20": 1661,
           "ma_signal": "golden_cross",
-          "volatility": 4.93,
+          "volatility": 1.78,
           "trend_pct": 0.03,
           "trend": "횡보",
-          "rsi": 41.5,
+          "rsi": 51.8,
           "rsi_signal": "중립",
-          "change_5d": -10.4,
-          "change_20d": -9.14
+          "change_5d": -2.76,
+          "change_20d": -2.19
         },
         "volume": {
-          "today": 229951,
-          "avg_5d": 215604,
-          "avg_20d": 209086,
-          "ratio_5d": 1.07,
-          "ratio_20d": 1.1,
+          "today": 230087,
+          "avg_5d": 185245,
+          "avg_20d": 216662,
+          "ratio_5d": 1.24,
+          "ratio_20d": 1.06,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.03
+          "vol_trend_ratio": 0.85
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7204,23 +7204,23 @@
         "ticker": "293580",
         "name": "나우IB",
         "price": {
-          "current": 1221,
-          "ma5": 1265,
+          "current": 1216,
+          "ma5": 1264,
           "ma20": 1264,
           "ma_signal": "golden_cross",
-          "volatility": 3.34,
-          "trend_pct": -0.09,
+          "volatility": 3.35,
+          "trend_pct": -0.1,
           "trend": "횡보",
-          "rsi": 42.0,
+          "rsi": 41.2,
           "rsi_signal": "중립",
-          "change_5d": -4.53,
-          "change_20d": -13.47
+          "change_5d": -4.93,
+          "change_20d": -13.82
         },
         "volume": {
-          "today": 277883,
-          "avg_5d": 266016,
-          "avg_20d": 595666,
-          "ratio_5d": 1.04,
+          "today": 278394,
+          "avg_5d": 266118,
+          "avg_20d": 595691,
+          "ratio_5d": 1.05,
           "ratio_20d": 0.47,
           "surge": false,
           "vol_trend": "감소",
@@ -7230,14 +7230,14 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 50.9,
+          "total": 50.8,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 59.6,
+            "price_momentum": 59.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7261,14 +7261,14 @@
           "change_20d": -11.41
         },
         "volume": {
-          "today": 2036864,
-          "avg_5d": 1592126,
-          "avg_20d": 1299897,
-          "ratio_5d": 1.28,
-          "ratio_20d": 1.57,
+          "today": 2096917,
+          "avg_5d": 1604137,
+          "avg_20d": 1302899,
+          "ratio_5d": 1.31,
+          "ratio_20d": 1.61,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.22
+          "vol_trend_ratio": 1.23
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7289,71 +7289,27 @@
         }
       },
       {
-        "ticker": "000660",
-        "name": "SK하이닉스",
-        "price": {
-          "current": 1453000,
-          "ma5": 1648600,
-          "ma20": 1763100,
-          "ma_signal": "dead_cross",
-          "volatility": 4.56,
-          "trend_pct": -0.57,
-          "trend": "하락",
-          "rsi": 29.4,
-          "rsi_signal": "과매도",
-          "change_5d": -21.12,
-          "change_20d": -21.71
-        },
-        "volume": {
-          "today": 5211345,
-          "avg_5d": 3391567,
-          "avg_20d": 3198025,
-          "ratio_5d": 1.54,
-          "ratio_20d": 1.63,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.06
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 50.2,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 47.2,
-            "volume_signal": 55,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "047810",
         "name": "한국항공우주",
         "price": {
-          "current": 111400,
-          "ma5": 119740,
-          "ma20": 127065,
+          "current": 111500,
+          "ma5": 119760,
+          "ma20": 127070,
           "ma_signal": "dead_cross",
           "volatility": 3.46,
           "trend_pct": -0.62,
           "trend": "하락",
-          "rsi": 21.2,
+          "rsi": 21.3,
           "rsi_signal": "과매도",
-          "change_5d": -16.43,
-          "change_20d": -13.71
+          "change_5d": -16.35,
+          "change_20d": -13.63
         },
         "volume": {
-          "today": 442454,
-          "avg_5d": 401226,
-          "avg_20d": 284225,
-          "ratio_5d": 1.1,
-          "ratio_20d": 1.56,
+          "today": 446213,
+          "avg_5d": 401978,
+          "avg_20d": 284413,
+          "ratio_5d": 1.11,
+          "ratio_20d": 1.57,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.41
@@ -7377,27 +7333,71 @@
         }
       },
       {
+        "ticker": "010120",
+        "name": "LS ELECTRIC",
+        "price": {
+          "current": 179900,
+          "ma5": 196300,
+          "ma20": 202785,
+          "ma_signal": "dead_cross",
+          "volatility": 3.55,
+          "trend_pct": -0.24,
+          "trend": "횡보",
+          "rsi": 33.5,
+          "rsi_signal": "중립",
+          "change_5d": -13.92,
+          "change_20d": -14.94
+        },
+        "volume": {
+          "today": 771350,
+          "avg_5d": 704580,
+          "avg_20d": 444791,
+          "ratio_5d": 1.09,
+          "ratio_20d": 1.73,
+          "surge": false,
+          "vol_trend": "증가",
+          "vol_trend_ratio": 1.58
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 49.8,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 38.8,
+            "volume_signal": 65,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
         "ticker": "071050",
         "name": "한국금융지주",
         "price": {
-          "current": 161400,
-          "ma5": 169320,
-          "ma20": 181290,
+          "current": 160800,
+          "ma5": 169200,
+          "ma20": 181260,
           "ma_signal": "dead_cross",
           "volatility": 2.29,
-          "trend_pct": -0.89,
+          "trend_pct": -0.9,
           "trend": "하락",
-          "rsi": 17.8,
+          "rsi": 17.5,
           "rsi_signal": "과매도",
-          "change_5d": -10.53,
-          "change_20d": -16.29
+          "change_5d": -10.86,
+          "change_20d": -16.6
         },
         "volume": {
-          "today": 288783,
-          "avg_5d": 216837,
-          "avg_20d": 174700,
-          "ratio_5d": 1.33,
-          "ratio_20d": 1.65,
+          "today": 289736,
+          "avg_5d": 217028,
+          "avg_20d": 174747,
+          "ratio_5d": 1.34,
+          "ratio_20d": 1.66,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.24
@@ -7413,7 +7413,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 45.6,
+            "price_momentum": 45.5,
             "volume_signal": 55,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7424,115 +7424,27 @@
         "ticker": "034730",
         "name": "SK",
         "price": {
-          "current": 501000,
-          "ma5": 552000,
-          "ma20": 570250,
+          "current": 503000,
+          "ma5": 552400,
+          "ma20": 570350,
           "ma_signal": "dead_cross",
-          "volatility": 3.94,
-          "trend_pct": -0.26,
+          "volatility": 3.93,
+          "trend_pct": -0.25,
           "trend": "횡보",
-          "rsi": 39.1,
+          "rsi": 39.5,
           "rsi_signal": "중립",
-          "change_5d": -13.32,
-          "change_20d": -16.78
+          "change_5d": -12.98,
+          "change_20d": -16.45
         },
         "volume": {
-          "today": 304878,
-          "avg_5d": 173758,
-          "avg_20d": 137585,
-          "ratio_5d": 1.75,
-          "ratio_20d": 2.22,
+          "today": 306477,
+          "avg_5d": 174078,
+          "avg_20d": 137665,
+          "ratio_5d": 1.76,
+          "ratio_20d": 2.23,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.26
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 49.7,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 38.7,
-            "volume_signal": 65,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
-        "ticker": "006800",
-        "name": "미래에셋증권",
-        "price": {
-          "current": 27150,
-          "ma5": 29470,
-          "ma20": 31515,
-          "ma_signal": "dead_cross",
-          "volatility": 2.84,
-          "trend_pct": -0.88,
-          "trend": "하락",
-          "rsi": 26.2,
-          "rsi_signal": "과매도",
-          "change_5d": -14.08,
-          "change_20d": -22.54
-        },
-        "volume": {
-          "today": 1849147,
-          "avg_5d": 1359960,
-          "avg_20d": 1044901,
-          "ratio_5d": 1.36,
-          "ratio_20d": 1.77,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.3
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 49.7,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 45.6,
-            "volume_signal": 55,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
-        "ticker": "010120",
-        "name": "LS ELECTRIC",
-        "price": {
-          "current": 178900,
-          "ma5": 196100,
-          "ma20": 202735,
-          "ma_signal": "dead_cross",
-          "volatility": 3.56,
-          "trend_pct": -0.25,
-          "trend": "횡보",
-          "rsi": 33.1,
-          "rsi_signal": "중립",
-          "change_5d": -14.4,
-          "change_20d": -15.41
-        },
-        "volume": {
-          "today": 754441,
-          "avg_5d": 701198,
-          "avg_20d": 443945,
-          "ratio_5d": 1.08,
-          "ratio_20d": 1.7,
-          "surge": false,
-          "vol_trend": "증가",
-          "vol_trend_ratio": 1.58
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7553,30 +7465,74 @@
         }
       },
       {
+        "ticker": "006800",
+        "name": "미래에셋증권",
+        "price": {
+          "current": 27000,
+          "ma5": 29440,
+          "ma20": 31507,
+          "ma_signal": "dead_cross",
+          "volatility": 2.86,
+          "trend_pct": -0.89,
+          "trend": "하락",
+          "rsi": 25.8,
+          "rsi_signal": "과매도",
+          "change_5d": -14.56,
+          "change_20d": -22.97
+        },
+        "volume": {
+          "today": 1902773,
+          "avg_5d": 1370685,
+          "avg_20d": 1047582,
+          "ratio_5d": 1.39,
+          "ratio_20d": 1.82,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.31
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 49.7,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 45.6,
+            "volume_signal": 55,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
         "ticker": "010140",
         "name": "삼성중공업",
         "price": {
-          "current": 18300,
-          "ma5": 18866,
-          "ma20": 20206,
+          "current": 18340,
+          "ma5": 18874,
+          "ma20": 20208,
           "ma_signal": "dead_cross",
-          "volatility": 2.7,
-          "trend_pct": -0.92,
+          "volatility": 2.71,
+          "trend_pct": -0.91,
           "trend": "하락",
-          "rsi": 18.3,
+          "rsi": 19.0,
           "rsi_signal": "과매도",
-          "change_5d": -8.13,
-          "change_20d": -15.28
+          "change_5d": -7.93,
+          "change_20d": -15.09
         },
         "volume": {
-          "today": 4858143,
-          "avg_5d": 3513210,
-          "avg_20d": 3181700,
-          "ratio_5d": 1.38,
-          "ratio_20d": 1.53,
+          "today": 4974658,
+          "avg_5d": 3536513,
+          "avg_20d": 3187526,
+          "ratio_5d": 1.41,
+          "ratio_20d": 1.56,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.1
+          "vol_trend_ratio": 1.11
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7600,24 +7556,24 @@
         "ticker": "005380",
         "name": "현대차",
         "price": {
-          "current": 312000,
-          "ma5": 328000,
-          "ma20": 353500,
+          "current": 311500,
+          "ma5": 327900,
+          "ma20": 353475,
           "ma_signal": "dead_cross",
           "volatility": 2.38,
-          "trend_pct": -1.0,
+          "trend_pct": -1.01,
           "trend": "하락",
-          "rsi": 9.3,
+          "rsi": 9.2,
           "rsi_signal": "과매도",
-          "change_5d": -10.09,
-          "change_20d": -19.59
+          "change_5d": -10.23,
+          "change_20d": -19.72
         },
         "volume": {
-          "today": 856520,
-          "avg_5d": 638587,
-          "avg_20d": 511018,
-          "ratio_5d": 1.34,
-          "ratio_20d": 1.68,
+          "today": 865776,
+          "avg_5d": 640438,
+          "avg_20d": 511481,
+          "ratio_5d": 1.35,
+          "ratio_20d": 1.69,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.25
@@ -7644,24 +7600,24 @@
         "ticker": "042660",
         "name": "한화오션",
         "price": {
-          "current": 66800,
-          "ma5": 71400,
-          "ma20": 79350,
+          "current": 67100,
+          "ma5": 71460,
+          "ma20": 79365,
           "ma_signal": "dead_cross",
           "volatility": 2.97,
-          "trend_pct": -1.3,
+          "trend_pct": -1.29,
           "trend": "하락",
-          "rsi": 1.1,
+          "rsi": 2.7,
           "rsi_signal": "과매도",
-          "change_5d": -15.12,
-          "change_20d": -24.18
+          "change_5d": -14.74,
+          "change_20d": -23.84
         },
         "volume": {
-          "today": 1263460,
-          "avg_5d": 978028,
-          "avg_20d": 730654,
-          "ratio_5d": 1.29,
-          "ratio_20d": 1.73,
+          "today": 1285859,
+          "avg_5d": 982508,
+          "avg_20d": 731774,
+          "ratio_5d": 1.31,
+          "ratio_20d": 1.76,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.34
@@ -7677,7 +7633,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 43.5,
+            "price_momentum": 43.6,
             "volume_signal": 55,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7688,24 +7644,24 @@
         "ticker": "064350",
         "name": "현대로템",
         "price": {
-          "current": 96600,
-          "ma5": 104340,
-          "ma20": 115300,
+          "current": 97200,
+          "ma5": 104460,
+          "ma20": 115330,
           "ma_signal": "dead_cross",
-          "volatility": 2.66,
-          "trend_pct": -1.3,
+          "volatility": 2.65,
+          "trend_pct": -1.28,
           "trend": "하락",
-          "rsi": 13.8,
+          "rsi": 14.0,
           "rsi_signal": "과매도",
-          "change_5d": -16.58,
-          "change_20d": -23.39
+          "change_5d": -16.06,
+          "change_20d": -22.92
         },
         "volume": {
-          "today": 598298,
-          "avg_5d": 481009,
-          "avg_20d": 373299,
-          "ratio_5d": 1.24,
-          "ratio_20d": 1.6,
+          "today": 603163,
+          "avg_5d": 481982,
+          "avg_20d": 373542,
+          "ratio_5d": 1.25,
+          "ratio_20d": 1.61,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.29
@@ -7721,7 +7677,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 43.5,
+            "price_momentum": 43.6,
             "volume_signal": 55,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7732,24 +7688,24 @@
         "ticker": "329180",
         "name": "HD현대중공업",
         "price": {
-          "current": 366500,
-          "ma5": 386400,
-          "ma20": 433675,
+          "current": 367000,
+          "ma5": 386500,
+          "ma20": 433700,
           "ma_signal": "dead_cross",
           "volatility": 3.11,
           "trend_pct": -1.36,
           "trend": "하락",
-          "rsi": 9.7,
+          "rsi": 10.1,
           "rsi_signal": "과매도",
-          "change_5d": -13.97,
-          "change_20d": -20.93
+          "change_5d": -13.85,
+          "change_20d": -20.82
         },
         "volume": {
-          "today": 458443,
-          "avg_5d": 328759,
-          "avg_20d": 287964,
-          "ratio_5d": 1.39,
-          "ratio_20d": 1.59,
+          "today": 462868,
+          "avg_5d": 329644,
+          "avg_20d": 288185,
+          "ratio_5d": 1.4,
+          "ratio_20d": 1.61,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.14
@@ -7776,40 +7732,84 @@
         "ticker": "298040",
         "name": "효성중공업",
         "price": {
-          "current": 2152000,
-          "ma5": 2465600,
-          "ma20": 2742750,
+          "current": 2176000,
+          "ma5": 2470400,
+          "ma20": 2743950,
           "ma_signal": "dead_cross",
-          "volatility": 4.4,
-          "trend_pct": -1.13,
+          "volatility": 4.39,
+          "trend_pct": -1.1,
           "trend": "하락",
-          "rsi": 12.4,
+          "rsi": 12.7,
           "rsi_signal": "과매도",
-          "change_5d": -22.87,
-          "change_20d": -26.58
+          "change_5d": -22.01,
+          "change_20d": -25.76
         },
         "volume": {
-          "today": 58038,
-          "avg_5d": 79276,
-          "avg_20d": 44165,
-          "ratio_5d": 0.73,
-          "ratio_20d": 1.31,
+          "today": 59874,
+          "avg_5d": 79644,
+          "avg_20d": 44257,
+          "ratio_5d": 0.75,
+          "ratio_20d": 1.35,
           "surge": false,
           "vol_trend": "증가",
-          "vol_trend_ratio": 1.79
+          "vol_trend_ratio": 1.8
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 48.1,
+          "total": 48.2,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 44.4,
+            "price_momentum": 44.5,
+            "volume_signal": 50,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "009540",
+        "name": "HD한국조선해양",
+        "price": {
+          "current": 275500,
+          "ma5": 293100,
+          "ma20": 327650,
+          "ma_signal": "dead_cross",
+          "volatility": 2.78,
+          "trend_pct": -1.38,
+          "trend": "하락",
+          "rsi": 7.6,
+          "rsi_signal": "과매도",
+          "change_5d": -15.62,
+          "change_20d": -22.61
+        },
+        "volume": {
+          "today": 271232,
+          "avg_5d": 281750,
+          "avg_20d": 187812,
+          "ratio_5d": 0.96,
+          "ratio_20d": 1.44,
+          "surge": false,
+          "vol_trend": "증가",
+          "vol_trend_ratio": 1.5
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 47.7,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 43.1,
             "volume_signal": 50,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7820,27 +7820,27 @@
         "ticker": "013360",
         "name": "일성건설",
         "price": {
-          "current": 1292,
-          "ma5": 1331,
-          "ma20": 1372,
+          "current": 1289,
+          "ma5": 1330,
+          "ma20": 1371,
           "ma_signal": "dead_cross",
           "volatility": 2.11,
           "trend_pct": -0.38,
           "trend": "하락",
-          "rsi": 24.2,
+          "rsi": 23.8,
           "rsi_signal": "과매도",
-          "change_5d": -6.38,
-          "change_20d": -11.51
+          "change_5d": -6.59,
+          "change_20d": -11.71
         },
         "volume": {
-          "today": 126059,
-          "avg_5d": 164440,
-          "avg_20d": 149765,
-          "ratio_5d": 0.77,
-          "ratio_20d": 0.84,
+          "today": 153447,
+          "avg_5d": 169918,
+          "avg_20d": 151134,
+          "ratio_5d": 0.9,
+          "ratio_20d": 1.02,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.1
+          "vol_trend_ratio": 1.12
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -7861,25 +7861,69 @@
         }
       },
       {
+        "ticker": "000660",
+        "name": "SK하이닉스",
+        "price": {
+          "current": 1468000,
+          "ma5": 1651600,
+          "ma20": 1763850,
+          "ma_signal": "dead_cross",
+          "volatility": 4.52,
+          "trend_pct": -0.55,
+          "trend": "하락",
+          "rsi": 30.0,
+          "rsi_signal": "과매도",
+          "change_5d": -20.3,
+          "change_20d": -20.91
+        },
+        "volume": {
+          "today": 5372909,
+          "avg_5d": 3423880,
+          "avg_20d": 3206103,
+          "ratio_5d": 1.57,
+          "ratio_20d": 1.68,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.07
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 46.9,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 37.2,
+            "volume_signal": 55,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
         "ticker": "105560",
         "name": "KB금융",
         "price": {
-          "current": 161700,
-          "ma5": 164600,
-          "ma20": 172255,
+          "current": 161500,
+          "ma5": 164560,
+          "ma20": 172245,
           "ma_signal": "dead_cross",
           "volatility": 1.84,
           "trend_pct": -0.55,
           "trend": "하락",
-          "rsi": 15.6,
+          "rsi": 15.5,
           "rsi_signal": "과매도",
-          "change_5d": -3.98,
-          "change_20d": -5.99
+          "change_5d": -4.1,
+          "change_20d": -6.1
         },
         "volume": {
-          "today": 932585,
-          "avg_5d": 833721,
-          "avg_20d": 915418,
+          "today": 935801,
+          "avg_5d": 834364,
+          "avg_20d": 915579,
           "ratio_5d": 1.12,
           "ratio_20d": 1.02,
           "surge": false,
@@ -7908,24 +7952,24 @@
         "ticker": "028050",
         "name": "삼성E&A",
         "price": {
-          "current": 45300,
-          "ma5": 47170,
-          "ma20": 49310,
+          "current": 45250,
+          "ma5": 47160,
+          "ma20": 49307,
           "ma_signal": "dead_cross",
           "volatility": 2.66,
-          "trend_pct": -0.61,
+          "trend_pct": -0.62,
           "trend": "하락",
-          "rsi": 22.8,
+          "rsi": 22.7,
           "rsi_signal": "과매도",
-          "change_5d": -5.33,
-          "change_20d": -10.83
+          "change_5d": -5.43,
+          "change_20d": -10.93
         },
         "volume": {
-          "today": 1736689,
-          "avg_5d": 1609116,
-          "avg_20d": 1755267,
-          "ratio_5d": 1.08,
-          "ratio_20d": 0.99,
+          "today": 1768445,
+          "avg_5d": 1615467,
+          "avg_20d": 1756854,
+          "ratio_5d": 1.09,
+          "ratio_20d": 1.01,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.92
@@ -7941,7 +7985,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 47.0,
+            "price_momentum": 46.9,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7952,24 +7996,24 @@
         "ticker": "051600",
         "name": "한전KPS",
         "price": {
-          "current": 42950,
-          "ma5": 43850,
-          "ma20": 45870,
+          "current": 42800,
+          "ma5": 43820,
+          "ma20": 45862,
           "ma_signal": "dead_cross",
           "volatility": 1.98,
-          "trend_pct": -0.69,
+          "trend_pct": -0.7,
           "trend": "하락",
-          "rsi": 24.3,
+          "rsi": 23.1,
           "rsi_signal": "과매도",
-          "change_5d": -4.66,
-          "change_20d": -10.52
+          "change_5d": -4.99,
+          "change_20d": -10.83
         },
         "volume": {
-          "today": 119728,
-          "avg_5d": 97237,
-          "avg_20d": 135717,
-          "ratio_5d": 1.23,
-          "ratio_20d": 0.88,
+          "today": 120844,
+          "avg_5d": 97461,
+          "avg_20d": 135773,
+          "ratio_5d": 1.24,
+          "ratio_20d": 0.89,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.72
@@ -7978,14 +8022,14 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 46.6,
+          "total": 46.5,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 46.6,
+            "price_momentum": 46.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -7996,40 +8040,40 @@
         "ticker": "304100",
         "name": "솔트룩스",
         "price": {
-          "current": 12890,
-          "ma5": 14034,
-          "ma20": 14887,
+          "current": 12870,
+          "ma5": 14030,
+          "ma20": 14886,
           "ma_signal": "dead_cross",
           "volatility": 4.32,
-          "trend_pct": -0.69,
+          "trend_pct": -0.7,
           "trend": "하락",
-          "rsi": 27.2,
+          "rsi": 27.1,
           "rsi_signal": "과매도",
-          "change_5d": -16.52,
-          "change_20d": -18.73
+          "change_5d": -16.65,
+          "change_20d": -18.85
         },
         "volume": {
-          "today": 71952,
-          "avg_5d": 71486,
-          "avg_20d": 68195,
-          "ratio_5d": 1.01,
-          "ratio_20d": 1.06,
+          "today": 75968,
+          "avg_5d": 72290,
+          "avg_20d": 68396,
+          "ratio_5d": 1.05,
+          "ratio_20d": 1.11,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.05
+          "vol_trend_ratio": 1.06
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 46.6,
+          "total": 46.5,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 46.6,
+            "price_momentum": 46.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8040,27 +8084,27 @@
         "ticker": "035420",
         "name": "NAVER",
         "price": {
-          "current": 177200,
-          "ma5": 184020,
-          "ma20": 195365,
+          "current": 177400,
+          "ma5": 184060,
+          "ma20": 195375,
           "ma_signal": "dead_cross",
           "volatility": 2.21,
-          "trend_pct": -0.78,
+          "trend_pct": -0.77,
           "trend": "하락",
-          "rsi": 13.0,
+          "rsi": 13.1,
           "rsi_signal": "과매도",
-          "change_5d": -7.8,
-          "change_20d": -15.62
+          "change_5d": -7.7,
+          "change_20d": -15.52
         },
         "volume": {
-          "today": 743628,
-          "avg_5d": 653765,
-          "avg_20d": 652217,
-          "ratio_5d": 1.14,
-          "ratio_20d": 1.14,
+          "today": 758034,
+          "avg_5d": 656646,
+          "avg_20d": 652937,
+          "ratio_5d": 1.15,
+          "ratio_20d": 1.16,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.0
+          "vol_trend_ratio": 1.01
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8073,7 +8117,51 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 46.1,
+            "price_momentum": 46.2,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "282330",
+        "name": "BGF리테일",
+        "price": {
+          "current": 128700,
+          "ma5": 128180,
+          "ma20": 134900,
+          "ma_signal": "dead_cross",
+          "volatility": 3.36,
+          "trend_pct": -0.85,
+          "trend": "하락",
+          "rsi": 28.4,
+          "rsi_signal": "과매도",
+          "change_5d": 0.55,
+          "change_20d": -11.49
+        },
+        "volume": {
+          "today": 61933,
+          "avg_5d": 46406,
+          "avg_20d": 44533,
+          "ratio_5d": 1.33,
+          "ratio_20d": 1.39,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.04
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 46.3,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 45.8,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8084,24 +8172,24 @@
         "ticker": "000270",
         "name": "기아",
         "price": {
-          "current": 107900,
-          "ma5": 108900,
-          "ma20": 116830,
+          "current": 106900,
+          "ma5": 108700,
+          "ma20": 116780,
           "ma_signal": "dead_cross",
           "volatility": 1.84,
-          "trend_pct": -0.95,
+          "trend_pct": -0.97,
           "trend": "하락",
-          "rsi": 11.4,
+          "rsi": 9.0,
           "rsi_signal": "과매도",
-          "change_5d": -4.68,
-          "change_20d": -14.91
+          "change_5d": -5.57,
+          "change_20d": -15.69
         },
         "volume": {
-          "today": 917067,
-          "avg_5d": 997827,
-          "avg_20d": 805796,
+          "today": 923394,
+          "avg_5d": 999093,
+          "avg_20d": 806112,
           "ratio_5d": 0.92,
-          "ratio_20d": 1.14,
+          "ratio_20d": 1.15,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.24
@@ -8141,14 +8229,14 @@
           "change_20d": -23.77
         },
         "volume": {
-          "today": 2957174,
-          "avg_5d": 2964592,
-          "avg_20d": 2530810,
-          "ratio_5d": 1.0,
-          "ratio_20d": 1.17,
+          "today": 3033788,
+          "avg_5d": 2979915,
+          "avg_20d": 2534641,
+          "ratio_5d": 1.02,
+          "ratio_20d": 1.2,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.17
+          "vol_trend_ratio": 1.18
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8172,23 +8260,23 @@
         "ticker": "012450",
         "name": "한화에어로스페이스",
         "price": {
-          "current": 833000,
-          "ma5": 922000,
-          "ma20": 1026700,
+          "current": 839000,
+          "ma5": 923200,
+          "ma20": 1027000,
           "ma_signal": "dead_cross",
-          "volatility": 3.41,
-          "trend_pct": -1.28,
+          "volatility": 3.4,
+          "trend_pct": -1.26,
           "trend": "하락",
-          "rsi": 16.1,
+          "rsi": 16.4,
           "rsi_signal": "과매도",
-          "change_5d": -22.08,
-          "change_20d": -20.44
+          "change_5d": -21.52,
+          "change_20d": -19.87
         },
         "volume": {
-          "today": 166666,
-          "avg_5d": 205606,
-          "avg_20d": 153488,
-          "ratio_5d": 0.81,
+          "today": 168048,
+          "avg_5d": 205883,
+          "avg_20d": 153557,
+          "ratio_5d": 0.82,
           "ratio_20d": 1.09,
           "surge": false,
           "vol_trend": "보합",
@@ -8205,7 +8293,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 43.6,
+            "price_momentum": 43.7,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8216,27 +8304,27 @@
         "ticker": "006360",
         "name": "GS건설",
         "price": {
-          "current": 29300,
-          "ma5": 31390,
-          "ma20": 34842,
+          "current": 29500,
+          "ma5": 31430,
+          "ma20": 34852,
           "ma_signal": "dead_cross",
           "volatility": 3.97,
-          "trend_pct": -1.42,
+          "trend_pct": -1.4,
           "trend": "하락",
-          "rsi": 17.0,
+          "rsi": 17.4,
           "rsi_signal": "과매도",
-          "change_5d": -11.61,
-          "change_20d": -17.58
+          "change_5d": -11.01,
+          "change_20d": -17.02
         },
         "volume": {
-          "today": 1050737,
-          "avg_5d": 939391,
-          "avg_20d": 1457611,
-          "ratio_5d": 1.12,
-          "ratio_20d": 0.72,
+          "today": 1079325,
+          "avg_5d": 945108,
+          "avg_20d": 1459041,
+          "ratio_5d": 1.14,
+          "ratio_20d": 0.74,
           "surge": false,
           "vol_trend": "감소",
-          "vol_trend_ratio": 0.64
+          "vol_trend_ratio": 0.65
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8249,51 +8337,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 42.9,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
-        "ticker": "009540",
-        "name": "HD한국조선해양",
-        "price": {
-          "current": 276500,
-          "ma5": 293300,
-          "ma20": 327700,
-          "ma_signal": "dead_cross",
-          "volatility": 2.78,
-          "trend_pct": -1.37,
-          "trend": "하락",
-          "rsi": 7.6,
-          "rsi_signal": "과매도",
-          "change_5d": -15.31,
-          "change_20d": -22.33
-        },
-        "volume": {
-          "today": 270016,
-          "avg_5d": 281507,
-          "avg_20d": 187751,
-          "ratio_5d": 0.96,
-          "ratio_20d": 1.44,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.5
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 45.4,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 43.2,
+            "price_momentum": 43.0,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8317,14 +8361,14 @@
           "change_20d": -25.7
         },
         "volume": {
-          "today": 163721,
-          "avg_5d": 170738,
-          "avg_20d": 131068,
-          "ratio_5d": 0.96,
-          "ratio_20d": 1.25,
+          "today": 166042,
+          "avg_5d": 171203,
+          "avg_20d": 131185,
+          "ratio_5d": 0.97,
+          "ratio_20d": 1.27,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 1.3
+          "vol_trend_ratio": 1.31
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8348,27 +8392,27 @@
         "ticker": "052690",
         "name": "한전기술",
         "price": {
-          "current": 107700,
-          "ma5": 118440,
-          "ma20": 130110,
+          "current": 107800,
+          "ma5": 118460,
+          "ma20": 130115,
           "ma_signal": "dead_cross",
           "volatility": 6.26,
           "trend_pct": -1.57,
           "trend": "하락",
           "rsi": 23.1,
           "rsi_signal": "과매도",
-          "change_5d": -15.0,
-          "change_20d": -24.74
+          "change_5d": -14.92,
+          "change_20d": -24.67
         },
         "volume": {
-          "today": 284233,
-          "avg_5d": 356640,
-          "avg_20d": 599569,
-          "ratio_5d": 0.8,
-          "ratio_20d": 0.47,
+          "today": 293791,
+          "avg_5d": 358551,
+          "avg_20d": 600047,
+          "ratio_5d": 0.82,
+          "ratio_20d": 0.49,
           "surge": false,
           "vol_trend": "감소",
-          "vol_trend_ratio": 0.59
+          "vol_trend_ratio": 0.6
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8392,24 +8436,24 @@
         "ticker": "000720",
         "name": "현대건설",
         "price": {
-          "current": 97500,
-          "ma5": 105240,
-          "ma20": 119720,
+          "current": 97700,
+          "ma5": 105280,
+          "ma20": 119730,
           "ma_signal": "dead_cross",
-          "volatility": 4.46,
+          "volatility": 4.45,
           "trend_pct": -1.65,
           "trend": "하락",
-          "rsi": 16.6,
+          "rsi": 16.7,
           "rsi_signal": "과매도",
-          "change_5d": -15.0,
-          "change_20d": -27.02
+          "change_5d": -14.82,
+          "change_20d": -26.87
         },
         "volume": {
-          "today": 851844,
-          "avg_5d": 746402,
-          "avg_20d": 665550,
-          "ratio_5d": 1.14,
-          "ratio_20d": 1.28,
+          "today": 862811,
+          "avg_5d": 748595,
+          "avg_20d": 666099,
+          "ratio_5d": 1.15,
+          "ratio_20d": 1.3,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.12
@@ -8449,11 +8493,11 @@
           "change_20d": -23.28
         },
         "volume": {
-          "today": 276385,
-          "avg_5d": 272366,
-          "avg_20d": 384440,
-          "ratio_5d": 1.01,
-          "ratio_20d": 0.72,
+          "today": 280285,
+          "avg_5d": 273146,
+          "avg_20d": 384635,
+          "ratio_5d": 1.03,
+          "ratio_20d": 0.73,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 0.71
@@ -8480,24 +8524,24 @@
         "ticker": "005930",
         "name": "삼성전자",
         "price": {
-          "current": 233500,
-          "ma5": 257900,
-          "ma20": 264525,
+          "current": 236000,
+          "ma5": 258400,
+          "ma20": 264650,
           "ma_signal": "dead_cross",
-          "volatility": 3.83,
-          "trend_pct": 0.03,
+          "volatility": 3.79,
+          "trend_pct": 0.04,
           "trend": "횡보",
-          "rsi": 39.4,
+          "rsi": 40.4,
           "rsi_signal": "중립",
-          "change_5d": -15.4,
-          "change_20d": -13.36
+          "change_5d": -14.49,
+          "change_20d": -12.43
         },
         "volume": {
-          "today": 24229714,
-          "avg_5d": 18914009,
-          "avg_20d": 17081260,
-          "ratio_5d": 1.28,
-          "ratio_20d": 1.42,
+          "today": 25088351,
+          "avg_5d": 19085737,
+          "avg_20d": 17124192,
+          "ratio_5d": 1.31,
+          "ratio_20d": 1.47,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.11
@@ -8506,7 +8550,7 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 44.4,
+          "total": 44.5,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
@@ -8524,27 +8568,27 @@
         "ticker": "001440",
         "name": "대한전선",
         "price": {
-          "current": 24800,
-          "ma5": 28120,
-          "ma20": 29502,
+          "current": 25100,
+          "ma5": 28180,
+          "ma20": 29517,
           "ma_signal": "dead_cross",
-          "volatility": 4.36,
-          "trend_pct": -0.25,
+          "volatility": 4.34,
+          "trend_pct": -0.23,
           "trend": "횡보",
-          "rsi": 39.2,
+          "rsi": 39.9,
           "rsi_signal": "중립",
-          "change_5d": -21.27,
-          "change_20d": -20.26
+          "change_5d": -20.32,
+          "change_20d": -19.29
         },
         "volume": {
-          "today": 2181940,
-          "avg_5d": 2906521,
-          "avg_20d": 2933029,
-          "ratio_5d": 0.75,
-          "ratio_20d": 0.74,
+          "today": 2276422,
+          "avg_5d": 2925418,
+          "avg_20d": 2937753,
+          "ratio_5d": 0.78,
+          "ratio_20d": 0.77,
           "surge": false,
           "vol_trend": "보합",
-          "vol_trend_ratio": 0.99
+          "vol_trend_ratio": 1.0
         },
         "related_politicians": [],
         "cycle_phase": "정책 테마 선별 국면",
@@ -8568,24 +8612,24 @@
         "ticker": "064400",
         "name": "LG씨엔에스",
         "price": {
-          "current": 64100,
-          "ma5": 68200,
-          "ma20": 69930,
+          "current": 64500,
+          "ma5": 68280,
+          "ma20": 69950,
           "ma_signal": "dead_cross",
-          "volatility": 2.72,
-          "trend_pct": -0.31,
-          "trend": "하락",
-          "rsi": 35.5,
+          "volatility": 2.7,
+          "trend_pct": -0.3,
+          "trend": "횡보",
+          "rsi": 36.3,
           "rsi_signal": "중립",
-          "change_5d": -10.97,
-          "change_20d": -11.1
+          "change_5d": -10.42,
+          "change_20d": -10.54
         },
         "volume": {
-          "today": 639134,
-          "avg_5d": 630339,
-          "avg_20d": 468275,
-          "ratio_5d": 1.01,
-          "ratio_20d": 1.36,
+          "today": 659292,
+          "avg_5d": 634371,
+          "avg_20d": 469283,
+          "ratio_5d": 1.04,
+          "ratio_20d": 1.4,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.35
@@ -8601,7 +8645,51 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 38.4,
+            "price_momentum": 38.5,
+            "volume_signal": 40,
+            "poll_impact": 50.0,
+            "cycle_premium": 50
+          }
+        }
+      },
+      {
+        "ticker": "042940",
+        "name": "상지건설",
+        "price": {
+          "current": 5070,
+          "ma5": 5248,
+          "ma20": 5453,
+          "ma_signal": "dead_cross",
+          "volatility": 2.5,
+          "trend_pct": -0.51,
+          "trend": "하락",
+          "rsi": 36.1,
+          "rsi_signal": "중립",
+          "change_5d": -6.46,
+          "change_20d": -11.63
+        },
+        "volume": {
+          "today": 25169,
+          "avg_5d": 27456,
+          "avg_20d": 26107,
+          "ratio_5d": 0.92,
+          "ratio_20d": 0.96,
+          "surge": false,
+          "vol_trend": "보합",
+          "vol_trend_ratio": 1.05
+        },
+        "related_politicians": [],
+        "cycle_phase": "정책 테마 선별 국면",
+        "cycle_premium": 0,
+        "composite_score": {
+          "total": 43.6,
+          "signal": "hold",
+          "signal_kr": "관망",
+          "data_quality": "medium",
+          "has_volume_data": true,
+          "has_poll_data": false,
+          "components": {
+            "price_momentum": 37.4,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8612,23 +8700,23 @@
         "ticker": "000100",
         "name": "유한양행",
         "price": {
-          "current": 72100,
-          "ma5": 73700,
-          "ma20": 75500,
+          "current": 71800,
+          "ma5": 73640,
+          "ma20": 75485,
           "ma_signal": "dead_cross",
-          "volatility": 2.25,
-          "trend_pct": -0.49,
+          "volatility": 2.24,
+          "trend_pct": -0.5,
           "trend": "하락",
-          "rsi": 32.1,
+          "rsi": 30.8,
           "rsi_signal": "중립",
-          "change_5d": -2.83,
-          "change_20d": -9.88
+          "change_5d": -3.23,
+          "change_20d": -10.25
         },
         "volume": {
-          "today": 170297,
-          "avg_5d": 189227,
-          "avg_20d": 203827,
-          "ratio_5d": 0.9,
+          "today": 172001,
+          "avg_5d": 189568,
+          "avg_20d": 203912,
+          "ratio_5d": 0.91,
           "ratio_20d": 0.84,
           "surge": false,
           "vol_trend": "보합",
@@ -8645,51 +8733,7 @@
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 37.6,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
-        "ticker": "042940",
-        "name": "상지건설",
-        "price": {
-          "current": 5010,
-          "ma5": 5236,
-          "ma20": 5450,
-          "ma_signal": "dead_cross",
-          "volatility": 2.53,
-          "trend_pct": -0.53,
-          "trend": "하락",
-          "rsi": 34.8,
-          "rsi_signal": "중립",
-          "change_5d": -7.56,
-          "change_20d": -12.67
-        },
-        "volume": {
-          "today": 24673,
-          "avg_5d": 27357,
-          "avg_20d": 26082,
-          "ratio_5d": 0.9,
-          "ratio_20d": 0.95,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.05
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 43.5,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 37.4,
+            "price_momentum": 37.5,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8700,24 +8744,24 @@
         "ticker": "018260",
         "name": "삼성에스디에스",
         "price": {
-          "current": 197200,
-          "ma5": 202680,
-          "ma20": 216095,
+          "current": 196700,
+          "ma5": 202580,
+          "ma20": 216070,
           "ma_signal": "dead_cross",
-          "volatility": 2.96,
+          "volatility": 2.95,
           "trend_pct": -0.59,
           "trend": "하락",
-          "rsi": 30.7,
+          "rsi": 30.1,
           "rsi_signal": "중립",
-          "change_5d": -9.95,
-          "change_20d": -12.16
+          "change_5d": -10.18,
+          "change_20d": -12.38
         },
         "volume": {
-          "today": 188336,
-          "avg_5d": 185489,
-          "avg_20d": 144879,
-          "ratio_5d": 1.02,
-          "ratio_20d": 1.3,
+          "today": 190711,
+          "avg_5d": 185964,
+          "avg_20d": 144998,
+          "ratio_5d": 1.03,
+          "ratio_20d": 1.32,
           "surge": false,
           "vol_trend": "보합",
           "vol_trend_ratio": 1.28
@@ -8741,71 +8785,27 @@
         }
       },
       {
-        "ticker": "282330",
-        "name": "BGF리테일",
-        "price": {
-          "current": 130600,
-          "ma5": 128560,
-          "ma20": 134995,
-          "ma_signal": "dead_cross",
-          "volatility": 3.37,
-          "trend_pct": -0.82,
-          "trend": "하락",
-          "rsi": 31.8,
-          "rsi_signal": "중립",
-          "change_5d": 2.03,
-          "change_20d": -10.18
-        },
-        "volume": {
-          "today": 61815,
-          "avg_5d": 46382,
-          "avg_20d": 44527,
-          "ratio_5d": 1.33,
-          "ratio_20d": 1.39,
-          "surge": false,
-          "vol_trend": "보합",
-          "vol_trend_ratio": 1.04
-        },
-        "related_politicians": [],
-        "cycle_phase": "정책 테마 선별 국면",
-        "cycle_premium": 0,
-        "composite_score": {
-          "total": 43.0,
-          "signal": "hold",
-          "signal_kr": "관망",
-          "data_quality": "medium",
-          "has_volume_data": true,
-          "has_poll_data": false,
-          "components": {
-            "price_momentum": 35.9,
-            "volume_signal": 40,
-            "poll_impact": 50.0,
-            "cycle_premium": 50
-          }
-        }
-      },
-      {
         "ticker": "047040",
         "name": "대우건설",
         "price": {
-          "current": 15920,
-          "ma5": 16692,
-          "ma20": 18079,
+          "current": 15980,
+          "ma5": 16704,
+          "ma20": 18082,
           "ma_signal": "dead_cross",
           "volatility": 4.61,
-          "trend_pct": -1.07,
+          "trend_pct": -1.06,
           "trend": "하락",
-          "rsi": 30.3,
+          "rsi": 30.9,
           "rsi_signal": "중립",
-          "change_5d": -10.01,
-          "change_20d": -18.15
+          "change_5d": -9.67,
+          "change_20d": -17.84
         },
         "volume": {
-          "today": 4479964,
-          "avg_5d": 4077136,
-          "avg_20d": 6105683,
-          "ratio_5d": 1.1,
-          "ratio_20d": 0.73,
+          "today": 4660127,
+          "avg_5d": 4113168,
+          "avg_20d": 6114692,
+          "ratio_5d": 1.13,
+          "ratio_20d": 0.76,
           "surge": false,
           "vol_trend": "감소",
           "vol_trend_ratio": 0.67
@@ -8814,14 +8814,14 @@
         "cycle_phase": "정책 테마 선별 국면",
         "cycle_premium": 0,
         "composite_score": {
-          "total": 42.6,
+          "total": 42.7,
           "signal": "hold",
           "signal_kr": "관망",
           "data_quality": "medium",
           "has_volume_data": true,
           "has_poll_data": false,
           "components": {
-            "price_momentum": 34.6,
+            "price_momentum": 34.7,
             "volume_signal": 40,
             "poll_impact": 50.0,
             "cycle_premium": 50
@@ -8830,9 +8830,9 @@
       }
     ],
     "summary": {
-      "avg_score": 48.9,
+      "avg_score": 49.0,
       "max_score": 61.4,
-      "min_score": 42.6,
+      "min_score": 42.7,
       "buy_signals": 1,
       "sell_signals": 0,
       "hold_signals": 53
@@ -8860,6 +8860,13 @@
         "reason": "골든크로스"
       },
       {
+        "ticker": "009150",
+        "name": "삼성전기",
+        "score": 55.9,
+        "signal": "관망",
+        "reason": "골든크로스"
+      },
+      {
         "ticker": "051910",
         "name": "LG화학",
         "score": 54.2,
@@ -8883,16 +8890,9 @@
       {
         "ticker": "079550",
         "name": "LIG디펜스앤에어로스페이스",
-        "score": 52.4,
+        "score": 52.5,
         "signal": "관망",
         "reason": "과매도 반등 기대"
-      },
-      {
-        "ticker": "009150",
-        "name": "삼성전기",
-        "score": 52.4,
-        "signal": "관망",
-        "reason": "골든크로스"
       },
       {
         "ticker": "010060",
@@ -8902,11 +8902,11 @@
         "reason": "골든크로스"
       },
       {
-        "ticker": "039490",
-        "name": "키움증권",
+        "ticker": "096770",
+        "name": "SK이노베이션",
         "score": 52.0,
         "signal": "관망",
-        "reason": "과매도 반등 기대"
+        "reason": "골든크로스"
       }
     ]
   },
@@ -8919,12 +8919,12 @@
     },
     "overall": {
       "total_predictions": 1275,
-      "correct": 752,
-      "accuracy_pct": 59.0,
-      "weighted_accuracy_pct": 51.0
+      "correct": 754,
+      "accuracy_pct": 59.1,
+      "weighted_accuracy_pct": 51.7
     },
     "brier_score": 0.2513,
-    "weighted_brier_score": 0.2456,
+    "weighted_brier_score": 0.2454,
     "calibration_curve": [
       {
         "bin": 1,
@@ -8964,16 +8964,16 @@
       {
         "bin": 6,
         "predicted_prob": 0.498,
-        "actual_prob": 0.425,
+        "actual_prob": 0.417,
         "count": 127,
-        "gap": 0.073
+        "gap": 0.081
       },
       {
         "bin": 7,
         "predicted_prob": 0.514,
-        "actual_prob": 0.402,
+        "actual_prob": 0.409,
         "count": 127,
-        "gap": 0.113
+        "gap": 0.105
       },
       {
         "bin": 8,
@@ -9203,9 +9203,9 @@
       },
       {
         "date": "2026-10-12",
-        "correct": 27,
+        "correct": 29,
         "total": 54,
-        "accuracy_pct": 50.0,
+        "accuracy_pct": 53.7,
         "time_weight": 0.906
       }
     ],
@@ -9224,15 +9224,15 @@
       },
       "hold": {
         "count": 1214,
-        "avg_return_pct": -0.38,
-        "weighted_avg_return_pct": -1.3,
-        "median_return_pct": -0.44,
-        "std_return_pct": 3.2,
-        "sharpe_ratio": -0.39,
+        "avg_return_pct": -0.37,
+        "weighted_avg_return_pct": -1.25,
+        "median_return_pct": -0.43,
+        "std_return_pct": 3.19,
+        "sharpe_ratio": -0.38,
         "win_rate_pct": 41.9,
         "max_return_pct": 29.96,
         "min_return_pct": -12.77,
-        "profit_factor": 0.71
+        "profit_factor": 0.72
       },
       "sell": {
         "count": 30,
@@ -9255,7 +9255,7 @@
       },
       "40-60": {
         "count": 1214,
-        "avg_return_pct": -0.38,
+        "avg_return_pct": -0.37,
         "win_rate_pct": 41.9
       },
       "60-75": {
@@ -9264,8 +9264,8 @@
         "win_rate_pct": 41.9
       }
     },
-    "score_correlation": -0.016,
-    "weighted_score_correlation": -0.043,
+    "score_correlation": -0.015,
+    "weighted_score_correlation": -0.038,
     "recent_cases": [
       {
         "date": "2026-10-12",
@@ -9301,7 +9301,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 561000,
-        "next_change_pct": -0.89,
+        "next_change_pct": -0.36,
         "week_change_pct": null,
         "direction_correct": true,
         "time_weight": 0.906
@@ -9314,7 +9314,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 2240000,
-        "next_change_pct": -3.93,
+        "next_change_pct": -2.9,
         "week_change_pct": null,
         "direction_correct": false,
         "time_weight": 0.906
@@ -9327,7 +9327,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 260500,
-        "next_change_pct": -0.58,
+        "next_change_pct": 0.0,
         "week_change_pct": null,
         "direction_correct": true,
         "time_weight": 0.906
@@ -9353,7 +9353,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 34250,
-        "next_change_pct": -4.67,
+        "next_change_pct": -3.94,
         "week_change_pct": null,
         "direction_correct": false,
         "time_weight": 0.906
@@ -9366,7 +9366,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 1493000,
-        "next_change_pct": -8.24,
+        "next_change_pct": -7.17,
         "week_change_pct": null,
         "direction_correct": false,
         "time_weight": 0.906
@@ -9379,7 +9379,7 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 224000,
-        "next_change_pct": -1.56,
+        "next_change_pct": -1.12,
         "week_change_pct": null,
         "direction_correct": true,
         "time_weight": 0.906
@@ -9392,13 +9392,13 @@
         "signal": "hold",
         "signal_kr": "관망",
         "predicted_close": 152700,
-        "next_change_pct": 1.51,
+        "next_change_pct": 2.36,
         "week_change_pct": null,
-        "direction_correct": true,
+        "direction_correct": false,
         "time_weight": 0.906
       }
     ],
-    "generated_at": "2026-10-13T07:23:56.778037"
+    "generated_at": "2026-10-13T10:01:39.846332"
   },
   "calibration": {
     "weights": {
@@ -9414,13 +9414,13 @@
       "sell": 25
     },
     "version": 1,
-    "last_updated": "2026-10-13T07:23:56.819815",
+    "last_updated": "2026-10-13T10:01:39.885573",
     "last_adjustment": {
       "adjusted": true,
       "version": 1,
       "learning_rate": 1.0,
-      "accuracy_pct": 59.0,
-      "weighted_accuracy_pct": 51.0,
+      "accuracy_pct": 59.1,
+      "weighted_accuracy_pct": 51.7,
       "brier_score": 0.2513,
       "changes": [
         "시그널 역전 (buy -2.1% < sell -0.9%) → 기술적 지표 상향 (lr=1.0)"
@@ -9456,14 +9456,14 @@
     },
     "adjustments": [
       {
-        "date": "2026-10-13T07:23:56.819738",
-        "accuracy_pct": 59.0,
-        "weighted_accuracy_pct": 51.0,
+        "date": "2026-10-13T10:01:39.885504",
+        "accuracy_pct": 59.1,
+        "weighted_accuracy_pct": 51.7,
         "brier_score": 0.2513,
-        "weighted_brier_score": 0.2456,
+        "weighted_brier_score": 0.2454,
         "total_predictions": 1275,
-        "score_correlation": -0.016,
-        "weighted_score_correlation": -0.043,
+        "score_correlation": -0.015,
+        "weighted_score_correlation": -0.038,
         "signal_separation": -1.21,
         "learning_rate": 1.0,
         "old_weights": {
@@ -9499,7 +9499,7 @@
         },
         "signal_sharpe": {
           "buy": -0.3,
-          "hold": -0.39,
+          "hold": -0.38,
           "sell": -0.45
         }
       }
@@ -9509,7 +9509,7 @@
     "ticker_name_mismatch": [],
     "missing_tickers": []
   },
-  "ai_report": "## 제9회 전국동시지방선거 종료 D+132 일일 분석 리포트 (정책 테마 선별 국면)\n\n**1. 오늘의 핵심 포인트**\n시장 전반의 약세 속 '조선 테마'가 유일한 강세를 보이며 정책 테마 선별 국면에서 주목받고 있습니다. 반면 '반도체 테마'는 대형주 급락과 함께 시장 하락을 견인하며 투자 심리 위축을 심화시켰습니다.\n\n**2. 정책 테마 흐름**\n'조선 테마(+0.78%)'는 글로벌 경기 회복 기대감에 힘입어 뚜렷한 강세를 유지했습니다. 이는 차기 정부의 성장 동력 및 수출 증대 정책과 맞물려 장기적 수혜 가능성이 탐색되는 흐름입니다. 반면 '반도체 테마(-8.40%)'는 글로벌 IT 경기 둔화 우려 속에 대형주들이 급락하며 전반적인 약세를 주도했습니다. 재생에너지, 방산 등 다른 주요 테마들 역시 부진을 면치 못했습니다.\n\n**3. 당선/낙선 인물 관련주 명암**\n정원오, 김동연 등 '경선 낙선' 인물 관련주는 하락세를 지속하며 재료 소멸의 영향을 강하게 받았습니다. 반면 오세훈, 전재수 등 '당선' 인물 관련주는 긍정적 흐름을 보였습니다. 특히 박형준 관련주는 '낙선'에도 불구하고 조선 테마 강세에 힘입어 상승하는 이례적인 모습을 보였습니다. 이는 선거 종료 후 시간이 지남에 따라 개별 인물보다 특정 정책 테마와의 연관성이 더욱 중요해지는 시사점을 제공합니다.\n\n**4. 차기 총선 사이클까지 관망/대응 포인트**\n차기 총선까지는 아직 D-547일이 남은 만큼, 개별 정치인 이슈보다는 정부의 실제 정책 추진 방향과 국정과제 수혜가 예상되는 테마에 집중해야 합니다. 여당 압승의 선거 결과를 바탕으로 한 정책 드라이브가 가시화될 수 있는 테마를 중심으로 장기적인 관점에서 접근하는 전략이 유효하며, 시장의 전반적인 변동성에도 주의가 필요합니다.",
+  "ai_report": "## 제9회 전국동시지방선거 종료 D+132, 정책 테마주 일일 분석 리포트\n**단계: 정책 테마 선별 국면**\n\n**오늘 요약:** 상승 11개 / 하락 42개 / 급등 6개 (전반적인 약세장)\n\n---\n\n**1. 오늘의 핵심 포인트**\n전반적인 시장 약세 속, 정책 테마주는 명확한 차별화가 나타났습니다. 조선 테마가 유일하게 유의미한 상승세를 보이며 '정책 선별 국면'에서의 핵심 테마로 부상할 가능성을 시사했습니다. 반면, 반도체 등 기존 시장 주도 테마의 급락은 투자 심리가 위축되었음을 반영하며, 투자자들은 모멘텀이 확실한 정책 수혜주 발굴에 집중하는 양상입니다.\n\n**2. 정책 테마 흐름**\n정책 테마 중 **조선 테마(+0.85%)**가 삼성중공업(+2.57%), HD현대중공업(+1.81%) 등을 중심으로 강세를 나타내며 주목받았습니다. 이는 단순한 정책 기대감보다는 실제 수주 증가와 연동된 실적 개선 기대가 반영된 것으로 풀이됩니다.\n반면 **반도체 테마(-7.49%)**는 SK하이닉스, 삼성전자 등 대형주가 급락하며 시장 하락을 주도했습니다. 이는 정책 이슈보다는 글로벌 경기 둔화 우려 등 업황 전반의 악화가 더 크게 작용한 것으로 보입니다. 재생에너지(-2.57%), 방산(-3.02%) 등 다른 정책 테마들 또한 정책 구체화 지연으로 인한 실망감에 약세를 면치 못했습니다.\n\n**3. 당선/낙선 인물 관련주 명암**\n인물 관련주 대부분이 약세를 보였습니다. 경선 낙선한 정원오(-3.42%), 김동연(-3.91%) 관련주는 재료 소멸에 따른 하락세가 이어졌습니다. 특이하게 당선된 전재수(+1.81%)와 낙선한 박형준(+0.77%) 관련주 중 HD현대중공업이 조선 테마 강세에 힘입어 상승했으나, 이는 인물 자체보다는 해당 산업의 펀더멘털이 더 큰 영향을 미쳤음을 시사합니다. 이재명(-3.02%) 관련주 역시 정책 구체화 부재에 따른 피로감으로 하락했습니다. 이는 선거 종료 후 인물 테마의 동력이 크게 약화되었음을 보여줍니다.\n\n**4. 차기 총선 사이클까지 관망/대응 포인트**\n차기 총선(D-547)까지는 상당한 시간이 남아있습니다. 따라서 단순한 인물 연계 테마는 관망하는 자세가 필요하며, 정부의 국정 과제 및 각 지방자치단체의 공약이 실제 예산 편성과 사업 추진으로 이어질 수 있는 '정책 테마'에 주목해야 합니다. 현재 조선 테마와 같이 산업 본연의 성장 모멘텀과 정책 지원이 동반되는 섹터가 우선적인 관찰 대상입니다. 구체적인 정책 발표 및 사업 추진 여부를 면밀히 확인하며, 실질적인 수혜가 기대되는 종목을 선별하는 전략이 유효합니다.",
   "ai_suggestions": {
     "이재명": [
       {
@@ -10170,10 +10170,10 @@
     ]
   },
   "summary": {
-    "up": 13,
-    "down": 41,
-    "surge_count": 5,
-    "top_gainer": "삼성에스디에스",
+    "up": 11,
+    "down": 42,
+    "surge_count": 6,
+    "top_gainer": "삼성중공업",
     "top_loser": "삼표시멘트"
   }
 }
